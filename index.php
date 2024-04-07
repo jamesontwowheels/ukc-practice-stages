@@ -13,7 +13,8 @@
 	</head>
 	<body class="is-preload">
 
-	<?PHP include('api_test.php'); ?>
+	<?PHP include('api_test.php'); 
+	?>
 		<!-- Sidebar -->
 <h1>Paint by Numbers results</h1>
 
