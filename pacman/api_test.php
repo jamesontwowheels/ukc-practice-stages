@@ -168,6 +168,8 @@ while($e < count($teams_used)){
     //player specific event ***EDIT THIS***
     $current_level = 1;
     $target_ghosts = [[0],[0,1,1,0,0,0],[0,1,1,1,0,0],[0,1,1,1,1,0],[0,1,1,1,0,1],[0,1,1,0,1,1]];
+    $powerup = 0;
+    $eaten_bites = [];
 
     // cycle through the punch list;
     $z = 0;
