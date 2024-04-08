@@ -182,6 +182,7 @@ while($e < count($teams_used)){
         $z += 1;
 
         echo "184 ";
+        echo $cp;
         //insert Checkpoint rules here ***EDIT THIS***
 
         //collect pill
