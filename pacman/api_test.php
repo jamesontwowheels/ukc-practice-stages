@@ -50,7 +50,10 @@ $next_team = 500;
     //player/team catcher
     $players = [];
     $teams = [];
-        
+      
+    
+    echo "55";
+
     //start looping the contestants:
     while($x < $count_results){
     $result = $results[$x];
@@ -108,6 +111,7 @@ $players[] = $player;
 }
 
 
+echo "110";
 //build teams
 $c = 0;
 $teams_used = [];
@@ -145,6 +149,8 @@ while($c < count($players)){
 //$e = each team
 $e = 0;
 
+echo "148";
+
 while($e < count($teams_used)){
     $id = $teams_used[$e];
     $result = $teams[$id];
@@ -165,6 +171,7 @@ while($e < count($teams_used)){
 
     // cycle through the punch list;
     $z = 0;
+    echo "168";
     
     while ($z < count($cps)){
         // add to detailed results = $results_detailed[$id][] = [_your code_];
@@ -174,6 +181,7 @@ while($e < count($teams_used)){
         $t = $times[$z];
         $z += 1;
 
+        echo "184 ";
         //insert Checkpoint rules here ***EDIT THIS***
 
         //collect pill
