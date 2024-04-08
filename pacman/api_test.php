@@ -35,7 +35,8 @@ $next_team = 500;
 
     //values ***EDIT THIS***
     $stage_time = 75*60;
-    $penalty_rate = 3; //seconds per point lost
+    $penalty_rate = 3; 
+    //seconds per point lost
 
     //BAU Bulk CPs
     $cps_teams = [401,402,403,404,405,406,407,408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,440];
@@ -99,7 +100,6 @@ while ($b < count($cps)){
 
 if($team > 1){ //all good
 } else { $team = $next_team;
-    echo $next_team;
             $next_team += 1;}
 
 //create the player:
@@ -228,7 +228,7 @@ while($e < count($teams_used)){
     }
 
     //can put some finish line rules in here
-
+    echo "something here";
     $final_score = $running_score - $time_penalty;
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
 
