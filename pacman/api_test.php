@@ -147,8 +147,6 @@ while($c < count($players)){
 //$e = each team
 $e = 0;
 
-echo "148";
-
 while($e < count($teams_used)){
     $id = $teams_used[$e];
     $result = $teams[$id];
@@ -177,7 +175,7 @@ while($e < count($teams_used)){
         // add to summary results = $results_summary[$id][] = [_your code_];
 
         $cp = $cps[$z];
-        $t = $times[$z];
+        $t = $times[$z] - $team_start;
         $z += 1;
 
         echo $cp;
