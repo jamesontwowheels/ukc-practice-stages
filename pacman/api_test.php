@@ -16,7 +16,7 @@ $x = 0;
 $next_team = 500;
 
 // prefix for QR codes: http://www.maprunners.com.au?c=
-// PIN for event is 1756
+// PIN for event is 1756?
 
 //set-up the static constants (each requires it's own rule...):
     //Event Bulk CPs ***EDIT THIS***
