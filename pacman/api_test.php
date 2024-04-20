@@ -36,7 +36,7 @@ $next_team = 500;
 
     //values ***EDIT THIS***
     $stage_time = 75*60;
-    $penalty_rate = 3; 
+    $penalty_rate = 2; 
     //seconds per point lost
 
     //BAU Bulk CPs
@@ -52,9 +52,6 @@ $next_team = 500;
     $players = [];
     $teams = [];
       
-    
-    echo "55";
-
     //start looping the contestants:
     while($x < $count_results){
     $result = $results[$x];
@@ -174,7 +171,6 @@ while($e < count($teams_used)){
 
     // cycle through the punch list;
     $z = 0;
-    echo "168";
     
     while ($z < count($cps)){
         // add to detailed results = $results_detailed[$id][] = [_your code_];
@@ -184,7 +180,6 @@ while($e < count($teams_used)){
         $t = $times[$z];
         $z += 1;
 
-        echo "184 ";
         echo $cp;
         //insert Checkpoint rules here ***EDIT THIS***
 
@@ -193,6 +188,8 @@ while($e < count($teams_used)){
             $powerup = $t + $level_pill_power[$current_level]*60;
             $results_detailed[$id][] = [$t,$cp,"Pill eaten - powered up until $t",0,$running_score];
         }
+
+        
 
         //eat ghost
         if(in_array($cp,$cp_ghosts)){
