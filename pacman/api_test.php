@@ -34,7 +34,7 @@ $next_team = 500;
     $cp_level_up = 77;
     $cp_start_finish = 999;
 
-    //values ***EDIT THIS***
+    //values ***EDIT THIS****
     $stage_time = 75*60;
     $penalty_rate = 2; 
     //seconds per point lost
