@@ -20,9 +20,10 @@ $next_team = 500;
 
 //set-up the static constants (each requires it's own rule...):
     //Event Bulk CPs ***EDIT THIS***
-    $cp_ghosts = [11,12,13,14,15];
+    $cp_ghosts = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
     $cp_pills = [21,22];
     $cp_bites = [31,32,33,34,35,36,37,38];
+    $cp_fruits = [41,42,43,44];
     
     //Event reference information ***EDIT THIS***
     $level_ghosts = [[1,1,0,0,0],[1,1,1,0,0],[1,1,1,1,0],[1,1,1,0,1],[1,1,0,1,1]];
