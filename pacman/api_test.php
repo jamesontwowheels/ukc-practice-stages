@@ -1,7 +1,7 @@
 <?PHP
 ini_set("allow_url_fopen", 1);
 //Get event results using maprun API:
-$event_name = "painting-htp%20SCOREQ75%20PZ";
+$event_name = "pacman%20SCOREQ75%20PZ";
 $api_url = "https://p.fne.com.au:8886/resultsGetPublicForEvent?eventName=";
 $url_live = $api_url . $event_name;
 //commented out for local testing:
@@ -16,7 +16,7 @@ $x = 0;
 $next_team = 500;
 
 // prefix for QR codes: http://www.maprunners.com.au?c=
-// PIN for event is 1756?
+// PIN for event is 9722
 
 //set-up the static constants (each requires it's own rule...):
     //Event Bulk CPs ***EDIT THIS***
@@ -31,6 +31,14 @@ $next_team = 500;
     $level_points = [0,1,2,3,4,5];
     $level_pill_power = [0,90,5,3,2,1];
     $level_ghost_movement = [0,0,5,3,2,1];
+    $fruit_values = [0,40,50,70,100];
+    $fruit_availability = [
+    [],
+    [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75],
+    [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75],
+    [15,16,17,18,19,20,21,22,23,24,25,45,46,47,48,49,50,51,52,53,54,55,65,66,67,68,69,70,71,72,73,74,75],
+    [25,26,27,28,29,30,55,56,57,58,59,60,70,71,72,73,74,75]
+    ];
 
     //Event Special CPs ***EDIT THIS***
     $cp_level_up = 77;
@@ -167,6 +175,7 @@ while($e < count($teams_used)){
     $target_ghosts = [[0],[0,1,1,0,0],[0,1,1,1,0],[0,1,1,1,1],[0,1,1,1,1],[0,1,1,1,1]];
     $powerup = 0;
     $eaten_bites = [];
+    $fruit_basket = [0,0,0,0,0];
 
     // cycle through the punch list;
     $z = 0;
@@ -239,7 +248,7 @@ while($e < count($teams_used)){
                         $eaten_bites[] = $cp;
                         $award = $level_points[$current_level];
                         $running_score += $award;
-                            $results_detailed[$id][] = [$t,$cp,"Yum, bite $cp eaten",$award,$running_score];
+                        $results_detailed[$id][] = [$t,$cp,"Yum, bite $cp eaten",$award,$running_score];
                     }
                 }
 
@@ -251,16 +260,39 @@ while($e < count($teams_used)){
                 $powerup = $t;
                 $eaten_bites = [];
                 $current_level += 1;
+                $fruit_basket = [0,0,0,0,0];
                 $results_detailed[$id][] = [$t,$cp,"Level up! Now on Level $current_level","-",$running_score];
             } else {
                 $results_detailed[$id][] = [$t,$cp,"Level up failed, there are still ghosts out there","-",$running_score];
+            }
+        }
+
+        //eat-fruit
+        if(in_array($cp,$cp_fruits)){
+            //is fruit available?
+            $this_fruit = $cp-40;
+            if(in_array($t_mins,$fruit_availability[$this_fruit])){
+                //is fruit still there?
+                if($fruit_basket[$this_fruit]==0){
+                    //collect fruit
+                    $fruit_basket[$this_fruit]=1;
+                    $award = $fruit_values[$this_fruit];
+                    $fruit_name = $fruit_names[$this_fruit];
+                    $running_score += $award;
+                    $results_detailed[$id][] = [$t,$cp,"Yum, bite $cp eaten",$award,$running_score];
+                } else {
+                    //fruit already collected
+                    $results_detailed[$id][] = [$t,$cp,"Fruit already collected this level","",$running_score];
+                }
+            } else{
+                //fruit unavailable
+                $results_detailed[$id][] = [$t,$cp,"Nope, no fruit here right now","",$running_score];
             }
         }
                 
     }
 
     //can put some finish line rules in here
-    echo "something here";
     $final_score = $running_score - $time_penalty;
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
 
