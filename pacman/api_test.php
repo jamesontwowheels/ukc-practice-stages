@@ -1,4 +1,5 @@
 <?PHP
+echo "2";
 ini_set("allow_url_fopen", 1);
 //Get event results using maprun API:
 $event_name = "pacman%20SCOREQ75%20PZ";
@@ -17,7 +18,7 @@ $next_team = 500;
 
 // prefix for QR codes: http://www.maprunners.com.au?c=
 // PIN for event is 9722
-
+echo "21";
 //set-up the static constants (each requires it's own rule...):
     //Event Bulk CPs ***EDIT THIS***
     $cp_ghosts = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
@@ -61,7 +62,7 @@ $next_team = 500;
     //player/team catcher
     $players = [];
     $teams = [];
-      
+   echo "65";   
     //start looping the contestants:
     while($x < $count_results){
     $result = $results[$x];
@@ -118,7 +119,7 @@ $player = [$name,$surname,$cps,$times,$team,$time_penalty,$start_time];
 $players[] = $player;
 }
 
-
+echo "122";
 //build teams
 $c = 0;
 $teams_used = [];
@@ -191,7 +192,7 @@ while($e < count($teams_used)){
         $t_mins = floor($t/60);
         $byte_check = 1;
         //insert Checkpoint rules here ***EDIT THIS***
-
+echo "195";
         //where are the ghosts?
         $ghost_locations = [0,0,0,0,0];
         $ghost_moves = floor($t/$level_ghost_movement[$current_level]) % 4;
@@ -296,7 +297,7 @@ while($e < count($teams_used)){
     $final_score = $running_score - $time_penalty;
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
 
-      $e += 1; 
+ $e += 1; 
 }
 
 $r = 0;

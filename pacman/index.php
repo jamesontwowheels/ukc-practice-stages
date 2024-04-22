@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Paint by Numbers</title>
+		<title>Pacman</title>
 		<link rel="stylesheet" href="assets/css/plain.css" />
 		
 		
@@ -16,7 +16,7 @@
 	<?PHP include('api_test.php'); 
 	?>
 		<!-- Sidebar -->
-<h1>Paint by Numbers results</h1>
+<h1>Pacman</h1>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
