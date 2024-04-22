@@ -21,14 +21,16 @@ $next_team = 500;
 //set-up the static constants (each requires it's own rule...):
     //Event Bulk CPs ***EDIT THIS***
     $cp_ghosts = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+    $cp_routes = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]];
     $cp_pills = [21,22];
     $cp_bites = [31,32,33,34,35,36,37,38];
     $cp_fruits = [41,42,43,44];
     
     //Event reference information ***EDIT THIS***
-    $level_ghosts = [[1,1,0,0,0],[1,1,1,0,0],[1,1,1,1,0],[1,1,1,0,1],[1,1,0,1,1]];
+    $level_ghosts = [[],[1,1,0,0,0],[1,1,1,0,0],[1,1,1,1,0],[1,1,1,0,1],[1,1,0,1,1]];
     $level_points = [0,1,2,3,4,5];
     $level_pill_power = [0,90,5,3,2,1];
+    $level_ghost_movement = [0,0,5,3,2,1];
 
     //Event Special CPs ***EDIT THIS***
     $cp_level_up = 77;
@@ -109,7 +111,6 @@ $players[] = $player;
 }
 
 
-echo "110";
 //build teams
 $c = 0;
 $teams_used = [];
@@ -163,7 +164,7 @@ while($e < count($teams_used)){
 
     //player specific event ***EDIT THIS***
     $current_level = 1;
-    $target_ghosts = [[0],[0,1,1,0,0,0],[0,1,1,1,0,0],[0,1,1,1,1,0],[0,1,1,1,0,1],[0,1,1,0,1,1]];
+    $target_ghosts = [[0],[0,1,1,0,0],[0,1,1,1,0],[0,1,1,1,1],[0,1,1,1,1],[0,1,1,1,1]];
     $powerup = 0;
     $eaten_bites = [];
 
@@ -178,8 +179,27 @@ while($e < count($teams_used)){
         $t = $times[$z] - $team_start;
         $z += 1;
 
-        echo $cp;
+        $t_mins = floor($t/60);
+        $byte_check = 1;
         //insert Checkpoint rules here ***EDIT THIS***
+
+        //where are the ghosts?
+        $ghost_locations = [0,0,0,0,0];
+        $ghost_moves = floor($t/$level_ghost_movement[$current_level]) % 4;
+        $ghost_locations[1] = $cp_routes[0][$ghost_moves];
+        $ghost_locations[2] = $cp_routes[1][$ghost_moves];
+        if($current_level < 2){ 
+            $ghost_locations[3] = 0 ; 
+            } else {
+                $ghost_locations[3] = $cp_routes[2][$ghost_moves];
+            }
+        if($current_level < 3){ 
+            $ghost_locations[4] = 0 ; 
+            } else {
+                $ghost_locations[4] = $cp_routes[3][$ghost_moves];
+            }
+            
+
 
         //collect pill
         if(in_array($cp,$cp_pills)){
@@ -189,36 +209,41 @@ while($e < count($teams_used)){
 
         
 
-        //eat ghost
+        //eat ghost-point
         if(in_array($cp,$cp_ghosts)){
-            $ghost = $cp-10;
-            if($target_ghosts[$current_level][$ghost] == 0){
-                $results_detailed[$id][] = [$t,$cp,"Ghost sleeping or already eaten",0,$running_score];
-            } else {
-                if($powerup > $t){
-                    $target_ghosts[$current_level][$ghost] = 0;
-                    $award = $level_points[$current_level]*10;
-                    $running_score += $award;
-                    $results_detailed[$id][] = [$t,$cp,"Ghost $ghost eaten",$award,$running_score];
+            //is there a ghost here?
+            $this_ghost = floor(($cp-1)/4) + 1;
+            if($ghost_locations[$this_ghost] == $cp){  
+                //is this ghost active
+                if($target_ghosts[$current_level][$this_ghost] == 0){
+                    $results_detailed[$id][] = [$t,$cp,"Ghost already eaten",0,$running_score];
                 } else {
-                    $award = -$level_points[$current_level]*20;
-                    $running_score += $award;
-                    $results_detailed[$id][] = [$t,$cp,"Oh no! You were caught by Ghost $ghost",$award,$running_score];
+                    if($powerup > $t){
+                        $target_ghosts[$current_level][$this_ghost] = 0;
+                        $award = $level_points[$current_level]*10;
+                        $running_score += $award;
+                        $results_detailed[$id][] = [$t,$cp,"Ghost $ghost eaten",$award,$running_score];
+                    } else {
+                        $award = -100;
+                        $running_score += $award;
+                        $byte_check = 0;
+                        $results_detailed[$id][] = [$t,$cp,"Oh no! You were caught by Ghost $ghost",$award,$running_score];
+                    }
                 }
-            }
-        }
 
-        //eat byte
-        if(in_array($cp,$cp_bites)){
-            if(in_array($cp,$eaten_bites)){
-                //noaction
-            } else {
-                $eaten_bites[] = $cp;
-                $award = $level_points[$current_level];
-                $running_score += $award;
-                $results_detailed[$id][] = [$t,$cp,"Yum, bite $cp eaten",$award,$running_score];
+                //eat a byte
+                if($byte_check == 1){
+                    if(in_array($cp,$eaten_bites)){
+                        //noaction
+                    } else {
+                        $eaten_bites[] = $cp;
+                        $award = $level_points[$current_level];
+                        $running_score += $award;
+                            $results_detailed[$id][] = [$t,$cp,"Yum, bite $cp eaten",$award,$running_score];
+                    }
+                }
+
             }
-        }
 
         //level-up
         if($cp == $cp_level_up){
