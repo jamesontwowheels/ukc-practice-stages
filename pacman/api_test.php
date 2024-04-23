@@ -198,8 +198,10 @@ while($e < count($teams_used)){
         //where are the ghosts?
         $ghost_locations = [0,0,0,0,0];
         $ghost_moves = floor($t/$level_ghost_movement[$current_level]) % 4;
+        echo $ghost_moves;
         $ghost_locations[1] = $cp_routes[0][$ghost_moves];
         $ghost_locations[2] = $cp_routes[1][$ghost_moves];
+        echo $current_level;
         if($current_level < 2){ 
             $ghost_locations[3] = 0 ; 
             } else {
@@ -211,7 +213,7 @@ while($e < count($teams_used)){
                 $ghost_locations[4] = $cp_routes[3][$ghost_moves];
             }
             
-
+        echo $ghost_locations[1];
 
         //collect pill
         if(in_array($cp,$cp_pills)){
