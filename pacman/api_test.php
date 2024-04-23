@@ -199,7 +199,7 @@ while($e < count($teams_used)){
         $ghost_locations = [0,0,0,0,0];
         echo "locations";
         echo $current_level;
-        $ghost_moves_total = floor($t/$level_ghost_movement[$current_level]);
+        $ghost_moves_total = floor($t_mins/$level_ghost_movement[$current_level]);
         echo "ghost moves total";
         echo $ghost_moves_total;
         $ghost_moves = $ghost_moves_total % 4;
