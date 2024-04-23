@@ -31,7 +31,7 @@ echo "21";
     $level_ghosts = [[],[1,1,0,0,0],[1,1,1,0,0],[1,1,1,1,0],[1,1,1,0,1],[1,1,0,1,1]];
     $level_points = [0,1,2,3,4,5];
     $level_pill_power = [0,90,5,3,2,1];
-    $level_ghost_movement = [0,0,5,3,2,1];
+    $level_ghost_movement = [0,90,5,3,2,1];
     $fruit_values = [0,40,50,70,100];
     $fruit_availability = [
     [],
