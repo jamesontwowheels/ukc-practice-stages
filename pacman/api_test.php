@@ -1,5 +1,6 @@
 <?PHP
-echo "2";
+$debug = 1;
+if($debug == 1) {echo "2";}
 ini_set("allow_url_fopen", 1);
 //Get event results using maprun API:
 $event_name = "painting-htp%20SCOREQ75%20PZ";
@@ -18,7 +19,7 @@ $next_team = 500;
 
 // prefix for QR codes: http://www.maprunners.com.au?c=
 // PIN for event is 9722
-echo "21";
+if($debug == 1) {echo " 2 ";}
 //set-up the static constants (each requires it's own rule...):
     //Event Bulk CPs ***EDIT THIS***
     $cp_ghosts = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
@@ -62,7 +63,7 @@ echo "21";
     //player/team catcher
     $players = [];
     $teams = [];
-   echo "65";   
+    if($debug == 1) {echo " 65 ";}
     //start looping the contestants:
     while($x < $count_results){
     $result = $results[$x];
@@ -119,7 +120,7 @@ $player = [$name,$surname,$cps,$times,$team,$time_penalty,$start_time];
 $players[] = $player;
 }
 
-echo "122";
+if($debug == 1) {echo " 122 ";}
 //build teams
 $c = 0;
 $teams_used = [];
@@ -192,22 +193,17 @@ while($e < count($teams_used)){
         $t_mins = floor($t/60);
         $byte_check = 1;
         //insert Checkpoint rules here ***EDIT THIS***
-        echo "195";
-        echo $z ;
-        echo $cp;
+        if($debug == 1) {echo " 195 ";};
+        if($debug == 1) {echo $z;};
+        if($debug == 1) {echo $cp;}
         //where are the ghosts?
         $ghost_locations = [0,0,0,0,0];
-        echo "locations";
-        echo $current_level;
+        if($debug == 1) {echo " locations ";}
         $ghost_moves_total = floor($t_mins/$level_ghost_movement[$current_level]);
-        echo "ghost moves total";
-        echo $ghost_moves_total;
         $ghost_moves = $ghost_moves_total % 4;
-        echo "ghost moves";
-        echo $ghost_moves;
+        if($debug == 1) {echo "ghost moves $ghost_moves";}
         $ghost_locations[1] = $cp_routes[0][$ghost_moves];
         $ghost_locations[2] = $cp_routes[1][$ghost_moves];
-        echo $current_level;
         if($current_level < 2){ 
             $ghost_locations[3] = 0 ; 
             } else {
@@ -226,8 +222,6 @@ while($e < count($teams_used)){
             $powerup = $t + $level_pill_power[$current_level]*60;
             $results_detailed[$id][] = [$t,$cp,"Pill eaten - powered up until $t",0,$running_score];
         }
-
-        echo "222";
 
         //eat ghost-point
         if(in_array($cp,$cp_ghosts)){
@@ -251,7 +245,6 @@ while($e < count($teams_used)){
                     }
                 }
             }
-                echo "245";
                 //eat a byte
                 if($byte_check == 1){
                     if(in_array($cp,$eaten_bites)){
@@ -266,7 +259,6 @@ while($e < count($teams_used)){
 
             
         }
-            echo "259";
         //level-up
         if($cp == $cp_level_up){
             if(array_sum($target_ghosts[$current_level]) == 0){
@@ -279,7 +271,6 @@ while($e < count($teams_used)){
                 $results_detailed[$id][] = [$t,$cp,"Level up failed, there are still ghosts out there","-",$running_score];
             }
         }
-        echo "272";
         //eat-fruit
         if(in_array($cp,$cp_fruits)){
             //is fruit available?
@@ -304,13 +295,11 @@ while($e < count($teams_used)){
         }
                 
     }
-    echo "297";
     //can put some finish line rules in here
     $final_score = $running_score - $time_penalty;
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
 
  $e += 1; 
 
-echo "303";
 $r = 0;
 };
