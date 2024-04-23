@@ -219,7 +219,7 @@ while($e < count($teams_used)){
             $results_detailed[$id][] = [$t,$cp,"Pill eaten - powered up until $t",0,$running_score];
         }
 
-        
+        echo "222";
 
         //eat ghost-point
         if(in_array($cp,$cp_ghosts)){
@@ -242,7 +242,7 @@ while($e < count($teams_used)){
                         $results_detailed[$id][] = [$t,$cp,"Oh no! You were caught by Ghost $ghost",$award,$running_score];
                     }
                 }
-
+                echo "245";
                 //eat a byte
                 if($byte_check == 1){
                     if(in_array($cp,$eaten_bites)){
@@ -256,7 +256,7 @@ while($e < count($teams_used)){
                 }
 
             }
-
+            echo "259";
         //level-up
         if($cp == $cp_level_up){
             if(array_sum($target_ghosts[$current_level]) == 0){
@@ -269,7 +269,7 @@ while($e < count($teams_used)){
                 $results_detailed[$id][] = [$t,$cp,"Level up failed, there are still ghosts out there","-",$running_score];
             }
         }
-
+        echo "272";
         //eat-fruit
         if(in_array($cp,$cp_fruits)){
             //is fruit available?
@@ -287,14 +287,14 @@ while($e < count($teams_used)){
                     //fruit already collected
                     $results_detailed[$id][] = [$t,$cp,"Fruit already collected this level","",$running_score];
                 }
-            } else{
+            } else {
                 //fruit unavailable
                 $results_detailed[$id][] = [$t,$cp,"Nope, no fruit here right now","",$running_score];
             }
         }
                 
     }
-
+    echo "297";
     //can put some finish line rules in here
     $final_score = $running_score - $time_penalty;
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
