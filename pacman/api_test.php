@@ -36,7 +36,7 @@ if($debug == 1) {echo " 2 ";}
     
     //Event reference information ***EDIT THIS***
     $level_ghosts = [[],[1,1,0,0,0],[1,1,1,0,0],[1,1,1,1,0],[1,1,1,0,1],[1,1,0,1,1]];
-    $level_points = [0,1,2,3,4,5];
+    $level_points = [0,1,1.2,1.5,2,2.5];
     $level_pill_power = [0,90,5,3,2,1];
     $level_ghost_movement = [0,90,5,3,2,1];
     $fruit_values = [0,40,50,70,100];
@@ -242,7 +242,7 @@ while($e < count($teams_used)){
                 } else {
                     if($powerup > $t){
                         $target_ghosts[$current_level][$this_ghost] = 0;
-                        $award = $level_points[$current_level]*10;
+                        $award = 0; //$level_points[$current_level]*10;
                         $running_score += $award;
                         $results_detailed[$id][] = [$t,$cp,"Ghost $ghost eaten",$award,$running_score];
                     } else {
@@ -259,7 +259,7 @@ while($e < count($teams_used)){
                         //noaction
                     } else {
                         $eaten_bites[] = $cp;
-                        $award = $level_points[$current_level];
+                        $award = 10*$level_points[$current_level];
                         $running_score += $award;
                         $results_detailed[$id][] = [$t,$cp,"Yum, bite $cp eaten",$award,$running_score];
                     }
