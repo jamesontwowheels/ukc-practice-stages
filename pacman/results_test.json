@@ -109,6 +109,42 @@
              {
                 "ControlId":"401",
                 "TimeAfterStartSecs":119
+             },
+             {
+                "ControlId":"41",
+                "TimeAfterStartSecs":940
+             },
+             {
+                "ControlId":"42",
+                "TimeAfterStartSecs":941
+             },
+             {
+                "ControlId":"43",
+                "TimeAfterStartSecs":942
+             },
+             {
+                "ControlId":"1",
+                "TimeAfterStartSecs":943
+             },
+             {
+                "ControlId":"2",
+                "TimeAfterStartSecs":943
+             },
+             {
+                "ControlId":"3",
+                "TimeAfterStartSecs":943
+             },
+             {
+                "ControlId":"4",
+                "TimeAfterStartSecs":943
+             },
+             {
+                "ControlId":"22",
+                "TimeAfterStartSecs":943
+             },
+             {
+                "ControlId":"8",
+                "TimeAfterStartSecs":943
              }
           ]
        }

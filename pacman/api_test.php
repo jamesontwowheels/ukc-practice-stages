@@ -216,7 +216,7 @@ while($e < count($teams_used)){
                 $ghost_locations[4] = $cp_routes[3][$ghost_moves];
             }
             
-        echo $ghost_locations[1];
+    if($debug == 1){ echo $ghost_locations[1];
 
         //collect pill
         if(in_array($cp,$cp_pills)){
