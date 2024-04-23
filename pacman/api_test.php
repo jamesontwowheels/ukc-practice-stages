@@ -250,6 +250,7 @@ while($e < count($teams_used)){
                         $results_detailed[$id][] = [$t,$cp,"Oh no! You were caught by Ghost $ghost",$award,$running_score];
                     }
                 }
+            }
                 echo "245";
                 //eat a byte
                 if($byte_check == 1){
@@ -263,7 +264,7 @@ while($e < count($teams_used)){
                     }
                 }
 
-            }
+            
         }
             echo "259";
         //level-up
