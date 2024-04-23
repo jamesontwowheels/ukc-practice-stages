@@ -9,7 +9,7 @@ $local_test = 0;
 if($debug == 1) {echo "2";}
 ini_set("allow_url_fopen", 1);
 //Get event results using maprun API:
-$event_name = "painting-htp%20SCOREQ75%20PZ";
+$event_name = "pacman%20SCOREQ75%20PZ";
 $api_url = "https://p.fne.com.au:8886/resultsGetPublicForEvent?eventName=";
 $url_live = $api_url . $event_name;
 //commented out for local testing:
