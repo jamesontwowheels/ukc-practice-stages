@@ -228,6 +228,7 @@ while($e < count($teams_used)){
         //collect pill
         if(in_array($cp,$cp_pills)){
             $powerup = $t + $level_pill_power[$current_level]*60;
+            $powerup_time = floor($powerup/60)."m ".($powerup % 60)."s";
             $results_detailed[$id][] = [$t,$cp,"Pill eaten - powered up until $t",0,$running_score];
         }
 
