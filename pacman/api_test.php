@@ -199,8 +199,12 @@ while($e < count($teams_used)){
         $ghost_locations = [0,0,0,0,0];
         echo "locations";
         echo $current_level;
-        $ghost_moves = floor($t/$level_ghost_movement[$current_level]) % 4;
+        $ghost_moves_total = floor($t/$level_ghost_movement[$current_level]);
+        echo "ghost moves total";
+        echo $ghost_moves_total;
+        $ghost_moves = $ghost_moves_total % 4;
         echo "ghost moves";
+        echo $ghost_moves;
         $ghost_locations[1] = $cp_routes[0][$ghost_moves];
         $ghost_locations[2] = $cp_routes[1][$ghost_moves];
         echo $current_level;
