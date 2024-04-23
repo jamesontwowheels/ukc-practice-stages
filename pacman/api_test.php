@@ -192,7 +192,8 @@ while($e < count($teams_used)){
         $t_mins = floor($t/60);
         $byte_check = 1;
         //insert Checkpoint rules here ***EDIT THIS***
-echo "195";
+        echo "195";
+        echo $z ;
         //where are the ghosts?
         $ghost_locations = [0,0,0,0,0];
         $ghost_moves = floor($t/$level_ghost_movement[$current_level]) % 4;
@@ -299,8 +300,6 @@ echo "195";
 
  $e += 1; 
 }
-
+echo "303";
 $r = 0;
 };
-
-?>
