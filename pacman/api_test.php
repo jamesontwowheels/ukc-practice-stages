@@ -2,7 +2,7 @@
 
 //***code test options */
 $debug = 0;
-$local_test = 1;
+$local_test = 0;
 
 
 
