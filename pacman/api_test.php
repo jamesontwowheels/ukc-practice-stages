@@ -197,8 +197,10 @@ while($e < count($teams_used)){
         echo $cp;
         //where are the ghosts?
         $ghost_locations = [0,0,0,0,0];
+        echo "locations";
+        echo $current_level;
         $ghost_moves = floor($t/$level_ghost_movement[$current_level]) % 4;
-        echo $ghost_moves;
+        echo "ghost moves";
         $ghost_locations[1] = $cp_routes[0][$ghost_moves];
         $ghost_locations[2] = $cp_routes[1][$ghost_moves];
         echo $current_level;
