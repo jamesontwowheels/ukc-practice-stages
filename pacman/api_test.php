@@ -264,6 +264,7 @@ while($e < count($teams_used)){
                 }
 
             }
+        }
             echo "259";
         //level-up
         if($cp == $cp_level_up){
@@ -308,7 +309,7 @@ while($e < count($teams_used)){
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
 
  $e += 1; 
-}
+
 echo "303";
 $r = 0;
 };
