@@ -1,5 +1,5 @@
 <?PHP
-$debug = 1;
+$debug = 0;
 if($debug == 1) {echo "2";}
 ini_set("allow_url_fopen", 1);
 //Get event results using maprun API:
@@ -34,6 +34,7 @@ if($debug == 1) {echo " 2 ";}
     $level_pill_power = [0,90,5,3,2,1];
     $level_ghost_movement = [0,90,5,3,2,1];
     $fruit_values = [0,40,50,70,100];
+    $fruit_names = ["Cherry","Orange","Apple","Banana"];
     $fruit_availability = [
     [],
     [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75],
@@ -283,7 +284,7 @@ while($e < count($teams_used)){
                     $award = $fruit_values[$this_fruit];
                     $fruit_name = $fruit_names[$this_fruit];
                     $running_score += $award;
-                    $results_detailed[$id][] = [$t,$cp,"Yum, bite $cp eaten",$award,$running_score];
+                    $results_detailed[$id][] = [$t,$cp,"$fruit_name collected",$award,$running_score];
                 } else {
                     //fruit already collected
                     $results_detailed[$id][] = [$t,$cp,"Fruit already collected this level","",$running_score];
