@@ -1,5 +1,11 @@
 <?PHP
+
+//***code test options */
 $debug = 0;
+$local_test = 1;
+
+
+
 if($debug == 1) {echo "2";}
 ini_set("allow_url_fopen", 1);
 //Get event results using maprun API:
@@ -9,7 +15,7 @@ $url_live = $api_url . $event_name;
 //commented out for local testing:
 // full_url = https://p.fne.com.au:8886/resultsGetPublicForEvent?eventName=Uno%20SCOREQ90%20PZ
 //file_put_contents("results.json", file_get_contents($url_live)); 
-$url_live = "results_test.json";
+if ($local_test == 1) {$url_live = "results_test.json";}
 // this saves the file locally, so can use for caching results... 
 $obj = json_decode(file_get_contents($url_live), true);
 $count_results = count($obj['results']);
@@ -162,6 +168,7 @@ $e = 0;
 while($e < count($teams_used)){
     $id = $teams_used[$e];
     $result = $teams[$id];
+    $team_name = "Team $id";
     $cps = $result[1];
     $times = $result[2];
     $time_penalty = $result[3];
@@ -298,7 +305,7 @@ while($e < count($teams_used)){
     }
     //can put some finish line rules in here
     $final_score = $running_score - $time_penalty;
-   $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
+   $results_summary[$id][] = [$name,$team_name,$time,$running_score,-$time_penalty,$final_score,$id];
 
  $e += 1; 
 
