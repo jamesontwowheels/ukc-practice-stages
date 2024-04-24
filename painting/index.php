@@ -16,7 +16,7 @@
 	<?PHP include('api_test.php'); 
 	?>
 		<!-- Sidebar -->
-<h1>Pacman</h1>
+<h1>Manchester Painting</h1>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
