@@ -1,7 +1,7 @@
 <?PHP
 ini_set("allow_url_fopen", 1);
 //Get event results using maprun API:
-$event_name = "Painting%20SCOREQ60%20PZ";
+$event_name = "MCR-painting%20SCOREQ60%20PZ";
 $api_url = "https://p.fne.com.au:8886/resultsGetPublicForEvent?eventName=";
 $url_live = $api_url . $event_name;
 //commented out for local testing:
