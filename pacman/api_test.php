@@ -182,6 +182,7 @@ while($e < count($teams_used)){
 
     //player specific event ***EDIT THIS***
     $current_level = 1;
+    $ghost_ignore = 0;
     $target_ghosts = [[0],[0,1,1,0,0],[0,1,1,1,0],[0,1,1,1,1],[0,1,1,1,1],[0,1,1,1,1]];
     $powerup = 0;
     $eaten_bites = [];
@@ -247,10 +248,15 @@ while($e < count($teams_used)){
                         $running_score += $award;
                         $results_detailed[$id][] = [$t,$cp,"Ghost $ghost eaten",$award,$running_score];
                     } else {
+                        if($ghost_ignore > $t){
+                            $results_detailed[$id][] = [$t,$cp,"Ghost ignored","",$running_score];
+                        } else {
                         $award = -100;
                         $running_score += $award;
                         $byte_check = 0;
+                        $ghost_ignore = $t + 30;
                         $results_detailed[$id][] = [$t,$cp,"Oh no! You were caught by Ghost $ghost",$award,$running_score];
+                        }
                     }
                 }
             }
