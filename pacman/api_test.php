@@ -254,7 +254,7 @@ while($e < count($teams_used)){
                         $award = -100;
                         $running_score += $award;
                         $byte_check = 0;
-                        $ghost_ignore = $t + 30;
+                        $ghost_ignore = $t + 15;
                         $results_detailed[$id][] = [$t,$cp,"Oh no! You were caught by Ghost $ghost",$award,$running_score];
                         }
                     }
