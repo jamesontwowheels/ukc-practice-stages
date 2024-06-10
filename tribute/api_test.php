@@ -85,6 +85,7 @@ if($debug == 1) {echo " 2 ";}
             $start_seconds = intval(substr($start_local,6,2));
             $global_start_time = (($start_hours * 60 + $start_minutes) * 60 + $start_seconds); 
         }
+        $tg += 1;
     }
 
     //start looping the contestants:
@@ -141,7 +142,7 @@ if($team > 1){ //all good
             $next_team += 1;}
 
 //create the player:
-$player = [$name,$surname,$cps,$times,$team,$time_penalty,$start_time];
+$player = [$name,$surname,$cps,$times,$team,$time_penalty,$start_time,$finish_time];
 $players[] = $player;
 }
 
@@ -158,6 +159,7 @@ while($c < count($players)){
         $d_times = $d[3];
         $d_penalty = $d[5];
         $d_start = $d[6];
+        $d_end = $d[7];
 
         //$e = existing
         $e = $teams[$d_team];
@@ -165,7 +167,8 @@ while($c < count($players)){
         $teams[$d_team][1] = array_merge($e[1],$d_cps);        
         $teams[$d_team][2] = array_merge($e[2],$d_times);        
         $teams[$d_team][3] = max($e[3],$d_penalty);       
-        $teams[$d_team][4] = min($e[4],$d_start);
+        $teams[$d_team][4] = min($e[4],$d_start); 
+        $teams[$d_team][5] = min($e[5],$d_end);
         array_multisort($teams[$d_team][2],$teams[$d_team][1]);
     } else { 
         $teams_used[] = $d_team;
@@ -174,9 +177,10 @@ while($c < count($players)){
         $d_times = $d[3];
         $d_penalty = $d[5];
         $d_start = $d[6];
+        $d_end = $d[7];
         //global time override !!!!!!!!!
         $d_start = $global_start_time;
-        $teams[$d_team] = [$d_name,$d_cps,$d_times,$d_penalty,$d_start];
+        $teams[$d_team] = [$d_name,$d_cps,$d_times,$d_penalty,$d_start,$d_end];
      }
      $c += 1;
 }
@@ -195,6 +199,7 @@ while($e < count($teams_used)){
     $results_ids[] = $id;
     $name = $result[0];
     $team_start = $result[4];
+    $team_end = $result[5];
     $results_names[$id][0] = $result[0];
     $results_detailed[$id] = [];
     $results_summary[$id] = [];
@@ -381,16 +386,19 @@ while($e < count($teams_used)){
         //GRAND PRIX FIN
 
         if($gp_1_next == 5 && $gp_2_next == 5){
-            $results_detailed[$id][] = [$t,$cp,"Grand Prix completed","",$running_score];
+            $results_detailed[$id][] = [$team_end,"","Grand Prix completed","",$running_score];
         } else {
             $running_score -= 900;
-            $results_detailed[$id][] = [$t,$cp,"Grand Prix incomplete - 15 minute penalty","",$running_score];
+            $results_detailed[$id][] = [$team_end,"","Grand Prix incomplete - 15 minute penalty","",$running_score];
         }
 
         //END GRAND PRIX FINISH
     
         //END FINISH RULES
-$final_score = $running_score - $time_penalty;
+
+        $results_detailed[$id][] = [$team_end,$cp,"Finish tagged","",$running_score];
+
+$final_score = $running_score - $time_penalty + $team_end;
 $results_summary[$id][] = [$name,$team_name,$time,$running_score,-$time_penalty,$final_score,$id];
 
  $e += 1; 
