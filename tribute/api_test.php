@@ -189,6 +189,9 @@ while($c < count($players)){
 //$e = each team
 $e = 0;
 
+
+if($debug == 1) {echo " 193-start looping the players ";}
+
 while($e < count($teams_used)){
     $id = $teams_used[$e];
     $result = $teams[$id];
@@ -240,6 +243,7 @@ while($e < count($teams_used)){
 
        //insert Checkpoint rules here ***EDIT THIS***
 
+       if($debug == 1) {echo " 243, clear braincell ";}
             //BRAINCELL
 
             if($braincell_active = 1){
@@ -272,6 +276,7 @@ while($e < count($teams_used)){
                 $results_detailed[$id][] = [$t,$cp,"Next Stage! Entering Stage $current_stage",0,$running_score];
             }
 
+            if($debug == 1) {echo " 274 start coordinate ";}
         if($current_stage == 1){
             //COORDINATE
             if(in_array($cp,$cps_coords)){
@@ -302,6 +307,7 @@ while($e < count($teams_used)){
 
         }
 
+        if($debug == 1) {echo " 305, start scrabble ";}
         if($current_stage == 2){
                 //SCRABBLE
                 //pick up letter - start playing CPs 1-7
@@ -372,7 +378,9 @@ while($e < count($teams_used)){
             }
             }
         }
-       //END OF CHECKPOINT RULES//         
+       //END OF CHECKPOINT RULES// 
+       
+if($debug == 1) {echo " End checkpoint rules ";}        
     }
     //can put some finish line rules in here
         //SCRABBLE FINISH

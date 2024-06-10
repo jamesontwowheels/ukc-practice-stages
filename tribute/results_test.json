@@ -107,44 +107,36 @@
           "PaceMins":7.362446581196581,
           "Punches":[
              {
-                "ControlId":"401",
+                "ControlId":"71",
                 "TimeAfterStartSecs":119
              },
              {
-                "ControlId":"41",
+                "ControlId":"10",
                 "TimeAfterStartSecs":940
              },
              {
-                "ControlId":"42",
+                "ControlId":"11",
                 "TimeAfterStartSecs":941
              },
              {
-                "ControlId":"43",
+                "ControlId":"12",
                 "TimeAfterStartSecs":942
              },
              {
-                "ControlId":"1",
+                "ControlId":"13",
+                "TimeAfterStartSecs":983
+             },
+             {
+                "ControlId":"14",
+                "TimeAfterStartSecs":984
+             },
+             {
+                "ControlId":"100",
+                "TimeAfterStartSecs":990
+             },
+             {
+                "ControlId":"13",
                 "TimeAfterStartSecs":943
-             },
-             {
-                "ControlId":"2",
-                "TimeAfterStartSecs":944
-             },
-             {
-                "ControlId":"3",
-                "TimeAfterStartSecs":945
-             },
-             {
-                "ControlId":"4",
-                "TimeAfterStartSecs":946
-             },
-             {
-                "ControlId":"22",
-                "TimeAfterStartSecs":947
-             },
-             {
-                "ControlId":"8",
-                "TimeAfterStartSecs":948
              }
           ]
        }
