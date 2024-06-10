@@ -81,7 +81,7 @@ if($debug == 1) {echo " 2 ";}
         $result = $results[$tg];
         $name = $result['Firstname'];
         $surname = $result['Surname'];
-        if(1 == 1){
+        if($surname == "Fraser"){
             //work out start time in seconds:
             $start_local = $result['StartPunchTimeLocal'];
             $start_hours = intval(substr($start_local,0,2));
@@ -90,7 +90,7 @@ if($debug == 1) {echo " 2 ";}
             $global_start_time = (($start_hours * 60 + $start_minutes) * 60 + $start_seconds); 
         }
 
-        if($debug == 1) {echo " Global start time = $global_start_time ";}
+        if($debug == 1) {echo " Global $name start time = $global_start_time ";}
         
         $tg += 1;
     }
