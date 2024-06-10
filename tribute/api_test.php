@@ -89,6 +89,9 @@ if($debug == 1) {echo " 2 ";}
             $start_seconds = intval(substr($start_local,6,2));
             $global_start_time = (($start_hours * 60 + $start_minutes) * 60 + $start_seconds); 
         }
+
+        if($debug == 1) {echo " Global start time = $global_start_time ";}
+        
         $tg += 1;
     }
 
