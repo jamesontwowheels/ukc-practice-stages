@@ -76,6 +76,7 @@ if($debug == 1) {echo " 2 ";}
     $teams = [];
     if($debug == 1) {echo " 65 ";}
 
+    $tg = 0;
     //pre-loop to set the time god
     while ($tg < $count_results){
         $result = $results[$tg];
