@@ -225,7 +225,7 @@ while($e < count($teams_used)){
         $current_bonus = 1;
 
         //BRAINCELL SPECIFICS
-        $braincell_level = 0;
+        $braincell_level = 1;
         $braincell_active = 1;
         $braincell_time = 0;
 
@@ -243,7 +243,7 @@ while($e < count($teams_used)){
 
        //insert Checkpoint rules here ***EDIT THIS***
 
-       if($debug == 1) {echo " 243, clear braincell ";}
+       if($debug == 1) {echo " 243, $cp clear braincell ";}
             //BRAINCELL
 
             if($braincell_active = 1){
