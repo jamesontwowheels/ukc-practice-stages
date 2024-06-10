@@ -31,7 +31,7 @@ if($debug == 1) {echo " 2 ";}
         $cps_coords = [10,11,12,13,14,15,16,17,18,19];
         
         //scrabble
-        $cps_letters = [21,22,23,24,25];
+        $cps_letters = [1,2,3,4,5];
         $cps_bonus = [28,29];
     
     //Event reference information ***EDIT THIS***

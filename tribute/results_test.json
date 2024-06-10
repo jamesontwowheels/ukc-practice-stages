@@ -135,8 +135,12 @@
                 "TimeAfterStartSecs":990
              },
              {
-                "ControlId":"13",
-                "TimeAfterStartSecs":943
+                "ControlId":"72",
+                "TimeAfterStartSecs":1000
+             },
+             {
+                "ControlId":"72",
+                "TimeAfterStartSecs":1000
              }
           ]
        }
