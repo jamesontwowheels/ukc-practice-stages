@@ -190,7 +190,7 @@ while($c < count($players)){
 $e = 0;
 
 
-if($debug == 1) {echo " 193-start looping the players ";}
+if($debug == 1) {echo " 193-start looping $teams_used teams ";}
 
 while($e < count($teams_used)){
     $id = $teams_used[$e];
@@ -232,7 +232,9 @@ while($e < count($teams_used)){
 
     // cycle through the punch list;
     $z = 0;
-    
+   $count_of_cps = count($cps);
+if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
+
     while ($z < count($cps)){
         // add to detailed results = $results_detailed[$id][] = [_your code_];
         // add to summary results = $results_summary[$id][] = [_your code_];
@@ -378,6 +380,7 @@ while($e < count($teams_used)){
             }
             }
         }
+        
        //END OF CHECKPOINT RULES// 
        
 if($debug == 1) {echo " End checkpoint rules ";}        
