@@ -25,11 +25,11 @@
           "PaceMins":4.942435689872278,
           "Punches":[
              {
-                "ControlId":"1",
+                "ControlId":"71",
                 "TimeAfterStartSecs":109
              },
              {
-                "ControlId":"401",
+                "ControlId":"30",
                 "TimeAfterStartSecs":119
              },
              {

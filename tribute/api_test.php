@@ -312,6 +312,8 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
         if($debug == 1) {echo " 305, start scrabble ";}
         if($current_stage == 2){
                 //SCRABBLE
+                
+if($debug == 1) {echo " 316 - in scrabble ";}
                 //pick up letter - start playing CPs 1-7
             if(in_array($cp,$cps_letters)){
                 if(in_array($cp,$used_letters)){
@@ -367,6 +369,8 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
         }
 
         if($current_stage == 3){
+            
+if($debug == 1) {echo " 316 - in GP ";}
             if(in_array($cp,$cps_gp)){
             $this_gp = $cp - 30;
             if($this_gp == $gp_1_next){
