@@ -271,7 +271,7 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
                 }
             }
 
-            if($cp = $cp_next_stage){
+            if($cp == $cp_next_stage){
                 $braincell_active = 1;
                 $braincell_time = $t;
                 $current_stage += 1;
