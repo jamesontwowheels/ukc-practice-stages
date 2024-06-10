@@ -82,7 +82,7 @@ if($debug == 1) {echo " 2 ";}
         $result = $results[$tg];
         $name = $result['Firstname'];
         $surname = $result['Surname'];
-        if($surname == "Fraser"){
+        if($name == "James" && $surname == "Fraser"){
             //work out start time in seconds:
             $start_local = $result['StartPunchTimeLocal'];
             $start_hours = intval(substr($start_local,0,2));
