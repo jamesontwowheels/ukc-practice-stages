@@ -33,6 +33,10 @@ if($debug == 1) {echo " 2 ";}
         //scrabble
         $cps_letters = [1,2,3,4,5];
         $cps_bonus = [28,29];
+
+        //GP
+        $cps_gp = [41,42,43,44];
+
     
     //Event reference information ***EDIT THIS***
         //coords
@@ -229,7 +233,10 @@ while($e < count($teams_used)){
         $braincell_active = 1;
         $braincell_time = 0;
 
-
+        //GP SPECIFICS
+        $gp_1_next = 1;
+        $gp_2_next = 1;
+        
     // cycle through the punch list;
     $z = 0;
    $count_of_cps = count($cps);
