@@ -90,7 +90,7 @@ if($debug == 1) {echo " 2 ";}
             $global_start_time = (($start_hours * 60 + $start_minutes) * 60 + $start_seconds); 
         }
 
-        if($debug == 1) {echo " Global $name start time = $global_start_time ";}
+        if($debug == 1) {echo " Global $name $surname start time = $global_start_time ";}
         
         $tg += 1;
     }
