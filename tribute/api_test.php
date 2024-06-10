@@ -81,7 +81,7 @@ if($debug == 1) {echo " 2 ";}
         $result = $results[$tg];
         $name = $result['Firstname'];
         $surname = $result['Surname'];
-        if($name == "James" && $surname == "Fraser"){
+        if(1 == 1){
             //work out start time in seconds:
             $start_local = $result['StartPunchTimeLocal'];
             $start_hours = intval(substr($start_local,0,2));
@@ -109,6 +109,9 @@ if($debug == 1) {echo " 2 ";}
 
          $global_start_lag = $global_start_time-$start_time; //add this on to prevent penalties
     
+
+         if($debug == 1) {echo " global start lag = $global_start_lag ";}
+
     $name = $result['Firstname'];
     $surname = $result['Surname'];
     $finish_time = intval($result['TotalTimeSecs']) - $global_start_lag;
