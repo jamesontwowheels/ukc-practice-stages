@@ -1,8 +1,8 @@
 <?PHP
 
 //***code test options */
-$debug = 0;
-$local_test = 0;
+$debug = 1;
+$local_test = 1;
 
 
 if($debug == 1) {echo "2";}
