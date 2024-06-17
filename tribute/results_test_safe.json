@@ -95,7 +95,7 @@
           "TrackStartDateTimeUTC":"2024-03-27T08:40:59.000Z",
           "StartPunchTimeLocal":"18:41:00",
           "FinishPunchTimeLocal":"20:12:54",
-          "TotalTimehhmmss":"1:20:00",
+          "TotalTimehhmmss":"1:31:53",
           "TotalTimeSecs":5513,
           "Classifier":"OK",
           "ClubName":"MVOC",
@@ -179,7 +179,6 @@
                 "TimeAfterStartSecs":2000
              },
              {
-
                 "ControlId":"1",
                 "TimeAfterStartSecs":2101
              },
@@ -255,7 +254,7 @@
                 "ControlId":"1",
                 "TimeAfterStartSecs":3024
              }
-            ]
-         }
+          ]
+       }
     ]
  }
