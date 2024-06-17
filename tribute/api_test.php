@@ -305,7 +305,7 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
             //COORDINATE
             if(in_array($cp,$cps_coords)){
                 if (in_array($cp,$coords_used)){
-                    $results_detailed[$id][] = [$t,$cp,"checkpoint already collected",0,$running_score];
+                    $results_detailed[$id][] = [$t,$cp,"checkpoint already collected",0,""];
                 } else {
                     $coords_used[] = $cp;
                     $coord_gap = $t - $last_coord_time;
@@ -316,13 +316,13 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
                         $cp_val_check = $cp - 10;
                         if($this_val == $last_coord_val){    
                             $running_score += 450;
-                            $results_detailed[$id][] = [$t,$cp,"$coord_gap second gap, coordinated and paired collection, 7m30 bonus ",0,$running_score]; 
+                            $results_detailed[$id][] = [$t,$cp,"$coord_gap second gap, coordinated and paired collection, 7m30 bonus ","+450s",$running_score]; 
                         }else {
                             $running_score += 300;
-                        $results_detailed[$id][] = [$t,$cp,"$coord_gap second gap, coordinated collection, 5m bonus",0,$running_score]; 
+                        $results_detailed[$id][] = [$t,$cp,"$coord_gap second gap, coordinated collection, 5m bonus","+300s",$running_score]; 
                         }
                     } else {
-                        $results_detailed[$id][] = [$t,$cp,"$coord_gap second gap, no bonus",0,$running_score]; 
+                        $results_detailed[$id][] = [$t,$cp,"$coord_gap second gap, no bonus","",""]; 
                     }
                     $last_coord_time = $t;
                     $last_coord_val = $this_val;
@@ -340,14 +340,14 @@ if($debug == 1) {echo " 316 - in scrabble ";}
             if(in_array($cp,$cps_letters)){
                 if(in_array($cp,$used_letters)){
                     //letter used in word
-                    $results_detailed[$id][] = [$t,$cp,"letter $cp already used",0,$running_score];
+                    $results_detailed[$id][] = [$t,$cp,"letter $cp already used","",""];
                 } else {
                     //add to word
                     $letter = $word[$cp];
                     $current_word = $current_word.$word[$cp];
                     $current_word_value += $word_value[$cp];
                     $used_letters[] = $cp;
-                    $results_detailed[$id][] = [$t,$cp,"$letter collected. word = $current_word","",$running_score];
+                    $results_detailed[$id][] = [$t,$cp,"$letter collected. word = $current_word","",""];
                 }
             }
 
@@ -355,16 +355,16 @@ if($debug == 1) {echo " 316 - in scrabble ";}
             if(in_array($cp,$cps_bonus)){
                 if(in_array($cp,$used_bonuses)){
                     //bonus already played
-                    $results_detailed[$id][] = [$t,$cp,"bonus $cp already used","",$running_score];
+                    $results_detailed[$id][] = [$t,$cp,"bonus $cp already used","",""];
                 } elseif ($current_bonus > 1.5) {
                     //other bonus already in play
                     $used_bonuses[] = $cp;
-                    $results_detailed[$id][] = [$t,$cp,"bonus $cp invalid, $current_bonus bonus already in use.","",$running_score];
+                    $results_detailed[$id][] = [$t,$cp,"bonus $cp invalid, $current_bonus bonus already in use.","",""];
                 } else {
                     //award bonus
                     $used_bonuses[] = $cp;
                     $current_bonus = floor(($cp - 3)/2);
-                    $results_detailed[$id][] = [$t,$cp,"bonus $current_bonus collected.","",$running_score];
+                    $results_detailed[$id][] = [$t,$cp,"bonus $current_bonus collected.","",""];
                 }
             }
 
@@ -372,7 +372,7 @@ if($debug == 1) {echo " 316 - in scrabble ";}
             if($cp==$cp_wsf){
                 if(in_array($current_word,$words)){
                     if(in_array($current_word,$used_words)){
-                    $results_detailed[$id][] = [$t,$cp,"$current_word played, already used.","",$running_score];
+                    $results_detailed[$id][] = [$t,$cp,"$current_word played, already used.","",""];
                     } else {
                     $value = ($word_length_value[strlen($current_word)] + $current_word_value) * $current_bonus;
                     $running_score += $value;
@@ -380,7 +380,7 @@ if($debug == 1) {echo " 316 - in scrabble ";}
                     $results_detailed[$id][] = [$t,$cp,"$current_word successfully played!","+ $value",$running_score];
                     }
                 } else {
-                    $results_detailed[$id][] = [$t,$cp,"$current_word played, but not a known word","",$running_score];
+                    $results_detailed[$id][] = [$t,$cp,"$current_word played, but not a known word","",""];
                 }
                 $current_word = "";
                 $current_bonus = 1;
@@ -396,12 +396,12 @@ if($debug == 1) {echo " 316 - in GP ";}
             if(in_array($cp,$cps_gp)){
             if($cp == $cps_gp[$gp_1_next]){
                 $gp_1_next += 1;
-                $results_detailed[$id][] = [$t,$cp,"GP Checkpoint $gp_1_next cleared (1/2)","",$running_score];
+                $results_detailed[$id][] = [$t,$cp,"GP Checkpoint $gp_1_next cleared (1/2)","",""];
             } elseif ($cp == $cps_gp[$gp_2_next]){
                 $gp_2_next +1;
-                $results_detailed[$id][] = [$t,$cp,"GP Checkpoint $gp_2_next cleared (2/2)","",$running_score];
+                $results_detailed[$id][] = [$t,$cp,"GP Checkpoint $gp_2_next cleared (2/2)","",""];
             } else {
-                $results_detailed[$id][] = [$t,$cp,"Wrong GP Checkpoint visited, looking for $gp_1_next or $gp_2_next","",$running_score];
+                $results_detailed[$id][] = [$t,$cp,"Wrong GP Checkpoint visited, looking for $gp_1_next or $gp_2_next","",""];
             }
             }
         }
@@ -434,7 +434,7 @@ if($debug == 1) {echo " End checkpoint rules ";}
 
         $results_detailed[$id][] = [$team_end,"F","Finish tagged","",$running_score];
 
-$final_score = $running_score - $time_penalty + $team_end;
+$final_score = - $running_score + $time_penalty + $team_end;
 $results_summary[$id][] = [$name,$team_name,$time,$running_score,-$time_penalty,$final_score,$id];
 
  $e += 1; 
