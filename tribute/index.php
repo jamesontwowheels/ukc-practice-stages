@@ -33,7 +33,7 @@
 									<th onclick="sortTable(2)">Time</th>
 									<th onclick="sortTable(3)">Score</th>
 									<th onclick="sortTable(4)">Time Penalty</th>
-									<th onclick="sortTable(5)">Final Score</th>
+									<th onclick="sortTable(5)">Final Time</th>
 									<th>detailed results</th>
 				
 								</tr>
@@ -44,7 +44,15 @@
 							echo "<tr>";
 								$rd = 0;
 								while($rd<6){
-									echo "<td>".$results_summary[$results_ids[$r]][0][$rd]."</td>";
+									if($rd == 6){
+										
+									$col_time = $results_summary[$results_ids[$r]][0][$rd];
+									$col_mins = floor($col_time/60);
+									$col_secs = $col_time - $col_mins *60;
+									$col_print_time = $col_mins."m ".$col_secs."s";
+									echo "<td>".$col_print_time."</td>";
+									}else {
+									echo "<td>".$results_summary[$results_ids[$r]][0][$rd]."</td>";}
 									$rd += 1;
 								}
 								echo "<td><a href='#".$results_ids[$r]."' class='button scrolly'>detail</a>";
