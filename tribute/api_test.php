@@ -28,11 +28,11 @@ if($debug == 1) {echo " 2 ";}
 //set-up the static constants (each requires it's own rule...):
     //Event Bulk CPs ***EDIT THIS***
         //coords
-        $cps_coords = [10,11,12,13,14,15,16,17,18,19];
+        $cps_coords = [1,2,3,4,5,6,7,8,9,10];
         
         //scrabble
         $cps_letters = [1,2,3,4,5];
-        $cps_bonus = [28,29];
+        $cps_bonus = [7,8,9,10];
 
         //GP
         $cps_gp = [41,42,43,44];
@@ -50,10 +50,10 @@ if($debug == 1) {echo " 2 ";}
         $word_count_bonus = [0,0,0,5,10,20,30,45,60,80,100];
 
     //Event Special CPs ***EDIT THIS***
-    $cp_wsf = 20;
+    $cp_wsf = 6;
     $cp_braincell_correct = 71;
     $cp_braincell_incorrect = 72;
-    $cp_next_stage = 100;
+    $cp_next_stage = 11;
     $cp_start_finish = 999;
     $cp_time_god = 900;
 
@@ -227,6 +227,7 @@ while($e < count($teams_used)){
         $coords_used = [];
         $last_coord_time = -100;
         $last_coord_cp = 0;
+        $last_coord_val = 0;
 
         //SCRABBLE SPECIFICS
         $used_bonuses = [];
@@ -240,6 +241,7 @@ while($e < count($teams_used)){
         $braincell_level = 1;
         $braincell_active = 1;
         $braincell_time = 0;
+        $level_live = 0;
 
         //GP SPECIFICS
         $gp_1_next = 1;
@@ -263,7 +265,7 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
        if($debug == 1) {echo " 243, $cp clear braincell ";}
             //BRAINCELL
 
-            if($braincell_active = 1){
+            if($braincell_active == 1){
                 $braincell_elapsed = $t - $braincell_time;
                 if($cp == $cp_braincell_correct){
                     //braincell passed
@@ -277,6 +279,8 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
                     $results_detailed[$id][] = [$t,$cp,"Braincell failed in $braincell_elapsed seconds. $braincell_penalty penalty seconds",0,$running_score];
                 } elseif (in_array($cp,$cps_teams)){
                     //ignore this.
+                } elseif ($cp == $cp_next_stage){
+                    //ignore this.
                 } else {
                     //braincell skipped
                     $braincell_active = 0;
@@ -286,13 +290,16 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
                 }
             }
 
-            if($cp == $cp_next_stage){
+            if($cp == $cp_next_stage && $level_live == 1){
                 $braincell_active = 1;
+                $level_live = 0;
                 $braincell_time = $t;
                 $current_stage += 1;
                 $results_detailed[$id][] = [$t,$cp,"Next Stage! Entering Stage $current_stage",0,$running_score];
             }
-
+        if(in_array($cp,$cps_coords)){
+            $level_live = 1;
+        }
             if($debug == 1) {echo " 274 start coordinate ";}
         if($current_stage == 1){
             //COORDINATE
@@ -303,7 +310,7 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
                     $coords_used[] = $cp;
                     $coord_gap = $t - $last_coord_time;
                     
-                    $cp_val_check = $cp - 10;
+                    $cp_val_check = $cp - 1;
                     $this_val = $coords_value[$cp_val_check];
                     if($coord_gap < 30){
                         $cp_val_check = $cp - 10;
