@@ -16,7 +16,7 @@
 	<?PHP include('api_test.php'); 
 	?>
 		<!-- Sidebar -->
-<h1>Pacman</h1>
+<h1>Tribute</h1>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -44,7 +44,7 @@
 							echo "<tr>";
 								$rd = 0;
 								while($rd<6){
-									if($rd == 6){
+									if($rd == 5 || $rd == 2){
 										
 									$col_time = $results_summary[$results_ids[$r]][0][$rd];
 									$col_mins = floor($col_time/60);

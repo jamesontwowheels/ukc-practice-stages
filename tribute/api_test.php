@@ -1,7 +1,7 @@
 <?PHP
 
 //***code test options */
-$debug = 1;
+$debug = 0;
 $local_test = 1;
 
 
