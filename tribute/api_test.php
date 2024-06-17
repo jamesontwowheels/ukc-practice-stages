@@ -398,7 +398,7 @@ if($debug == 1) {echo " 316 - in GP ";}
                 $gp_1_next += 1;
                 $results_detailed[$id][] = [$t,$cp,"GP Checkpoint $gp_1_next cleared (1/2)","",""];
             } elseif ($cp == $cps_gp[$gp_2_next]){
-                $gp_2_next +1;
+                $gp_2_next += 1;
                 $results_detailed[$id][] = [$t,$cp,"GP Checkpoint $gp_2_next cleared (2/2)","",""];
             } else {
                 $results_detailed[$id][] = [$t,$cp,"Wrong GP Checkpoint visited, looking for $gp_1_next or $gp_2_next","",""];
@@ -435,7 +435,7 @@ if($debug == 1) {echo " End checkpoint rules ";}
         $results_detailed[$id][] = [$team_end,"F","Finish tagged","",$running_score];
 
 $final_score = - $running_score + $time_penalty + $team_end;
-$results_summary[$id][] = [$name,$team_name,$time,$running_score,-$time_penalty,$final_score,$id];
+$results_summary[$id][] = [$name,$team_name,$team_end,$running_score,-$time_penalty,$final_score,$id];
 
  $e += 1; 
 
