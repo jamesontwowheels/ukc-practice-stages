@@ -40,7 +40,7 @@ if($debug == 1) {echo " 2 ";}
     
     //Event reference information ***EDIT THIS***
         //coords
-        $coords_value = [1,1,2,2,3,3,4,4,5,5];
+        $coords_value = [1,2,3,4,5,1,2,3,4,5];
 
         //scrabble
         $words =["AMENT","MANET","MEANT","MENTA","AMEN","ANTE","ETNA","MANE","MATE","MEAN","MEAT","MENT","META","NAME","NEAT","NEMA","TAME","TANE","TEAM","AME","ANE","ANT","ATE","EAN","EAT","ETA","MAE","MAN","MAT","MEN","MET","MNA","NAE","NAM","NAT","NET","TAE","TAM","TAN","TEA","TEN"];
@@ -316,7 +316,7 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
                         $cp_val_check = $cp - 10;
                         if($this_val == $last_coord_val){    
                             $running_score += 450;
-                            $results_detailed[$id][] = [$t,$cp,"$coord_gap second gap, coordinated and matching collection, 7m30 bonus ",0,$running_score]; 
+                            $results_detailed[$id][] = [$t,$cp,"$coord_gap second gap, coordinated and paired collection, 7m30 bonus ",0,$running_score]; 
                         }else {
                             $running_score += 300;
                         $results_detailed[$id][] = [$t,$cp,"$coord_gap second gap, coordinated collection, 5m bonus",0,$running_score]; 
@@ -363,7 +363,7 @@ if($debug == 1) {echo " 316 - in scrabble ";}
                 } else {
                     //award bonus
                     $used_bonuses[] = $cp;
-                    $current_bonus = $cp - 9;
+                    $current_bonus = floor(($cp - 3)/2);
                     $results_detailed[$id][] = [$t,$cp,"bonus $current_bonus collected.","",$running_score];
                 }
             }

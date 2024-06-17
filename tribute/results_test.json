@@ -115,32 +115,72 @@
                 "TimeAfterStartSecs":940
              },
              {
-                "ControlId":"11",
+                "ControlId":"9",
                 "TimeAfterStartSecs":941
              },
              {
-                "ControlId":"12",
-                "TimeAfterStartSecs":942
+                "ControlId":"1",
+                "TimeAfterStartSecs":972
              },
              {
-                "ControlId":"13",
-                "TimeAfterStartSecs":983
-             },
-             {
-                "ControlId":"14",
-                "TimeAfterStartSecs":984
-             },
-             {
-                "ControlId":"100",
-                "TimeAfterStartSecs":990
-             },
-             {
-                "ControlId":"72",
+                "ControlId":"6",
                 "TimeAfterStartSecs":1000
              },
              {
+                "ControlId":"2",
+                "TimeAfterStartSecs":1044
+             },
+             {
+                "ControlId":"7",
+                "TimeAfterStartSecs":1075
+             },
+             {
+                "ControlId":"11",
+                "TimeAfterStartSecs":1090
+             },
+             {
+                "ControlId":"11",
+                "TimeAfterStartSecs":1091
+             },
+             {
                 "ControlId":"72",
-                "TimeAfterStartSecs":1000
+                "TimeAfterStartSecs":1300
+             },
+             {
+                "ControlId":"3",
+                "TimeAfterStartSecs":1490
+             },
+             {
+                "ControlId":"2",
+                "TimeAfterStartSecs":1590
+             },
+             {
+                "ControlId":"1",
+                "TimeAfterStartSecs":1690
+             },
+             {
+                "ControlId":"4",
+                "TimeAfterStartSecs":1790
+             },
+             {
+                "ControlId":"5",
+                "TimeAfterStartSecs":1890
+             },
+             {
+                "ControlId":"7",
+                "TimeAfterStartSecs":1990
+             },
+             {
+                "ControlId":"8",
+                "TimeAfterStartSecs":1991
+             },
+             {
+                "ControlId":"6",
+                "TimeAfterStartSecs":2000
+             },
+             {
+                "ControlId":"72",
+                "TimeAfterStartSecs":1100
              }
           ]
        }
