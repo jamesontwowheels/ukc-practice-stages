@@ -35,7 +35,7 @@ if($debug == 1) {echo " 2 ";}
         $cps_bonus = [7,8,9,10];
 
         //GP
-        $cps_gp = [41,42,43,44];
+        $cps_gp = [3,2,6,1];
 
     
     //Event reference information ***EDIT THIS***
@@ -244,8 +244,8 @@ while($e < count($teams_used)){
         $level_live = 0;
 
         //GP SPECIFICS
-        $gp_1_next = 1;
-        $gp_2_next = 1;
+        $gp_1_next = 0;
+        $gp_2_next = 0;
         
     // cycle through the punch list;
     $z = 0;
@@ -394,13 +394,12 @@ if($debug == 1) {echo " 316 - in scrabble ";}
             
 if($debug == 1) {echo " 316 - in GP ";}
             if(in_array($cp,$cps_gp)){
-            $this_gp = $cp - 30;
-            if($this_gp == $gp_1_next){
+            if($cp == $cps_gp[$gp_1_next]){
                 $gp_1_next += 1;
-                $results_detailed[$id][] = [$t,$cp,"GP Checkpoint $this_gp cleared (1/2)","",$running_score];
-            } elseif ($this_gp == $gp_2_next){
+                $results_detailed[$id][] = [$t,$cp,"GP Checkpoint $gp_1_next cleared (1/2)","",$running_score];
+            } elseif ($cp == $cps_gp[$gp_2_next]){
                 $gp_2_next +1;
-                $results_detailed[$id][] = [$t,$cp,"GP Checkpoint $this_gp cleared (2/2)","",$running_score];
+                $results_detailed[$id][] = [$t,$cp,"GP Checkpoint $gp_2_next cleared (2/2)","",$running_score];
             } else {
                 $results_detailed[$id][] = [$t,$cp,"Wrong GP Checkpoint visited, looking for $gp_1_next or $gp_2_next","",$running_score];
             }
@@ -416,13 +415,13 @@ if($debug == 1) {echo " End checkpoint rules ";}
         $words_found = count($used_words);
         $wf_bonus = $word_count_bonus[$words_found];
         $running_score += $wf_bonus;
-        $results_detailed[$id][] = [$t,$cp,"$words_found words found, + $wf_bonus bonus","",$running_score];
+        $results_detailed[$id][] = [$team_end,"","$words_found words found, + $wf_bonus bonus","",$running_score];
         
         //END SCRABBLE FINISH//
     
         //GRAND PRIX FIN
 
-        if($gp_1_next == 5 && $gp_2_next == 5){
+        if($gp_1_next == 4 && $gp_2_next == 4){
             $results_detailed[$id][] = [$team_end,"","Grand Prix completed","",$running_score];
         } else {
             $running_score -= 900;
@@ -433,7 +432,7 @@ if($debug == 1) {echo " End checkpoint rules ";}
     
         //END FINISH RULES
 
-        $results_detailed[$id][] = [$team_end,$cp,"Finish tagged","",$running_score];
+        $results_detailed[$id][] = [$team_end,"F","Finish tagged","",$running_score];
 
 $final_score = $running_score - $time_penalty + $team_end;
 $results_summary[$id][] = [$name,$team_name,$time,$running_score,-$time_penalty,$final_score,$id];
