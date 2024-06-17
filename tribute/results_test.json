@@ -95,7 +95,7 @@
           "TrackStartDateTimeUTC":"2024-03-27T08:40:59.000Z",
           "StartPunchTimeLocal":"18:41:00",
           "FinishPunchTimeLocal":"20:12:54",
-          "TotalTimehhmmss":"1:31:53",
+          "TotalTimehhmmss":"1:20:00",
           "TotalTimeSecs":5513,
           "Classifier":"OK",
           "ClubName":"MVOC",
@@ -179,8 +179,80 @@
                 "TimeAfterStartSecs":2000
              },
              {
-                "ControlId":"72",
-                "TimeAfterStartSecs":1100
+                "ControlId":"1",
+                "TimeAfterStartSecs":2101
+             },
+             {
+                "ControlId":"3",
+                "TimeAfterStartSecs":2102
+             },
+             {
+                "ControlId":"5",
+                "TimeAfterStartSecs":2103
+             },
+             {
+                "ControlId":"8",
+                "TimeAfterStartSecs":2104
+             },
+             {
+                "ControlId":"6",
+                "TimeAfterStartSecs":2105
+             },
+             {
+                "ControlId":"3",
+                "TimeAfterStartSecs":2106
+             },
+             {
+                "ControlId":"2",
+                "TimeAfterStartSecs":2107
+             },
+             {
+                "ControlId":"4",
+                "TimeAfterStartSecs":2108
+             },
+             {
+                "ControlId":"6",
+                "TimeAfterStartSecs":2109
+             },
+             {
+                "ControlId":"11",
+                "TimeAfterStartSecs":2110
+             },
+             {
+                "ControlId":"3",
+                "TimeAfterStartSecs":3000
+             },
+             {
+                "ControlId":"3",
+                "TimeAfterStartSecs":3001
+             },
+             {
+                "ControlId":"2",
+                "TimeAfterStartSecs":3002
+             },
+             {
+                "ControlId":"2",
+                "TimeAfterStartSecs":3006
+             },
+             {
+                "ControlId":"1",
+                "TimeAfterStartSecs":3003
+             },
+             {
+                "ControlId":"6",
+                "TimeAfterStartSecs":3003
+             }
+             {
+                "ControlId":"1",
+                "TimeAfterStartSecs":3007
+             },
+             {
+                "ControlId":"6",
+                "TimeAfterStartSecs":3020
+             },
+             {
+                "ControlId":"1",
+                "TimeAfterStartSecs":3024
              }
           ]
        }
