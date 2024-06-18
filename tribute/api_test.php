@@ -2,7 +2,7 @@
 
 //***code test options */
 $debug = 0;
-$local_test = 0;
+$local_test = 1;
 
 
 if($debug == 1) {echo "2";}
@@ -35,7 +35,7 @@ if($debug == 1) {echo " 2 ";}
         $cps_bonus = [7,8,9,10];
 
         //GP
-        $cps_gp = [3,6,2,1];
+        $cps_gp = [3,2,6,1];
 
     
     //Event reference information ***EDIT THIS***
@@ -77,7 +77,7 @@ if($debug == 1) {echo " 2 ";}
     if($debug == 1) {echo " 65 ";}
 
     $tg = 0;
-
+    
     //pre-loop to set the time god
     while ($tg < $count_results){
         $result = $results[$tg];
@@ -253,6 +253,15 @@ while($e < count($teams_used)){
 if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
 
     while ($z < count($cps)){
+
+        if($cp == 6 or $cp == 2){
+            if($cp == 6){
+                $cp_fix = 2;
+            } else {
+                $cp_fix = 6;
+            }
+            $cp = $cp_fix;
+        }
         // add to detailed results = $results_detailed[$id][] = [_your code_];
         // add to summary results = $results_summary[$id][] = [_your code_];
 
