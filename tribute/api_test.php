@@ -263,13 +263,8 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
             $cp = $cp_fix;
         }
         // add to detailed results = $results_detailed[$id][] = [_your code_];
-        // add to summary results = $results_summary[$id][] = [_your code_];
-if($cp == 6 || $cp == 2){
-    if($cp == 6){
-        $cp_fix = 2;
-    } else {$cp_fix = 6;}
-    $cp = $cp_fix;
-}
+        // add to summfary results = $results_summary[$id][] = [_your code_];
+
         $cp = $cps[$z];
         $t = $times[$z] - $team_start;
         $z += 1;
