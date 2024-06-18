@@ -254,6 +254,12 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
 
     while ($z < count($cps)){
 
+
+        // add to detailed results = $results_detailed[$id][] = [_your code_];
+        // add to summfary results = $results_summary[$id][] = [_your code_];
+
+        $cp = $cps[$z];
+
         if($cp == 6 || $cp == 2){
             if($cp == 6){
                 $cp_fix = 2;
@@ -262,10 +268,7 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
             }
             $cp = $cp_fix;
         }
-        // add to detailed results = $results_detailed[$id][] = [_your code_];
-        // add to summfary results = $results_summary[$id][] = [_your code_];
 
-        $cp = $cps[$z];
         $t = $times[$z] - $team_start;
         $z += 1;
 
