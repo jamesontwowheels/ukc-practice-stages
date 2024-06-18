@@ -46,8 +46,8 @@ if($debug == 1) {echo " 2 ";}
         $words =["AMENT","MANET","MEANT","MENTA","AMEN","ANTE","ETNA","MANE","MATE","MEAN","MEAT","MENT","META","NAME","NEAT","NEMA","TAME","TANE","TEAM","AME","ANE","ANT","ATE","EAN","EAT","ETA","MAE","MAN","MAT","MEN","MET","MNA","NAE","NAM","NAT","NET","TAE","TAM","TAN","TEA","TEN"];
         $word = ["","A","E","M","N","T"];
         $word_value = [0,1,1,3,1,1];
-        $word_length_value = [0,0,0,0,0,0,0,20];
-        $word_count_bonus = [0,0,0,5,10,20,30,45,60,80,100];
+        $word_length_value = [0,0,0,0,0,0,0,0];
+        $word_count_bonus = [0,0,0,0,0,0,4,7,10,13,20];
 
     //Event Special CPs ***EDIT THIS***
     $cp_wsf = 6;
@@ -136,7 +136,7 @@ if($debug == 1) {echo " 2 ";}
     while ($y < $count_cps){
         $new_cp = preg_replace("/[^0-9]/", "",$result['Punches'][$y]["ControlId"]);
         $cps[] = $new_cp;
-        $times[] = intval($result['Punches'][$y]["TimeAfterStartSecs"]) + $start_time;
+        $times[] = intval($result['Punches'][$y]["TimeAfterStartSecs"]) + $start_time - $global_start_lag;
         $pr = $player_results = [];
         $y += 1;
     }
