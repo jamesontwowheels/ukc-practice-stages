@@ -254,7 +254,7 @@ if($debug == 1) {echo " 236-start looping count($count_of_cps) teams ";}
 
     while ($z < count($cps)){
 
-        if($cp == 6 or $cp == 2){
+        if($cp == 6 || $cp == 2){
             if($cp == 6){
                 $cp_fix = 2;
             } else {
