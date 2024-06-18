@@ -2,7 +2,7 @@
 
 //***code test options */
 $debug = 0;
-$local_test = 1;
+$local_test = 0;
 
 
 if($debug == 1) {echo "2";}
@@ -77,7 +77,7 @@ if($debug == 1) {echo " 2 ";}
     if($debug == 1) {echo " 65 ";}
 
     $tg = 0;
-    
+
     //pre-loop to set the time god
     while ($tg < $count_results){
         $result = $results[$tg];
