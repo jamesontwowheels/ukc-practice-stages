@@ -8,7 +8,7 @@ $local_test = 1;
 if($debug == 1) {echo "2";}
 ini_set("allow_url_fopen", 1);
 //Get event results using maprun API:
-$event_name = "pacman-v2%20SCOREQ75";
+$event_name = "tribute%20SCOREQ120%20PZ";
 $api_url = "https://p.fne.com.au:8886/resultsGetPublicForEvent?eventName=";
 $url_live = $api_url . $event_name;
 //commented out for local testing:
@@ -23,7 +23,7 @@ $x = 0;
 $next_team = 500;
 
 // prefix for QR codes: http://www.maprunners.com.au?c=
-// PIN for event is 9722
+// PIN for event is 8252
 if($debug == 1) {echo " 2 ";}
 //set-up the static constants (each requires it's own rule...):
     //Event Bulk CPs ***EDIT THIS***
@@ -59,7 +59,7 @@ if($debug == 1) {echo " 2 ";}
 
     //values ***EDIT THIS****
     $stage_time = 90*60;
-    $penalty_rate = 2; 
+    $penalty_rate = 0.5; 
     //seconds per point lost
 
     //BAU Bulk CPs
@@ -375,9 +375,10 @@ if($debug == 1) {echo " 316 - in scrabble ";}
                     $results_detailed[$id][] = [$t,$cp,"$current_word played, already used.","",""];
                     } else {
                     $value = ($word_length_value[strlen($current_word)] + $current_word_value) * $current_bonus;
-                    $running_score += $value;
+                    $increment = $value * 60;
+                    $running_score += $increment;
                     $used_words[] = $current_word;
-                    $results_detailed[$id][] = [$t,$cp,"$current_word successfully played!","+ $value",$running_score];
+                    $results_detailed[$id][] = [$t,$cp,"$current_word successfully played! $value mins earned","+ $increment",$running_score];
                     }
                 } else {
                     $results_detailed[$id][] = [$t,$cp,"$current_word played, but not a known word","",""];
@@ -414,8 +415,9 @@ if($debug == 1) {echo " End checkpoint rules ";}
         //SCRABBLE FINISH
         $words_found = count($used_words);
         $wf_bonus = $word_count_bonus[$words_found];
-        $running_score += $wf_bonus;
-        $results_detailed[$id][] = [$team_end,"","$words_found words found, + $wf_bonus bonus","",$running_score];
+        $increment = $wf_bonus * 60;
+        $running_score += $wf_bonus * 60;
+        $results_detailed[$id][] = [$team_end,"","$words_found words found, + $wf_bonus minute bonus","+ $increment",$running_score];
         
         //END SCRABBLE FINISH//
     
@@ -425,7 +427,7 @@ if($debug == 1) {echo " End checkpoint rules ";}
             $results_detailed[$id][] = [$team_end,"","Grand Prix completed","",$running_score];
         } else {
             $running_score -= 900;
-            $results_detailed[$id][] = [$team_end,"","Grand Prix incomplete - 15 minute penalty","",$running_score];
+            $results_detailed[$id][] = [$team_end,"","Grand Prix incomplete - 15 minute penalty","-900",$running_score];
         }
 
         //END GRAND PRIX FINISH
