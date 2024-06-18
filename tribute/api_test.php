@@ -35,7 +35,7 @@ if($debug == 1) {echo " 2 ";}
         $cps_bonus = [7,8,9,10];
 
         //GP
-        $cps_gp = [3,2,6,1];
+        $cps_gp = [3,6,2,1];
 
     
     //Event reference information ***EDIT THIS***
