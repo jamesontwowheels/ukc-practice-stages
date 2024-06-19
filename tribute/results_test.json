@@ -1,261 +1,3198 @@
 {
-    "errorFlag":false,
-    "statusMessage":"",
-    "warningFlag":false,
-    "warningMessage":"",
-    "results":[
+   "errorFlag": false,
+   "statusMessage": "",
+   "warningFlag": false,
+   "warningMessage": "",
+   "results": [
        {
-          "Id":434665,
-          "Surname":"Fraser",
-          "Firstname":"James",
-          "Gender":"M",
-          "YearOfBirth":1986,
-          "TrackStartDateTimeUTC":"2024-03-27T13:33:46.000Z",
-          "StartPunchTimeLocal":"18:41:22",
-          "FinishPunchTimeLocal":"20:12:57",
-          "TotalTimehhmmss":"1:31:35",
-          "TotalTimeSecs":5495,
-          "Classifier":"OK",
-          "ClubName":"",
-          "GrossScore":200,
-          "NetScore":180,
-          "MapRunVersion":"MapRun 7.3.2 MapRun v1.7.1 on fr235-android-en",
-          "Distance":18.53,
-          "Pacemmss":"4:57",
-          "PaceMins":4.942435689872278,
-          "Punches":[
-             {
-                "ControlId":"71",
-                "TimeAfterStartSecs":109
-             },
-             {
-                "ControlId":"30",
-                "TimeAfterStartSecs":119
-             },
-             {
-                "ControlId":"2",
-                "TimeAfterStartSecs":1169
-             },
-             {
-                "ControlId":"3",
-                "TimeAfterStartSecs":1276
-             },
-             {
-                "ControlId":"41",
-                "TimeAfterStartSecs":1354
-             },
-             {
-                "ControlId":"42",
-                "TimeAfterStartSecs":1631
-             },
-             {
-                "ControlId":"43",
-                "TimeAfterStartSecs":1832
-             },
-             {
-                "ControlId":"42",
-                "TimeAfterStartSecs":1870
-             },
-             {
-                "ControlId":"77",
-                "TimeAfterStartSecs":1931
-             },
-             {
-                "ControlId":"21",
-                "TimeAfterStartSecs":1932
-             },
-             {
-                "ControlId":"1",
-                "TimeAfterStartSecs":1933
-             },
-             {
-                "ControlId":"4",
-                "TimeAfterStartSecs":1934
-             },
-             {
-                "ControlId":"77",
-                "TimeAfterStartSecs":1935
-             },
-             {
-                "ControlId":"5",
-                "TimeAfterStartSecs":1936
-             },
-             {
-                "ControlId":"77",
-                "TimeAfterStartSecs":1937
-             }
-          ]
+           "Id": 451079,
+           "Surname": "Archer",
+           "Firstname": "Paul",
+           "Gender": "M",
+           "YearOfBirth": 1981,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:44.000Z",
+           "StartPunchTimeLocal": "18:53:54",
+           "FinishPunchTimeLocal": "20:24:15",
+           "TotalTimehhmmss": "1:30:20",
+           "TotalTimeSecs": 5420,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 420,
+           "NetScore": 420,
+           "MapRunVersion": "MapRun 7.4.2-ios-en",
+           "Distance": 8.47,
+           "Pacemmss": "10:40",
+           "PaceMins": 10.6650924832743,
+           "Punches": [
+               {
+                   "ControlId": "410",
+                   "TimeAfterStartSecs": 270
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 782
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 1969
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 2088
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 2440
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 2511
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 3153
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 3237
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 5088
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 2567
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 2771
+               },
+               {
+                   "ControlId": "9 (Extra)",
+                   "TimeAfterStartSecs": 3748
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4194
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 4916
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5034
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5162
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5315
+               }
+           ]
        },
        {
-          "Id":434660,
-          "Surname":"McCaffrey",
-          "Firstname":"Robert",
-          "Gender":"M",
-          "YearOfBirth":1967,
-          "TrackStartDateTimeUTC":"2024-03-27T08:40:59.000Z",
-          "StartPunchTimeLocal":"18:41:00",
-          "FinishPunchTimeLocal":"20:12:54",
-          "TotalTimehhmmss":"1:20:00",
-          "TotalTimeSecs":5513,
-          "Classifier":"OK",
-          "ClubName":"MVOC",
-          "GrossScore":160,
-          "NetScore":140,
-          "MapRunVersion":"MapRun 7.3.1-ios-en",
-          "Distance":12.48,
-          "Pacemmss":"7:22",
-          "PaceMins":7.362446581196581,
-          "Punches":[
-             {
-                "ControlId":"71",
-                "TimeAfterStartSecs":119
-             },
-             {
-                "ControlId":"10",
-                "TimeAfterStartSecs":940
-             },
-             {
-                "ControlId":"9",
-                "TimeAfterStartSecs":941
-             },
-             {
-                "ControlId":"1",
-                "TimeAfterStartSecs":972
-             },
-             {
-                "ControlId":"6",
-                "TimeAfterStartSecs":1000
-             },
-             {
-                "ControlId":"2",
-                "TimeAfterStartSecs":1044
-             },
-             {
-                "ControlId":"7",
-                "TimeAfterStartSecs":1075
-             },
-             {
-                "ControlId":"11",
-                "TimeAfterStartSecs":1090
-             },
-             {
-                "ControlId":"11",
-                "TimeAfterStartSecs":1091
-             },
-             {
-                "ControlId":"72",
-                "TimeAfterStartSecs":1300
-             },
-             {
-                "ControlId":"3",
-                "TimeAfterStartSecs":1490
-             },
-             {
-                "ControlId":"2",
-                "TimeAfterStartSecs":1590
-             },
-             {
-                "ControlId":"1",
-                "TimeAfterStartSecs":1690
-             },
-             {
-                "ControlId":"4",
-                "TimeAfterStartSecs":1790
-             },
-             {
-                "ControlId":"5",
-                "TimeAfterStartSecs":1890
-             },
-             {
-                "ControlId":"7",
-                "TimeAfterStartSecs":1990
-             },
-             {
-                "ControlId":"8",
-                "TimeAfterStartSecs":1991
-             },
-             {
-                "ControlId":"6",
-                "TimeAfterStartSecs":2000
-             },
-             {
-
-                "ControlId":"1",
-                "TimeAfterStartSecs":2101
-             },
-             {
-                "ControlId":"3",
-                "TimeAfterStartSecs":2102
-             },
-             {
-                "ControlId":"5",
-                "TimeAfterStartSecs":2103
-             },
-             {
-                "ControlId":"8",
-                "TimeAfterStartSecs":2104
-             },
-             {
-                "ControlId":"6",
-                "TimeAfterStartSecs":2105
-             },
-             {
-                "ControlId":"3",
-                "TimeAfterStartSecs":2106
-             },
-             {
-                "ControlId":"2",
-                "TimeAfterStartSecs":2107
-             },
-             {
-                "ControlId":"4",
-                "TimeAfterStartSecs":2108
-             },
-             {
-                "ControlId":"6",
-                "TimeAfterStartSecs":2109
-             },
-             {
-                "ControlId":"11",
-                "TimeAfterStartSecs":2110
-             },
-             {
-                "ControlId":"3",
-                "TimeAfterStartSecs":3000
-             },
-             {
-                "ControlId":"3",
-                "TimeAfterStartSecs":3001
-             },
-             {
-                "ControlId":"2",
-                "TimeAfterStartSecs":3002
-             },
-             {
-                "ControlId":"2",
-                "TimeAfterStartSecs":3006
-             },
-             {
-                "ControlId":"1",
-                "TimeAfterStartSecs":3003
-             },
-             {
-                "ControlId":"6",
-                "TimeAfterStartSecs":3003
-             },
-             {
-                "ControlId":"1",
-                "TimeAfterStartSecs":3007
-             },
-             {
-                "ControlId":"6",
-                "TimeAfterStartSecs":3020
-             },
-             {
-                "ControlId":"1",
-                "TimeAfterStartSecs":3024
-             }
-            ]
-         }
-    ]
- }
+           "Id": 451077,
+           "Surname": "Chiv",
+           "Firstname": "Simba",
+           "Gender": "M",
+           "YearOfBirth": 1993,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:58.000Z",
+           "StartPunchTimeLocal": "18:54:07",
+           "FinishPunchTimeLocal": "20:37:15",
+           "TotalTimehhmmss": "1:43:08",
+           "TotalTimeSecs": 6188,
+           "Classifier": "OK",
+           "ClubName": "Ucl",
+           "GrossScore": 480,
+           "NetScore": 480,
+           "MapRunVersion": "MapRun 7.4.1-android-en",
+           "Distance": 7.77,
+           "Pacemmss": "13:16",
+           "PaceMins": 13.273273273273274,
+           "Punches": [
+               {
+                   "ControlId": "414",
+                   "TimeAfterStartSecs": 294
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 1479
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 1720
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 1910
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 2546
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 2965
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 3299
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 4606
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 4664
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 4746
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3384
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4395
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4914
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5818
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5877
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5941
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 6090
+               }
+           ]
+       },
+       {
+           "Id": 451076,
+           "Surname": "Dinkar",
+           "Firstname": "T",
+           "Gender": "M",
+           "YearOfBirth": 1993,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:44.000Z",
+           "StartPunchTimeLocal": "18:54:00",
+           "FinishPunchTimeLocal": "20:35:07",
+           "TotalTimehhmmss": "1:41:06",
+           "TotalTimeSecs": 6066,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 490,
+           "NetScore": 490,
+           "MapRunVersion": "MapRun6 6.5.10-ios-en",
+           "Distance": 9.07,
+           "Pacemmss": "11:09",
+           "PaceMins": 11.146637265711135,
+           "Punches": [
+               {
+                   "ControlId": "411",
+                   "TimeAfterStartSecs": 111
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 1769
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 1910
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 2062
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2217
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 2368
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 3439
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 4447
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 4905
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 2461
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 3039
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 3462
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 3841
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3979
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4067
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 4243
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4799
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5509
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5626
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5703
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5791
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5950
+               }
+           ]
+       },
+       {
+           "Id": 451075,
+           "Surname": "Harris",
+           "Firstname": "Camilla",
+           "Gender": "N",
+           "YearOfBirth": 1993,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:46.000Z",
+           "StartPunchTimeLocal": "18:54:17",
+           "FinishPunchTimeLocal": "20:40:58",
+           "TotalTimehhmmss": "1:46:40",
+           "TotalTimeSecs": 6400,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 550,
+           "NetScore": 550,
+           "MapRunVersion": "MapRun 7.4.1-android-en",
+           "Distance": 7.69,
+           "Pacemmss": "13:52",
+           "PaceMins": 13.870827915041177,
+           "Punches": [
+               {
+                   "ControlId": "406",
+                   "TimeAfterStartSecs": 146
+               },
+               {
+                   "ControlId": "71",
+                   "TimeAfterStartSecs": 1331
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 2101
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 2390
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 2719
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 2900
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 3072
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 3570
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 4008
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 4102
+               },
+               {
+                   "ControlId": "10",
+                   "TimeAfterStartSecs": 4337
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 4904
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4693
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4842
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5165
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 5264
+               },
+               {
+                   "ControlId": "71 (Extra)",
+                   "TimeAfterStartSecs": 5773
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5907
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5987
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 6061
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 6283
+               }
+           ]
+       },
+       {
+           "Id": 451074,
+           "Surname": "Siebert",
+           "Firstname": "Jack",
+           "Gender": "M",
+           "YearOfBirth": 1992,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:45.000Z",
+           "StartPunchTimeLocal": "18:54:05",
+           "FinishPunchTimeLocal": "20:40:56",
+           "TotalTimehhmmss": "1:46:50",
+           "TotalTimeSecs": 6410,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 420,
+           "NetScore": 420,
+           "MapRunVersion": "MapRun 7.4.1-android-en",
+           "Distance": 9.61,
+           "Pacemmss": "11:07",
+           "PaceMins": 11.116892126257373,
+           "Punches": [
+               {
+                   "ControlId": "406",
+                   "TimeAfterStartSecs": 162
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 1845
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 2112
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 2413
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2718
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 2900
+               },
+               {
+                   "ControlId": "10",
+                   "TimeAfterStartSecs": 3079
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 4413
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 4488
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 4565
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 3363
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4021
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4115
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4264
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4314
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4704
+               },
+               {
+                   "ControlId": "10 (Extra)",
+                   "TimeAfterStartSecs": 4900
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5455
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5643
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5924
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5996
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 6075
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 6290
+               }
+           ]
+       },
+       {
+           "Id": 451073,
+           "Surname": "Slattery",
+           "Firstname": "Thomas",
+           "Gender": "M",
+           "YearOfBirth": 1989,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:44.000Z",
+           "StartPunchTimeLocal": "18:53:52",
+           "FinishPunchTimeLocal": "20:33:25",
+           "TotalTimehhmmss": "1:39:32",
+           "TotalTimeSecs": 5972,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 560,
+           "NetScore": 560,
+           "MapRunVersion": "MapRun 7.3.2-android-en",
+           "Distance": 7.86,
+           "Pacemmss": "12:40",
+           "PaceMins": 12.663273960983885,
+           "Punches": [
+               {
+                   "ControlId": "409",
+                   "TimeAfterStartSecs": 233
+               },
+               {
+                   "ControlId": "71",
+                   "TimeAfterStartSecs": 1454
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 2425
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2490
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 2573
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 2802
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 2961
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 3255
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 3693
+               },
+               {
+                   "ControlId": "10",
+                   "TimeAfterStartSecs": 4229
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 4794
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 5498
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 5834
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4112
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4895
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5044
+               },
+               {
+                   "ControlId": "71 (Extra)",
+                   "TimeAfterStartSecs": 5337
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5573
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5664
+               }
+           ]
+       },
+       {
+           "Id": 451067,
+           "Surname": "Carle",
+           "Firstname": "Steven",
+           "Gender": "M",
+           "YearOfBirth": 1971,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:44.000Z",
+           "StartPunchTimeLocal": "18:54:10",
+           "FinishPunchTimeLocal": "20:34:31",
+           "TotalTimehhmmss": "1:40:20",
+           "TotalTimeSecs": 6020,
+           "Classifier": "OK",
+           "ClubName": "MVOC",
+           "GrossScore": 420,
+           "NetScore": 420,
+           "MapRunVersion": "MapRun 7.4.2-ios-en",
+           "Distance": 11.5,
+           "Pacemmss": "8:43",
+           "PaceMins": 8.72463768115942,
+           "Punches": [
+               {
+                   "ControlId": "408",
+                   "TimeAfterStartSecs": 185
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 770
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 1662
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 1755
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 1843
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 1943
+               },
+               {
+                   "ControlId": "10",
+                   "TimeAfterStartSecs": 2054
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 2377
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 4482
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 2473
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3088
+               },
+               {
+                   "ControlId": "10 (Extra)",
+                   "TimeAfterStartSecs": 3379
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 3618
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 3775
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4171
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4791
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4871
+               },
+               {
+                   "ControlId": "8 (Extra)",
+                   "TimeAfterStartSecs": 5040
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5108
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5655
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5713
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5811
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5933
+               }
+           ]
+       },
+       {
+           "Id": 451065,
+           "Surname": "Willetts",
+           "Firstname": "Douglas",
+           "Gender": "M",
+           "YearOfBirth": 1996,
+           "TrackStartDateTimeUTC": "2024-06-18T08:54:14.000Z",
+           "StartPunchTimeLocal": "18:54:14",
+           "FinishPunchTimeLocal": "20:34:30",
+           "TotalTimehhmmss": "1:40:15",
+           "TotalTimeSecs": 6015,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 550,
+           "NetScore": 550,
+           "MapRunVersion": "MapRun6 6.5.10-android-en",
+           "Distance": 10.09,
+           "Pacemmss": "9:56",
+           "PaceMins": 9.935579781962339,
+           "Punches": [
+               {
+                   "ControlId": "408",
+                   "TimeAfterStartSecs": 174
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 765
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 1411
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 1635
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 1734
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 1843
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 1942
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 2053
+               },
+               {
+                   "ControlId": "71",
+                   "TimeAfterStartSecs": 2648
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 3182
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 4345
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 5808
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 1433
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 2464
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3290
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 3371
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 3444
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4005
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 4141
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4401
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4475
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 4556
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4882
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 4977
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5191
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5253
+               },
+               {
+                   "ControlId": "72 (Extra)",
+                   "TimeAfterStartSecs": 5524
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5652
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5709
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5927
+               }
+           ]
+       },
+       {
+           "Id": 451062,
+           "Surname": "Fox",
+           "Firstname": "Mat",
+           "Gender": "M",
+           "YearOfBirth": 1989,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:47.000Z",
+           "StartPunchTimeLocal": "18:53:45",
+           "FinishPunchTimeLocal": "20:38:47",
+           "TotalTimehhmmss": "1:45:01",
+           "TotalTimeSecs": 6301,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 410,
+           "NetScore": 410,
+           "MapRunVersion": "MapRun 7.4.2-ios-en",
+           "Distance": 10.02,
+           "Pacemmss": "10:29",
+           "PaceMins": 10.480705256154359,
+           "Punches": [
+               {
+                   "ControlId": "405",
+                   "TimeAfterStartSecs": 196
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 2003
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2480
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 2741
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 2884
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 3196
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 4266
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 4430
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 5127
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3735
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 3990
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4075
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 4174
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4541
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4599
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4686
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 4778
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4966
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5474
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5664
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5937
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5993
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 6060
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 6190
+               }
+           ]
+       },
+       {
+           "Id": 451061,
+           "Surname": "Henderson",
+           "Firstname": "Ben",
+           "Gender": "M",
+           "YearOfBirth": 1978,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:55.000Z",
+           "StartPunchTimeLocal": "18:53:46",
+           "FinishPunchTimeLocal": "20:38:46",
+           "TotalTimehhmmss": "1:44:59",
+           "TotalTimeSecs": 6299,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 560,
+           "NetScore": 560,
+           "MapRunVersion": "MapRun 7.4.2-ios-en",
+           "Distance": 10.38,
+           "Pacemmss": "10:07",
+           "PaceMins": 10.114001284521514,
+           "Punches": [
+               {
+                   "ControlId": "405",
+                   "TimeAfterStartSecs": 191
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 1304
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 1980
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 2582
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 2770
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 2884
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 2922
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 3195
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 3563
+               },
+               {
+                   "ControlId": "10",
+                   "TimeAfterStartSecs": 3917
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 5230
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 5309
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 5397
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4429
+               },
+               {
+                   "ControlId": "9 (Extra)",
+                   "TimeAfterStartSecs": 4696
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4968
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 5145
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5475
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5662
+               },
+               {
+                   "ControlId": "71 (Extra)",
+                   "TimeAfterStartSecs": 5819
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5832
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5934
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5991
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 6060
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 6193
+               }
+           ]
+       },
+       {
+           "Id": 451060,
+           "Surname": "Malfait",
+           "Firstname": "Milan",
+           "Gender": "M",
+           "YearOfBirth": 1994,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:48.000Z",
+           "StartPunchTimeLocal": "18:53:56",
+           "FinishPunchTimeLocal": "20:37:12",
+           "TotalTimehhmmss": "1:43:16",
+           "TotalTimeSecs": 6196,
+           "Classifier": "OK",
+           "ClubName": "UCL",
+           "GrossScore": 560,
+           "NetScore": 560,
+           "MapRunVersion": "MapRun 7.4.2-ios-en",
+           "Distance": 10.33,
+           "Pacemmss": "9:60",
+           "PaceMins": 9.996773152629881,
+           "Punches": [
+               {
+                   "ControlId": "414",
+                   "TimeAfterStartSecs": 307
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 1733
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 1920
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 2481
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2982
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 3391
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 3524
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 3683
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 4107
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 4751
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 5091
+               },
+               {
+                   "ControlId": "71",
+                   "TimeAfterStartSecs": 5692
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3597
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4244
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4404
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4617
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4674
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4918
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5011
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5155
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5298
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5363
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5829
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5886
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5952
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 6096
+               }
+           ]
+       },
+       {
+           "Id": 451059,
+           "Surname": "Sajjad",
+           "Firstname": "Ammar",
+           "Gender": "M",
+           "YearOfBirth": 1999,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:43.000Z",
+           "StartPunchTimeLocal": "18:54:29",
+           "FinishPunchTimeLocal": "20:35:02",
+           "TotalTimehhmmss": "1:40:32",
+           "TotalTimeSecs": 6032,
+           "Classifier": "OK",
+           "ClubName": "Accenture",
+           "GrossScore": 480,
+           "NetScore": 480,
+           "MapRunVersion": "MapRun 7.4.2-ios-en",
+           "Distance": 8.87,
+           "Pacemmss": "11:20",
+           "PaceMins": 11.334084930477266,
+           "Punches": [
+               {
+                   "ControlId": "404",
+                   "TimeAfterStartSecs": 183
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 1794
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 1931
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 2066
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2500
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 2709
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 3339
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 3717
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 4494
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 3004
+               },
+               {
+                   "ControlId": "72 (Extra)",
+                   "TimeAfterStartSecs": 4259
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 4300
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4611
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4690
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 4872
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5041
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5128
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5235
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5654
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5727
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5800
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5933
+               }
+           ]
+       },
+       {
+           "Id": 451058,
+           "Surname": "Thorby (Rev30)",
+           "Firstname": "Daniel",
+           "Gender": "M",
+           "YearOfBirth": 1994,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:44.000Z",
+           "StartPunchTimeLocal": "18:53:25",
+           "FinishPunchTimeLocal": "20:29:10",
+           "TotalTimehhmmss": "1:35:45",
+           "TotalTimeSecs": 5745,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 480,
+           "NetScore": 480,
+           "MapRunVersion": "MapRun6 6.5.10-android-en",
+           "Distance": 11.56,
+           "Pacemmss": "8:17",
+           "PaceMins": 8.28287197231834,
+           "Punches": [
+               {
+                   "ControlId": "401",
+                   "TimeAfterStartSecs": 76
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 946
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 1695
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 1778
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 1841
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 1980
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 2275
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 3454
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 5353
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 5551
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 2487
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3113
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3188
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3518
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3874
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 3915
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3976
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 4049
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 4251
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4318
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4383
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 4457
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4675
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4721
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4810
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 4875
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 4939
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5150
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5446
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5494
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5663
+               }
+           ]
+       },
+       {
+           "Id": 451056,
+           "Surname": "Ramirez",
+           "Firstname": "Belen",
+           "Gender": "F",
+           "YearOfBirth": 1999,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:43.000Z",
+           "StartPunchTimeLocal": "18:53:58",
+           "FinishPunchTimeLocal": "20:34:55",
+           "TotalTimehhmmss": "1:40:56",
+           "TotalTimeSecs": 6056,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 560,
+           "NetScore": 560,
+           "MapRunVersion": "MapRun6 6.5.10-ios-en",
+           "Distance": 7.28,
+           "Pacemmss": "13:52",
+           "PaceMins": 13.864468864468865,
+           "Punches": [
+               {
+                   "ControlId": "411",
+                   "TimeAfterStartSecs": 111
+               },
+               {
+                   "ControlId": "71",
+                   "TimeAfterStartSecs": 1527
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 1981
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 2190
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2275
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 3469
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 3844
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 4268
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 4417
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 5478
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 2380
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3983
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4054
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4162
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4648
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4751
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4818
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4905
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5002
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5509
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5628
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5704
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5801
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5945
+               }
+           ]
+       },
+       {
+           "Id": 451057,
+           "Surname": "Nogas",
+           "Firstname": "Michael",
+           "Gender": "M",
+           "YearOfBirth": 1993,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:57.000Z",
+           "StartPunchTimeLocal": "18:54:29",
+           "FinishPunchTimeLocal": "20:35:02",
+           "TotalTimehhmmss": "1:40:32",
+           "TotalTimeSecs": 6032,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 560,
+           "NetScore": 560,
+           "MapRunVersion": "MapRun 7.4.2-ios-en",
+           "Distance": 10.11,
+           "Pacemmss": "9:57",
+           "PaceMins": 9.943949884602706,
+           "Punches": [
+               {
+                   "ControlId": "404",
+                   "TimeAfterStartSecs": 178
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 1795
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 1849
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 1935
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 2026
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 2275
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2568
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 2656
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 3027
+               },
+               {
+                   "ControlId": "10",
+                   "TimeAfterStartSecs": 3331
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 3635
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 4398
+               },
+               {
+                   "ControlId": "71",
+                   "TimeAfterStartSecs": 5532
+               },
+               {
+                   "ControlId": "72 (Extra)",
+                   "TimeAfterStartSecs": 4261
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4323
+               },
+               {
+                   "ControlId": "9 (Extra)",
+                   "TimeAfterStartSecs": 4541
+               },
+               {
+                   "ControlId": "10 (Extra)",
+                   "TimeAfterStartSecs": 4644
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5127
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5233
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5553
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5652
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5729
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5800
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5933
+               }
+           ]
+       },
+       {
+           "Id": 451055,
+           "Surname": "Mit",
+           "Firstname": "Sam",
+           "Gender": "M",
+           "YearOfBirth": 1976,
+           "TrackStartDateTimeUTC": "2024-06-18T08:53:42.000Z",
+           "StartPunchTimeLocal": "18:54:34",
+           "FinishPunchTimeLocal": "20:34:16",
+           "TotalTimehhmmss": "1:39:41",
+           "TotalTimeSecs": 5981,
+           "Classifier": "OK",
+           "ClubName": "UCL Team 1",
+           "GrossScore": 410,
+           "NetScore": 410,
+           "MapRunVersion": "MapRun 7.4.1-android-en",
+           "Distance": 9.65,
+           "Pacemmss": "10:20",
+           "PaceMins": 10.329879101899827,
+           "Punches": [
+               {
+                   "ControlId": "402",
+                   "TimeAfterStartSecs": 218
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 1428
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 1561
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 3337
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 3428
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 3822
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 3996
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 4286
+               },
+               {
+                   "ControlId": "10",
+                   "TimeAfterStartSecs": 4597
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 2494
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3554
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 3707
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4944
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5517
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5584
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5669
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5847
+               }
+           ]
+       },
+       {
+           "Id": 451054,
+           "Surname": "AL-Mamoon",
+           "Firstname": "Abdullah",
+           "Gender": "M",
+           "YearOfBirth": 1986,
+           "TrackStartDateTimeUTC": "2024-06-18T08:53:39.000Z",
+           "StartPunchTimeLocal": "18:54:32",
+           "FinishPunchTimeLocal": "20:34:13",
+           "TotalTimehhmmss": "1:39:40",
+           "TotalTimeSecs": 5980,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 560,
+           "NetScore": 560,
+           "MapRunVersion": "MapRun 7.4.1-android-en",
+           "Distance": 10.1,
+           "Pacemmss": "9:52",
+           "PaceMins": 9.867986798679867,
+           "Punches": [
+               {
+                   "ControlId": "402",
+                   "TimeAfterStartSecs": 203
+               },
+               {
+                   "ControlId": "71",
+                   "TimeAfterStartSecs": 1117
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 1375
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 1480
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 1634
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 1813
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 2001
+               },
+               {
+                   "ControlId": "10",
+                   "TimeAfterStartSecs": 2176
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 2846
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 3557
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 3707
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 3814
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 3996
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 2655
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3339
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 3427
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4284
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 4565
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4663
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4745
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4856
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4945
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5186
+               },
+               {
+                   "ControlId": "71 (Extra)",
+                   "TimeAfterStartSecs": 5381
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5521
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5585
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5671
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5868
+               }
+           ]
+       },
+       {
+           "Id": 451053,
+           "Surname": "Holland",
+           "Firstname": "Kerry",
+           "Gender": "F",
+           "YearOfBirth": 1998,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:44.000Z",
+           "StartPunchTimeLocal": "18:53:52",
+           "FinishPunchTimeLocal": "20:33:26",
+           "TotalTimehhmmss": "1:39:33",
+           "TotalTimeSecs": 5973,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 410,
+           "NetScore": 410,
+           "MapRunVersion": "MapRun 7.4.2-ios-en",
+           "Distance": 8.26,
+           "Pacemmss": "12:03",
+           "PaceMins": 12.052058111380147,
+           "Punches": [
+               {
+                   "ControlId": "409",
+                   "TimeAfterStartSecs": 229
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 2433
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 2670
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 2806
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 3262
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 4756
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 5668
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4476
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4923
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5047
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5509
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5578
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5841
+               }
+           ]
+       },
+       {
+           "Id": 451052,
+           "Surname": "Thorby",
+           "Firstname": "Daniel",
+           "Gender": "M",
+           "YearOfBirth": 1994,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:44.000Z",
+           "StartPunchTimeLocal": "18:53:25",
+           "FinishPunchTimeLocal": "20:29:10",
+           "TotalTimehhmmss": "1:35:45",
+           "TotalTimeSecs": 5745,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 480,
+           "NetScore": 480,
+           "MapRunVersion": "MapRun6 6.5.10-android-en",
+           "Distance": 11.56,
+           "Pacemmss": "8:17",
+           "PaceMins": 8.28287197231834,
+           "Punches": [
+               {
+                   "ControlId": "401",
+                   "TimeAfterStartSecs": 76
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 946
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 1778
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 1841
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 1980
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 2275
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 3454
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 3518
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 5353
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 5551
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 2487
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3188
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3874
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 3915
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3976
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 4049
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 4251
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4318
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4383
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 4457
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4675
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4721
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4810
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 4875
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 4939
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 5150
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5446
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5494
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5663
+               }
+           ]
+       },
+       {
+           "Id": 451050,
+           "Surname": "Brearley",
+           "Firstname": "Anna",
+           "Gender": "F",
+           "YearOfBirth": 1994,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:44.000Z",
+           "StartPunchTimeLocal": "18:53:25",
+           "FinishPunchTimeLocal": "20:29:10",
+           "TotalTimehhmmss": "1:35:44",
+           "TotalTimeSecs": 5744,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 560,
+           "NetScore": 560,
+           "MapRunVersion": "MapRun6 6.5.10-ios-en",
+           "Distance": 12.82,
+           "Pacemmss": "7:28",
+           "PaceMins": 7.467498699947997,
+           "Punches": [
+               {
+                   "ControlId": "401",
+                   "TimeAfterStartSecs": 80
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 988
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 1454
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 1672
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 1770
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 1976
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 2154
+               },
+               {
+                   "ControlId": "10",
+                   "TimeAfterStartSecs": 2271
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 2724
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 3079
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 4028
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 5441
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 5656
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 3224
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 3383
+               },
+               {
+                   "ControlId": "8 (Extra)",
+                   "TimeAfterStartSecs": 3462
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 3699
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 3862
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4254
+               },
+               {
+                   "ControlId": "10 (Extra)",
+                   "TimeAfterStartSecs": 4361
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4652
+               },
+               {
+                   "ControlId": "9 (Extra)",
+                   "TimeAfterStartSecs": 4837
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5076
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5493
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5550
+               }
+           ]
+       },
+       {
+           "Id": 451049,
+           "Surname": "Bennett",
+           "Firstname": "Edward",
+           "Gender": "M",
+           "YearOfBirth": 1993,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:43.000Z",
+           "StartPunchTimeLocal": "18:54:15",
+           "FinishPunchTimeLocal": "20:28:55",
+           "TotalTimehhmmss": "1:34:39",
+           "TotalTimeSecs": 5679,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 410,
+           "NetScore": 410,
+           "MapRunVersion": "MapRun 7.4.2-ios-en",
+           "Distance": 11.59,
+           "Pacemmss": "8:10",
+           "PaceMins": 8.166522864538395,
+           "Punches": [
+               {
+                   "ControlId": "407",
+                   "TimeAfterStartSecs": 140
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 770
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 1560
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 1721
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 1873
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 2201
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2421
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 3695
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 2616
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3257
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 3312
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3401
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 3522
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3879
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 3956
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4064
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 4166
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 4235
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4351
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4467
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4520
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4583
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 4704
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 4963
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5344
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5398
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5462
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5579
+               }
+           ]
+       },
+       {
+           "Id": 451048,
+           "Surname": "Lever",
+           "Firstname": "Lauren",
+           "Gender": "F",
+           "YearOfBirth": 1999,
+           "TrackStartDateTimeUTC": "2024-06-18T08:53:28.000Z",
+           "StartPunchTimeLocal": "18:54:14",
+           "FinishPunchTimeLocal": "20:28:58",
+           "TotalTimehhmmss": "1:34:43",
+           "TotalTimeSecs": 5683,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 490,
+           "NetScore": 490,
+           "MapRunVersion": "MapRun 7.4.2-ios-es",
+           "Distance": 9.32,
+           "Pacemmss": "10:10",
+           "PaceMins": 10.162732474964233,
+           "Punches": [
+               {
+                   "ControlId": "407",
+                   "TimeAfterStartSecs": 144
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 772
+               },
+               {
+                   "ControlId": "71",
+                   "TimeAfterStartSecs": 1025
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 1534
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 1711
+               },
+               {
+                   "ControlId": "10",
+                   "TimeAfterStartSecs": 1952
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 2192
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 2429
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 2483
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 2564
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 5346
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 5399
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 2652
+               },
+               {
+                   "ControlId": "71 (Extra)",
+                   "TimeAfterStartSecs": 2994
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3234
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 3316
+               },
+               {
+                   "ControlId": "7 (Extra)",
+                   "TimeAfterStartSecs": 3395
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 3689
+               },
+               {
+                   "ControlId": "9 (Extra)",
+                   "TimeAfterStartSecs": 4030
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4355
+               },
+               {
+                   "ControlId": "10 (Extra)",
+                   "TimeAfterStartSecs": 4516
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4806
+               },
+               {
+                   "ControlId": "71 (Extra)",
+                   "TimeAfterStartSecs": 5216
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5462
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5579
+               }
+           ]
+       },
+       {
+           "Id": 451047,
+           "Surname": "H",
+           "Firstname": "Jeremy",
+           "Gender": "M",
+           "YearOfBirth": 1992,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:42.000Z",
+           "StartPunchTimeLocal": "18:54:00",
+           "FinishPunchTimeLocal": "20:28:01",
+           "TotalTimehhmmss": "1:34:01",
+           "TotalTimeSecs": 5641,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 490,
+           "NetScore": 490,
+           "MapRunVersion": "MapRun6 6.5.10-android-en",
+           "Distance": 10.28,
+           "Pacemmss": "9:09",
+           "PaceMins": 9.145590142671855,
+           "Punches": [
+               {
+                   "ControlId": "412",
+                   "TimeAfterStartSecs": 131
+               },
+               {
+                   "ControlId": "71",
+                   "TimeAfterStartSecs": 1152
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 1692
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 1916
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 2140
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 2227
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 2308
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 2489
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 4422
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 5232
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 5331
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 2400
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 3619
+               },
+               {
+                   "ControlId": "7 (Extra)",
+                   "TimeAfterStartSecs": 3689
+               },
+               {
+                   "ControlId": "5 (Extra)",
+                   "TimeAfterStartSecs": 4156
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 4576
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4675
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 4755
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5150
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5494
+               }
+           ]
+       },
+       {
+           "Id": 451046,
+           "Surname": "Dinwoodie",
+           "Firstname": "Rach",
+           "Gender": "F",
+           "YearOfBirth": 1997,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:44.000Z",
+           "StartPunchTimeLocal": "18:54:04",
+           "FinishPunchTimeLocal": "20:27:39",
+           "TotalTimehhmmss": "1:33:35",
+           "TotalTimeSecs": 5615,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 490,
+           "NetScore": 490,
+           "MapRunVersion": "MapRun 7.4.2-ios-en",
+           "Distance": 7.95,
+           "Pacemmss": "11:46",
+           "PaceMins": 11.771488469601676,
+           "Punches": [
+               {
+                   "ControlId": "412",
+                   "TimeAfterStartSecs": 128
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 1676
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 1937
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 2031
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2183
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 2274
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 2405
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 2486
+               },
+               {
+                   "ControlId": "71",
+                   "TimeAfterStartSecs": 2759
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3468
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3590
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 3988
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4079
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4179
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 4294
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4382
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4501
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4673
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 4766
+               },
+               {
+                   "ControlId": "71 (Extra)",
+                   "TimeAfterStartSecs": 4899
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5132
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5226
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5315
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5504
+               }
+           ]
+       },
+       {
+           "Id": 451045,
+           "Surname": "Brown",
+           "Firstname": "Greg",
+           "Gender": "M",
+           "YearOfBirth": 1992,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:46.000Z",
+           "StartPunchTimeLocal": "18:54:11",
+           "FinishPunchTimeLocal": "20:22:11",
+           "TotalTimehhmmss": "1:27:59",
+           "TotalTimeSecs": 5279,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 570,
+           "NetScore": 570,
+           "MapRunVersion": "MapRun 7.4.1-android-en",
+           "Distance": 7.11,
+           "Pacemmss": "12:22",
+           "PaceMins": 12.37458977965307,
+           "Punches": [
+               {
+                   "ControlId": "413",
+                   "TimeAfterStartSecs": 137
+               },
+               {
+                   "ControlId": "71",
+                   "TimeAfterStartSecs": 1406
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 1564
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 1679
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2165
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 2263
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 2382
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 3225
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 3822
+               },
+               {
+                   "ControlId": "10",
+                   "TimeAfterStartSecs": 3924
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 4818
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3145
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 3425
+               },
+               {
+                   "ControlId": "4 (Extra)",
+                   "TimeAfterStartSecs": 3670
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4052
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4137
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 4244
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4918
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4979
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5047
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5169
+               }
+           ]
+       },
+       {
+           "Id": 451043,
+           "Surname": "Abdelrazek",
+           "Firstname": "Mahmoud",
+           "Gender": "M",
+           "YearOfBirth": 1990,
+           "TrackStartDateTimeUTC": "2024-06-18T08:53:11.000Z",
+           "StartPunchTimeLocal": "18:54:02",
+           "FinishPunchTimeLocal": "20:24:08",
+           "TotalTimehhmmss": "1:30:05",
+           "TotalTimeSecs": 5405,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 490,
+           "NetScore": 490,
+           "MapRunVersion": "MapRun 7.4.1-android-en",
+           "Distance": 7.55,
+           "Pacemmss": "11:56",
+           "PaceMins": 11.931567328918323,
+           "Punches": [
+               {
+                   "ControlId": "410",
+                   "TimeAfterStartSecs": 261
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 1264
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 1772
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 1912
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2059
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 2140
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 3634
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 3838
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 2249
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 2373
+               },
+               {
+                   "ControlId": "71 (Extra)",
+                   "TimeAfterStartSecs": 2972
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 3031
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3146
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 3229
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 3713
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3942
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 4023
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4186
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 4295
+               },
+               {
+                   "ControlId": "71 (Extra)",
+                   "TimeAfterStartSecs": 4861
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 4911
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 5027
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 5082
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5159
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5305
+               }
+           ]
+       },
+       {
+           "Id": 451042,
+           "Surname": "Spence",
+           "Firstname": "Morna",
+           "Gender": "F",
+           "YearOfBirth": 1991,
+           "TrackStartDateTimeUTC": "2024-06-18T08:52:43.000Z",
+           "StartPunchTimeLocal": "18:54:11",
+           "FinishPunchTimeLocal": "20:22:14",
+           "TotalTimehhmmss": "1:28:02",
+           "TotalTimeSecs": 5282,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 490,
+           "NetScore": 490,
+           "MapRunVersion": "MapRun 7.4.2-ios-en",
+           "Distance": 7.28,
+           "Pacemmss": "12:06",
+           "PaceMins": 12.092490842490843,
+           "Punches": [
+               {
+                   "ControlId": "413",
+                   "TimeAfterStartSecs": 133
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 1899
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 2125
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 2221
+               },
+               {
+                   "ControlId": "3",
+                   "TimeAfterStartSecs": 2444
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 2624
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 2808
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 3227
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 3669
+               },
+               {
+                   "ControlId": "5",
+                   "TimeAfterStartSecs": 3780
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 2352
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3145
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 3373
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3528
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 3974
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4135
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 4246
+               },
+               {
+                   "ControlId": "3 (Extra)",
+                   "TimeAfterStartSecs": 4918
+               },
+               {
+                   "ControlId": "6 (Extra)",
+                   "TimeAfterStartSecs": 4978
+               },
+               {
+                   "ControlId": "2 (Extra)",
+                   "TimeAfterStartSecs": 5049
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 5169
+               }
+           ]
+       },
+       {
+           "Id": 451037,
+           "Surname": "M",
+           "Firstname": "Shubh",
+           "Gender": "M",
+           "YearOfBirth": 1994,
+           "TrackStartDateTimeUTC": "2024-06-18T08:54:23.000Z",
+           "StartPunchTimeLocal": "19:00:46",
+           "FinishPunchTimeLocal": "20:09:47",
+           "TotalTimehhmmss": "1:09:01",
+           "TotalTimeSecs": 4141,
+           "Classifier": "OK",
+           "ClubName": "PwC",
+           "GrossScore": 510,
+           "NetScore": 510,
+           "MapRunVersion": "MapRun 7.4.2-ios-en",
+           "Distance": 5.65,
+           "Pacemmss": "12:13",
+           "PaceMins": 12.215339233038348,
+           "Punches": [
+               {
+                   "ControlId": "420",
+                   "TimeAfterStartSecs": 10
+               },
+               {
+                   "ControlId": "11",
+                   "TimeAfterStartSecs": 385
+               },
+               {
+                   "ControlId": "1",
+                   "TimeAfterStartSecs": 1295
+               },
+               {
+                   "ControlId": "4",
+                   "TimeAfterStartSecs": 1466
+               },
+               {
+                   "ControlId": "7",
+                   "TimeAfterStartSecs": 1534
+               },
+               {
+                   "ControlId": "9",
+                   "TimeAfterStartSecs": 1648
+               },
+               {
+                   "ControlId": "10",
+                   "TimeAfterStartSecs": 1772
+               },
+               {
+                   "ControlId": "8",
+                   "TimeAfterStartSecs": 1914
+               },
+               {
+                   "ControlId": "2",
+                   "TimeAfterStartSecs": 2063
+               },
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 2644
+               },
+               {
+                   "ControlId": "6",
+                   "TimeAfterStartSecs": 3546
+               },
+               {
+                   "ControlId": "11 (Extra)",
+                   "TimeAfterStartSecs": 2382
+               },
+               {
+                   "ControlId": "1 (Extra)",
+                   "TimeAfterStartSecs": 3159
+               }
+           ]
+       },
+       {
+           "Id": 451034,
+           "Surname": "Fraser",
+           "Firstname": "James",
+           "Gender": "M",
+           "YearOfBirth": 1986,
+           "TrackStartDateTimeUTC": "2024-06-18T09:06:27.000Z",
+           "StartPunchTimeLocal": "19:06:45",
+           "FinishPunchTimeLocal": "20:08:16",
+           "TotalTimehhmmss": "1:01:31",
+           "TotalTimeSecs": 3691,
+           "Classifier": "OK",
+           "ClubName": "",
+           "GrossScore": 70,
+           "NetScore": 70,
+           "MapRunVersion": "MapRun 7.4.1-android-en",
+           "Distance": 0.15,
+           "Pacemmss": "410:07",
+           "PaceMins": 410.1111111111111,
+           "Punches": [
+               {
+                   "ControlId": "72",
+                   "TimeAfterStartSecs": 3607
+               }
+           ]
+       }
+   ]
+}
