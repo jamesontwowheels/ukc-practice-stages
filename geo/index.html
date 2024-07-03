@@ -6,9 +6,10 @@ let target;
 let options;
 
 function success(pos) {
-    document.getElementById("distance").innerHTML = "success";
+    document.getElementById("distance").innerHTML = "success a";
   const crd = pos.coords;
 
+  document.getElementById("distance").innerHTML = crd.latitude;
   var R = 6371; // Radius of the earth in km
   var dLat = deg2rad(crd.latitude-target.latitude);  // deg2rad below
   var dLon = deg2rad(crd.latitude-target.latitude); 
