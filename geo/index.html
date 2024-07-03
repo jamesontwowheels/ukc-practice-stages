@@ -30,6 +30,7 @@ function success(pos) {
   var d = R * c * 1000; // Distance in m
   document.getElementById("distance").innerHtml = "pre-d";
   document.getElementById("distance").innerHTML = d;
+
   if (d < 1200) {
     document.getElementById("distance").innerHTML = "Congratulations, you reached the target <br>" + document.getElementById("distance").innerHTML;
     //navigator.geolocation.clearWatch(id);
