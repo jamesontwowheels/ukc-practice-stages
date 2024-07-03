@@ -12,14 +12,18 @@ function success(pos) {
   var R = 6371; // Radius of the earth in km
   var dLat = deg2rad(crd.latitude-target.latitude);  // deg2rad below
   var dLon = deg2rad(crd.latitude-target.latitude); 
+  
+  document.getElementById("distance").innerHtml = "pre-a";
   var a = 
     Math.sin(dLat/2) * Math.sin(dLat/2) +
     Math.cos(deg2rad(crd.latitude)) * Math.cos(deg2rad(target.latitude)) * 
     Math.sin(dLon/2) * Math.sin(dLon/2)
     ; 
+    
+  document.getElementById("distance").innerHtml = "pre-c";
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = R * c * 1000; // Distance in m
-
+  document.getElementById("distance").innerHtml = "pre-d";
   document.getElementById("distance").innerHTML = d;
   if (d < 30) {
     document.getElementById("distance").innerHTML = "Congratulations, you reached the target";
