@@ -1,6 +1,9 @@
 Geo check wimbledon
 
-<div id=distance>???</div>
+<div id=1>???</div>
+<br>
+<br>
+<div id=2>???</div>
 
 <script>
 let id;
@@ -12,7 +15,12 @@ function deg2rad(degrees) {
 }
 
 function success(pos) {
-    document.getElementById("distance").innerHTML = "success a";
+
+  for (let i = 0; i < targets.length; i++) {
+  var target = targets[i];
+
+  var id = target.id;
+
   const crd = pos.coords;
 
   document.getElementById("distance").innerHTML = crd.latitude;
@@ -20,34 +28,41 @@ function success(pos) {
   var dLat = deg2rad(crd.latitude-target.latitude);  // deg2rad below
   var dLon = deg2rad(crd.latitude-target.latitude); 
   
-  document.getElementById("distance").innerHtml = "pre-a";
   var a = 
     Math.sin(dLat/2) * Math.sin(dLat/2) +
     Math.cos(deg2rad(crd.latitude)) * Math.cos(deg2rad(target.latitude)) * 
     Math.sin(dLon/2) * Math.sin(dLon/2)
     ; 
     
-  document.getElementById("distance").innerHtml = "pre-c";
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = R * c * 1000; // Distance in m
-  document.getElementById("distance").innerHtml = "pre-d";
-  document.getElementById("distance").innerHTML = d;
+  document.getElementById(id).innerHTML = d + "location: " + target.name;
 
   if (d < 1200) {
-    document.getElementById("distance").innerHTML = "Congratulations, you reached the target <br>" + document.getElementById("distance").innerHTML;
+    document.getElementById(id).innerHTML = "Congratulations, you reached the target <br>" + document.getElementById("distance").innerHTML;
     //navigator.geolocation.clearWatch(id);
 
   }
+}
 }
 
 function error(err) {
   console.error(`ERROR(${err.code}): ${err.message}`);
 }
 
-target = {
+targets = [{
   latitude: 51.422391,
   longitude: -0.204278,
-};
+  id: 1,
+  name: wimbledon
+},
+{
+  //51.334585, -0.268582
+  latitude: 51.334585,
+  longitude: -0.268582,
+  id: 2,
+  name: epsom
+}];
 //multiple targets 51.422391, -0.204278
 
 options = {
