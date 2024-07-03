@@ -1,4 +1,4 @@
-Geo check wimbledon"""
+Geo check mathround"""
 
 <div id=1>???</div>
 <br>
@@ -35,10 +35,10 @@ function success(pos) {
     ; 
     
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-  var d = R * c * 1000; // Distance in m
-  document.getElementById(id).innerHTML = d + "location: " + target.name;
+  var d = Math.round(R * c * 1000); // Distance in m
+  document.getElementById(id).innerHTML = d + "m to " + target.name;
 
-  if (d < 1200) {
+  if (d < 100) {
     document.getElementById(id).innerHTML = "Congratulations, you reached the target <br>" + document.getElementById("distance").innerHTML;
     //navigator.geolocation.clearWatch(id);
 
