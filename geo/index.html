@@ -5,6 +5,10 @@ let id;
 let target;
 let options;
 
+function deg2rad(degrees) {
+  return degrees * (Math.PI / 180);
+}
+
 function success(pos) {
     document.getElementById("distance").innerHTML = "success a";
   const crd = pos.coords;
