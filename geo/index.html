@@ -6,6 +6,7 @@ let target;
 let options;
 
 function success(pos) {
+    document.getElementById("distance").innerHTML = "success";
   const crd = pos.coords;
 
   var R = 6371; // Radius of the earth in km
@@ -37,7 +38,7 @@ target = {
 
 options = {
   enableHighAccuracy: false,
-  timeout: 5000,
+  timeout: 0,
   maximumAge: 0,
 };
 
