@@ -1,4 +1,20 @@
-Geo check button
+Geo check button script
+<script type="text/javascript">
+  $(document).ready(function(){
+      $("button").click(function(){
+
+          $.ajax({
+              type: 'POST',
+              url: 'script.php',
+              success: function(data) {
+                  alert(data);
+                  $("p").text(data);
+
+              }
+          });
+ });
+});
+</script>
 
 <div id=1>???</div>
 <br>
@@ -40,7 +56,7 @@ function success(pos) {
 
   if (d < 1000) {
     document.getElementById(id).innerHTML = "Congratulations, you reached the target <br>" + document.getElementById(id).innerHTML
-    +"<button cp='"+id+"''>check-in</button>";
+    +"<button cp='"+id+">check-in</button>";
     //navigator.geolocation.clearWatch(id);
 
   }
