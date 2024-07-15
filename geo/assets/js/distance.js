@@ -30,7 +30,7 @@ function success(pos) {
   var d = Math.round(R * c * 1000); // Distance in m
   document.getElementById(id).innerHTML = d + "m to " + target.name;
 
-  if (d < 1000) {
+  if (d < 20000) {
     document.getElementById(id).innerHTML = "Congratulations, you reached the target <br>" + document.getElementById(id).innerHTML
     +"<button cp='"+id+"'>check-in</button>";
     //navigator.geolocation.clearWatch(id);
