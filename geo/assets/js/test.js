@@ -6,7 +6,7 @@ $("body").on("click", "button", function () {
     console.log (cp);
     $.ajax({
         type: 'POST',
-        url: 'assets/php/script.php',
+        url: 'assets/php/script.php?cp='+cp,
         success: function(data) {
             alert(data);
             $("p").text(data);
