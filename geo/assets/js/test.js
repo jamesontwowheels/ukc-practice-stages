@@ -1,4 +1,4 @@
 console.log("tested");
-$("button").on("click", function () {
+$("body").on("click", "button", function () {
     console.log("button clicked");
 })
