@@ -39,7 +39,7 @@ function success(pos) {
   document.getElementById(id).innerHTML = d + "m to " + target.name;
 
   if (d < 1000) {
-    document.getElementById(id).innerHTML = "Congratulations, you reached the target <br>" + document.getElementById("distance").innerHTML
+    document.getElementById(id).innerHTML = "Congratulations, you reached the target <br>" + document.getElementById(id).innerHTML
     +"<button cp='"+id+"''>check-in</button>";
     //navigator.geolocation.clearWatch(id);
 
