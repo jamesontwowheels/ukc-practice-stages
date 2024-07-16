@@ -1,12 +1,14 @@
 <?PHP
 $cp = $_REQUEST["cp"];
 echo "You hit CP $cp";
-
+echo "extended echo";
 include 'db_connect.php';
 
-$sql = "INSERT INTO `dbo.test_game` VALUES 
-    (1, 1, 2, 3);";
+echo "here";
 
+$sql = "INSERT INTO `dbo.test_game` VALUES 
+    ( null, 1, 2, 3);";
+echo $sql;
 if ($conn->query($sql) === TRUE) {
     echo "record inserted successfully";
 } else {
