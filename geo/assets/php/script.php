@@ -9,4 +9,6 @@ $sql = "INSERT INTO `dbo.test_game` VALUES
 
 if ($conn->query($sql) === TRUE) {
     echo "record inserted successfully";
+} else {
+    echo "record insert failed";
 }
