@@ -1,23 +1,8 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src='targets.js'></script>
 <script type="text/javascript" src='assets/js/distance.js'></script>
 <link rel="stylesheet" href="assets/css/main.css">
-<script type="text/javascript">
-  $(document).ready(function(){
-      $("button").click(function(){
-        console.log('button pressed');
-          $.ajax({
-              type: 'POST',
-              url: 'assets/php/script.php',
-              success: function(data) {
-                  alert(data);
-                  $("p").text(data);
-
-              }
-          });
- });
-});
-</script>
 
 <body>
   <h1>MINDGAMES</h1>
@@ -29,7 +14,7 @@
   <br>
   <div id=2>???</div>
   <p>holding space</p>
-  <table>
+  <table id="checkpoints">
     <tbody>
     <tr>
       <td>Checkpoint</td><td><button class="check_in">1</button></td>
@@ -56,4 +41,5 @@
   </table>
 </div>
 </body>
+<script type="text/javascript" src='assets/js/rows.js'></script>
 <script type="text/javascript" src='assets/js/test.js'></script>
