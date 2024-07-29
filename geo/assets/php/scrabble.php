@@ -8,6 +8,10 @@ ini_set("allow_url_fopen", 1);
 $query = "select * from dbo.test_game";
 $result = $conn->query($query);
 
+foreach ($result as $row) {
+   echo "1! ";
+}
+
 $count = $result->fetchColumn();
 echo 'there are '.$count.' records';
 $data = array();
