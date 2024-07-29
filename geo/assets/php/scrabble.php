@@ -7,20 +7,17 @@ include 'db_connect.php';
 ini_set("allow_url_fopen", 1);
 //Get event results from DB:
 
-$query = "select * from dbo.test_game where Player_ID = $user";
+$query = "select * from dbo.test_game where Player_ID = $user ORDER BY Time_Stamp ASC";
 $result = $conn->query($query);
 $i = 0;
+//build punches list
+$player_cps = array();
 foreach ($result as $row) {
-   echo $row["CP_ID"];
+   $player_cps[] = [$row["CP_ID"],$row["Time_Stamp"]];
    $i += 1;
 }
 
 echo $i." rows";
-
-$count = $result->fetchColumn();
-echo 'there are '.$count.' records';
-$data = array();
-
 
 if($debug == 1){ echo '19';};
 $count_data = count($data);
