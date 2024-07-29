@@ -8,14 +8,10 @@ ini_set("allow_url_fopen", 1);
 $query = "select * from dbo.test_game";
 $result = $conn->query($query);
 
-echo $result->rowCount();
+echo $result->fetchColumn();
 
 $data = array();
 
-
-while($row = $result->fetch_assoc()) {
-        $data[] = $row;
-    }
 
 echo count($data);
 if($debug == 1){ echo '19';};
