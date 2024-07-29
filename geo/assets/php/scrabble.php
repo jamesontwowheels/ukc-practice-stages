@@ -84,8 +84,8 @@ while($x < $count_results){
 
 //build and order the punches list:
     while ($y < $count_cps){
-        $cps[] = $result[$y]["CP_ID"]);
-        $times[] = $result[$y]["Time_stamp"]);
+        $cps[] = $result[$y]["CP_ID"];
+        $times[] = $result[$y]["Time_stamp"];
         $y += 1;
     }
     array_multisort($times, $cps);
@@ -171,5 +171,3 @@ while($x < $count_results){
 }
 
 $r = 0;
-
-?>
