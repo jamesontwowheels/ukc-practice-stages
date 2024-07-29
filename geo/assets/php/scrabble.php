@@ -1,16 +1,21 @@
 <?PHP
 $debug = 1;
+echo "data play";
+$user = 1;
 include 'db_connect.php';
 
 ini_set("allow_url_fopen", 1);
 //Get event results from DB:
 
-$query = "select * from dbo.test_game";
+$query = "select * from dbo.test_game where Player_ID = $user";
 $result = $conn->query($query);
-
+$i = 0;
 foreach ($result as $row) {
-   echo "1! ";
+   echo $row["CP_ID"];
+   $i += 1;
 }
+
+echo $i." rows";
 
 $count = $result->fetchColumn();
 echo 'there are '.$count.' records';
