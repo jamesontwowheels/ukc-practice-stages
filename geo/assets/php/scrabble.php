@@ -9,7 +9,7 @@ $query = "select * from dbo.test_game";
 $result = $conn->query($query);
 
 $count = $result->fetchColumn();
-echo $count;
+echo 'there are '.$count.' records';
 $data = array();
 
 
