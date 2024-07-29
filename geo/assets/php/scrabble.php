@@ -10,14 +10,11 @@ $result = $conn->query($query);
 
 $data = array();
 
-if ($result->num_rows > 0) {
-    // Fetch all rows as associative array
+
     while($row = $result->fetch_assoc()) {
         $data[] = $row;
     }
-} else {
-    echo json_encode(array("message" => "0 results"));
-}
+echo count($data);
 
 $count_data = count($data);
 $yr = 0;
