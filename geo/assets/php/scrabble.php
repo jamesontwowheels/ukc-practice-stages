@@ -1,5 +1,5 @@
 <?PHP
-
+$debug = 1;
 include 'db_connect.php';
 
 ini_set("allow_url_fopen", 1);
@@ -11,11 +11,12 @@ $result = $conn->query($query);
 $data = array();
 
 
-    while($row = $result->fetch_assoc()) {
+while($row = $result->fetch_assoc()) {
         $data[] = $row;
     }
-echo count($data);
 
+echo count($data);
+if($debug == 1){ echo '19';};
 $count_data = count($data);
 $yr = 0;
 $results = [];
@@ -28,6 +29,8 @@ while ($yr < $count_data){
     $results[$data[$yr]["Player_ID"]][] = $data[$yr];
     $yr += 1;
 }
+
+if($debug == 1){ echo '32';};
 $count_results = count($results);
 $x = 0;
 //set-up the static constants (each requires it's own rule...):
@@ -64,6 +67,9 @@ while($x < $count_results){
             $time_penalty = floor(($finish_time-$stage_time)/5);
         } else {$time_penalty = 0;}
     $x += 1;
+
+    
+if($debug == 1){ echo '72';};
 //set-up course/result variables for each contestants
     $id = $x;
     $results_ids[] = $id;
