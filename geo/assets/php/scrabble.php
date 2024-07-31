@@ -20,21 +20,7 @@ foreach ($result as $row) {
 echo $i." rows";
 
 if($debug == 1){ echo '19';};
-$count_data = count($data);
-$yr = 0;
-$results = [];
-while ($yr < $count_data){
-    if(in_array($data[$yr]["Player_ID"],$player_stack)){
-        //do nothing
-    } else {
-        $results[] = $data[$yr]["Player_ID"];
-    }
-    $results[$data[$yr]["Player_ID"]][] = $data[$yr];
-    $yr += 1;
-}
-
-if($debug == 1){ echo '32';};
-$count_results = count($results);
+$count_results = count($player_cps);
 $x = 0;
 //set-up the static constants (each requires it's own rule...):
     //Bulk CPS
@@ -60,7 +46,7 @@ $x = 0;
 
 //start looping the contestants:
 while($x < $count_results){
-    $result = $results[$x];
+    $result = $player_cps; //$results[$x];
   // don't have this data yet...
     $name = "dummy"; //update
     $surname = "data"; //update
@@ -92,13 +78,13 @@ if($debug == 1){ echo '72';};
     $running_score = 0;
 
 //build and order the punches list:
-    while ($y < $count_cps){
+ /*    while ($y < $count_cps){
         $cps[] = $result[$y]["CP_ID"];
         $times[] = $result[$y]["Time_stamp"];
         $y += 1;
     }
     array_multisort($times, $cps);
-
+*/
     // cycle through the punch list;
     $z = 0;
     
@@ -107,8 +93,8 @@ if($debug == 1){ echo '72';};
         // add to detailed results = $results_detailed[$id][] = [_your code_];
         // add to summary results = $results_summary[$id][] = [_your code_];
 
-        $cp = $cps[$z];
-        $t = $times[$z];
+        $cp = $player_cps[0][$z];// $cps[$z];
+        $t = $player_cps[1][$z]; //times[$z];
         $z += 1;
 
         //pick up letter - start playing CPs 1-7

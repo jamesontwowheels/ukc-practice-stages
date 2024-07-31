@@ -9,8 +9,8 @@ $("body").on("click", "button", function () {
         dataType: 'json',
         url: 'assets/php/test.php?cp='+cp,
         success: function(data) {
-            alert(data["a"]);
-            $("p").text(data["b"]);
+            alert(data);
+            $("p").text(data);
             
 
         }
