@@ -2,5 +2,5 @@
 
 echo "this here";
 
-// include 'script.php';
-// include 'scrabble.php';
+//include 'script.php';
+include 'scrabble.php';
