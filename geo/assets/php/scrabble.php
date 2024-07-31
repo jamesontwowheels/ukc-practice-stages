@@ -44,8 +44,8 @@ $x = 0;
     //values
     $stage_time = 60*60;
 
-//start looping the contestants:
-while($x < $count_results){
+//start looping the contestants: //WE DON'T HAVE MULITPLE CONTESTANTS YET
+while($x < 1){
     $result = $player_cps; //$results[$x];
   // don't have this data yet...
     $name = "dummy"; //update
@@ -88,23 +88,25 @@ if($debug == 1){ echo '72';};
     // cycle through the punch list;
     $z = 0;
     
-    while ($z < count($cps)){
+    while ($z < count($player_cps)){
 
         // add to detailed results = $results_detailed[$id][] = [_your code_];
         // add to summary results = $results_summary[$id][] = [_your code_];
 
-        $cp = $player_cps[0][$z];// $cps[$z];
-        $t = $player_cps[1][$z]; //times[$z];
+        $cp = $player_cps[$z][0];// $cps[$z];
+        $t = $player_cps[$z][1]; //times[$z];
         $z += 1;
 
         //pick up letter - start playing CPs 1-7
         if(in_array($cp,$cps_letters)){
+            $letter = $word[$cp];
             if(in_array($cp,$used_letters)){
                 //letter used in word
+                echo "<br>Letter $letter played";
                 $results_detailed[$id][] = [$t,$cp,"letter $cp already used",0,$running_score];
             } else {
                 //add to word
-                $letter = $word[$cp];
+                echo "<br>Letter $letter played";
                 $current_word = $current_word.$word[$cp];
                 $current_word_value += $word_value[$cp];
                 $used_letters[] = $cp;
