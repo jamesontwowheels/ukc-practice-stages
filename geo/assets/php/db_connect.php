@@ -3,10 +3,10 @@
 try {
     $conn = new PDO("sqlsrv:server = tcp:aarc-server.database.windows.net,1433; Database = aarc_db", "aarc_admin", "aZ158Ja^tR9g6PA6LBj");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "db-connected ";
+    $debug_log[] = "db-connected ";
 }
 catch (PDOException $e) {
-    echo 'broken';
+    $debug_log[] = 'broken';
     print("Error connecting to SQL Server.");
     die(print_r($e));
 }
