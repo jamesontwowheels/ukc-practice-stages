@@ -9,8 +9,11 @@ $("body").on("click", "button", function () {
         dataType: 'json',
         url: 'assets/php/test.php?cp='+cp,
         success: function(data) {
+            console.log("ajax return");
             alert(data["available_cps"]);           
-
+        },
+        error: function(xhr, status, error) {
+            console.error("AJAX Error: ", status, error);
         }
     });
 })
