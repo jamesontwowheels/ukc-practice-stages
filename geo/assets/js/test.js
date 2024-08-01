@@ -6,12 +6,10 @@ $("body").on("click", "button", function () {
     console.log (cp);
     $.ajax({
         type: 'POST',
-       // dataType: 'json',
+        dataType: 'json',
         url: 'assets/php/test.php?cp='+cp,
         success: function(data) {
-            alert(data);
-            $("p").text(data);
-            
+            alert(data["available_cps"]);           
 
         }
     });

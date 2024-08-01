@@ -1,6 +1,9 @@
 <?PHP
 $debug = 1;
-echo "data play";
+$response = [];
+$debug_log = [];
+$commentary = [];
+$debug_log[] = "data play";
 $user = 1;
 include 'db_connect.php';
 
@@ -17,9 +20,9 @@ foreach ($result as $row) {
    $i += 1;
 }
 
-echo $i." rows";
+$debug_log[] = $i." rows";
 
-if($debug == 1){ echo '19';};
+if($debug == 1){ $debug_log[] = '19';};
 $count_results = count($player_cps);
 $x = 0;
 //set-up the static constants (each requires it's own rule...):
@@ -41,6 +44,7 @@ $x = 0;
     $results_summary = [];
     $results_ids= [];
     $results_names= [];
+    $available_cps = $cps_letters;
     //values
     $stage_time = 60*60;
 
@@ -58,7 +62,7 @@ while($x < 1){
     $x += 1;
 
     
-if($debug == 1){ echo '72';};
+if($debug == 1){ $debug_log[] = '72';};
 //set-up course/result variables for each contestants
     $id = $x;
     $results_ids[] = $id;
@@ -102,11 +106,11 @@ if($debug == 1){ echo '72';};
             $letter = $word[$cp];
             if(in_array($cp,$used_letters)){
                 //letter used in word
-                echo "<br>Letter $letter played";
+                $commentary[] = "<br>Letter $letter played";
                 $results_detailed[$id][] = [$t,$cp,"letter $cp already used",0,$running_score];
             } else {
                 //add to word
-                echo "<br>Letter $letter played";
+                $commentary[] = "<br>Letter $letter played";
                 $current_word = $current_word.$word[$cp];
                 $current_word_value += $word_value[$cp];
                 $used_letters[] = $cp;
@@ -168,3 +172,8 @@ if($debug == 1){ echo '72';};
 }
 
 $r = 0;
+$response["available_cps"] = $available_cps;
+$response["running_score"] = $running_score;
+$response["commentary"] = $commentary;
+
+echo json_encode($response);
