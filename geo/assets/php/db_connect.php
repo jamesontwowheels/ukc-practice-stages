@@ -7,6 +7,7 @@ try {
 }
 catch (PDOException $e) {
     $debug_log[] = 'broken';
-    print("Error connecting to SQL Server.");
-    die(print_r($e));
+    // print("Error connecting to SQL Server.");
+    // die(print_r($e));
+    echo json_encode($e);
 }

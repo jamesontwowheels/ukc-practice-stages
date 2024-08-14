@@ -1,4 +1,4 @@
 <?PHP
 
-//include 'script.php';
+//commented out (for some reason) include 'script.php';
 include 'scrabble.php';

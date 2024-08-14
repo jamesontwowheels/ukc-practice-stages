@@ -7,7 +7,7 @@ $("body").on("click", "button", function () {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: 'assets/php/test.php?cp='+cp,
+        url: '/geo/assets/php/test.php?cp='+cp,
         success: function(data) {
             console.log("ajax return");
             alert(data["available_cps"]);           
