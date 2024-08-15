@@ -12,7 +12,7 @@ $("body").on("click", "button", function () {
             console.log("ajax return");
             alert(data["debug_log"]);
             alert(data["current_word"]);
-            //document.getElementById(inventory_zone).innerHTML = data["current_word"];         
+            document.getElementById("inventory_zone").innerHTML = data["current_word"];         
         },
         error: function(xhr, status, error) {
             console.error("AJAX Error: ", status, error);
