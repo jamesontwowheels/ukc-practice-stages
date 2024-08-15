@@ -102,6 +102,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $t = $player_cps[$z][1]; //times[$z];
         $z += 1;
 
+        if($debug == 1){ $debug_log[] = "-- cp = $cp --";};
         //pick up letter - start playing CPs 1-7
         if(in_array($cp,$cps_letters)){
             $letter = $word[$cp];
