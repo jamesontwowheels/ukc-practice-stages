@@ -178,5 +178,6 @@ $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
 $response["current_word"] = $current_word;
 $response["current_bonus"] = $current_bonus;
+$response["debug_log"] = $debug_log;
 
 echo json_encode($response);
