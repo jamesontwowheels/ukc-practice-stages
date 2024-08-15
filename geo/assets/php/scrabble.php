@@ -175,5 +175,7 @@ $r = 0;
 $response["available_cps"] = $available_cps;
 $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
+$response["current_word"] = $current_word;
+$response["current_bonus"] = $current_bonus;
 
 echo json_encode($response);

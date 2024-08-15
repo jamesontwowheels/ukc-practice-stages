@@ -52,3 +52,7 @@ td {
     border-radius: 15px;
 }
 
+.bucket {
+    border: #9e895d 1px dashed;
+}
+

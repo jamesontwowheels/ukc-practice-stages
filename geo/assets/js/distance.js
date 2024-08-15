@@ -31,7 +31,7 @@ console.log(crd);
   var d = Math.round(R * c * 1000); // Distance in m
   document.getElementById(id).innerHTML = d + "m to " + target.properties.name;
 
-  if (d < 20000) {
+  if (d < 2000000) {
     document.getElementById(id).innerHTML = "Congratulations, you reached the target <br>" + document.getElementById(id).innerHTML
     +"<button cp='"+id+"'>check-in</button>";
     button = "button"+id;
