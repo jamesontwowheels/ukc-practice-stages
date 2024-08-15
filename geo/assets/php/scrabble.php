@@ -13,8 +13,9 @@ ini_set("allow_url_fopen", 1);
 $query = "select * from dbo.test_game where Player_ID = $user ORDER BY Time_Stamp ASC";
 $result = $conn->query($query);
 $i = 0;
+
 //build punches list
-$player_cps = array();
+$player_cps = [];
 foreach ($result as $row) {
    $player_cps[] = [$row["CP_ID"],$row["Time_Stamp"]];
    $i += 1;
