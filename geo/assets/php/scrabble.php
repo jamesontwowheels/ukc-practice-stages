@@ -48,6 +48,7 @@ $x = 0;
         5 => "H",
         6 => "U",
         7 => "E",
+        20 => "WSF",
         ];
 
     //results catchers
@@ -190,5 +191,6 @@ $response["commentary"] = $commentary;
 $response["current_word"] = $current_word;
 $response["current_bonus"] = $current_bonus;
 $response["debug_log"] = $debug_log;
+$response["cp_names"] = $cp_names;
 
 echo json_encode($response);
