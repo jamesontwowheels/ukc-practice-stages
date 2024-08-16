@@ -110,4 +110,52 @@
         "styleUrl": "#control",
         "styleHash": "5c951ac3"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.26060690018934757,
+          51.343975119416115,
+          0
+        ]
+      },
+      "properties": {
+        "name": "11",
+        "styleUrl": "#control",
+        "styleHash": "5c951ac3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.26060690018934757,
+          51.343975119416115,
+          0
+        ]
+      },
+      "properties": {
+        "name": "12",
+        "styleUrl": "#control",
+        "styleHash": "5c951ac3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.26060690018934757,
+          51.343975119416115,
+          0
+        ]
+      },
+      "properties": {
+        "name": "20",
+        "styleUrl": "#control",
+        "styleHash": "5c951ac3"
+      }
     }]
