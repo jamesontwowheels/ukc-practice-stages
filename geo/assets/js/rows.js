@@ -4,8 +4,8 @@ for (let i = 0; i < targets.length; i++) {
                 target = targets[i];
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td id="cp${target.properties.name}">${target.properties.name}</td>
                     <td id="button${target.properties.name}"></td>
+                    <td id="cp${target.properties.name}">${target.properties.name}</td>
                 `;
                 console.log(row);
                 tableBody.appendChild(row);

@@ -32,7 +32,7 @@ button {
     border-radius: 3px;
 }
 
-table, tr, td {
+table, tr {
     font-size: inherit;
     width: 80%;
     margin-left: 10%;
@@ -41,6 +41,10 @@ table, tr, td {
 }
 
 td {
+    font-size: inherit;
+    margin-left: 10%;
+    margin-right: 10%;
+    color:#c19b61;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     border-bottom: #9e895d 1px solid;

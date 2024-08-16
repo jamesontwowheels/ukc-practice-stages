@@ -40,6 +40,16 @@ $x = 0;
     $cp_wsf = 20;
     $cp_start_finish = 999;
 
+    $cp_names = [
+        1 => "N",
+        2 => "D",
+        3 => "R",
+        4 => "T",
+        5 => "H",
+        6 => "U",
+        7 => "E",
+        ];
+
     //results catchers
     $results_detailed = [];
     $results_summary = [];

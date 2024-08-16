@@ -1,3 +1,8 @@
+Next jobs:
+- tidy up the checkpoint presentation (why are only 2 showing?)
+- show checkpoints as values not numbers
+- only show checkpoints that are available
+
 Structure of app:
 
 index.html

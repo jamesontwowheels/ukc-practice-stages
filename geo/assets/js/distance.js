@@ -29,11 +29,12 @@ console.log(crd);
     
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = Math.round(R * c * 1000); // Distance in m
-  document.getElementById(id).innerHTML = d + "m to " + target.properties.name;
+  cp = "cp" + id;
+  document.getElementById(cp).innerHTML = d + "m away";
 
   if (d < 2000000) {
-    document.getElementById(id).innerHTML = "Congratulations, you reached the target <br>" + document.getElementById(id).innerHTML
-    +"<button cp='"+id+"'>check-in</button>";
+    document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + " Check-in"
+    // +"<button cp='"+id+"'>check-in</button>";
     button = "button"+id;
     document.getElementById(button).innerHTML = "<button cp='"+id+"' class='check_in'>"+id+"</button>";
     //navigator.geolocation.clearWatch(id);
