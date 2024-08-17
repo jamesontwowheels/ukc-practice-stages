@@ -36,7 +36,7 @@ console.log(crd);
     document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + " Check-in"
     // +"<button cp='"+id+"'>check-in</button>";
     button = "button"+id;
-    document.getElementById(button).innerHTML = "<button id='butt"+id+"' cp='"+id+"' class='check_in'>"+id+"</button>";
+    // document.getElementById(button).innerHTML = "<button id='butt"+id+"' cp='"+id+"' class='check_in'>"+id+"</button>";
     //navigator.geolocation.clearWatch(id);
 
   }
