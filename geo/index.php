@@ -19,12 +19,6 @@ if (!isset($_SESSION['username'])) {
   <h1>MINDGAMES</h1>
 <div id="main">  Geo noecho
   <button>og button</button>
-
-  <div id=1>???</div>
-  <br>
-  <br>
-  <div id=2>???</div>
-  <p>holding space</p>
   <table id="checkpoints">
     <tbody>
    

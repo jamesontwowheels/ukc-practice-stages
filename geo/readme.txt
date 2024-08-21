@@ -1,10 +1,18 @@
 Next jobs:
+<<<<<<< HEAD
 - only show checkpoints that are available
 - show details on page load
 - start/end a game
 - include a timer
 - allow multiple players
 - add commentary/score
+=======
+- show checkpoints as values not numbers
+- only show checkpoints that are available
+- insert accurate timings
+- game start function
+- select/allocate player option
+>>>>>>> 0144168110a3bfcb0a130967e7a93d2e18e90c4a
 
 Structure of app:
 
