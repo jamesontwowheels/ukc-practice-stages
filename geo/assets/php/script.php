@@ -1,4 +1,5 @@
 <?PHP
+session_start();
 $db_response = [];
 //generic CP hit
 $cp = $_REQUEST["cp"];
