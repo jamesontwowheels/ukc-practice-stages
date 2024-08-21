@@ -1,7 +1,10 @@
 Next jobs:
-- tidy up the checkpoint presentation (why are only 2 showing?)
-- show checkpoints as values not numbers
 - only show checkpoints that are available
+- show details on page load
+- start/end a game
+- include a timer
+- allow multiple players
+- add commentary/score
 
 Structure of app:
 
