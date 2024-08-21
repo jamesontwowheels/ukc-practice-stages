@@ -1,16 +1,18 @@
 <?PHP
+session_start();
+$user_ID = $_SESSION['user_ID'];
 $debug = 1;
 $response = [];
 $debug_log = [];
 $commentary = [];
 $debug_log[] = "data play";
-$user = 1;
+
 include 'db_connect.php';
 
 ini_set("allow_url_fopen", 1);
 //Get event results from DB:
 
-$query = "select * from dbo.test_game where Player_ID = $user ORDER BY Time_Stamp ASC";
+$query = "select * from dbo.test_game where Player_ID = $user_ID ORDER BY Time_Stamp ASC";
 $result = $conn->query($query);
 $i = 0;
 
