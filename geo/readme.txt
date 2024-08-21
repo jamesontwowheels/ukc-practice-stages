@@ -1,7 +1,9 @@
 Next jobs:
-- tidy up the checkpoint presentation (why are only 2 showing?)
 - show checkpoints as values not numbers
 - only show checkpoints that are available
+- insert accurate timings
+- game start function
+- select/allocate player option
 
 Structure of app:
 
