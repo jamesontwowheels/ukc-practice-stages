@@ -27,8 +27,8 @@ function ajax_call() {
             //game state
             var game_state = data["game_state"];
             console.log(game_state);
-            var game_start = game_state[1];
-            var game_end = game_state[2];
+            var game_start = parseInt(game_state[1]);
+            var game_end = parseInt(game_state[2]);
             var stage_time = game_state[3];
             if(game_state[0] == 1){
                     // Set the date and time we're counting down to
