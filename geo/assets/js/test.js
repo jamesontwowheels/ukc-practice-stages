@@ -47,7 +47,7 @@ function ajax_call() {
 
                     // Display the result in the element with id="timer"
                     document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
-                }
+                })}
 
             //running score
             document.getElementById("score_zone").innerHTML = data["running_score"];
