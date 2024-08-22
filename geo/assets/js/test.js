@@ -38,7 +38,6 @@ function ajax_call() {
                 const countdownFunction = setInterval(function() {
                     // Get the current date and time
                     const now = new Date().getTime();
-                    console.log(now);
                     // Calculate the time difference between now and the countdown date
                     const distance = countdownDate - now;
 
@@ -48,7 +47,7 @@ function ajax_call() {
 
                     // Display the result in the element with id="timer"
                     document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
-                })}
+                },1000)}
 
             //running score
             document.getElementById("score_zone").innerHTML = data["running_score"];
