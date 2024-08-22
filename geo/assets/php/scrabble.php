@@ -204,10 +204,12 @@ if($debug == 1){ $debug_log[] = '72';};
             } else {$time_penalty = 0;}
         }
         //
-            } else {
-                $comment = "game already ended";
+             else {
+                $game_state = 0;
+                $comment = "game reset ended";
                 $commentary[] = $comment;
             }
+        }
        
 
     }
