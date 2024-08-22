@@ -26,6 +26,7 @@ function ajax_call() {
             
             //game state
             var game_state = data["game_state"];
+            console.log(game_state);
             var game_start = game_state[1];
             var game_end = game_state[2];
             var stage_time = game_state[3];
@@ -37,7 +38,7 @@ function ajax_call() {
                 const countdownFunction = setInterval(function() {
                     // Get the current date and time
                     const now = new Date().getTime();
-                    
+                    console.log(now);
                     // Calculate the time difference between now and the countdown date
                     const distance = countdownDate - now;
 
