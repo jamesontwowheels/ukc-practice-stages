@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    ajax_call;
+})
 console.log("tested");
 $("body").on("click", "button", ajax_call);
 
