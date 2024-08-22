@@ -53,6 +53,7 @@ $x = 0;
         11 => "2x",
         12 => "3x",
         20 => "WSF",
+        999 => "S/F"
         ];
 
     //results catchers
@@ -96,6 +97,9 @@ if($debug == 1){ $debug_log[] = '72';};
     $current_word_value = 0;
     $current_bonus = 1;
     $running_score = 0;
+    $game_state = 0;
+    $game_start = 0;
+    $game_end = 0;
 
 //build and order the punches list:
  /*    while ($y < $count_cps){
@@ -179,8 +183,32 @@ if($debug == 1){ $debug_log[] = '72';};
         }
 
         //start_finish
-
+        if($cp == $cp_start_finish){
+            if($game_state == 0)
+            {
+                $game_state = 1;
+                $game_start = $t;
+                $comment = "game started";
+                $commentary[] = $comment;
+                $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
+            } elseif($game_state == 1){
+                $game_state = 2;
+                $game_end = $t;
+                $comment = "game ended";
+                $commentary[] = $comment;
+                $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
+                 //check for time penalties:    
+                $finish_time = $game_end - $game_start; //update
+                if($finish_time > $stage_time){
+                $time_penalty = floor(($finish_time-$stage_time)/5);
+            } else {$time_penalty = 0;}
+        }
         //
+            } else {
+                $comment = "game already ended";
+                $commentary[] = $comment;
+            }
+       
 
     }
 
@@ -201,5 +229,6 @@ $response["current_word"] = $current_word;
 $response["current_bonus"] = $current_bonus;
 $response["debug_log"] = $debug_log;
 $response["cp_names"] = $cp_names;
+$response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 
 echo json_encode($response);

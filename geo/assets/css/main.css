@@ -60,3 +60,8 @@ td {
     border: #9e895d 1px dashed;
 }
 
+ #timer {
+            font-size: 2em;
+            color: #333;
+            margin-top: 20px;
+        }

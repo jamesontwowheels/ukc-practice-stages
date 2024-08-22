@@ -1,12 +1,7 @@
 Next jobs:
 - only show checkpoints that are available
-- show details on page load
 - start/end a game
 - include a timer
-- allow multiple players
-- add commentary/score
-- game start function
-- select/allocate player option
 
 Structure of app:
 

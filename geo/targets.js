@@ -1,20 +1,35 @@
 
    targets = [{
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.256117378416389,
-          51.35180223478295,
-          0
-        ]
-      },
-      "properties": {
-        "name": "1",
-        "styleUrl": "#control",
-        "styleHash": "5c951ac3"
-      }
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.256117378416389,
+        51.35180223478295,
+        0
+      ]
     },
+    "properties": {
+      "name": "999",
+      "styleUrl": "#control",
+      "styleHash": "5c951ac3"
+    }
+  },{
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.256117378416389,
+        51.35180223478295,
+        0
+      ]
+    },
+    "properties": {
+      "name": "1",
+      "styleUrl": "#control",
+      "styleHash": "5c951ac3"
+    }
+  },
     {
       "type": "Feature",
       "geometry": {

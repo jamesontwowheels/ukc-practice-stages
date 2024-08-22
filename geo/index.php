@@ -22,6 +22,7 @@ if (!isset($_SESSION['username'])) {
   <h3>Running Score</h3>
   <div id="score_zone"></div>
 </div>
+<div id="timer"></div>
   <table id="checkpoints">
     <tbody>
    
