@@ -25,6 +25,7 @@ $("body").on("click", "button", function () {
             
             //commentary
             const items = data["commentary"];
+            items.reverse();
             const itemList = document.getElementById('commentary-list');
 
             // Loop through the array and append each item to the DOM
