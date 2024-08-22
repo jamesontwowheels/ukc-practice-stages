@@ -12,14 +12,14 @@ include 'db_connect.php';
 ini_set("allow_url_fopen", 1);
 //Get event results from DB:
 
-$query = "select * from dbo.test_game where Player_ID = $user_ID ORDER BY Time_Stamp ASC";
+$query = "select * from dbo.test_game where Player_ID = $user_ID ORDER BY Time_stamp ASC";
 $result = $conn->query($query);
 $i = 0;
 
 //build punches list
 $player_cps = [];
 foreach ($result as $row) {
-   $player_cps[] = [$row["CP_ID"],$row["Time_Stamp"]];
+   $player_cps[] = [$row["CP_ID"],$row["Time_stamp"]];
    $i += 1;
 }
 
