@@ -21,7 +21,8 @@ $("body").on("click", "button", function () {
             i++;
             } 
             //running score
-            document.getElementById("score_zone").innerHTML = data["running_score"];           
+            document.getElementById("score_zone").innerHTML = data["running_score"];
+            alert(data["commentary"]);           
         },
         error: function(xhr, status, error) {
             console.error("AJAX Error: ", status, error);
