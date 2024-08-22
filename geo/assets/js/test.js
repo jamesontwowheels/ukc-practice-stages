@@ -20,6 +20,8 @@ $("body").on("click", "button", function () {
             document.getElementById(cp_id).innerHTML = cp_names[this_key];
             i++;
             } 
+            //running score
+            document.getElementById("score_zone").innerHTML = data["running_score"];           
         },
         error: function(xhr, status, error) {
             console.error("AJAX Error: ", status, error);

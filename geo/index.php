@@ -17,8 +17,11 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
   <h1>MINDGAMES</h1>
-<div id="main">  Geo noecho
-  <button>og button</button>
+<div id="main">  
+<div id="score" class="bucket">
+  <h3>Running Score</h3>
+  <div id="score_zone"></div>
+</div>
   <table id="checkpoints">
     <tbody>
    
