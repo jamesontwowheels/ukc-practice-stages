@@ -38,9 +38,10 @@ function ajax_call() {
                 const countdownFunction = setInterval(function() {
                     // Get the current date and time
                     const now = new Date().getTime();
+                    const now_s = Math.floor(now/1000);
                     // Calculate the time difference between now and the countdown date
-                    const distance = countdownDate - (now/1000);
-                    console.log( now/1000);
+                    const distance = countdownDate - now_s;
+                    console.log(now_s);
                     console.log(distance);
 
                     // Time calculations for minutes and seconds
