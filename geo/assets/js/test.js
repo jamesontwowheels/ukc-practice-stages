@@ -22,7 +22,22 @@ $("body").on("click", "button", function () {
             } 
             //running score
             document.getElementById("score_zone").innerHTML = data["running_score"];
-            alert(data["commentary"]);           
+            
+            //commentary
+            const items = data["commentary"];
+            const itemList = document.getElementById('commentary-list');
+
+            // Loop through the array and append each item to the DOM
+            items.forEach(item => {
+                // Create a new DOM element (e.g., <li> for list items)
+                const listItem = document.createElement('li');
+    
+                // Set the text content of the element to the array item
+                listItem.textContent = item;
+    
+                // Append the new element to the target DOM element
+                itemList.appendChild(listItem);
+            });
         },
         error: function(xhr, status, error) {
             console.error("AJAX Error: ", status, error);

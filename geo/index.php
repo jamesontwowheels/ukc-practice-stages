@@ -34,6 +34,9 @@ if (!isset($_SESSION['username'])) {
 </div>
 <div id="history" class="bucket">
   <h3>History</h3>
+  <ul id="commentary-list">
+            <!-- Array items will be appended here -->
+  </ul>
 </div>
 </body>
 <script type="text/javascript" src='/geo/assets/js/rows.js'></script>
