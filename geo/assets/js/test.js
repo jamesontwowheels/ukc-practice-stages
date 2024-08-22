@@ -1,6 +1,7 @@
 console.log("tested");
-$("body").on("click", "button", function () {
+$("body").on("click", "button", ajax_call);
 
+function ajax_call() {
     console.log("button clicked / name update");
     var cp = $(this).attr('cp');
     console.log (cp);
@@ -44,4 +45,4 @@ $("body").on("click", "button", function () {
             console.error("AJAX Error: ", status, error);
         }
     });
-})
+}
