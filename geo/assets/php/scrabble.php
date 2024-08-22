@@ -206,6 +206,8 @@ if($debug == 1){ $debug_log[] = '72';};
         //
              else {
                 $game_state = 0;
+                $game_start = 0;
+                $game_end = 0;
                 $comment = "game reset ended";
                 $commentary[] = $comment;
             }
