@@ -123,7 +123,7 @@ if($debug == 1){ $debug_log[] = '72';};
             $letter = $word[$cp];
             if(in_array($cp,$used_letters)){
                 //letter used in word
-                $commentary[] = "<br>Letter $letter played";
+                $commentary[] = "<br>Letter $letter already used";
                 $results_detailed[$id][] = [$t,$cp,"letter $cp already used",0,$running_score];
             } else {
                 //add to word
@@ -139,15 +139,18 @@ if($debug == 1){ $debug_log[] = '72';};
         if(in_array($cp,$cps_bonus)){
             if(in_array($cp,$used_bonuses)){
                 //bonus already played
+                $commentary[] = "<br>bonus $cp already used";
                 $results_detailed[$id][] = [$t,$cp,"bonus $cp already used","",$running_score];
             } elseif ($current_bonus > 1.5) {
                 //other bonus already in play
                 $used_bonuses[] = $cp;
+                $commentary[] = "bonus $cp invalid, $current_bonus bonus already in use.";
                 $results_detailed[$id][] = [$t,$cp,"bonus $cp invalid, $current_bonus bonus already in use.","",$running_score];
             } else {
                 //award bonus
                 $used_bonuses[] = $cp;
                 $current_bonus = $cp - 9;
+                $commentary[] = "bonus $current_bonus collected.";
                 $results_detailed[$id][] = [$t,$cp,"bonus $current_bonus collected.","",$running_score];
             }
         }
@@ -161,9 +164,11 @@ if($debug == 1){ $debug_log[] = '72';};
                 $value = ($word_length_value[strlen($current_word)] + $current_word_value) * $current_bonus;
                 $running_score += $value;
                 $used_words[] = $current_word;
+                $commentary[] = "$current_word successfully played!";
                 $results_detailed[$id][] = [$t,$cp,"$current_word successfully played!","+ $value",$running_score];
                 }
             } else {
+                $commentary[] = "$current_word played, but not a known word";
                 $results_detailed[$id][] = [$t,$cp,"$current_word played, but not a known word","",$running_score];
             }
             $current_word = "";
