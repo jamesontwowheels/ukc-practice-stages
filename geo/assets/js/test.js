@@ -31,7 +31,7 @@ function ajax_call() {
             const items = data["commentary"];
             items.reverse();
             const itemList = document.getElementById('commentary-list');
-            itemList.empty();
+            itemList.innerHTML = '';
 
             // Loop through the array and append each item to the DOM
             items.forEach(item => {
