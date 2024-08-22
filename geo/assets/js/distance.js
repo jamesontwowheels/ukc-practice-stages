@@ -32,13 +32,19 @@ console.log(crd);
   cp = "cp" + id;
   document.getElementById(cp).innerHTML = d + "m away";
 
-  if (d < 2000000) {
+  if (d < 10000) {
     document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + " Check-in"
     // +"<button cp='"+id+"'>check-in</button>";
-    button = "button"+id;
+    button = "butt"+id;
+    document.getElementById(button).addClass('active');
+    document.getElementById(button).removeClass('inactive');
     // document.getElementById(button).innerHTML = "<button id='butt"+id+"' cp='"+id+"' class='check_in'>"+id+"</button>";
     //navigator.geolocation.clearWatch(id);
 
+  } else {
+    document.getElementById(button).addClass('inactive');
+    document.getElementById(button).removeClass('active');
+    document.getElementById(cp).innerHTML = d + "m away";
   }
 }
 }

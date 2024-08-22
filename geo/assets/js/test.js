@@ -3,7 +3,9 @@ console.log("tested");
 $("body").on("click", "button", ajax_call);
 
 function ajax_call() {
-    console.log("button clicked / name update");
+    if ($(this).hasClass('inactive')){
+
+    } else {console.log("button clicked / name update");
     var cp = $(this).attr('cp');
     cp = cp || 0;
     console.log (cp);
@@ -77,4 +79,4 @@ function ajax_call() {
             console.error("AJAX Error: ", status, error);
         }
     });
-}
+}}

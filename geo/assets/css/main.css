@@ -26,10 +26,16 @@ h1 {
     font-size: inherit;
 }
 
-button {
+button .active {
     background: #586557;
     height: 2em;
     border-radius: 3px;
+}
+
+button .inactive {
+    border: 1px white dashed;
+    height: 2em;
+    background: #131110;
 }
 
 table, tr {
