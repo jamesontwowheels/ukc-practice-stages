@@ -42,6 +42,7 @@ console.log(crd);
     //navigator.geolocation.clearWatch(id);
 
   } else {
+    button = "butt"+id;
     document.getElementById(button).addClass('inactive');
     document.getElementById(button).removeClass('active');
     document.getElementById(cp).innerHTML = d + "m away";
