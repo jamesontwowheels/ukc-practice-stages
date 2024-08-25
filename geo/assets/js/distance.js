@@ -35,14 +35,15 @@ console.log(crd);
   if (d < 10000) {
     document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + " Check-in"
     // +"<button cp='"+id+"'>check-in</button>";
-    button = "butt"+id;
+    var button = "butt"+id;
     document.getElementById(button).addClass('active');
     document.getElementById(button).removeClass('inactive');
     // document.getElementById(button).innerHTML = "<button id='butt"+id+"' cp='"+id+"' class='check_in'>"+id+"</button>";
     //navigator.geolocation.clearWatch(id);
 
   } else {
-    button = "butt"+id;
+    var button = "butt"+id;
+    console.log(button);
     document.getElementById(button).addClass('inactive');
     document.getElementById(button).removeClass('active');
     document.getElementById(cp).innerHTML = d + "m away";
