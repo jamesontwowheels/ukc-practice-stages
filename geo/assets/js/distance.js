@@ -44,8 +44,9 @@ console.log(crd);
   } else {
     var button = "butt"+id;
     console.log(button);
-    document.getElementById(button).addClass('inactive');
-    document.getElementById(button).removeClass('active');
+    var button_element = $("#"+button);
+    button_element.addClass('inactive');
+    button_element.removeClass('active')
     document.getElementById(cp).innerHTML = d + "m away";
   }
 }
