@@ -9,6 +9,16 @@ function ajax_call() {
     var cp = $(this).attr('cp');
     cp = cp || 0;
     console.log (cp);
+    
+    //bit of jazz
+    var temp_highlight = $("#cp"+cp);
+    temp_highlight.addClass('clicked');
+    setTimeout(function() {
+        temp_highlight.removeClass('clicked');
+    }, 2000);
+
+
+
     $.ajax({
         type: 'POST',
         dataType: 'json',

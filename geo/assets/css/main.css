@@ -80,3 +80,7 @@ td {
     background: #c19b61;
     border: 1px dashed #586557;
 }
+
+.clicked {
+    background: yellow;
+}
