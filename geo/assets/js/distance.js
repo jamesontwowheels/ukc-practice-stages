@@ -32,7 +32,7 @@ console.log(crd);
   cp = "cp" + id;
   document.getElementById(cp).innerHTML = d + "m away";
 
-  if (d < 10000) {
+  if (d < 251000) {
     document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + " Check-in"
     // +"<button cp='"+id+"'>check-in</button>";
     var button = "butt"+id;

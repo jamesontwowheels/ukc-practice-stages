@@ -71,3 +71,12 @@ td {
             color: #333;
             margin-top: 20px;
         }
+
+.stage {
+    padding: 0.5em;
+    font-size: 2em;
+    border-radius: 5px;
+    margin: 1em;
+    background: #c19b61;
+    border: 1px dashed #586557;
+}
