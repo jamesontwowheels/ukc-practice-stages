@@ -31,20 +31,14 @@ console.log(crd);
   var d = Math.round(R * c * 1000); // Distance in m
   cp = "cp" + id;
   document.getElementById(cp).innerHTML = d + "m away";
-
+  var button = "butt"+id;
+  var button_element = $("#"+button);
   if (d < 251000) {
     document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + " Check-in"
-    // +"<button cp='"+id+"'>check-in</button>";
-    var button = "butt"+id;
-    document.getElementById(button).addClass('active');
-    document.getElementById(button).removeClass('inactive');
-    // document.getElementById(button).innerHTML = "<button id='butt"+id+"' cp='"+id+"' class='check_in'>"+id+"</button>";
-    //navigator.geolocation.clearWatch(id);
+    button_element.addClass('active');
+    button_element.removeClass('inactive')
 
   } else {
-    var button = "butt"+id;
-    console.log(button);
-    var button_element = $("#"+button);
     button_element.addClass('inactive');
     button_element.removeClass('active')
     document.getElementById(cp).innerHTML = d + "m away";
