@@ -28,7 +28,6 @@ if (!isset($_SESSION['username'])) {
    
     </tbody>
   </table>
-</div>
 <div id="inventory" class="bucket">
   <h3>Inventory</h3>
   <div id="inventory_zone"></div>
@@ -41,6 +40,7 @@ if (!isset($_SESSION['username'])) {
             <!-- Array items will be appended here -->
   </ul>
   </div>
+</div>
 </div>
 </body>
 <script type="text/javascript" src='/geo/assets/js/rows.js'></script>

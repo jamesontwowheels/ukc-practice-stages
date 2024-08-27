@@ -6,6 +6,7 @@ $(document).ready(function() {
     // On button click, toggle the expandable content
     $("#toggleButton").on("click", function() {
         var content = $("#expandableContent");
+        console.log('expandable');
 
         if (content.hasClass("expand")) {
             // If expanded, collapse it
