@@ -14,7 +14,7 @@ function ajax_call() {
     var temp_highlight = $("#cp"+cp);
     temp_highlight.addClass('clicked');
     setTimeout(function() {
-        temp_highlight.removeClass('clicked');
+        temp_highlight.toggleClass('clicked');
     }, 2000);
 
 

@@ -163,7 +163,10 @@ if($debug == 1){ $debug_log[] = '72';};
         if($cp==$cp_wsf){
             if(in_array($current_word,$words)){
                 if(in_array($current_word,$used_words)){
-                $results_detailed[$id][] = [$t,$cp,"$current_word played, already used.","",$running_score];
+                    
+                $comment = "$current_word played, already used.";
+                $commentary[] = $comment;
+                $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
                 } else {
                 $value = ($word_length_value[strlen($current_word)] + $current_word_value) * $current_bonus;
                 $running_score += $value;
