@@ -149,6 +149,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -0.05231561128890133,
+          51.44154408787679,
+          0
+        ]
+      },
+      "properties": {
+        "name": "20",
+        "styleUrl": "#control",
+        "styleHash": "5c951ac3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -0.19058171534586404,
           51.35956584435948,
           0
@@ -160,4 +176,4 @@
         "styleHash": "5c951ac3"
       }
     }
-  ]
+  ];
