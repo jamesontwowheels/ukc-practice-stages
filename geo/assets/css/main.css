@@ -91,3 +91,15 @@ td {
     background: yellow;
     transition: 1.5s ease-in-out;
 }
+
+.content {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s ease;
+}
+
+/* Expanded state */
+.content.expand {
+    height: auto; /* Change to the desired height or let it adjust based on the content */
+    transition: height 0.5s ease;
+}

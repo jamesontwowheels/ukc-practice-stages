@@ -2,6 +2,23 @@ $(document).ready(ajax_call);
 console.log("tested");
 $("body").on("click", "button", ajax_call);
 
+$(document).ready(function() {
+    // On button click, toggle the expandable content
+    $("#toggleButton").on("click", function() {
+        var content = $("#expandableContent");
+
+        if (content.hasClass("expand")) {
+            // If expanded, collapse it
+            content.removeClass("expand");
+            content.css("height", "0");
+        } else {
+            // If collapsed, expand it
+            content.addClass("expand");
+            content.css("height", content.get(0).scrollHeight + "px"); // Expand to full height
+        }
+    });
+});
+
 function ajax_call() {
     if ($(this).hasClass('inactive')){
 
