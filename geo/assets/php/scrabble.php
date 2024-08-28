@@ -127,11 +127,11 @@ if($debug == 1){ $debug_log[] = '72';};
             $letter = $word[$cp];
             if(in_array($cp,$used_letters)){
                 //letter used in word
-                $commentary[] = "<br>Letter $letter already used";
+                $commentary[] = "Letter $letter already used";
                 $results_detailed[$id][] = [$t,$cp,"letter $cp already used",0,$running_score];
             } else {
                 //add to word
-                $commentary[] = "<br>Letter $letter played";
+                $commentary[] = "Letter $letter played";
                 $current_word = $current_word.$word[$cp];
                 $current_word_value += $word_value[$cp];
                 $used_letters[] = $cp;
@@ -143,7 +143,7 @@ if($debug == 1){ $debug_log[] = '72';};
         if(in_array($cp,$cps_bonus)){
             if(in_array($cp,$used_bonuses)){
                 //bonus already played
-                $commentary[] = "<br>bonus $cp already used";
+                $commentary[] = "bonus $cp already used";
                 $results_detailed[$id][] = [$t,$cp,"bonus $cp already used","",$running_score];
             } elseif ($current_bonus > 1.5) {
                 //other bonus already in play
@@ -211,7 +211,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $game_state = 0;
                 $game_start = 0;
                 $game_end = 0;
-                $comment = "game reset ended";
+                $comment = "game reset";
                 $commentary[] = $comment;
             }
         }
