@@ -74,8 +74,10 @@ td {
 
  #timer {
             font-size: 2em;
-            color: #333;
+            color: #c19b61;
             margin-top: 20px;
+            margin: auto;
+            text-align: center;
         }
 
 .stage {
