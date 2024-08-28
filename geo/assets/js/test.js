@@ -54,6 +54,20 @@ function ajax_call() {
             i++;
             } 
             
+            //available CPs
+            var available_cps = data["available_cps"];
+            var all_cps = data["all_cps"];
+            all_cps.forEach(element => {
+                if (available_cps.includes(element)) {
+                  console.log(`${element} is available.`);
+                  rowId = "row"+element;
+                 document.getElementById(rowId).style.display = 'block';
+                } else {
+                  console.log(`${element} is not available.`);
+                  document.getElementById(rowId).style.display = 'none';
+                }
+              });
+
             //game state
             var game_state = data["game_state"];
             console.log(game_state);

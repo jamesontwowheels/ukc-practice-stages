@@ -33,6 +33,7 @@ $x = 0;
     $words = ["THUNDER","HUNTED","HUNTED","HURDEN","HUNTER","RETUND","RUNTED","TURNED","DERTH","UNETH","DRENT","NUDER","RUNED","TENDU","TREND","TRUED","TUNED","UNDER","UNRED","URNED","TUNER","URENT","HEND","HERD","HUED","THUD","HENT","HERN","HUER","HUNT","HURT","RUTH","TEHR","THEN","THRU","DENT","DERN","DUET","DUNE","DUNT","DURE","DURN","NERD","NUDE","NURD","REND","RUDE","RUED","RUND","TEND","TUND","TURD","UNDE","URDE","RENT","RUNE","RUNT","TERN","TRUE","TUNE","TURN","DUH","EDH","ETH","HEN","HER","HET","HUE","HUN","HUT","NTH","REH","THE","DEN","DUE","DUN","END","NED","RED","RUD","TED","URD","ERN","NET","NUR","NUT","REN","RET","RUE","RUN","RUT","TEN","TUN","URE","URN","UTE"];
     $cps_letters = [1,2,3,4,5,6,7];
     $cps_bonus = [11,12];
+    $all_cps = [1,2,3,4,5,6,7,11,12,20,999];
     $word = ["","N","D","R","T","H","U","E"];
     $word_value = [0,1,4,1,1,2,1,1];
     $word_length_value = [0,0,0,0,4,8,13,20];
@@ -61,7 +62,7 @@ $x = 0;
     $results_summary = [];
     $results_ids= [];
     $results_names= [];
-    $available_cps = $cps_letters;
+    $available_cps = [999];
     //values
     $stage_time = 60*60;
 
@@ -192,9 +193,11 @@ if($debug == 1){ $debug_log[] = '72';};
                 $game_state = 1;
                 $game_start = $t;
                 $comment = "game started";
+                $available_cps = $all_cps;
                 $commentary[] = $comment;
                 $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
             } elseif($game_state == 1){
+                $available_cps = [999];
                 $game_state = 2;
                 $game_end = $t;
                 $comment = "game ended";
@@ -230,6 +233,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
 $r = 0;
 $response["available_cps"] = $available_cps;
+$response["all_cps"]=$all_cps;
 $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
 $response["current_word"] = $current_word;
