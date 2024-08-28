@@ -64,6 +64,7 @@ function ajax_call() {
                  document.getElementById(rowId).style.display = 'block';
                 } else {
                   console.log(`${element} is not available.`);
+                  rowId = "row"+element;
                   document.getElementById(rowId).style.display = 'none';
                 }
               });
