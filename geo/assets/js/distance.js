@@ -33,7 +33,7 @@ console.log(crd);
   document.getElementById(cp).innerHTML = d + "m away";
   var button = "butt"+id;
   var button_element = $("#"+button);
-  if (d < 30000) {
+  if (d < 300000) {
     document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + " Check-in"
     button_element.addClass('active');
     button_element.removeClass('inactive')
