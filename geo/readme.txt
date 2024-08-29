@@ -1,9 +1,6 @@
 Next jobs:
 - only show checkpoints that are available - test they activate and deactivate
-- start/end a game - are you sure?
-    - Are you sure?
-    - prevent checkpoints while game isn't live
-    - 
+- start/end a game -
 - include a timer - add some style and class
 
 Structure of app:

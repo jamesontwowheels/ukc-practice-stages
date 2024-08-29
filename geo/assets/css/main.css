@@ -80,6 +80,10 @@ td {
             text-align: center;
         }
 
+#timer.complete {
+            color: green;
+}
+
 .stage {
     padding: 0.5em;
     display:block;
