@@ -98,13 +98,13 @@ function ajax_call() {
 
                     // Display the result in the element with id="timer"
                     document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
-                },1000)} elseif (game_state[0] == 2){
+                },1000)} else if (game_state[0] == 2){
                     const finish_time = game_state[2] - game_state[1];
                     const minutes = Math.floor((finish_time % (60 * 60)) / (60));
                     const seconds = Math.floor(finish_time % (60));
                     document.getElementById("timer").innerHtml = minutes + "m " + seconds + "s ";
                     document.getElementById("timer").classList.add("complete");
-                } elseif (game_state[0] == 0){
+                } else if (game_state[0] == 0){
                     document.getElementById("timer").classList.remove("complete");
                     document.getElementById("timer").innerHtml = "";
                 }
