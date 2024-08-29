@@ -72,6 +72,11 @@ td {
     border: #9e895d 1px dashed;
 }
 
+.bucket.half {
+    width: 49%;
+    display: inline;
+}
+
  #timer {
             font-size: 2em;
             color: #c19b61;

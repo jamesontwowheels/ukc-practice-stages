@@ -17,20 +17,20 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
   <h1>MINDGAMES</h1>
-<div id="main">  
-<div id="score" class="bucket">
-  <h3>Running Score</h3>
-  <div id="score_zone"></div>
-</div>
+<div id="main">
 <div id="timer"></div>
   <table id="checkpoints">
     <tbody>
    
     </tbody>
   </table>
-<div id="inventory" class="bucket">
+<div id="inventory" class="bucket half">
   <h3>Inventory</h3>
-  <div id="inventory_zone"></div>
+  <div id="inventory_zone"></div>  
+<div id="score" class="bucket half">
+  <h3>Running Score</h3>
+  <div id="score_zone"></div>
+</div>
 </div>
 <div id="history" class="bucket">
   <h3>History</h3>
