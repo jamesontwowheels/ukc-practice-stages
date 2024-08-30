@@ -19,6 +19,10 @@ $i = 0;
 //build punches list
 $player_cps = [];
 $players = [];
+
+echo "made it this far";
+/*
+
 foreach ($result as $row) {
     if(!in_array($row["Player_ID"],$players)){
         $players[] = $row["Player_ID"];
@@ -117,7 +121,7 @@ if($debug == 1){ $debug_log[] = '72';};
     array_multisort($times, $cps);
 */
     // cycle through the punch list;
-    $z = 0;
+ /*   $z = 0;
     
     while ($z < $count_cps){
 
@@ -252,4 +256,4 @@ $response["cp_names"] = $cp_names;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 $response["live_scores"] = $live_result;
 */
-echo json_encode($response);
+// echo json_encode($response);
