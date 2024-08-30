@@ -67,8 +67,8 @@ $x = 0;
     $stage_time = 60*60;
 
 //start looping the contestants: //WE DON'T HAVE MULITPLE CONTESTANTS YET
-while($x < 1){
-    $result = $player_cps; //$results[$x];
+while($x < $count_results){
+    $result = $player_cps[$x]; //$results[$x];
   // don't have this data yet...
     $name = "dummy"; //update
     $surname = "data"; //update
@@ -113,13 +113,13 @@ if($debug == 1){ $debug_log[] = '72';};
     // cycle through the punch list;
     $z = 0;
     
-    while ($z < count($player_cps)){
+    while ($z < $count_cps){
 
         // add to detailed results = $results_detailed[$id][] = [_your code_];
         // add to summary results = $results_summary[$id][] = [_your code_];
 
-        $cp = $player_cps[$z][0];// $cps[$z];
-        $t = $player_cps[$z][1]; //times[$z];
+        $cp = $result[$z][0];// $cps[$z];
+        $t = $result[$z][1]; //times[$z];
         $z += 1;
 
         if($debug == 1){ $debug_log[] = "-- cp = $cp --";};
