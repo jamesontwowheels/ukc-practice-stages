@@ -20,8 +20,7 @@ $i = 0;
 $player_cps = [];
 $players = [];
 
-echo "made it this far";
-/*
+
 
 foreach ($result as $row) {
     if(!in_array($row["Player_ID"],$players)){
@@ -31,7 +30,8 @@ foreach ($result as $row) {
    $player_cps[$row["Player_ID"]][] = [$row["CP_ID"],$row["Time_stamp"]];
    $i += 1;
 }
-
+echo "made it this far";
+/*
 $debug_log[] = $i." rows";
 
 if($debug == 1){ $debug_log[] = '19';};
