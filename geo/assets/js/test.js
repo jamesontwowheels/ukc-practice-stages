@@ -20,6 +20,8 @@ $(document).ready(function() {
     });
 });
 
+let countdownFunction;
+
 function ajax_call() {
     if ($(this).hasClass('inactive')){
 
@@ -78,7 +80,6 @@ function ajax_call() {
             var game_start = parseInt(game_state[1]);
             var game_end = parseInt(game_state[2]);
             var stage_time = game_state[3];
-            let countdownFunction;
             if(game_state[0] == 1){
                     // Set the date and time we're counting down to
                 const countdownDate = game_start + stage_time; // 5 minutes from now
@@ -104,7 +105,7 @@ function ajax_call() {
                     const finish_time = game_state[2] - game_state[1];
                     const minutes = Math.floor((finish_time % (60 * 60)) / (60));
                     const seconds = Math.floor(finish_time % (60));
-                    document.getElementById("timer").innerHtml = document.getElementById("timer").innerHTML;
+                    document.getElementById("timer").innerHtml = minutes + "m " + seconds + "s ";
                     document.getElementById("timer").classList.add("complete");
                 } else if (game_state[0] == 0){
                     document.getElementById("timer").classList.remove("complete");

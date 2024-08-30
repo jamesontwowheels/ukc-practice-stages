@@ -19,7 +19,7 @@ $i = 0;
 //build punches list
 $player_cps = [];
 foreach ($result as $row) {
-   $player_cps[] = [$row["CP_ID"],$row["Time_stamp"]];
+   $player_cps[$row["Player_ID"]][] = [$row["CP_ID"],$row["Time_stamp"]];
    $i += 1;
 }
 
