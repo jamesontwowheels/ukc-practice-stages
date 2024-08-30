@@ -27,10 +27,10 @@ if (!isset($_SESSION['username'])) {
 <div id="inventory" class="bucket half">
   <h3>Inventory</h3>
   <div id="inventory_zone"></div>  
+  </div>
 <div id="score" class="bucket half">
   <h3>Running Score</h3>
   <div id="score_zone"></div>
-</div>
 </div>
 <div id="history" class="bucket">
   <h3>History</h3>

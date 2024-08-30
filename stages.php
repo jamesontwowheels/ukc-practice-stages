@@ -14,10 +14,7 @@ if (!isset($_SESSION['username'])) {
 <link rel="stylesheet" href="geo/assets/css/main.css">
 </head>
 <body>
-<a class="stage" href="pacman">Pacman</a><br>
-<a class="stage" href="pacman-v2">Pacman-v2</a><br>
-<a class="stage" href="pacman-mcr">Pacman-mcr</a><br>
-<a class="stage" href="geo">Geo</a><br>
+<a class="stage" href="geo">Scrabble</a><br>
 
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
