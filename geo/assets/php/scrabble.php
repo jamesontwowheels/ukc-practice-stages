@@ -73,7 +73,8 @@ $x = 0;
 
 //start looping the contestants: //WE DON'T HAVE MULITPLE CONTESTANTS YET
 while($x < $count_results){
-    $result = $player_cps[$x]; //$results[$x];
+    $player = $players[$x];
+    $result = $player_cps[$player]; //$results[$x];
   // don't have this data yet...
     $name = "dummy"; //update
     $surname = "data"; //update
