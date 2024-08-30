@@ -222,6 +222,9 @@ if($debug == 1){ $debug_log[] = '72';};
 
     }
 
+    //live result
+    $live_result[$x]=$running_score;
+
     $words_found = count($used_words);
     $wf_bonus = $word_count_bonus[$words_found];
     $running_score += $wf_bonus;
@@ -241,5 +244,6 @@ $response["current_bonus"] = $current_bonus;
 $response["debug_log"] = $debug_log;
 $response["cp_names"] = $cp_names;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
+$response["live_scores"] = $live_result;
 
 echo json_encode($response);
