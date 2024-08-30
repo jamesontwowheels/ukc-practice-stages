@@ -242,7 +242,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
 $r = 0;
 $response["available_cps"] = $available_cps;
-$response["all_cps"]=$all_cps;
+/* $response["all_cps"]=$all_cps;
 $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
 $response["current_word"] = $current_word;
@@ -251,5 +251,5 @@ $response["debug_log"] = $debug_log;
 $response["cp_names"] = $cp_names;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 $response["live_scores"] = $live_result;
-
+*/
 echo json_encode($response);
