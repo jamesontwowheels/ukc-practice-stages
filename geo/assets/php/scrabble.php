@@ -30,8 +30,6 @@ foreach ($result as $row) {
    $player_cps[$row["Player_ID"]][] = [$row["CP_ID"],$row["Time_stamp"]];
    $i += 1;
 }
-echo "made it this far";
-/*
 $debug_log[] = $i." rows";
 
 if($debug == 1){ $debug_log[] = '19';};
@@ -75,6 +73,8 @@ $x = 0;
     //values
     $stage_time = 60*60;
 
+    echo "mmide it this far";
+    /*
 //start looping the contestants: //WE DON'T HAVE MULITPLE CONTESTANTS YET
 while($x < $count_results){
     $player = $players[$x];
