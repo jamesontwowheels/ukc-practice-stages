@@ -76,7 +76,7 @@ $x = 0;
     //values
     $stage_time = 60*60;
 
-echo "this here"; /*
+echo "this here"; 
 //start looping the contestants: //WE DON'T HAVE MULITPLE CONTESTANTS YET
 while($x < $count_results){
     $player = $players[$x];
@@ -121,7 +121,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $y += 1;
     }
     array_multisort($times, $cps);
-*/ /*
+*/ 
     // cycle through the punch list;
     $z = 0;
     
@@ -133,7 +133,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $cp = $result[$z][0];// $cps[$z];
         $t = $result[$z][1]; //times[$z];
         $z += 1;
-/*
+
         if($debug == 1){ $debug_log[] = "-- cp = $cp --";};
         //pick up letter - start playing CPs 1-7
         if(in_array($cp,$cps_letters)){
@@ -230,7 +230,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $commentary[] = $comment;
             }
         }
-       */ /*
+       */ 
 
     }
 
@@ -248,7 +248,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
 $r = 0;
 $response["available_cps"] = $available_cps;
-/* $response["all_cps"]=$all_cps;
+$response["all_cps"]=$all_cps;
 $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
 $response["current_word"] = $current_word;
@@ -257,5 +257,5 @@ $response["debug_log"] = $debug_log;
 $response["cp_names"] = $cp_names;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 $response["live_scores"] = $live_result;
-*/
-// echo json_encode($response);
+
+echo json_encode($response);
