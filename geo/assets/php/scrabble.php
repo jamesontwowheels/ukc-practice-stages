@@ -7,8 +7,6 @@ $debug_log = [];
 $commentary = [];
 $debug_log[] = "data play";
 
-echo 'this';
-
 include 'db_connect.php';
 
 ini_set("allow_url_fopen", 1);
@@ -76,8 +74,7 @@ $x = 0;
     $available_cps = [999];
     //values
     $stage_time = 60*60;
-
-echo "this here"; 
+ 
 //start looping the contestants: //WE DON'T HAVE MULITPLE CONTESTANTS YET
 while($x < $count_results){
     $player = $players[$x];
