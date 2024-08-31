@@ -123,7 +123,7 @@ if($debug == 1){ $debug_log[] = '72';};
     $z = 0;
     
     while ($z < $count_cps){
-
+ /*
         // add to detailed results = $results_detailed[$id][] = [_your code_];
         // add to summary results = $results_summary[$id][] = [_your code_];
 
@@ -227,7 +227,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $commentary[] = $comment;
             }
         }
-       
+       */
 
     }
 
