@@ -103,7 +103,7 @@ function ajax_call() {
                     document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
                 },1000)} else if (game_state[0] == 2){
                     clearInterval(countdownFunction);
-                    const finish_time = game_state[2] - game_state[1];
+                    const finish_time = game_end - game_start;
                     const minutes = Math.floor((finish_time % (60 * 60)) / (60));
                     const seconds = Math.floor(finish_time % (60));
                     document.getElementById("timer").innerHtml = minutes + "m " + seconds + "s ";
