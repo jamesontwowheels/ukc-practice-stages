@@ -251,7 +251,6 @@ if($debug == 1){ $debug_log[] = '72';};
    echo "check5";
 }
 
-$r = 0;
 echo " 1 ";
 $response["available_cps"] = $available_cps;
 echo " 2 ";
