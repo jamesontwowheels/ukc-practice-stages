@@ -13,7 +13,6 @@ ini_set("allow_url_fopen", 1);
 //Get event results from DB:
 
 $query = "select * from dbo.test_game where Player_ID = $user_ID ORDER BY Time_stamp ASC";
-echo $query;
 $result = $conn->query($query);
 
 $i = 0;
@@ -29,7 +28,6 @@ foreach ($result as $row) {
         $players[] = $row["Player_ID"];
        // $player_cps[] = $row["Player_ID"];
         $player_cps[$row["Player_ID"]] = [];
-        echo " newplayer ";
     }
    $player_cps[$row["Player_ID"]][] = [$row["CP_ID"],$row["Time_stamp"]];
    $i += 1;
@@ -38,7 +36,6 @@ $debug_log[] = $i." rows";
 
 if($debug == 1){ $debug_log[] = '19';};
 $count_results = count($player_cps);
-echo "count results = $count_results ";
 
 $x = 0;
 //set-up the static constants (each requires it's own rule...):
@@ -79,7 +76,6 @@ $x = 0;
     $live_result = [];
     //values
     $stage_time = 60*60;
- echo "check";
 //start looping the contestants: //WE DON'T HAVE MULITPLE CONTESTANTS YET
 while($x < $count_results){
     $player = $players[$x];
@@ -126,13 +122,10 @@ if($debug == 1){ $debug_log[] = '72';};
     array_multisort($times, $cps);
 */ 
     // cycle through the punch list;
- echo "check2";
     $z = 0;
     
     while ($z < $count_cps){
  
-        
- echo "check3";
         // add to detailed results = $results_detailed[$id][] = [_your code_];
         // add to summary results = $results_summary[$id][] = [_your code_];
 
@@ -240,7 +233,6 @@ if($debug == 1){ $debug_log[] = '72';};
     }
 
     //live result
- echo "check4";
    // $live_result[$x]=$running_score;
 
     $words_found = count($used_words);
@@ -250,27 +242,16 @@ if($debug == 1){ $debug_log[] = '72';};
 
     $final_score = $running_score - $time_penalty;
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
-   echo "check5";
 }
 
-echo " 1 ";
 $response["available_cps"] = $available_cps;
-echo " 2 ";
 $response["all_cps"]=$all_cps;
-echo " 3 ";
 $response["running_score"] = $running_score;
-echo " 4 ";
 $response["commentary"] = $commentary;
-echo " 5 ";
 $response["current_word"] = $current_word;
-echo $current_bonus;
 $response["current_bonus"] = $current_bonus;
-echo " 7 ";
 $response["debug_log"] = $debug_log;
-echo " 8 ";
 $response["cp_names"] = $cp_names;
-echo " 9 ";
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 //$response["live_scores"] = $live_result;
-echo "response";
 echo json_encode($response);
