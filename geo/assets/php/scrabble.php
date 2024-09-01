@@ -72,6 +72,7 @@ $x = 0;
     $results_ids= [];
     $results_names= [];
     $available_cps = [999];
+    $live_result = [];
     //values
     $stage_time = 60*60;
  
