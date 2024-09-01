@@ -41,7 +41,6 @@ function ajax_call() {
         if(!userConfirmed) { return;};
     }
 
-    let countdownFunction;
 
     $.ajax({
         type: 'POST',
@@ -81,6 +80,7 @@ function ajax_call() {
             var game_start = parseInt(game_state[1]);
             var game_end = parseInt(game_state[2]);
             var stage_time = game_state[3];
+            let countdownFunction;
             if(game_state[0] == 1){
                     // Set the date and time we're counting down to
                 const countdownDate = game_start + stage_time; // 5 minutes from now
