@@ -20,7 +20,6 @@ $(document).ready(function() {
     });
 });
 
-let countdownFunction;
 
 function ajax_call() {
     if ($(this).hasClass('inactive')){
@@ -41,6 +40,8 @@ function ajax_call() {
         const userConfirmed = confirm("Are you sure you're ready to start/stop?")
         if(!userConfirmed) { return;};
     }
+
+    let countdownFunction;
 
     $.ajax({
         type: 'POST',
