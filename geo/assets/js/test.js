@@ -106,6 +106,8 @@ function ajax_call() {
                     clearInterval(countdownFunction);
                     }
                     const finish_time = game_end - game_start;
+                    console.log(finish_time);
+                    console.log("game ended");
                     const minutes = Math.floor((finish_time % (60 * 60)) / (60));
                     const seconds = Math.floor(finish_time % (60));
                     document.getElementById("timer").innerHtml = minutes + "m " + seconds + "s ";
