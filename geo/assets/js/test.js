@@ -105,16 +105,16 @@ function ajax_call() {
                     if(countdownFunction){
                     clearInterval(countdownFunction);
                     }
-                    const finish_time = game_end - game_start;
+                    const finish_time = stage_time - (game_end - game_start);
                     console.log(finish_time);
                     console.log("game ended");
                     const minutes = Math.floor((finish_time % (60 * 60)) / (60));
                     const seconds = Math.floor(finish_time % (60));
-                    document.getElementById("timer").innerHtml = minutes + "m " + seconds + "s ";
+                    document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
                     document.getElementById("timer").classList.add("complete");
                 } else if (game_state[0] == 0){
                     document.getElementById("timer").classList.remove("complete");
-                    document.getElementById("timer").innerHtml = "";
+                    document.getElementById("timer").innerHTML = "";
                 }
 
             //running score
