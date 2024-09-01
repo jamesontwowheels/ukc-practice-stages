@@ -13,6 +13,7 @@ ini_set("allow_url_fopen", 1);
 //Get event results from DB:
 
 $query = "select * from dbo.test_game where Player_ID = $user_ID ORDER BY Time_stamp ASC";
+echo $query;
 $result = $conn->query($query);
 
 $i = 0;
@@ -28,6 +29,7 @@ foreach ($result as $row) {
         $players[] = $row["Player_ID"];
         $player_cps[] = $row["Player_ID"];
         $player_cps[$row["Player_ID"]] = [];
+        echo " newplayer ";
     }
    $player_cps[$row["Player_ID"]][] = [$row["CP_ID"],$row["Time_stamp"]];
    $i += 1;
@@ -259,5 +261,5 @@ $response["debug_log"] = $debug_log;
 $response["cp_names"] = $cp_names;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 //$response["live_scores"] = $live_result;
-
+echo "response";
 echo json_encode($response);
