@@ -251,14 +251,23 @@ if($debug == 1){ $debug_log[] = '72';};
 }
 
 $r = 0;
+echo " 1 ";
 $response["available_cps"] = $available_cps;
+echo " 2 ";
 $response["all_cps"]=$all_cps;
+echo " 3 ";
 $response["running_score"] = $running_score;
+echo " 4 ";
 $response["commentary"] = $commentary;
+echo " 5 ";
 $response["current_word"] = $current_word;
+echo $current_bonus;
 $response["current_bonus"] = $current_bonus;
+echo " 7 ";
 $response["debug_log"] = $debug_log;
+echo " 8 ";
 $response["cp_names"] = $cp_names;
+echo " 9 ";
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 //$response["live_scores"] = $live_result;
 echo "response";
