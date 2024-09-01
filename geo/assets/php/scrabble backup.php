@@ -230,7 +230,6 @@ if($debug == 1){ $debug_log[] = '72';};
                 $commentary[] = $comment;
             }
         }
-       */ 
 
     }
 

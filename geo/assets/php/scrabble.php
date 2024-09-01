@@ -79,7 +79,7 @@ $x = 0;
 //start looping the contestants: //WE DON'T HAVE MULITPLE CONTESTANTS YET
 while($x < $count_results){
     $player = $players[$x];
-    $result = $player_cps[$player]; //$results[$x];
+    $player_result = $player_cps[$player]; //$results[$x];
   // don't have this data yet...
     $name = "dummy"; //update
     $surname = "data"; //update
@@ -98,7 +98,7 @@ if($debug == 1){ $debug_log[] = '72';};
     $results_names[$id] = [$name,$surname];
     $results_detailed[$id] = [];
     $results_summary[$id] = [];
-    $count_cps = count($result);
+    $count_cps = count($player_result);
     $y = 0;
     $cps = [];
     $times = [];
@@ -132,8 +132,8 @@ if($debug == 1){ $debug_log[] = '72';};
         // add to detailed results = $results_detailed[$id][] = [_your code_];
         // add to summary results = $results_summary[$id][] = [_your code_];
 
-        $cp = $result[$z][0];// $cps[$z];
-        $t = $result[$z][1]; //times[$z];
+        $cp = $player_result[$z][0];// $cps[$z];
+        $t = $player_result[$z][1]; //times[$z];
         $z += 1;
 
         if($debug == 1){ $debug_log[] = "-- cp = $cp --";};
@@ -237,7 +237,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
     //live result
  echo "check4";
-    $live_result[$x]=$running_score;
+   // $live_result[$x]=$running_score;
 
     $words_found = count($used_words);
     $wf_bonus = $word_count_bonus[$words_found];
@@ -258,6 +258,6 @@ $response["current_bonus"] = $current_bonus;
 $response["debug_log"] = $debug_log;
 $response["cp_names"] = $cp_names;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
-$response["live_scores"] = $live_result;
+//$response["live_scores"] = $live_result;
 
 echo json_encode($response);
