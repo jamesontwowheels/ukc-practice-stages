@@ -38,6 +38,8 @@ $debug_log[] = $i." rows";
 
 if($debug == 1){ $debug_log[] = '19';};
 $count_results = count($player_cps);
+echo "count results = $count_results ";
+
 $x = 0;
 //set-up the static constants (each requires it's own rule...):
     //Bulk CPS
