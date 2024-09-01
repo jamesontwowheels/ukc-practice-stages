@@ -75,7 +75,7 @@ $x = 0;
     $live_result = [];
     //values
     $stage_time = 60*60;
- 
+ echo "check";
 //start looping the contestants: //WE DON'T HAVE MULITPLE CONTESTANTS YET
 while($x < $count_results){
     $player = $players[$x];
@@ -122,10 +122,13 @@ if($debug == 1){ $debug_log[] = '72';};
     array_multisort($times, $cps);
 */ 
     // cycle through the punch list;
+ echo "check2";
     $z = 0;
     
     while ($z < $count_cps){
  
+        
+ echo "check3";
         // add to detailed results = $results_detailed[$id][] = [_your code_];
         // add to summary results = $results_summary[$id][] = [_your code_];
 
@@ -233,6 +236,7 @@ if($debug == 1){ $debug_log[] = '72';};
     }
 
     //live result
+ echo "check4";
     $live_result[$x]=$running_score;
 
     $words_found = count($used_words);
