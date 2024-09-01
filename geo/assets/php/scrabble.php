@@ -248,6 +248,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
     $final_score = $running_score - $time_penalty;
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
+   echo "check5";
 }
 
 $r = 0;
