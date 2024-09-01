@@ -84,9 +84,10 @@ function ajax_call() {
             if(game_state[0] === 1){
                     // Set the date and time we're counting down to
                 const countdownDate = game_start + stage_time; // 5 minutes from now
-                console.log ("timer set!");
                 // Update the countdown every second
                     countdownFunction = setInterval(function() {
+
+                console.log ("timer set! Interval = " + countdownFunction);
                     // Get the current date and time
                     const now = new Date().getTime();
                     const now_s = Math.floor(now/1000);
@@ -102,7 +103,10 @@ function ajax_call() {
                     // Display the result in the element with id="timer"
                     document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
                 },1000)} else if (game_state[0] == 2){
+
+                console.log ("timer cancelled! Interval = " + countdownFunction);
                     clearInterval(countdownFunction);
+
                     
                     const finish_time = stage_time - (game_end - game_start);
                     console.log(finish_time);
