@@ -185,27 +185,27 @@ window.onload = function() {
  function updateLeaderboard(leader_data) {
      leader_data.forEach(item => {
          // Check if a row with this key already exists
-         const existingRow = document.querySelector(`#leaderBoard_table tbody tr[data-key="${item.key}"]`);
+         const existingRow = document.querySelector(`#leaderBoard_table tbody tr[data-key="${item[0]}"]`);
 
          if (existingRow) {
              // If the row exists, check if the value is different
              const existingValueCell = existingRow.querySelector('td:nth-child(2)');
-             if (existingValueCell.textContent !== item.value) {
-                 existingValueCell.textContent = item.value; // Update the value
+             if (existingValueCell.textContent !== item[1]) {
+                 existingValueCell.textContent = item[1]; // Update the value
              }
          } else {
              // If the row doesn't exist, create a new one
              const row = document.createElement('tr');
-             row.setAttribute('data-key', item.key); // Set a data attribute for the key
+             row.setAttribute('data-key', item[0]); // Set a data attribute for the key
 
              // Create the first column (key)
              const keyCell = document.createElement('td');
-             keyCell.textContent = item.key;
+             keyCell.textContent = item[0];
              row.appendChild(keyCell);
 
              // Create the second column (value)
              const valueCell = document.createElement('td');
-             valueCell.textContent = item.value;
+             valueCell.textContent = item[1];
              row.appendChild(valueCell);
 
              // Append the row to the table body
