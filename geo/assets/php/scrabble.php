@@ -79,6 +79,7 @@ $x = 0;
     $results_names= [];
     $available_cps = [999];
     $live_result = [];
+    $time_penalty = 0;
     //values
     $stage_time = 60*60;
 //start looping the contestants: //WE DON'T HAVE MULITPLE CONTESTANTS YET
@@ -237,8 +238,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
     }
 
-    //live result
-    $live_result[$x]=$running_score;
+ 
 
     $words_found = count($used_words);
     $wf_bonus = $word_count_bonus[$words_found];
@@ -246,6 +246,8 @@ if($debug == 1){ $debug_log[] = '72';};
     $results_detailed[$id][] = [$t,$cp,"$words_found words found, + $wf_bonus bonus","",$running_score];
 
     $final_score = $running_score - $time_penalty;
+       //live results
+       $live_result[$x]=$final_score;
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
 }
 
