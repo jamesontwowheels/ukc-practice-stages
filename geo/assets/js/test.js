@@ -149,3 +149,28 @@ function ajax_call() {
         }
     });
 }}
+
+window.onload = function() {
+    function getLeaderboard() {
+        fetch('/geo/assets/php/test.php?cp=0') // Replace with your API endpoint
+            .then(response => response.json())
+            .then(data => {
+                // Handle the successful response
+                console.log(data["live_scores"]);
+            })
+            .catch(error => {
+                // Handle the error response
+                console.error('AJAX call error:', error);
+            });
+    }
+
+    // Start the interval to make the AJAX call every 5 seconds
+    const intervalId = setInterval(getLeaderboard, 5000);
+
+    // Set a timeout to clear the interval after 2 hours (2 hours = 2 * 60 * 60 * 1000 milliseconds)
+    const twoHoursInMilliseconds = 2 * 60 * 60 * 1000;
+    setTimeout(function() {
+        clearInterval(intervalId);
+        console.log('Interval cleared after 2 hours');
+    }, twoHoursInMilliseconds);
+};

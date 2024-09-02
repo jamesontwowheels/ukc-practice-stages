@@ -13,6 +13,11 @@ ini_set("allow_url_fopen", 1);
 //Get event results from DB:
 
 $query = "select * from dbo.test_game where Player_ID = $user_ID ORDER BY Time_stamp ASC";
+
+if($_REQUEST["cp"] == 0){
+$query = "select * from dbo.test_game where Player_ID = * ORDER BY Time_stamp ASC";
+}
+
 $result = $conn->query($query);
 
 $i = 0;

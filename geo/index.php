@@ -34,6 +34,10 @@ if (!isset($_SESSION['username'])) {
   <h3>Inventory</h3>
   <div id="inventory_zone"></div>  
   </div>
+  <div id="leaderboard" class="bucket">
+  <h3>Leaderboard</h3>
+  <div id="leaderboard_zone"></div>  
+  </div>
 <div id="history" class="bucket">
   <h3>History</h3>
   <button id="toggleButton">Expand/Collapse</button>
