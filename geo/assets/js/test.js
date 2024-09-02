@@ -158,7 +158,8 @@ window.onload = function() {
                 // Handle the successful response
                 const live_scores = data["live_scores"];
                 console.log(live_scores);
-                updateLeaderboard(live_scores);
+                const arrayOfPairs = Object.entries(live_scores);
+                updateLeaderboard(arrayOfPairs);
             })
             .catch(error => {
                 // Handle the error response
