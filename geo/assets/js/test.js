@@ -156,8 +156,9 @@ window.onload = function() {
             .then(response => response.json())
             .then(data => {
                 // Handle the successful response
-                console.log(data["live_scores"]);
-                updateLeaderboard(data["live_scores"]);
+                const live_scores = data["live_scores"];
+                console.log(live_scores);
+                updateLeaderboard(live_scores);
             })
             .catch(error => {
                 // Handle the error response
