@@ -177,7 +177,7 @@ window.onload = function() {
 };
 
  // Reference to the tbody element
- const tableBody = document.querySelector('#leaderBoard_table tbody');
+ const leadTableBody = document.querySelector('#leaderBoard_table tbody');
 
  function updateLeaderboard(leader_data) {
      leader_data.forEach(item => {
@@ -206,7 +206,7 @@ window.onload = function() {
              row.appendChild(valueCell);
 
              // Append the row to the table body
-             tableBody.appendChild(row);
+             leadTableBody.appendChild(row);
          }
      });
  }
