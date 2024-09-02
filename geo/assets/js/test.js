@@ -157,6 +157,7 @@ window.onload = function() {
             .then(data => {
                 // Handle the successful response
                 console.log(data["live_scores"]);
+                
             })
             .catch(error => {
                 // Handle the error response
