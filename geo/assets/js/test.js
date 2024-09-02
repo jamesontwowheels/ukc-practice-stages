@@ -1,3 +1,6 @@
+let countdownFunction;
+console.log("cf defined");
+
 $(document).ready(ajax_call);
 console.log("tested");
 $("body").on("click", "button", ajax_call);
@@ -42,7 +45,6 @@ function ajax_call() {
         const userConfirmed = confirm("Are you sure you're ready to start/stop?")
         if(!userConfirmed) { return;};
     }
-    let countdownFunction;
 
     $.ajax({
         type: 'POST',
