@@ -36,7 +36,19 @@ if (!isset($_SESSION['username'])) {
   </div>
   <div id="leaderboard" class="bucket">
   <h3>Leaderboard</h3>
-  <div id="leaderboard_zone"></div>  
+  <div id="leaderboard_zone">
+  <table id="leaderBoard_table" border="1">
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be added here -->
+        </tbody>
+    </table>
+  </div>  
   </div>
 <div id="history" class="bucket">
   <h3>History</h3>

@@ -157,7 +157,7 @@ window.onload = function() {
             .then(data => {
                 // Handle the successful response
                 console.log(data["live_scores"]);
-                
+                updateLeaderboard(data["live_scores"]);
             })
             .catch(error => {
                 // Handle the error response
@@ -175,3 +175,39 @@ window.onload = function() {
         console.log('Interval cleared after 2 hours');
     }, twoHoursInMilliseconds);
 };
+
+ // Reference to the tbody element
+ const tableBody = document.querySelector('#leaderBoard_table tbody');
+
+ function updateLeaderboard(leader_data) {
+     leader_data.forEach(item => {
+         // Check if a row with this key already exists
+         const existingRow = document.querySelector(`#leaderBoard_table tbody tr[data-key="${item.key}"]`);
+
+         if (existingRow) {
+             // If the row exists, check if the value is different
+             const existingValueCell = existingRow.querySelector('td:nth-child(2)');
+             if (existingValueCell.textContent !== item.value) {
+                 existingValueCell.textContent = item.value; // Update the value
+             }
+         } else {
+             // If the row doesn't exist, create a new one
+             const row = document.createElement('tr');
+             row.setAttribute('data-key', item.key); // Set a data attribute for the key
+
+             // Create the first column (key)
+             const keyCell = document.createElement('td');
+             keyCell.textContent = item.key;
+             row.appendChild(keyCell);
+
+             // Create the second column (value)
+             const valueCell = document.createElement('td');
+             valueCell.textContent = item.value;
+             row.appendChild(valueCell);
+
+             // Append the row to the table body
+             tableBody.appendChild(row);
+         }
+     });
+ }
+
