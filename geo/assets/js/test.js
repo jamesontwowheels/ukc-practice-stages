@@ -21,6 +21,8 @@ $(document).ready(function() {
 });
 
 
+let countdownFunction;
+
 function ajax_call() {
     if ($(this).hasClass('inactive')){
 
@@ -80,8 +82,7 @@ function ajax_call() {
             var game_start = parseInt(game_state[1]);
             var game_end = parseInt(game_state[2]);
             var stage_time = game_state[3];
-            let countdownFunction;
-            if(game_state[0] === 1){
+            if(game_state[0] === 1 && typeof countdownFunction === "undefined"){
                     // Set the date and time we're counting down to
                 const countdownDate = game_start + stage_time; // 5 minutes from now
                 // Update the countdown every second
