@@ -48,8 +48,8 @@ console.log(crd);
 
 
 function error(err) {
-  alert("location check failed");
-//  console.error(`ERROR(${err.code}): ${err.message}`);
+  alert("location check failed. Code: " + err.code + " Message:" + err.message );
+  console.error(`ERROR(${err.code}): ${err.message}`);
 }
 
 options = {
