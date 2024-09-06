@@ -14,7 +14,7 @@ ini_set("allow_url_fopen", 1);
 
 $query = "select * from dbo.test_game where Player_ID = $user_ID ORDER BY Time_stamp ASC";
 
-if($_REQUEST["cp"] == 0){
+if($_REQUEST["purpose"] !== 2){
 $query = "select * from dbo.test_game ORDER BY Time_stamp ASC";
 }
 
