@@ -334,7 +334,7 @@ if($debug == 1){ $debug_log[] = '72';};
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
 }
 
-if($_REQUEST["cp"] > 0){
+if($_REQUEST["cp"] != 0){
 $response["available_cps"] = $available_cps;
 $response["all_cps"]=$all_cps;
 $response["running_score"] = $running_score;
