@@ -334,6 +334,7 @@ if($debug == 1){ $debug_log[] = '72';};
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
 }
 
+if($_REQUEST["cp"] > 0){
 $response["available_cps"] = $available_cps;
 $response["all_cps"]=$all_cps;
 $response["running_score"] = $running_score;
@@ -343,5 +344,6 @@ $response["current_bonus"] = $current_bonus;
 $response["debug_log"] = $debug_log;
 $response["cp_names"] = $cp_names;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
+}
 $response["live_scores"] = $live_result;
 echo json_encode($response);

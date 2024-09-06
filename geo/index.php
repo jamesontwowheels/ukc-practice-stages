@@ -52,7 +52,7 @@ if (!isset($_SESSION['username'])) {
   </div>
 <div id="history" class="bucket">
   <h3>History</h3>
-  <button id="toggleButton">Expand/Collapse</button>
+  <button id="toggleButton">show/hide</button>
   <div id="expandableContent" class="content">
   <ul id="commentary-list">
             <!-- Array items will be appended here -->
