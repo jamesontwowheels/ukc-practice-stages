@@ -49,7 +49,7 @@ function ajax_call() {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: '/geo/assets/php/test.php?cp='+cp,
+        url: '/geo/assets/php/test.php?purpose=1&cp='+cp,
         success: function(data) {
             console.log("ajax return");
             document.getElementById("inventory_zone").innerHTML = "Current word =" + data["current_word"] + "<br> Current bonus = " + data["current_bonus"];
@@ -152,7 +152,7 @@ function ajax_call() {
 
 window.onload = function() {
     function getLeaderboard() {
-        fetch('/geo/assets/php/test.php?cp=0') // Replace with your API endpoint
+        fetch('/geo/assets/php/test.php?purpose=2&cp=0') // Replace with your API endpoint
             .then(response => response.json())
             .then(data => {
                 // Handle the successful response
