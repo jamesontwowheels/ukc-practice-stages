@@ -1,14 +1,6 @@
 <?php
 include 'dbconnect.php'; // login.php
 
-// Hardcoded example credentials (in real applications, fetch from a database)
-$valid_username = 'dan';
-$valid_password = '1234';
-$valid_username2 = 'anna';
-$valid_password2 = 'abcd';
-$valid_username3 = 'ed';
-$valid_password3 = 'banana';
-
 // Get the POST data
 $username = $_POST['email'];
 $password = $_POST['password'];
@@ -19,7 +11,7 @@ try {
         $password = $_POST['password'];
 
         // Prepare a SQL statement to select the user based on the email
-        $stmt = $pdo->prepare("SELECT id, name, email, password FROM users WHERE email = :email");
+        $stmt = $conn->prepare("SELECT id, name, email, password FROM users WHERE email = :email");
         $stmt->bindParam(':email', $email);
 
         // Execute the query
