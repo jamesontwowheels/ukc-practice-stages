@@ -29,6 +29,7 @@ function generateSimplePassword() {
 // Example usage
 $this_password = generateSimplePassword();
 echo "Generated Password: " . $this_password;
+$insert_password = strtolower($this_password);
 
     $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
     $stmt->bindParam(':name', $_POST['name']);
@@ -37,7 +38,7 @@ echo "Generated Password: " . $this_password;
     if ($stmt->execute()) {
         echo "Record inserted successfully!";
     } else {
-        echo "Error inserting record.";
+        echo "Error inserting record."; //not sure why this is failing...
     }
 
 
