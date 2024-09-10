@@ -29,7 +29,7 @@ function generateSimplePassword() {
 // Example usage
 echo "Generated Password: " . generateSimplePassword();
 
-    $stmt = $pdo->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
+    $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
     $stmt->bindParam(':name', $_POST['name']);
     $stmt->bindParam(':email', $_POST['email']);
     $stmt->bindParam(':password', password_hash($_POST['password'], PASSWORD_BCRYPT)); // Hashing the password
