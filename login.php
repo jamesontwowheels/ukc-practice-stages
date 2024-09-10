@@ -10,7 +10,7 @@ $valid_username3 = 'ed';
 $valid_password3 = 'banana';
 
 // Get the POST data
-$username = $_POST['username'];
+$username = $_POST['email'];
 $password = $_POST['password'];
 try {
     // Check if the form is submitted
