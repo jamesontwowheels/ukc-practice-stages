@@ -9,17 +9,18 @@ try {
         $password = $_POST['password'];
 
         // Prepare a SQL statement to select the user based on the email
-        $stmt = $conn->prepare("SELECT id, name, email, password FROM dbo.users WHERE id = 8");
+       // $stmt = $conn->prepare("SELECT id, name, email, password FROM dbo.users WHERE id = 8");
         // $stmt->bindParam(':email', $email);
-
+        $query = "SELECT id, name, email, password FROM dbo.users WHERE id = $email";
+        $result = $mysqli->query($query);
         // Execute the query
-        $stmt->execute();
+        //$stmt->execute();
 
         // Check if the user exists
-        if ($stmt->rowCount() > 0) {
+        if ($result->rowCount() > 0) {
             // Fetch the user's data
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+            //$user = $stmt->fetch(PDO::FETCH_ASSOC);
+            $user = $result->fetch_assoc();
             // Verify the password
             if ($password = $user['password']) {
                 // Password is correct
@@ -37,7 +38,7 @@ try {
             }
         } else {
             // No user found with the provided email
-            echo json_encode(['success' => false, 'message' => 'No account found with that email address.', 'email' => $email]);
+            echo json_encode(['success' => false, 'message' => 'No account found with that email address.', 'email' => $query]);
         }
     }
 } catch (PDOException $e) {
