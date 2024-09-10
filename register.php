@@ -11,6 +11,24 @@ catch (PDOException $e) {
     die(print_r($e));
 }
 
+function generateSimplePassword() {
+    // Arrays of adjectives and nouns
+    $adjectives = array("Big", "Small", "Bright", "Dark", "Fast", "Slow", "Happy", "Sad", "Red", "Blue", "Green", "Yellow");
+    $nouns = array("Cat", "Dog", "Bird", "Fish", "Tiger", "Elephant", "Lion", "Bear", "Wolf", "Fox", "Rabbit", "Horse");
+
+    // Select random adjective and noun
+    $adjective = $adjectives[array_rand($adjectives)];
+    $noun = $nouns[array_rand($nouns)];
+
+    // Combine the two to form a password
+    $password = $adjective . $noun;
+
+    return $password;
+}
+
+// Example usage
+echo "Generated Password: " . generateSimplePassword();
+/*
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $conn->real_escape_string($_POST['name']);
     $email = $conn->real_escape_string($_POST['email']);
@@ -27,4 +45,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
+*/
 
