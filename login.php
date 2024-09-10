@@ -1,9 +1,7 @@
 <?php
-include 'dbconnect.php'; // login.php
+include 'db_connect.php'; // login.php
 
 // Get the POST data
-$username = $_POST['email'];
-$password = $_POST['password'];
 try {
     // Check if the form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
