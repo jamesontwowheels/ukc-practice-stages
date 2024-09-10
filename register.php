@@ -28,22 +28,19 @@ function generateSimplePassword() {
 
 // Example usage
 echo "Generated Password: " . generateSimplePassword();
-/*
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $conn->real_escape_string($_POST['name']);
-    $email = $conn->real_escape_string($_POST['email']);
-    $password = password_hash($conn->real_escape_string($_POST['password']), PASSWORD_BCRYPT); // Hash the password
-
-    // SQL query to insert data into the users table
-    $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Registration successful!";
+    $stmt = $pdo->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
+    $stmt->bindParam(':name', $_POST['name']);
+    $stmt->bindParam(':email', $_POST['email']);
+    $stmt->bindParam(':password', password_hash($_POST['password'], PASSWORD_BCRYPT)); // Hashing the password
+    if ($stmt->execute()) {
+        echo "Record inserted successfully!";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error inserting record.";
     }
+
 }
 
-$conn->close();
-*/
+
 
