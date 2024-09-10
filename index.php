@@ -34,7 +34,7 @@ if (isset($_SESSION['username'])) {
                         alert("Login successful!");
                         window.location.href = "stages.php"; // Redirect to a protected page
                     } else {
-                        alert("Login failed: " + response.message + " email: " + response.email);
+                        alert("Login failed: " + response.message + " email: " + response.email + " query: " +response.query);
                     }
                 }
             };
