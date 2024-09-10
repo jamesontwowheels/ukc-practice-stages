@@ -1,5 +1,5 @@
 <?php
-// login.php
+include 'dbconnect.php'; // login.php
 
 // Hardcoded example credentials (in real applications, fetch from a database)
 $valid_username = 'dan';
@@ -12,24 +12,45 @@ $valid_password3 = 'banana';
 // Get the POST data
 $username = $_POST['username'];
 $password = $_POST['password'];
+try {
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-// Simple validation
-if ($username === $valid_username && $password === $valid_password || $username === $valid_username2 && $password === $valid_password2 || $username === $valid_username3 && $password === $valid_password3) {
-    // Start a session
-    session_start();
-    $_SESSION['username'] = $username;
-    if($username == 'dan') {
-        $user_ID = 1;
-    } elseif ($username == 'anna'){
-        $user_ID = 2;
-    } else {
-        $user_ID = 3;
+        // Prepare a SQL statement to select the user based on the email
+        $stmt = $pdo->prepare("SELECT id, name, email, password FROM users WHERE email = :email");
+        $stmt->bindParam(':email', $email);
+
+        // Execute the query
+        $stmt->execute();
+
+        // Check if the user exists
+        if ($stmt->rowCount() > 0) {
+            // Fetch the user's data
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Verify the password
+            if ($password = $user['password']) {
+                // Password is correct
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['user_name'] = $user['name'];
+
+               
+                echo json_encode(['success' => true]);
+                // Redirect to a protected page or dashboard
+                // header("Location: dashboard.php");
+                exit();
+            } else {
+                // Password is incorrect
+                echo json_encode(['success' => false, 'message' => 'Incorrect password.']);
+            }
+        } else {
+            // No user found with the provided email
+            echo json_encode(['success' => false, 'message' => 'No account found with that email address.']);
+        }
     }
-    $_SESSION['user_ID'] = $user_ID;
-    
-    // Send a JSON response
-    echo json_encode(['success' => true]);
-} else {
-    // Send a failure response
-    echo json_encode(['success' => false, 'message' => 'Invalid credentials']);
+} catch (PDOException $e) {
+    // Handle any errors that occur during the connection or query
+    echo "Error: " . $e->getMessage();
 }
