@@ -37,7 +37,7 @@ try {
             }
         } else {
             // No user found with the provided email
-            echo json_encode(['success' => false, 'message' => 'No account found with that email address.']);
+            echo json_encode(['success' => false, 'message' => 'No account found with that email address.', 'email' => $email]);
         }
     }
 } catch (PDOException $e) {
