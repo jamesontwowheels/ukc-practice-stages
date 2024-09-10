@@ -11,12 +11,12 @@ try {
         // Prepare a SQL statement to select the user based on the email
        // $stmt = $conn->prepare("SELECT id, name, email, password FROM dbo.users WHERE id = 8");
         // $stmt->bindParam(':email', $email);
-        $stmt = $conn->prepare("SELECT * FROM dbo.users WHERE email = ?");
-        $stmt->bind_param("s", $email); // "s" specifies that $email is a string
+       $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt->bindParam(':email', $email);
         $stmt->execute();
-        $result = $stmt->get_result();
-        // Execute the query
-        //$stmt->execute();
+        $result = $stmt->fetchAll();
+
+        if ($result) {
 
         // Check if the user exists
         if ($result->rowCount() > 0) {
@@ -43,7 +43,8 @@ try {
             echo json_encode(['success' => false, 'message' => 'No account found with that email address.', 'email' => $query]);
         }
     }
-} catch (PDOException $e) {
+} }
+catch (PDOException $e) {
     // Handle any errors that occur during the connection or query
     echo json_encode (['success' => false, 'message' => "Error: " . $e->getMessage(), 'query' => $query]);
 }
