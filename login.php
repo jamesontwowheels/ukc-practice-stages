@@ -24,7 +24,7 @@ try {
             if ($password == $result['password']) {
                 // Password is correct
                 $_SESSION['user_ID'] = $result['id'];
-                $_SESSION['user_name'] = $result['name'];
+                $_SESSION['username'] = $result['name'];
 
                
                 echo json_encode(['success' => true]);
