@@ -5,13 +5,13 @@ include 'db_connect.php'; // login.php
 try {
     // Check if the form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST['email'];
+        $email = $_POST['email'].'';
         $password = $_POST['password'];
 
         // Prepare a SQL statement to select the user based on the email
        // $stmt = $conn->prepare("SELECT id, name, email, password FROM dbo.users WHERE id = 8");
         // $stmt->bindParam(':email', $email);
-        $query = "SELECT dbo.users.id, dbo.users.name, dbo.users.email, dbo.users.password FROM dbo.users WHERE dbo.users.email = $email";
+        $query = "SELECT dbo.users.id, dbo.users.name, dbo.users.email, dbo.users.password FROM dbo.users WHERE dbo.users.email = concat(''.$email)";
         $result = $conn->query($query);
         // Execute the query
         //$stmt->execute();
