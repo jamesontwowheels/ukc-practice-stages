@@ -38,12 +38,12 @@ try {
                 // Password is incorrect
                 echo json_encode(['success' => false, 'message' => 'Incorrect password.']);
             }
-        } else {
+        } } else {
             // No user found with the provided email
             echo json_encode(['success' => false, 'message' => 'No account found with that email address.', 'email' => $query]);
         }
     }
-} }
+} 
 catch (PDOException $e) {
     // Handle any errors that occur during the connection or query
     echo json_encode (['success' => false, 'message' => "Error: " . $e->getMessage(), 'query' => $query]);
