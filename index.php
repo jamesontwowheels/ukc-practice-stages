@@ -20,7 +20,7 @@ if (isset($_SESSION['username'])) {
         function login(event) {
             event.preventDefault(); // Prevent the form from submitting the default way
 
-            var username = document.getElementById("email").value;
+            var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;
 
             var xhr = new XMLHttpRequest();
