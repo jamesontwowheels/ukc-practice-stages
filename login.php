@@ -12,7 +12,7 @@ try {
        // $stmt = $conn->prepare("SELECT id, name, email, password FROM dbo.users WHERE id = 8");
         // $stmt->bindParam(':email', $email);
         $query = "SELECT id, name, email, password FROM dbo.users WHERE id = $email";
-        $result = $mysqli->query($query);
+        $result = $conn->query($query);
         // Execute the query
         //$stmt->execute();
 
