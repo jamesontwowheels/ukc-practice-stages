@@ -29,7 +29,6 @@ function generateSimplePassword() {
 // Example usage
 echo "Generated Password: " . generateSimplePassword();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $pdo->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
     $stmt->bindParam(':name', $_POST['name']);
     $stmt->bindParam(':email', $_POST['email']);
@@ -40,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error inserting record.";
     }
 
-}
+
 
 
 
