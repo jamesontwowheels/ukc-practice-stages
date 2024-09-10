@@ -14,20 +14,16 @@ try {
        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
         $stmt->bindParam(':email', $email);
         $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result) {
-
-        // Check if the user exists
-        if ($result->rowCount() > 0) {
-            // Fetch the user's data
-            //$user = $stmt->fetch(PDO::FETCH_ASSOC);
-            $user = $result->fetch_assoc();
+        
+            
             // Verify the password
-            if ($password = $user['password']) {
+            if ($password = $result['password']) {
                 // Password is correct
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['user_name'] = $user['name'];
+                $_SESSION['user_id'] = $result['id'];
+                $_SESSION['user_name'] = $result['name'];
 
                
                 echo json_encode(['success' => true]);
@@ -38,7 +34,7 @@ try {
                 // Password is incorrect
                 echo json_encode(['success' => false, 'message' => 'Incorrect password.']);
             }
-        } } else {
+        } else {
             // No user found with the provided email
             echo json_encode(['success' => false, 'message' => 'No account found with that email address.', 'email' => $query]);
         }
