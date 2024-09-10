@@ -42,5 +42,5 @@ try {
     }
 } catch (PDOException $e) {
     // Handle any errors that occur during the connection or query
-    echo "Error: " . $e->getMessage();
+    echo json_encode (['success' => false, 'message' => "Error: " . $e->getMessage()]);
 }
