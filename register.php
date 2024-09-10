@@ -8,7 +8,7 @@ try {
 catch (PDOException $e) {
     $debug_log[] = 'broken';
     print("Error connecting to SQL Server.");
-    die(print_r($e));
+    // die(print_r($e));
 }
 
 function generateSimplePassword() {
@@ -27,12 +27,13 @@ function generateSimplePassword() {
 }
 
 // Example usage
-echo "Generated Password: " . generateSimplePassword();
+$this_password = generateSimplePassword();
+echo "Generated Password: " . $this_password;
 
     $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
     $stmt->bindParam(':name', $_POST['name']);
     $stmt->bindParam(':email', $_POST['email']);
-    $stmt->bindParam(':password', password_hash($_POST['password'], PASSWORD_BCRYPT)); // Hashing the password
+    $stmt->bindParam(':password', $this_password); // Not hashing the password /shrug
     if ($stmt->execute()) {
         echo "Record inserted successfully!";
     } else {

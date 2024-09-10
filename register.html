@@ -8,16 +8,9 @@
         function validateForm() {
             let name = document.forms["registrationForm"]["name"].value;
             let email = document.forms["registrationForm"]["email"].value;
-            let password = document.forms["registrationForm"]["password"].value;
-            let confirmPassword = document.forms["registrationForm"]["confirmPassword"].value;
 
-            if (name == "" || email == "" || password == "" || confirmPassword == "") {
+            if (name == "" || email == "") {
                 alert("All fields must be filled out");
-                return false;
-            }
-
-            if (password !== confirmPassword) {
-                alert("Passwords do not match");
                 return false;
             }
 
@@ -33,13 +26,7 @@
 
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email"><br><br>
-
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br><br>
-
-        <label for="confirmPassword">Confirm Password:</label><br>
-        <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
-
+        
         <input type="submit" value="Register">
     </form>
 </body>
