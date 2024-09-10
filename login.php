@@ -21,9 +21,9 @@ try {
         
             
             // Verify the password
-            if ($password = $result['password']) {
+            if ($password == $result['password']) {
                 // Password is correct
-                $_SESSION['user_id'] = $result['id'];
+                $_SESSION['user_ID'] = $result['id'];
                 $_SESSION['user_name'] = $result['name'];
 
                
