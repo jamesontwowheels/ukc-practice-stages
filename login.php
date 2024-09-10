@@ -10,7 +10,7 @@ try {
 
         // Prepare a SQL statement to select the user based on the email
         $stmt = $conn->prepare("SELECT id, name, email, password FROM dbo.users WHERE id = 8");
-        $stmt->bindParam(':email', $email);
+        // $stmt->bindParam(':email', $email);
 
         // Execute the query
         $stmt->execute();
