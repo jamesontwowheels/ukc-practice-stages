@@ -11,8 +11,10 @@ try {
         // Prepare a SQL statement to select the user based on the email
        // $stmt = $conn->prepare("SELECT id, name, email, password FROM dbo.users WHERE id = 8");
         // $stmt->bindParam(':email', $email);
-        $query = "SELECT dbo.users.id, dbo.users.name, dbo.users.email, dbo.users.password FROM dbo.users WHERE dbo.users.email = concat('',$email)";
-        $result = $conn->query($query);
+        $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email); // "s" specifies that $email is a string
+        $stmt->execute();
+        $result = $stmt->get_result();
         // Execute the query
         //$stmt->execute();
 
