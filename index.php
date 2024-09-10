@@ -39,7 +39,7 @@ if (isset($_SESSION['username'])) {
                 }
             };
             
-            xhr.send("username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password));
+            xhr.send("email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(password));
         }
     </script>
 </head>
