@@ -13,6 +13,7 @@ if (isset($_SESSION['username'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
@@ -44,8 +45,12 @@ if (isset($_SESSION['username'])) {
     </script>
 </head>
 <body>
+    
+  <h1>MINDGAMES</h1>
+  <div id="main">
+    <div class="login-container">
+    <form class="login-form" onsubmit="login(event)">
     <h2>Login</h2>
-    <form onsubmit="login(event)">
         <label for="email">email:</label><br>
         <input type="email" id="email" name="email" required><br><br>
         
@@ -54,5 +59,7 @@ if (isset($_SESSION['username'])) {
         
         <button type="submit">Login</button>
     </form>
+    </div>
+    </div>
 </body>
 </html>
