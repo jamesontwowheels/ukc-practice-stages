@@ -58,6 +58,8 @@ if (isset($_SESSION['username'])) {
         <input type="password" id="password" name="password" required><br><br>
         
         <button type="submit">Login</button>
+        
+    <a href="register.html">Register</a><br>
     </form>
     </div>
     </div>
