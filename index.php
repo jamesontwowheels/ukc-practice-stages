@@ -46,12 +46,12 @@ if (isset($_SESSION['username'])) {
 </head>
 <body>
     
-  <h1>MINDGAMES</h1>
+  <h2>MINDGAMES</h2>
   <div id="main">
     <div class="login-container">
     <form class="login-form" onsubmit="login(event)">
-    <h2>Login</h2>
-        <label for="email">email:</label><br>
+    <h3>Login</h3>
+        <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" required><br><br>
         
         <label for="password">Password:</label><br>
