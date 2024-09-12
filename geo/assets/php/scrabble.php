@@ -262,7 +262,8 @@ if($debug == 1){ $debug_log[] = '72';};
 
         //play word
         if($cp==$cp_wsf){
-            if(in_array($current_word,$words)){
+            include 'word_check.php';
+            if(isValidEnglishWord($current_word)){
                 if(in_array($current_word,$used_words)){
                     
                 $comment = "$current_word played, already used.";
