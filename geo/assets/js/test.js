@@ -169,7 +169,7 @@ window.onload = function() {
     }
 
     // Start the interval to make the AJAX call every 5 seconds
-    const intervalId = setInterval(getLeaderboard, 5000);
+    const intervalId = setInterval(getLeaderboard, 500000);
 
     // Set a timeout to clear the interval after 2 hours (2 hours = 2 * 60 * 60 * 1000 milliseconds)
     const twoHoursInMilliseconds = 2 * 60 * 60 * 1000;
