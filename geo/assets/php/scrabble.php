@@ -17,7 +17,7 @@ ini_set("allow_url_fopen", 1);
 //Get event results from DB:
 
 $query2 = "select * from dbo.words";
-$result2 = $conn->query($query);
+$result2 = $conn->query($query2);
 
 foreach($result2 as $db_word){
     if($db_word['valid'] == "valid"){
@@ -290,19 +290,6 @@ if($debug == 1){ $debug_log[] = '72';};
                 $valid = false;
             } else {
                 $valid = isValidEnglishWord($current_word);
-                if($valid){
-                    $valid_words_array[] = $current_word;  
-                    // Convert the updated array to a valid PHP code string
-                    $updated_array_code = "<?php\n\$valid_words_array = " . var_export($valid_words_array, true) . ";\n";
-                    // Write the updated array back to the file
-                    file_put_contents('valid_words.php', $updated_array_code);
-                } else {
-                    $invalid_words_array[] = $current_word;  
-                    // Convert the updated array to a valid PHP code string
-                    $updated_array_code = "<?php\n\$invalid_words_array = " . var_export($invalid_words_array, true) . ";\n";
-                    // Write the updated array back to the file
-                    file_put_contents('invalid_words.php', $updated_array_code);
-                }
                 $query3 = "INSERT INTO words (word, valid) VALUES ($current_word, $valid);";
                 $result3 = $conn->query($query3);
             }
