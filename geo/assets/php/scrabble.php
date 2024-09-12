@@ -290,8 +290,10 @@ if($debug == 1){ $debug_log[] = '72';};
                 $valid = false;
             } else {
                 $valid = isValidEnglishWord($current_word);
-                $query3 = "INSERT INTO words (word, valid) VALUES ($current_word, $valid);";
-                $result3 = $conn->query($query3);
+                $stmt = $conn->prepare("INSERT INTO words (word, valid) VALUES (:word, :valid)");
+                $stmt->bindParam(':word', $current_word);
+                $stmt->bindParam(':valid', $valid);
+                $stmt->execute();
             }
             if($valid){
                 if(in_array($current_word,$used_words)){
