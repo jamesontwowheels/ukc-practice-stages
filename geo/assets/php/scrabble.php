@@ -9,6 +9,7 @@ $debug_log[] = "data play";
 
 include 'db_connect.php';
 include 'word_check.php';
+include 'game_letters.php';
 
 ini_set("allow_url_fopen", 1);
 //Get event results from DB:
@@ -183,6 +184,9 @@ while($x < $count_results){
     
 if($debug == 1){ $debug_log[] = '72';};
 //set-up course/result variables for each contestants
+    $this_cp_names = $cp_names;
+    $this_word = $word;
+    $letter_count = 0;
     $id = $x;
     $results_ids[] = $id;
     $results_names[$id] = [$name,$surname];
@@ -226,7 +230,7 @@ if($debug == 1){ $debug_log[] = '72';};
         if($debug == 1){ $debug_log[] = "-- cp = $cp --";};
         //pick up letter - start playing CPs 1-7
         if(in_array($cp,$cps_letters)){
-            $letter = $word[$cp];
+            $letter = $this_word[$cp];
             if(in_array($cp,$used_letters)){
                 //letter used in word
                 $commentary[] = "Letter $letter already used";
@@ -234,9 +238,12 @@ if($debug == 1){ $debug_log[] = '72';};
             } else {
                 //add to word
                 $commentary[] = "Letter $letter played";
-                $current_word = $current_word.$word[$cp];
+                $current_word = $current_word.$this_word[$cp];
                 $current_word_value += $word_value[$cp];
-                $used_letters[] = $cp;
+                $this_cp_names[$cp] = $game_letters[$letter_count];
+                $this_word[$cp] = $game_letters[$letter_count];
+                $letter_count =+ 1;
+                // $used_letters[] = $cp;
                 $results_detailed[$id][] = [$t,$cp,"$letter collected. word = $current_word","",$running_score];
             }
         }
@@ -343,7 +350,7 @@ $response["commentary"] = $commentary;
 $response["current_word"] = $current_word;
 $response["current_bonus"] = $current_bonus;
 $response["debug_log"] = $debug_log;
-$response["cp_names"] = $cp_names;
+$response["cp_names"] = $this_cp_names;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 }
 $response["live_scores"] = $live_result;
