@@ -10,6 +10,8 @@ $debug_log[] = "data play";
 include 'db_connect.php';
 include 'word_check.php';
 include 'game_letters.php';
+include 'valid_words.php';
+include 'invalid_words.php';
 
 ini_set("allow_url_fopen", 1);
 //Get event results from DB:
@@ -270,7 +272,15 @@ if($debug == 1){ $debug_log[] = '72';};
 
         //play word
         if($cp==$cp_wsf){
-            if(isValidEnglishWord($current_word)){
+            $valid = false;
+            if(in_array($current_word,$valid_words_array)){
+                $valid = true;
+            } elseif (in_array($current_word,$invalid_words_array)){
+                $valid = false;
+            } else {
+                $valid = isValidEnglishWord($current_word);
+            }
+            if($valid){
                 if(in_array($current_word,$used_words)){
                     
                 $comment = "$current_word played, already used.";
