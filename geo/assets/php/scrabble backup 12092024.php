@@ -303,7 +303,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     // Write the updated array back to the file
                     file_put_contents('invalid_words.php', $updated_array_code);
                 }
-                $query3 = "INSERT INTO words (word, valid) VALUES ($current_word, $valid);";
+                $query3 = "INSERT INTO words_table (word, valid) VALUES ($current_word, $valid);";
                 $result3 = $conn->query($query3);
             }
             if($valid){
