@@ -242,7 +242,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $current_word_value += $word_value[$cp];
                 $this_cp_names[$cp] = $game_letters[$letter_count];
                 $this_word[$cp] = $game_letters[$letter_count];
-                $letter_count =+ 1;
+                $letter_count += 1;
                 // $used_letters[] = $cp;
                 $results_detailed[$id][] = [$t,$cp,"$letter collected. word = $current_word","",$running_score];
             }
