@@ -20,7 +20,7 @@ $query2 = "select * from dbo.words";
 $result2 = $conn->query($query2);
 
 foreach($result2 as $db_word){
-    if($db_word['valid'] == "valid"){
+    if($db_word['valid']){
         $valid_words_array[] = $db_word['word'];
     } else {
         $invalid_words_array[] = $db_word['word'];
