@@ -282,13 +282,13 @@ if($debug == 1){ $debug_log[] = '72';};
                 if($valid){
                     $valid_words_array[] = $current_word;  
                     // Convert the updated array to a valid PHP code string
-                    $updated_array_code = "<?php\n\$word_array = " . var_export($valid_words_array, true) . ";\n";
+                    $updated_array_code = "<?php\n\$valid_words_array = " . var_export($valid_words_array, true) . ";\n";
                     // Write the updated array back to the file
                     file_put_contents('valid_words.php', $updated_array_code);
                 } else {
                     $invalid_words_array[] = $current_word;  
                     // Convert the updated array to a valid PHP code string
-                    $updated_array_code = "<?php\n\$word_array = " . var_export($invalid_words_array, true) . ";\n";
+                    $updated_array_code = "<?php\n\$invalid_words_array = " . var_export($invalid_words_array, true) . ";\n";
                     // Write the updated array back to the file
                     file_put_contents('invalid_words.php', $updated_array_code);
                 }
