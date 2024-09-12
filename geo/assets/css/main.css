@@ -131,3 +131,28 @@ button {
     min-height: 50px;
     transition: min-height 0.5s ease;
 }
+
+  /* App-style buttons */
+  .app-button {
+    width: 100px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .app-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive design for mobile */
+  @media only screen and (max-width: 600px) {
+    .app-button {
+      width: 80px;
+      font-size: 14px;
+    }
+  }
