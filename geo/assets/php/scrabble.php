@@ -8,6 +8,7 @@ $commentary = [];
 $debug_log[] = "data play";
 
 include 'db_connect.php';
+include 'word_check.php';
 
 ini_set("allow_url_fopen", 1);
 //Get event results from DB:

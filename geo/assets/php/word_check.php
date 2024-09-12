@@ -40,7 +40,7 @@ function isValidEnglishWord($word) {
 }
 
 // Example usage
-/*$word = "sdf";
+/*$word = "ECI";
 if (isValidEnglishWord($word)) {
     echo "'$word' is a valid English word.";
 } else {
