@@ -304,6 +304,9 @@ if($debug == 1){ $debug_log[] = '72';};
     $words_found = count($used_words);
     $wf_bonus = $word_count_bonus[$words_found];
     $running_score += $wf_bonus;
+    
+    $comment = "Word found bonus = $wf_bonus";
+    $commentary[] = $comment;
     $results_detailed[$id][] = [$t,$cp,"$words_found words found, + $wf_bonus bonus","",$running_score];
 
     $final_score = $running_score - $time_penalty;
