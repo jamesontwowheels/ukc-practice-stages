@@ -3,7 +3,7 @@ Next jobs:
 - multiply the locations
 - show upcoming letters
 - give letters values
-- 
+- display CP numbers
 
 Structure of app:
 

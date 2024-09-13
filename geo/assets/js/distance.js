@@ -41,7 +41,7 @@ console.log(crd);
   } else {
     button_element.addClass('inactive');
     button_element.removeClass('active')
-    document.getElementById(cp).innerHTML = d + "m away";
+    document.getElementById(cp).innerHTML = "cp:"+cp + " - "+ d + "m away";
   }
 }
 }
