@@ -6,9 +6,9 @@ fetch('/geo/assets/php/location.php')
         .then(data => {
             var location = data.location;
             console.log (location);
-            targets = games[location];
+            var targets = games[location];
             console.log (targets);
-            
+
 function deg2rad(degrees) {
   return degrees * (Math.PI / 180);
 }
