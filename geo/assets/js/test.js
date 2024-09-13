@@ -141,7 +141,9 @@ function ajax_call() {
             });
 
             //upcoming letters
-            console.log(data['upcoming_letters']);
+            var upcoming_letters = data['upcoming_letters'];
+            var upcoming_letters_string = upcoming_letters[0] + "-" + upcoming_letters[1] + "-" + upcoming_letters[2] + "-" + upcoming_letters[3] + "-" + upcoming_letters[4];
+            document.getElementById("upcoming_letters").innerHTML = upcoming_letters_string;
         },
         error: function(xhr, status, error) {
             console.error("AJAX Error: ", status, error);

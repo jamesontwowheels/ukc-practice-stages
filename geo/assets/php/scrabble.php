@@ -194,9 +194,10 @@ if($debug == 1){ $debug_log[] = '72';};
                 $results_detailed[$id][] = [$t,$cp,"letter $cp already used",0,$running_score];
             } else {
                 //add to word
-                $commentary[] = "Letter $letter played";
+                $letter_value = $scrabble_values[$letter];
+                $commentary[] = "Letter $letter played. + $letter_value points";
                 $current_word = $current_word.$this_word[$cp];
-                $current_word_value += $scrabble_values[$letter];
+                $current_word_value += $letter_value;
                 $this_cp_names[$cp] = $game_letters[$letter_count];
                 $this_word[$cp] = $game_letters[$letter_count];
                 $letter_count++;
@@ -249,7 +250,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $value = ($word_length_value[strlen($current_word)] + $current_word_value) * $current_bonus;
                 $running_score += $value;
                 $used_words[] = $current_word;
-                $commentary[] = "$current_word successfully played!";
+                $commentary[] = "$current_word successfully played! for $value points";
                 $results_detailed[$id][] = [$t,$cp,"$current_word successfully played!","+ $value",$running_score];
                 }
             } else {
