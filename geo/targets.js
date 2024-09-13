@@ -176,9 +176,7 @@
         "styleHash": "5c951ac3"
       }
     }
-  ],[{
-    "type": "FeatureCollection",
-    "features": [
+  ],[
       {
         "type": "Feature",
         "geometry": {
@@ -356,4 +354,4 @@
         }
       }
     ]
-  }]]
+  ]
