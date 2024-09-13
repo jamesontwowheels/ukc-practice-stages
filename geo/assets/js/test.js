@@ -89,15 +89,11 @@ function ajax_call() {
                 const countdownDate = game_start + stage_time; // 5 minutes from now
                 // Update the countdown every second
                     countdownFunction = setInterval(function() {
-
-                console.log ("timer set! Interval = " + countdownFunction);
                     // Get the current date and time
                     const now = new Date().getTime();
                     const now_s = Math.floor(now/1000);
                     // Calculate the time difference between now and the countdown date
                     const distance = countdownDate - now_s;
-                    console.log(now_s);
-                    console.log(distance);
 
                     // Time calculations for minutes and seconds
                     const minutes = Math.floor((distance % (60 * 60)) / (60));
