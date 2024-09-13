@@ -58,7 +58,7 @@ options = {
   timeout: 10000,
   maximumAge: 0,
 };
-fetch('//geo/assets/php/location.php')
+fetch('/geo/assets/php/location.php')
         .then(response => response.json())
         .then(data => {
             var location = data.location;
