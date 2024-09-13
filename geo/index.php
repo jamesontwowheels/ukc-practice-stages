@@ -6,7 +6,15 @@ if (!isset($_SESSION['username'])) {
     // Redirect to login page if not logged in
     header("Location: ../index.php");
     exit;
-}?>
+}
+
+// Check if 'word' and 'score' parameters are present in the GET request
+if (isset($_GET['location'])) {
+    // Set session variables
+    $_SESSION['location'] = $_GET['location'];
+};
+
+?>
 
 <head>
 

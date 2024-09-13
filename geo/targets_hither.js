@@ -1,5 +1,5 @@
 
-   games = [[
+   targets = [
     {
       "type": "Feature",
       "geometry": {
@@ -176,4 +176,4 @@
         "styleHash": "5c951ac3"
       }
     }
-  ]]
+  ]

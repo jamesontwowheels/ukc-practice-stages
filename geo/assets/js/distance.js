@@ -5,7 +5,8 @@ let options;
 function deg2rad(degrees) {
   return degrees * (Math.PI / 180);
 }
-
+var location = "<?php echo $_SESSION['location']; ?>";
+targets = games[location];
 
 function success(pos) {
 

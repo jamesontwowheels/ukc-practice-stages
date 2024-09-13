@@ -1,5 +1,5 @@
 
-   games = [[
+   targets = [[
     {
       "type": "Feature",
       "geometry": {
