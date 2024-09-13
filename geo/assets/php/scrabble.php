@@ -31,7 +31,7 @@ foreach($result2 as $db_word){
 $query = "select * from dbo.test_game where Player_ID = $user_ID AND location = $location ORDER BY Time_stamp ASC";
 
 if($_REQUEST["purpose"] == 2){
-$query = "select * from dbo.test_game ORDER BY Time_stamp ASC";
+$query = "select * from dbo.test_game where location = $location ORDER BY Time_stamp ASC";
 }
 
 $result = $conn->query($query);

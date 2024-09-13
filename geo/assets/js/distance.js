@@ -62,7 +62,9 @@ fetch('//geo/assets/php/location.php')
         .then(response => response.json())
         .then(data => {
             var location = data.location;
+            console.log (location);
             targets = games[location];
+            console.log (targets);
             id = navigator.geolocation.watchPosition(success, error, options);
         })
         
