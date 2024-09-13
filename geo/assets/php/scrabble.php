@@ -59,91 +59,7 @@ $count_results = count($player_cps);
 
 $x = 0;
 //set-up the static constants (each requires it's own rule...):
-    //Bulk CPS
-    $words = ["MACHINE","ANEMIC","CHAINE","HAEMIC","HAEMIN","HEMINA","ICEMAN","MANCHE","AMICE","AMINE","AMNIC","ANIME","CANEH","CHAIN","CHINA","CHIME","ENIAC","CHINE","HANCE","HEMIC","HEMIN","MACHE","MACHI","MANEH","MANIC","MICHE","MINAE","MINCE","NACHE","NICHE","ACHE",
-    "ACME",
-    "ACNE",
-    "AHEM",
-    "AINE",
-    "AMEN",
-    "AMIE",
-    "AMIN",
-    "ANCE",
-    "CAIN",
-    "CAME",
-    "CAMI",
-    "CANE",
-    "CHAI",
-    "CHAM",
-    "CHEM",
-    "CHIA",
-    "CHIN",
-    "CINE",
-    "EACH",
-    "EINA",
-    "EMIC",
-    "HAEM",
-    "HAEN",
-    "HAIN",
-    "HAME",
-    "INCH",
-    "MACE",
-    "MACH",
-    "MAIN",
-    "MANE",
-    "MANI",
-    "MEAN",
-    "MECH",
-    "MEIN",
-    "MICA",
-    "MICE",
-    "MICH",
-    "MIEN",
-    "MIHA",
-    "MINA",
-    "MINE",
-    "NACH",
-    "NAME",
-    "NEMA",
-    "NICE","ACE",
-    "ACH",
-    "AHI",
-    "AIM",
-    "AIN",
-    "AME",
-    "AMI",
-    "ANE",
-    "ANI",
-    "CAM",
-    "CAN",
-    "CHA",
-    "CHE",
-    "CHI",
-    "EAN",
-    "ECH",
-    "HAE",
-    "HAM",
-    "HAN",
-    "HEM",
-    "HEN",
-    "HIC",
-    "HIE",
-    "HIM",
-    "HIN",
-    "ICE",
-    "ICH",
-    "MAC",
-    "MAE",
-    "MAN",
-    "MEH",
-    "MEN",
-    "MIC",
-    "MNA",
-    "NAE",
-    "NAH",
-    "NAM",
-    "NIE",
-    "NIM"];
+  
     $cps_letters = [1,2,3,4,5,6,7];
     $cps_bonus = [11,12];
     $all_cps = [1,2,3,4,5,6,7,11,12,20,999];
@@ -151,7 +67,35 @@ $x = 0;
     $word_value = [0,1,4,3,1,1,3,1];
     $word_length_value = [0,0,0,0,4,8,13,20];
     $word_count_bonus = [0,0,0,5,10,20,30,45,60,80,100];
-
+    $scrabble_values = [
+        'A' => 1,
+        'B' => 3,
+        'C' => 3,
+        'D' => 2,
+        'E' => 1,
+        'F' => 4,
+        'G' => 2,
+        'H' => 4,
+        'I' => 1,
+        'J' => 8,
+        'K' => 5,
+        'L' => 1,
+        'M' => 3,
+        'N' => 1,
+        'O' => 1,
+        'P' => 3,
+        'Q' => 10,
+        'R' => 1,
+        'S' => 1,
+        'T' => 1,
+        'U' => 1,
+        'V' => 4,
+        'W' => 4,
+        'X' => 8,
+        'Y' => 4,
+        'Z' => 10,
+        ' ' => 0,  // Blank tile has 0 points
+    ];
     //special CPS;
     $cp_wsf = 20;
     $cp_start_finish = 999;
@@ -252,7 +196,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 //add to word
                 $commentary[] = "Letter $letter played";
                 $current_word = $current_word.$this_word[$cp];
-                $current_word_value += $word_value[$cp];
+                $current_word_value += $scrabble_values[$letter];
                 $this_cp_names[$cp] = $game_letters[$letter_count];
                 $this_word[$cp] = $game_letters[$letter_count];
                 $letter_count++;
@@ -367,7 +311,17 @@ if($debug == 1){ $debug_log[] = '72';};
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
 }
 
+$upcoming_letters = [];
+$ul = 0;
+while($ul < 5){
+    $ul_a = $ul + $letter_count;
+    $upcoming_letters[] = $game_letters[$ul_a];
+    $ul ++;
+};
+
+
 if($_REQUEST["purpose"] !== 2){
+$response["upcoming_letters"] = $upcoming_letters;
 $response["available_cps"] = $available_cps;
 $response["all_cps"]=$all_cps;
 $response["running_score"] = $running_score;

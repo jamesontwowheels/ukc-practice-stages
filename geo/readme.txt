@@ -1,7 +1,9 @@
 Next jobs:
 
-- include a timer - stop the timer!!
-- show the overall leaderboard
+- multiply the locations
+- show upcoming letters
+- give letters values
+- 
 
 Structure of app:
 

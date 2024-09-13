@@ -143,6 +143,9 @@ function ajax_call() {
                     // Append the new element to the target DOM element
                     itemList.appendChild(listItem);
             });
+
+            //upcoming letters
+            console.log(data['upcoming_letters']);
         },
         error: function(xhr, status, error) {
             console.error("AJAX Error: ", status, error);
