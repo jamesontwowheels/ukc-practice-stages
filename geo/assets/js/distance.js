@@ -1,12 +1,17 @@
 let id;
 let target;
 let options;
-
+fetch('/geo/assets/php/location.php')
+        .then(response => response.json())
+        .then(data => {
+            var location = data.location;
+            console.log (location);
+            targets = games[location];
+            console.log (targets);
+            
 function deg2rad(degrees) {
   return degrees * (Math.PI / 180);
 }
-
-
 
 function success(pos) {
 
@@ -58,13 +63,7 @@ options = {
   timeout: 10000,
   maximumAge: 0,
 };
-fetch('/geo/assets/php/location.php')
-        .then(response => response.json())
-        .then(data => {
-            var location = data.location;
-            console.log (location);
-            targets = games[location];
-            console.log (targets);
+
             id = navigator.geolocation.watchPosition(success, error, options);
         })
         
