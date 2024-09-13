@@ -30,11 +30,11 @@ console.log(crd);
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = Math.round(R * c * 1000); // Distance in m
   cp = "cp" + id;
-  document.getElementById(cp).innerHTML = d + "m away";
+  document.getElementById(cp).innerHTML = "cp:"+cp + " - "+ d + "m away";
   var button = "butt"+id;
   var button_element = $("#"+button);
   if (d < 250000) {
-    document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + " Check-in"
+    // redundant: document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + "check-in"
     button_element.addClass('active');
     button_element.removeClass('inactive')
 
