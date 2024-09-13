@@ -76,11 +76,6 @@ if (isset($_GET['location'])) {
   </div>
 </div>
 </div>
-<div class="button-bar">
-    <button class="app-button">Home</button>
-    <button class="app-button">Search</button>
-    <button class="app-button">Profile</button>
-  </div>
 </body>
 <script type="text/javascript" src='/geo/assets/js/rows.js'></script>
 <script type="text/javascript" src='/geo/assets/js/test.js'></script>
