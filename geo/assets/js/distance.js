@@ -30,7 +30,7 @@ console.log(crd);
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = Math.round(R * c * 1000); // Distance in m
   cp = "cp" + id;
-  document.getElementById(cp).innerHTML = "cp:"+cp + " - "+ d + "m away";
+  document.getElementById(cp).innerHTML = "CP"+id + " - "+ d + "m away";
   var button = "butt"+id;
   var button_element = $("#"+button);
   if (d < 250000) {
@@ -41,7 +41,7 @@ console.log(crd);
   } else {
     button_element.addClass('inactive');
     button_element.removeClass('active')
-    document.getElementById(cp).innerHTML = "cp:"+cp + " - "+ d + "m away";
+    document.getElementById(cp).innerHTML = "CP"+id + " - "+ d + "m away";
   }
 }
 }
