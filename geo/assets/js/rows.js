@@ -1,3 +1,10 @@
+fetch('/geo/assets/php/location.php')
+        .then(response => response.json())
+        .then(data => {
+            var location = data.location;
+            console.log (location);
+            var targets = games[location];
+            console.log (targets);
 const tableBody = document.querySelector('#checkpoints tbody');
 for (let i = 0; i < targets.length; i++) {
                 console.log(targets[i].properties.name);
@@ -11,3 +18,4 @@ for (let i = 0; i < targets.length; i++) {
                 console.log(row);
                 tableBody.appendChild(row);
             }
+        })
