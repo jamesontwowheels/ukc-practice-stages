@@ -34,6 +34,10 @@ if (!isset($_SESSION['username'])) {
   <h3>Inventory</h3>
   <div id="inventory_zone"></div>  
   </div>
+  <div id="upcoming_letters" class="bucket">
+  <h3>Upcoming Letters</h3>
+  <div id="upcoming_letters_zone"></div>  
+  </div>
   <div id="leaderboard" class="bucket">
   <h3>Leaderboard</h3>
   <div id="leaderboard_zone">
