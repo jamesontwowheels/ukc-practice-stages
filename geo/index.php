@@ -12,7 +12,11 @@ if (!isset($_SESSION['username'])) {
 if (isset($_GET['location'])) {
     // Set session variables
     $_SESSION['location'] = $_GET['location'];
-};
+} else {
+  // Redirect to login page if not logged in
+  header("Location: ../stages.php");
+  exit;
+}
 
 ?>
 

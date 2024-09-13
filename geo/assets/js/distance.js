@@ -5,8 +5,8 @@ let options;
 function deg2rad(degrees) {
   return degrees * (Math.PI / 180);
 }
-var location = "<?php echo $_SESSION['location']; ?>";
-targets = games[location];
+
+
 
 function success(pos) {
 
@@ -58,5 +58,11 @@ options = {
   timeout: 10000,
   maximumAge: 0,
 };
-
-id = navigator.geolocation.watchPosition(success, error, options);
+fetch('//geo/assets/php/location.php')
+        .then(response => response.json())
+        .then(data => {
+            var location = data.location;
+            targets = games[location];
+            id = navigator.geolocation.watchPosition(success, error, options);
+        })
+        
