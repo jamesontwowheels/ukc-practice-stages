@@ -37,6 +37,11 @@ $insert_password = strtolower($this_password);
     $stmt->bindParam(':password', $this_password); // Not hashing the password /shrug
     if ($stmt->execute()) {
         echo "Record inserted successfully!";
+
+        $to = $_POST['email'];  // The recipient's email address
+        $subject = "MindGames Registration";        // The subject of the email
+        $message = "You have registered for MindGames, your password is <h3>$this_password</h3> <br>You can login here: https://aarcseries.azurewebsites.net";
+        $send_mail = mail($to,$subject,$message);
     } else {
         echo "Error inserting record."; //not sure why this is failing...
     }
