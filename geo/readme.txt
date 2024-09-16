@@ -1,9 +1,14 @@
 Next jobs:
 
-- multiply the locations
-- show upcoming letters
-- give letters values
-- display CP numbers
+- create a FAQ/instructions page
+- explain why it's not loading
+- get it to load immediately...
+- get the timer to work...
+- explain the scoring better
+- more feedback for checking in
+- tell people to remember the password, and email it to them
+- stringtolower everything 
+
 
 Structure of app:
 
