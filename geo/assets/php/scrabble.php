@@ -344,6 +344,7 @@ $response["current_word"] = $current_word;
 $response["current_bonus"] = $current_bonus;
 $response["debug_log"] = $debug_log;
 $response["cp_names"] = $this_cp_names;
+$response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 }
 $response["live_scores"] = $live_result;

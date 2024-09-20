@@ -159,6 +159,8 @@ window.onload = function() {
                 // Handle the successful response
                 const live_scores = data["live_scores"];
                 console.log(live_scores);
+                const usernames = data["usernames"];
+                console.log(usernames);
                 const arrayOfPairs = Object.entries(live_scores);
                 console.log(arrayOfPairs);
                 updateLeaderboard(arrayOfPairs);
