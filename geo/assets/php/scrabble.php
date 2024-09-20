@@ -33,15 +33,16 @@ $query = "select * from dbo.test_game where Player_ID = $user_ID AND location = 
 if($_REQUEST["purpose"] == 2){
 $query = "select * from dbo.test_game where location = $location ORDER BY Time_stamp ASC";
 
-$query2 = "select id, name from dbo.users";
-$result2 = $conn->query($query2);
-$usernames = [];
-while ($row2 = $result2->fetch_assoc()) {
-    $usernames[$row2['id']] = $row2['name'];
-}
 }
 
 $result = $conn->query($query);
+
+$usernames = [];
+$stmt = $conn->prepare($query2);
+    $stmt->execute();
+while ($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $usernames[$row2['id']] = $row2['name'];
+}
 
 $i = 0;
 
