@@ -32,6 +32,13 @@ $query = "select * from dbo.test_game where Player_ID = $user_ID AND location = 
 
 if($_REQUEST["purpose"] == 2){
 $query = "select * from dbo.test_game where location = $location ORDER BY Time_stamp ASC";
+
+$query2 = "select id, name from dbo.users";
+$result2 = $conn->query($query2);
+$usernames = [];
+while ($row2 = $result2->fetch_assoc()) {
+    $usernames[$row2['id']] = $row2['name'];
+}
 }
 
 $result = $conn->query($query);
@@ -128,9 +135,10 @@ $x = 0;
 //start looping the contestants: //WE DON'T HAVE MULITPLE CONTESTANTS YET
 while($x < $count_results){
     $player = $players[$x];
+    $name = $usernames[$player];
     $player_result = $player_cps[$player]; //$results[$x];
   // don't have this data yet...
-    $name = "dummy"; //update
+    //$name = "dummy"; //update
     $surname = "data"; //update
     $finish_time = 3601 ; //update
     //check for time penalties:
@@ -312,7 +320,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
     $final_score = $running_score - $time_penalty;
        //live results
-       $live_result[$x]=$final_score;
+       $live_result[$name]=$final_score;
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
 }
 
