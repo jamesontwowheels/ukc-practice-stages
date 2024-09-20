@@ -17,9 +17,6 @@ include 'invalid_words.php';
 ini_set("allow_url_fopen", 1);
 //Get event results from DB:
 
-$query2 = "select * from dbo.words";
-$result2 = $conn->query($query2);
-
 foreach($result2 as $db_word){
     if($db_word['valid']){
         $valid_words_array[] = $db_word['word'];
@@ -38,6 +35,7 @@ $query = "select * from dbo.test_game where location = $location ORDER BY Time_s
 $result = $conn->query($query);
 
 $usernames = [];
+$query2 = "select * from dbo.users";
 $stmt = $conn->prepare($query2);
     $stmt->execute();
 while ($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -133,7 +131,7 @@ $x = 0;
     $time_penalty = 0;
     //values
     $stage_time = 60*60;
-//start looping the contestants: //WE DON'T HAVE MULITPLE CONTESTANTS YET
+//start looping the contestants:
 while($x < $count_results){
     $player = $players[$x];
     $name = $usernames[$player];
