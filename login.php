@@ -21,7 +21,7 @@ try {
         
             
             // Verify the password
-            if ($password == $result['password']) {
+            if (strtolower($password) == strtolower($result['password'])) {
                 // Password is correct
                 $_SESSION['user_ID'] = $result['id'];
                 $_SESSION['username'] = $result['name'];

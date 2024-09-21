@@ -36,7 +36,6 @@ $insert_password = strtolower($this_password);
     $stmt->bindParam(':email', $_POST['email']);
     $stmt->bindParam(':password', $this_password); // Not hashing the password /shrug
     if ($stmt->execute()) {
-        echo "Record inserted successfully!";
 
         $to = $_POST['email'];  // The recipient's email address
         $subject = "MindGames Registration";        // The subject of the email
