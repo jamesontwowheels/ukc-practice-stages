@@ -41,7 +41,7 @@ function generateSimplePassword() {
 
 // Example usage
 $this_password = generateSimplePassword();
-echo "Registration successful<br>";
+echo "<h3>Success</h3><br>";
 echo "Your password: <br><h3>" . $this_password. "</h3><br>please remember this";
 $insert_password = strtolower($this_password);
 
@@ -59,8 +59,8 @@ $insert_password = strtolower($this_password);
         echo "Error inserting record."; //not sure why this is failing...
     }
 ?>
-
-<a href="index.php">login</a>
+<br>
+<a href="index.php"><h3>login</h3></a>
 </div>
 </div>
 </body>
