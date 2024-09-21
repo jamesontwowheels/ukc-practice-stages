@@ -42,7 +42,7 @@ function generateSimplePassword() {
 // Example usage
 $this_password = generateSimplePassword();
 echo "<h3>Success</h3><br>";
-echo "Your password: <br><h3>" . $this_password. "</h3><br>please remember this";
+echo "Your password: <br><br><h3>" . $this_password. "</h3><br>Please remember this.";
 $insert_password = strtolower($this_password);
 
     $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
@@ -59,8 +59,8 @@ $insert_password = strtolower($this_password);
         echo "Error inserting record."; //not sure why this is failing...
     }
 ?>
-<br>
-<a href="index.php"><h3>login</h3></a>
+<br><br>
+<a href="index.php">login</a>
 </div>
 </div>
 </body>
