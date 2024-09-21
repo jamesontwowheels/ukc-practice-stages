@@ -28,7 +28,7 @@ function generateSimplePassword() {
 
 // Example usage
 $this_password = generateSimplePassword();
-echo "Generated Password: " . $this_password;
+echo "Generated Password: <h3>" . $this_password. "</h3> - please remember this";
 $insert_password = strtolower($this_password);
 
     $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
