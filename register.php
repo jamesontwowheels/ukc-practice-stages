@@ -10,7 +10,7 @@
     <h2>MINDGAMES</h2>
 
     <div class="login-container">
-        <div class="login-form">
+        <div class="login-form smallem">
 <?php
 // PHP Data Objects(PDO) Sample Code:
 try {
@@ -42,7 +42,7 @@ function generateSimplePassword() {
 // Example usage
 $this_password = generateSimplePassword();
 echo "Registration successful<br>";
-echo "Generated Password: <h3>" . $this_password. "</h3> - please remember this";
+echo "Your password: <br><h3>" . $this_password. "</h3><br>please remember this";
 $insert_password = strtolower($this_password);
 
     $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");

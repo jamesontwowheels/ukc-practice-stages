@@ -33,6 +33,9 @@ h2 {
     height: 90vh;
   }
   
+  .smallem {
+    font-size: 0.6em;
+  }
   /* Styling the form */
   .login-form {
     background-color: #fff;
