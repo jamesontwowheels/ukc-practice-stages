@@ -10,6 +10,7 @@
     <h2>MINDGAMES</h2>
 
     <div class="login-container">
+        <div class="login-form">
 <?php
 // PHP Data Objects(PDO) Sample Code:
 try {
@@ -58,6 +59,9 @@ $insert_password = strtolower($this_password);
         echo "Error inserting record."; //not sure why this is failing...
     }
 ?>
+
+<a href="index.php">login</a>
+</div>
 </div>
 </body>
 
