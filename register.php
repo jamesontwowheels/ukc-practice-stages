@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2>MINDGAMES</h2>
+
+    <div class="login-container">
 <?php
 // PHP Data Objects(PDO) Sample Code:
 try {
@@ -28,6 +40,7 @@ function generateSimplePassword() {
 
 // Example usage
 $this_password = generateSimplePassword();
+echo "Registration successful<br>";
 echo "Generated Password: <h3>" . $this_password. "</h3> - please remember this";
 $insert_password = strtolower($this_password);
 
@@ -44,7 +57,9 @@ $insert_password = strtolower($this_password);
     } else {
         echo "Error inserting record."; //not sure why this is failing...
     }
-
+?>
+</div>
+</body>
 
 
 
