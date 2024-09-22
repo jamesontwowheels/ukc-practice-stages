@@ -28,7 +28,7 @@ $(document).ready(function() {
 
 function ajax_call() {
     if ($(this).hasClass('inactive')){
-
+        console.log('inactive clicked');
     } else {console.log("button clicked / name update");
     var cp = $(this).attr('cp');
     cp = cp || 0;
@@ -158,11 +158,8 @@ window.onload = function() {
             .then(data => {
                 // Handle the successful response
                 const live_scores = data["live_scores"];
-                console.log(live_scores);
                 const usernames = data["usernames"];
-                console.log(usernames);
                 const arrayOfPairs = Object.entries(live_scores);
-                console.log(arrayOfPairs);
                 updateLeaderboard(arrayOfPairs);
             })
             .catch(error => {
