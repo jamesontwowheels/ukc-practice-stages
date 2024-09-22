@@ -18,4 +18,6 @@ for (let i = 0; i < targets.length; i++) {
                 console.log(row);
                 tableBody.appendChild(row);
             }
+
+        ajax_call();
         })
