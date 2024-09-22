@@ -118,7 +118,8 @@ $x = 0;
         20 => "WSF",
         999 => "S/F"
         ];
-
+    
+    $this_cp_names = $cp_names;
     //results catchers
     $results_detailed = [];
     $results_summary = [];
