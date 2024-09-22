@@ -12,6 +12,8 @@ if (!isset($_SESSION['username'])) {
 <head>
 
 <link rel="stylesheet" href="geo/assets/css/main.css">
+<link rel="manifest" href="/manifest.json">
+
 </head>
 <body>
 <a class="stage" href="geo?location=0">Morden</a><br>
