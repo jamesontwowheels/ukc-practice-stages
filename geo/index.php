@@ -56,8 +56,8 @@ if (isset($_GET['location'])) {
   <table id="leaderBoard_table" border="1">
         <thead>
             <tr>
-                <th>Key</th>
-                <th>Value</th>
+                <th>Name</th>
+                <th>Score</th>
             </tr>
         </thead>
         <tbody>
