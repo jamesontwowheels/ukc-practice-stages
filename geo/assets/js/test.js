@@ -3,6 +3,10 @@ let countdownFunction = 0;
 $(document).ready(ajax_call);
 $("body").on("click", "button", ajax_call);
 
+function pause(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 $(document).ready(function() {
     // On button click, toggle the expandable content
     $("#toggleButton").on("click", function() {
