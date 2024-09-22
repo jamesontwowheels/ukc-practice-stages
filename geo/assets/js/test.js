@@ -65,7 +65,37 @@ function ajax_call() {
             var this_key = cp_names_keys[i];
             var cp_id = "butt" + this_key;
             console.log(cp_id);
-            document.getElementById(cp_id).innerHTML = cp_names[this_key];
+
+            //check that the element exists
+            function checkElementExists(id, timeout = 15000) {
+                return new Promise((resolve, reject) => {
+                    const startTime = Date.now();
+            
+                    // Recursive function to check for the element
+                    function check() {
+                        const elapsedTime = Date.now() - startTime;
+                        const element = document.getElementById(id);
+            
+                        if (element) {
+                            console.log("Element found:", element);
+                            resolve(element); // Element found, resolve the promise
+                        } else if (elapsedTime >= timeout) {
+                            console.log("Timeout reached, stopping checks.");
+                            reject(new Error("Element not found within timeout"));
+                        } else {
+                            console.log("Element not found, waiting 3 seconds...");
+                            setTimeout(check, 3000); // Wait for 3 seconds and recheck
+                        }
+                    }
+            
+                    check(); // Start the checking process
+                });
+            }
+            checkElementExists(cp_id, 15000).then(element => {
+                document.getElementById(cp_id).innerHTML = cp_names[this_key];
+            }).catch(error => {
+                console.error(error.message);
+            });
             i++;
             } 
             
