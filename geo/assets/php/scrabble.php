@@ -50,6 +50,7 @@ $players = [];
 
 
 
+if ($result->rowCount() > 0) {
 foreach ($result as $row) {
     if(!in_array($row["Player_ID"],$players)){
         $players[] = $row["Player_ID"];
@@ -58,7 +59,7 @@ foreach ($result as $row) {
     }
    $player_cps[$row["Player_ID"]][] = [$row["CP_ID"],$row["Time_stamp"]];
    $i += 1;
-}
+}}
 $debug_log[] = $i." rows";
 
 if($debug == 1){ $debug_log[] = '19';};

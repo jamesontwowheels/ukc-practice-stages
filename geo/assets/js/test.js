@@ -1,8 +1,6 @@
 let countdownFunction = 0;
-console.log("cf defined");
 
 $(document).ready(ajax_call);
-console.log("tested");
 $("body").on("click", "button", ajax_call);
 
 $(document).ready(function() {
