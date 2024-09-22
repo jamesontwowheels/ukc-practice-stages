@@ -59,10 +59,12 @@ function ajax_call() {
             document.getElementById("inventory_zone").innerHTML = "Current word =" + data["current_word"] + "<br> Current bonus = " + data["current_bonus"];
             var cp_names = data["cp_names"];
             var cp_names_keys = Object.keys(cp_names);
+            console.log(cp_names);
             let i = 0;
             while (i < cp_names_keys.length) {
             var this_key = cp_names_keys[i];
             var cp_id = "butt" + this_key;
+            console.log(cp_id);
             document.getElementById(cp_id).innerHTML = cp_names[this_key];
             i++;
             } 
