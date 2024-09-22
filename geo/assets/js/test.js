@@ -50,6 +50,8 @@ function ajax_call() {
         url: '/geo/assets/php/test.php?purpose=1&cp='+cp,
         success: function(data) {
             console.log("ajax return");
+            var debug_log = data["debug_log"];
+            console.log(debug_log);
             document.getElementById("inventory_zone").innerHTML = "Current word =" + data["current_word"] + "<br> Current bonus = " + data["current_bonus"];
             var cp_names = data["cp_names"];
             var cp_names_keys = Object.keys(cp_names);
