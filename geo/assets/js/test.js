@@ -81,7 +81,7 @@ function ajax_call() {
                         if (element) {
                             console.log("Element found:", element);
                             element.innerHTML = keyname;
-                            element.removeClass("blocked");
+                            element.classList.remove("blocked");
                             resolve(element); // Element found, resolve the promise
                         } else if (elapsedTime >= timeout) {
                             console.log("Timeout reached, stopping checks.");
