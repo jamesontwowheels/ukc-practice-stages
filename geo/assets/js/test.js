@@ -92,7 +92,7 @@ function ajax_call() {
                 });
             }
             checkElementExists(cp_id, 15000).then( function() {
-                console.log("trying to add this")
+                console.log("trying to add ".cp_names[this_key])
                 document.getElementById(cp_id).innerHTML = cp_names[this_key];
             }).catch(error => {
                 console.error(error.message);
