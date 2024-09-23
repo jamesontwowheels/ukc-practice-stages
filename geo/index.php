@@ -51,7 +51,8 @@ if (isset($_GET['location'])) {
   <div id="upcoming_letters_zone"></div>  
   </div>
   <div id="leaderboard" class="bucket">
-  <h3>Leaderboard</h3>
+
+  <h3><a href="leaderboard.php">Leaderboard</a></h3>
   <div id="leaderboard_zone">
   <table id="leaderBoard_table" border="1">
         <thead>

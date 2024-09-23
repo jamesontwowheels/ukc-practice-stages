@@ -45,7 +45,7 @@ if (isset($_SESSION['location'])) {
     </table>
   </div>  
   </div>
-
+<h3><a href="index.php"><< back to the game</a></h3>
 </div>
 </body>
 <script type="text/javascript" src='/geo/assets/js/leaderboard.js' defer></script>
