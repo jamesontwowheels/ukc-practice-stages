@@ -46,6 +46,7 @@ function ajax_call() {
     }, 2000);
     setTimeout(function() {
         $(this).removeClass('blocked');
+        console.log("block off");
     }, 10000);
 
     if (cp == 999){
