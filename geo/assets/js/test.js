@@ -38,6 +38,7 @@ function ajax_call() {
     
     //bit of jazz
     $(this).addClass('inactive');
+    $(this).removeClass('active')
     var temp_highlight = $("#cp"+cp);
     temp_highlight.addClass('clicked');
     setTimeout(function() {
@@ -185,10 +186,13 @@ function ajax_call() {
             var upcoming_letters_string = upcoming_letters[0] + "-" + upcoming_letters[1] + "-" + upcoming_letters[2] + "-" + upcoming_letters[3] + "-" + upcoming_letters[4];
             var lower_letters_string = upcoming_letters_string.toLowerCase();
             document.getElementById("upcoming_letters_zone").innerHTML = lower_letters_string;
+            $(this).removeClass('inactive');
+            $(this).addClass('active')
         },
         error: function(xhr, status, error) {
             console.error("AJAX Error: ", status, error);
         }
+        
     });
 }}
 
