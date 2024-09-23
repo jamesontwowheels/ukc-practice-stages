@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 
 function ajax_call() {
-    if ($(this).hasClass('inactive') || $this.hasClass('blocked')){
+    if ($(this).hasClass('inactive') || $(this).hasClass('blocked')){
         console.log('inactive clicked');
     } else {console.log("button clicked / name update");
     var cp = $(this).attr('cp');
