@@ -9,6 +9,11 @@ Next jobs:
 - tell people to remember the password, and email it to them
 - stringtolower everything 
 
+Must do before tomorrow:
+- design map and upload checkpoints
+- create the rule for double/triple letter
+- check scoring/timings align to stage notes
+- explain the scrabble scores
 
 Structure of app:
 

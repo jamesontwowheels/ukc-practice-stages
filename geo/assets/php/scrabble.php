@@ -67,6 +67,7 @@ $x = 0;
   
     $cps_letters = [1,2,3,4,5,6,7];
     $cps_bonus = [11,12];
+    $cps_bonus_letter = [13,14];
     $all_cps = [1,2,3,4,5,6,7,11,12,20,999];
     $word = ["","A","H","M","I","E","C","N"];
     $word_value = [0,1,4,3,1,1,3,1];
@@ -113,8 +114,10 @@ $x = 0;
         5 => "E",
         6 => "C",
         7 => "N",
-        11 => "2x",
-        12 => "3x",
+        11 => "2w",
+        12 => "3w",
+        13 => "2l",
+        14 => "3l",
         20 => "WSF",
         999 => "S/F"
         ];
@@ -129,7 +132,7 @@ $x = 0;
     $live_result = [];
     $time_penalty = 0;
     //values
-    $stage_time = 60*60;
+    $stage_time = 75*60;
 //start looping the contestants:
 while($x < $count_results){
     $player = $players[$x];
@@ -138,7 +141,7 @@ while($x < $count_results){
   // don't have this data yet...
     //$name = "dummy"; //update
     $surname = "data"; //update
-    $finish_time = 3601 ; //update
+    $finish_time = 3601 ; //update - why is this here???
     //check for time penalties:
         if($finish_time > $stage_time){
             $time_penalty = floor(($finish_time-$stage_time)/5);
@@ -196,14 +199,21 @@ if($debug == 1){ $debug_log[] = '72';};
         if(in_array($cp,$cps_letters)){
             $letter = $this_word[$cp];
             if(in_array($cp,$used_letters)){
-                //letter used in word
+                //letter used in word - this is defunct code in scrabble+, but i don't want to remove it in case it breaks
                 $commentary[] = "Letter $letter already used";
                 $results_detailed[$id][] = [$t,$cp,"letter $cp already used",0,$running_score];
             } else {
                 //add to word
                 $letter_value = $scrabble_values[$letter];
-                $commentary[] = "Letter $letter played. + $letter_value points";
+                $comment = "Letter $letter played. + $letter_value points";
+                $commentary[] = $comment;
                 $current_word = $current_word.$this_word[$cp];
+                if($letter_bonus_active){
+                    $letter_value = $letter_bonus * $letter_value;
+                    $comment = "Letter multiplied by $letter_bonus";
+                    $commentary[] = $comment;
+                    $letter_bonus_active = false;
+                }
                 $current_word_value += $letter_value;
                 $this_cp_names[$cp] = $game_letters[$letter_count];
                 $this_word[$cp] = $game_letters[$letter_count];
@@ -213,23 +223,51 @@ if($debug == 1){ $debug_log[] = '72';};
             }
         }
 
-        //pick up bonus 
+        //pick up word bonus 
         if(in_array($cp,$cps_bonus)){
             if(in_array($cp,$used_bonuses)){
                 //bonus already played
                 $commentary[] = "bonus $cp already used";
                 $results_detailed[$id][] = [$t,$cp,"bonus $cp already used","",$running_score];
-            } elseif ($current_bonus > 1.5) {
+            } elseif ($bonus_active = true) {
                 //other bonus already in play
                 $used_bonuses[] = $cp;
-                $commentary[] = "bonus $cp invalid, $current_bonus bonus already in use.";
-                $results_detailed[$id][] = [$t,$cp,"bonus $cp invalid, $current_bonus bonus already in use.","",$running_score];
+                $comment = "bonus $cp_names[$cp] invalid, another bonus already in use.";
+                $commentary[] = $comment;
+                $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
             } else {
                 //award bonus
                 $used_bonuses[] = $cp;
                 $current_bonus = $cp - 9;
-                $commentary[] = "bonus $current_bonus collected.";
-                $results_detailed[$id][] = [$t,$cp,"bonus $current_bonus collected.","",$running_score];
+                $bonus_active = true;
+                $word_bonus_active = true;
+                $comment = "bonus $cp_names[$cp] collected.";
+                $commentary[] = $comment;
+                $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
+            }
+        }
+
+        //pick up letter bonus
+        if(in_array($cp,$cps_bonus_letter)){
+            if(in_array($cp,$used_bonuses)){
+                //bonus already played
+                $comment = "bonus $cp_names[$cp] already used";
+                $commentary[] = $comment;
+                $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score]; //this is begggging to be rationalised
+            } elseif ($bonus_active == true) {
+                //other bonus already in play
+                $used_bonuses[] = $cp;
+                $comment =  "bonus $cp_names[$cp] invalid, another bonus is already in use.";
+                $commentary[] = $comment;
+                $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
+            } else {
+                $used_bonuses[] = $cp;
+                $comment = "bonus $cp_names[$cp] collected.";
+                $letter_bonus = $cp - 11;
+                $bonus_active = true;
+                $letter_bonus_active = true;
+                $commentary[] = $comment;
+                $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
             }
         }
 
@@ -266,6 +304,10 @@ if($debug == 1){ $debug_log[] = '72';};
             }
             $current_word = "";
             $current_bonus = 1;
+            $letter_bonus = 1;
+            $bonus_active = false;
+            $letter_bonus_active = false;
+            $word_bonus_active = false;
             $current_word_value = 0;
             $used_letters = [];
             $value = 0;
