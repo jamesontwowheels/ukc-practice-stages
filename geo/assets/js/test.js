@@ -67,7 +67,7 @@ function ajax_call() {
             console.log(cp_id);
 
             //check that the element exists
-            function checkElementExists(id, timeout = 15000) {
+            function checkElementExists(id, keyname, timeout = 15000) {
                 return new Promise((resolve, reject) => {
                     const startTime = Date.now();
             
@@ -78,6 +78,7 @@ function ajax_call() {
             
                         if (element) {
                             console.log("Element found:", element);
+                            element.innerHTML = keyname;
                             resolve(element); // Element found, resolve the promise
                         } else if (elapsedTime >= timeout) {
                             console.log("Timeout reached, stopping checks.");
@@ -91,9 +92,10 @@ function ajax_call() {
                     check(); // Start the checking process
                 });
             }
-            checkElementExists(cp_id, 15000).then( function() {
+            var keyname = cp_names[this_key];
+            checkElementExists(cp_id, keyname, 15000).then( function() {
                 console.log("trying to add " + cp_names[this_key])
-                document.getElementById(cp_id).innerHTML = cp_names[this_key];
+                //document.getElementById(cp_id).innerHTML = cp_names[this_key];
             }).catch(error => {
                 console.error(error.message);
             });
