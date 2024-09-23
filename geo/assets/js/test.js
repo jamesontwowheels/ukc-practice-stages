@@ -46,8 +46,8 @@ function ajax_call() {
         temp_highlight.removeClass('clicked');
     }, 2000);
     setTimeout(function() {
-        $(this).addClass('inactive');
-        $(this).removeClass('active');
+        $(this).addClass('active');
+        $(this).removeClass('inactive');
     }, 10000);
 
     if (cp == 999){
