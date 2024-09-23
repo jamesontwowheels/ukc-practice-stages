@@ -41,9 +41,14 @@ function ajax_call() {
     $(this).removeClass('active')
     var temp_highlight = $("#cp"+cp);
     temp_highlight.addClass('clicked');
+    
     setTimeout(function() {
-        temp_highlight.toggleClass('clicked');
+        temp_highlight.removeClass('clicked');
     }, 2000);
+    setTimeout(function() {
+        $(this).addClass('inactive');
+        $(this).removeClass('active');
+    }, 10000);
 
     if (cp == 999){
         const userConfirmed = confirm("Are you sure you're ready to start/stop?")
