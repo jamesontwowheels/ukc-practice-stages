@@ -52,20 +52,7 @@ if (isset($_GET['location'])) {
   </div>
   <div id="leaderboard" class="bucket">
 
-  <h3><a href="leaderboard.php">Leaderboard</a></h3>
-  <div id="leaderboard_zone">
-  <table id="leaderBoard_table" border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Score</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Rows will be added here -->
-        </tbody>
-    </table>
-  </div>  
+  <h3><a href="leaderboard.php">Leaderboard</a></h3> 
   </div>
 <div id="history" class="bucket">
   <h3>History</h3>

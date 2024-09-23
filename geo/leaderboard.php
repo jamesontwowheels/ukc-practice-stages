@@ -31,6 +31,7 @@ if (isset($_SESSION['location'])) {
 
   <div id="leaderboard" class="bucket">
   <h3>Leaderboard</h3>
+  <p>be patient...</p>
   <div id="leaderboard_zone">
   <table id="leaderBoard_table" border="1">
         <thead>
