@@ -23,8 +23,6 @@ if (isset($_SESSION['location'])) {
 <head>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src='/geo/targets.js'></script>
-<script type="text/javascript" src='/geo/assets/js/distance.js'></script>
 <link rel="stylesheet" href="/geo/assets/css/main.css">
 </head>
 <body>
@@ -50,5 +48,4 @@ if (isset($_SESSION['location'])) {
 
 </div>
 </body>
-<script type="text/javascript" src='/geo/assets/js/test.js' defer></script>
-<script type="text/javascript" src='/geo/assets/js/rows.js'></script>
+<script type="text/javascript" src='/geo/assets/js/leaderboard.js' defer></script>
