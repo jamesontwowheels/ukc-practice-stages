@@ -37,6 +37,7 @@ function ajax_call() {
     console.log (cp);
     
     //bit of jazz
+    $(this).addClass('inactive');
     var temp_highlight = $("#cp"+cp);
     temp_highlight.addClass('clicked');
     setTimeout(function() {
