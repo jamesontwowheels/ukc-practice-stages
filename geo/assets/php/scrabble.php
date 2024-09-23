@@ -229,7 +229,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 //bonus already played
                 $commentary[] = "bonus $cp already used";
                 $results_detailed[$id][] = [$t,$cp,"bonus $cp already used","",$running_score];
-            } elseif ($bonus_active = true) {
+            } elseif ($bonus_active == true) {
                 //other bonus already in play
                 $used_bonuses[] = $cp;
                 $comment = "bonus $cp_names[$cp] invalid, another bonus already in use.";
