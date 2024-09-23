@@ -44,10 +44,6 @@ function ajax_call() {
     setTimeout(function() {
         temp_highlight.removeClass('clicked');
     }, 2000);
-    setTimeout(function() {
-        $(this).removeClass('blocked');
-        console.log("block off");
-    }, 10000);
 
     if (cp == 999){
         const userConfirmed = confirm("Are you sure you're ready to start/stop?")
@@ -85,6 +81,7 @@ function ajax_call() {
                         if (element) {
                             console.log("Element found:", element);
                             element.innerHTML = keyname;
+                            element.removeClass(blocked);
                             resolve(element); // Element found, resolve the promise
                         } else if (elapsedTime >= timeout) {
                             console.log("Timeout reached, stopping checks.");
