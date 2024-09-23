@@ -91,7 +91,8 @@ function ajax_call() {
                     check(); // Start the checking process
                 });
             }
-            checkElementExists(cp_id, 15000).then(element => {
+            checkElementExists(cp_id, 15000).then( function() {
+                console.log("trying to add this")
                 document.getElementById(cp_id).innerHTML = cp_names[this_key];
             }).catch(error => {
                 console.error(error.message);
