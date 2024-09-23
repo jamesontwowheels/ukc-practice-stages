@@ -350,7 +350,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
  
 
-    $words_found = count($used_words);
+    $words_found = min(count($used_words),10);
     $wf_bonus = $word_count_bonus[$words_found];
     $running_score += $wf_bonus;
     
