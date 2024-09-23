@@ -46,6 +46,10 @@ button.inactive {
     transition: min-height 0.5s ease;
 }
 
+button.blocked {
+    background: #b82e45 !important ;
+}
+
 table, tr {
     font-size: inherit;
     width: 90%;

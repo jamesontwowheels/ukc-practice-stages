@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 
 function ajax_call() {
-    if ($(this).hasClass('inactive')){
+    if ($(this).hasClass('inactive') || $this.hasClass('blocked')){
         console.log('inactive clicked');
     } else {console.log("button clicked / name update");
     var cp = $(this).attr('cp');
@@ -37,8 +37,7 @@ function ajax_call() {
     console.log (cp);
     
     //bit of jazz
-    $(this).addClass('inactive');
-    $(this).removeClass('active')
+    $(this).addClass('blocked');
     var temp_highlight = $("#cp"+cp);
     temp_highlight.addClass('clicked');
     
@@ -46,8 +45,7 @@ function ajax_call() {
         temp_highlight.removeClass('clicked');
     }, 2000);
     setTimeout(function() {
-        $(this).addClass('active');
-        $(this).removeClass('inactive');
+        $(this).removeClass('blocked');
     }, 10000);
 
     if (cp == 999){
