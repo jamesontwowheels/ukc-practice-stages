@@ -1,0 +1,79 @@
+Format: JSON
+
+{
+
+"errorFlag": false, - Boolean value - Test before using results
+
+"statusMessage": "", - If errorFlag is true, statusMessage will show a message
+
+"warningFlag": false, - not currently used
+
+"warningMessage": "", - not currently used
+
+"results": []
+
+}
+
+The "results": item is a List with a result for each runner in the format:
+
+{
+
+"Id": 284755, - This is the database key reflects the time order that results are uploaded to the database
+
+"Surname": "King",
+
+"Firstname": "Smith",
+
+"Gender": "F",
+
+"YearOfBirth": 1953, - Integer value
+
+"TrackStartDateTimeUTC": "2022-04-02T04:04:59.000Z", - Date-Time that the recording of the track commenced in UTC format. Note that this will normally be before the time that the Start was punched. (ISO8601 format string)
+
+"StartPunchTimeLocal": "14:06:10", - Local time as a string: HH:mm:ss
+
+"FinishPunchTimeLocal": "15:09:02", - Local time as a string: HH:mm:ss
+
+"TotalTimehhmmss": "1:02:51", - Time between start and finish punches as a string in HH:mm:ss
+
+"TotalTimeSecs": 3771, - Time between start and finish seconds as an integer (for ease of sorting results by time)
+
+"Classifier": "OK", - Orienteering Classifier: OK, MP (Mispunch), DNF (Did not finish), -- (the latter is if the classifier cannot be determined)
+
+"ClubName": "DROC", - “Club or Team” field from MapRun6 User Details
+
+"GrossScore": 44, - integer
+
+"NetScore": 44, - integer
+
+"MapRunVersion": "MapRunF 5.0.9-android",
+
+"Distance": 6.69, - km floating point number
+
+"Pacemmss": "9:24", - pace (mins/km) as a MM:ss string
+
+"PaceMins": 9.394618834080717, - pace (mins/km) as a floating point value
+
+"Punches": [
+
+{
+
+"ControlId": "7", - Control Id as a string
+
+"TimeAfterStartSecs": 230 - Time in seconds after the start as an integer
+
+},
+
+{
+
+"ControlId": "17",
+
+"TimeAfterStartSecs": 604
+
+},
+
+{
+
+"ControlId": "12",
+
+"TimeAfterStartSecs": 845
