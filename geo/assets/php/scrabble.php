@@ -18,7 +18,8 @@ ini_set("allow_url_fopen", 1);
 //Get event results from DB:
 
 $query_words = "select * from dbo.words";
-
+$valid_words_array = [];
+$invalid_words_array = [];
 $stmt_words = $conn->prepare($query_words);
     $stmt_words->execute();
 while ($db_word = $stmt_words->fetch(PDO::FETCH_ASSOC)) {
