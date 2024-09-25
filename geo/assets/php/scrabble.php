@@ -17,6 +17,20 @@ include 'invalid_words.php';
 ini_set("allow_url_fopen", 1);
 //Get event results from DB:
 
+$query_words = "select * from dbo.words";
+
+$stmt_words = $conn->prepare($query_words);
+    $stmt_words->execute();
+while ($db_word = $stmt_words->fetch(PDO::FETCH_ASSOC)) {
+    $usernames[$row2['id']] = $row2['name'];
+    if($db_word['valid']){
+        $valid_words_array[] = $db_word['word'];
+    } else {
+        $invalid_words_array[] = $db_word['word'];
+    }
+}
+/*
+$result2 = $conn->query($query);
 foreach($result2 as $db_word){
     if($db_word['valid']){
         $valid_words_array[] = $db_word['word'];
@@ -24,6 +38,7 @@ foreach($result2 as $db_word){
         $invalid_words_array[] = $db_word['word'];
     }
 }
+*/
 
 $query = "select * from dbo.test_game where Player_ID = $user_ID AND location = $location ORDER BY Time_stamp ASC";
 

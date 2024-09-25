@@ -1,5 +1,6 @@
 window.onload = function() {
     function getLeaderboard() {
+        console.log("made a fetch request");
         fetch('/geo/assets/php/test.php?purpose=2&cp=0') // Replace with your API endpoint
             .then(response => response.json())
             .then(data => {
