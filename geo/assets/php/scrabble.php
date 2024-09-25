@@ -22,7 +22,6 @@ $query_words = "select * from dbo.words";
 $stmt_words = $conn->prepare($query_words);
     $stmt_words->execute();
 while ($db_word = $stmt_words->fetch(PDO::FETCH_ASSOC)) {
-    $usernames[$row2['id']] = $row2['name'];
     if($db_word['valid']){
         $valid_words_array[] = $db_word['word'];
     } else {
