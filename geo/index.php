@@ -65,5 +65,6 @@ if (isset($_GET['location'])) {
 </div>
 </div>
 </body>
-<script type="text/javascript" src='/geo/assets/js/test.js' defer></script>
+
 <script type="text/javascript" src='/geo/assets/js/rows.js'></script>
+<script type="text/javascript" src='/geo/assets/js/test.js' defer></script>
