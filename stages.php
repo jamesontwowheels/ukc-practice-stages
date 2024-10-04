@@ -21,6 +21,7 @@ if (!isset($_SESSION['username'])) {
 <a class="stage" href="geo?location=2">Hither Green</a><br>
 <a class="stage" href="geo?location=3">St Katherine Docks</a><br>
 <a class="stage" href="geo?location=4">Lightwater</a><br>
+<a class="stage" href="geo?location=5">Manvers Lake</a><br>
 
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
