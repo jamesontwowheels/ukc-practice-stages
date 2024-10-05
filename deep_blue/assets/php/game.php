@@ -187,7 +187,7 @@ if($debug == 1){ $debug_log[] = '72';};
 if (in_array($cp,$cps_oxygen)){
     if($oxygen_state[0] == 0){
     $oxygen_state[0] = 1;
-    $oxygen = $t + 600;
+    $oxygen = $t + 30;
     $oxygen_state[1] = $oxygen;
     $comment = "Dive started";
     $available_cps = $below_cps;
