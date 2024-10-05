@@ -314,6 +314,7 @@ if($_REQUEST["purpose"] !== 2){
         //e.g. $response["upcoming_letters"] = $upcoming_letters;
     //UNIVERSAL
 $response["all_cps"]=$all_cps;
+$response["available_cps"]=$available_cps;
 $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
 $response["debug_log"] = $debug_log;
