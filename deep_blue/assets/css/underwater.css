@@ -21,20 +21,6 @@
     z-index: 1; /* Move it behind the content */
 }
 
-/* Light shimmer effect */
-.underwater::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateX(-50%);
-    animation: shimmer 10s infinite linear;
-    z-index: 1; /* Move it behind the content */
-}
-
 /* Bubble effect (optional) */
 .bubble {
     position: absolute;
