@@ -74,6 +74,8 @@ $x = 0;
      $cp_dive_boat = 777;
     
     $all_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,102,202,333,777,998,999];
+    $above_cps = [31,32,33,34,102,202,777,998,999];
+    $below_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,999];
     
     $cp_names = [
         11 => "Nemo",
@@ -188,8 +190,10 @@ if (in_array($cp,$cps_oxygen)){
     $oxygen = $t + 600;
     $oxygen_state[1] = $oxygen;
     $comment = "Dive started";
+    $available_cps = $below_cps;
     } else {
         $oxygen_state = [0,0];
+        $available_cps = $above_cps;
         $comment = "Dive finished";
     }
 } 
@@ -222,9 +226,6 @@ if (in_array($cp,$cps_fish)){
         $comment = "You tried to pick-up fish $cp with no trident";
     } elseif (in_array($cp,$inventory)){
         $comment = "Fish already caught this trip";
-    } elseif ($t > $oxygen){
-        $comment = "Oh no, out of oxygen! You've dropped everything";
-        $inventory = [];
     } else {
         $comment = "Fish $cp speared!";
         $inventory[] = $cp;
