@@ -1,7 +1,7 @@
 window.onload = function() {
     function getLeaderboard() {
         console.log("made a fetch request");
-        fetch('../php/test.php?purpose=2&cp=0') // Replace with your API endpoint
+        fetch('assets/php/test.php?purpose=2&cp=0') // Replace with your API endpoint
             .then(response => response.json())
             .then(data => {
                 // Handle the successful response

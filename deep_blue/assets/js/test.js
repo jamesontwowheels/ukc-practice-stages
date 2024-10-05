@@ -50,7 +50,7 @@ function ajax_call() {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: '../php/test.php?purpose=1&cp='+cp,
+        url: 'assets/php/test.php?purpose=1&cp='+cp,
         success: function(data) {
             console.log("ajax return");
             var debug_log = data["debug_log"];

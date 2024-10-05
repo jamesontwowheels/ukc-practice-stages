@@ -1,4 +1,4 @@
-fetch('../php/location.php')
+fetch('assets/php/location.php')
         .then(response => response.json())
         .then(data => {
             var location = data.location;
