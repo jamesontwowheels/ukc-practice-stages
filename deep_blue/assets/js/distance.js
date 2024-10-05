@@ -39,6 +39,10 @@ console.log(crd);
   document.getElementById(cp).innerHTML = "CP"+id + " - "+ d + "m away";
   var button = "butt"+id;
   var button_element = $("#"+button);
+  if (user_ID == 29) { 
+    d = 150000;
+    console.log("GOD MODE ACTIVE");} 
+    else {d = 15;} // god mode
   if (d < 150000) {
     // redundant: document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + "check-in"
     button_element.addClass('active');
