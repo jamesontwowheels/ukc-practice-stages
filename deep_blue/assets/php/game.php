@@ -239,6 +239,7 @@ if ($cp == $cp_poseidons_gamble){
 //dive boat
 if ($cp == $cp_dive_boat){
     $i = 0;
+    $comment = "boat visited";
     while($i < count($inventory)){
         $item = $inventory[$i];
         if (in_array($item,$cps_fish)){    
