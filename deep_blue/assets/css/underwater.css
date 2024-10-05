@@ -18,7 +18,7 @@
     background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
     animation: ripple 6s infinite linear;
     opacity: 0.5;
-    z-index: -1; /* Move it behind the content */
+    z-index: 1; /* Move it behind the content */
 }
 
 /* Light shimmer effect */
@@ -32,7 +32,7 @@
     background: rgba(255, 255, 255, 0.05);
     transform: translateX(-50%);
     animation: shimmer 10s infinite linear;
-    z-index: -1; /* Move it behind the content */
+    z-index: 1; /* Move it behind the content */
 }
 
 /* Bubble effect (optional) */
@@ -44,7 +44,7 @@
     background: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     animation: bubbles 8s infinite;
-    z-index: -1; /* Ensure bubbles are behind the content */
+    z-index: 3; /* Ensure bubbles are behind the content */
 }
 
 /* Randomize bubbles */

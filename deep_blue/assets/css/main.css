@@ -33,6 +33,7 @@ button.active {
     min-width: 200px;
     min-height: 100px;
     transition: min-height 0.5s ease;
+    z-index: 2;
 }
 
 button.inactive {
