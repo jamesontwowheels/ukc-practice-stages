@@ -129,7 +129,7 @@ function ajax_call() {
                     const o2_now_s = Math.floor(o2_now/1000);
                     // Calculate the time difference between now and the countdown date
                     const o2_distance = oxygen_end - o2_now_s;
-                    const bodyElement = document.body;
+                    const bodyElement = document.getElementById("main");
 
                     // Time calculations for minutes and seconds
                     const o2_minutes = Math.floor((o2_distance) / (60));
@@ -144,11 +144,14 @@ function ajax_call() {
                         div.classList.remove('snowflake');
                     });
                     if (o2_distance < 1) {
-                        clearInterval(oxygenFunction); // Stop the timer
-        
+                        clearInterval(oxygenFunction); // Stop the time
                         // Add the pulse-red class to the body to trigger the pulsing effect
+                        bodyElement.classList.add('full-red');
+                    } else if (o2_distance < 30) {
+                        bodyElement.classList.add('rapid-red');
+                    } else if (o2_distance < 60){
                         bodyElement.classList.add('pulse-red');
-                    }
+                    };
 
                 },1000)
             } else {
@@ -156,6 +159,9 @@ function ajax_call() {
                 
                 document.getElementById("o2_timer").innerHTML = ""; 
                 document.getElementById("water").classList.remove("underwater");
+                document.getElementById("main").classList.remove("rapid-red");
+                document.getElementById("main").classList.remove("full-red");
+                document.getElementById("main").classList.remove("pulse-red");
                 // Select all bubbles
                 const divs = document.querySelectorAll('div.bubble1');
                 // Make them bubbly"

@@ -87,6 +87,13 @@
         .pulse-red {
             animation: pulse 1s infinite; /* Infinite pulsing */
         }
+        .rapid-red {
+            animation: pulse 0.5s infinite; /* Infinite pulsing */
+        }
+
+        .full-red {
+            background-color: red;
+        }
 
         @keyframes pulse {
             0% {
