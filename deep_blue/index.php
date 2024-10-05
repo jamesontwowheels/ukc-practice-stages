@@ -31,10 +31,15 @@ if (isset($_GET['location'])) {
 <script type="text/javascript" src='targets.js'></script>
 <script type="text/javascript" src='assets/js/distance.js'></script>
 <link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/underwater.css">
 </head>
 <body>
   <h1>MINDGAMES</h1>
 <div id="main">
+        <div class="bubble1"></div>
+        <div class="bubble1"></div>
+        <div class="bubble1"></div>
+        <div class="bubble1"></div>
 <div id="timer"></div>
 <div id="o2_timer"></div>
 

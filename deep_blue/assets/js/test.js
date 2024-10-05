@@ -133,10 +133,25 @@ function ajax_call() {
                     // Time calculations for minutes and seconds
                     const o2_minutes = Math.floor((o2_distance) / (60));
                     const o2_seconds = Math.floor(o2_distance % (60));
-                    document.getElementById("o2_timer").innerHTML = o2_minutes + "m " + o2_seconds + "s ";
+                    document.getElementById("o2_timer").innerHTML = o2_minutes + "m " + o2_seconds + "s ";                 
+                    document.getElementById("main").classList.add("underwater");
+                    // Select all bubbles
+                    const divs = document.querySelectorAll('div.bubbles1');
+                    // Make them bubbly"
+                    divs.forEach(function(div) {
+                        div.classList.add('bubbles');
+                    });
                 },1000)
             } else {
                 clearInterval(oxygenFunction);
+                document.getElementById("o2_timer").innerHTML = ""; 
+                document.getElementById("main").classList.remove("underwater");
+                // Select all bubbles
+                const divs = document.querySelectorAll('div.bubbles1');
+                // Make them bubbly"
+                divs.forEach(function(div) {
+                    div.classList.remove('bubbles');
+                });
             }
 
             //game state
