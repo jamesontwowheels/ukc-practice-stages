@@ -129,6 +129,7 @@ function ajax_call() {
                     const o2_now_s = Math.floor(o2_now/1000);
                     // Calculate the time difference between now and the countdown date
                     const o2_distance = oxygen_end - o2_now_s;
+                    const bodyElement = document.body;
 
                     // Time calculations for minutes and seconds
                     const o2_minutes = Math.floor((o2_distance) / (60));
@@ -142,6 +143,12 @@ function ajax_call() {
                         div.classList.add('bubble');
                         div.classList.remove('snowflake');
                     });
+                    if (o2_distance < 1) {
+                        clearInterval(oxygenFunction); // Stop the timer
+        
+                        // Add the pulse-red class to the body to trigger the pulsing effect
+                        bodyElement.classList.add('pulse-red');
+                    }
 
                 },1000)
             } else {

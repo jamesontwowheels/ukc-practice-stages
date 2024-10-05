@@ -82,3 +82,20 @@
         opacity: 0;
     }
 }
+
+        /* Pulse effect */
+        .pulse-red {
+            animation: pulse 1s infinite; /* Infinite pulsing */
+        }
+
+        @keyframes pulse {
+            0% {
+                background-color: #080a0a; /* Default background */
+            }
+            50% {
+                background-color: red; /* Pulse to red */
+            }
+            100% {
+                background-color: #080a0a; /* Back to default */
+            }
+        }
