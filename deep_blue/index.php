@@ -32,6 +32,7 @@ if (isset($_GET['location'])) {
 <script type="text/javascript" src='assets/js/distance.js'></script>
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/css/underwater.css">
+<link rel="stylesheet" href="assets/css/polar.css">
 </head>
 <body>
   <h1>MINDGAMES</h1>
@@ -41,6 +42,11 @@ if (isset($_GET['location'])) {
         <div class="bubble1"></div>
         <div class="bubble1"></div>
         <div class="bubble1"></div>
+        <div class="mountains">
+          <div class="mountain mountain-1"></div>
+          <div class="mountain mountain-2"></div>
+          <div class="mountain mountain-3"></div>
+        </div>
 <div id="timer"></div>
 <div id="o2_timer"></div>
 

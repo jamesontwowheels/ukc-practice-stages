@@ -1,0 +1,99 @@
+.underwater {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #e0f7fa, #b2ebf2 50%, #ffffff); /* Light blue sky transitioning to white snow */
+    overflow: hidden;
+}
+
+/* Mountain container */
+#mountains {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+/* Snow-capped mountains using CSS triangles */
+.mountain {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 200px solid #b0bec5; /* Mountain color */
+}
+
+.mountain::after {
+    content: '';
+    position: absolute;
+    top: 75px; /* Adjust to simulate snow caps */
+    left: -75px;
+    width: 0;
+    height: 0;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 100px solid #fff; /* Snow cap */
+}
+
+.mountain-1 {
+    left: 10%;
+    transform: scale(1.2);
+}
+
+.mountain-2 {
+    left: 50%;
+    transform: scale(1.5);
+}
+
+.mountain-3 {
+    left: 80%;
+    transform: scale(1.1);
+}
+
+/* Snowflakes */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall 10s infinite linear;
+}
+
+/* Different sizes and animation delays for snowflakes */
+.snowflake:nth-child(1) {
+    width: 8px;
+    height: 8px;
+    left: 20%;
+    animation-duration: 12s;
+}
+.snowflake:nth-child(2) {
+    width: 10px;
+    height: 10px;
+    left: 40%;
+    animation-duration: 8s;
+}
+.snowflake:nth-child(3) {
+    width: 12px;
+    height: 12px;
+    left: 60%;
+    animation-duration: 14s;
+}
+.snowflake:nth-child(4) {
+    width: 6px;
+    height: 6px;
+    left: 80%;
+    animation-duration: 6s;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}

@@ -135,15 +135,20 @@ function ajax_call() {
                     const o2_seconds = Math.floor(o2_distance % (60));
                     document.getElementById("o2_timer").innerHTML = o2_minutes + "m " + o2_seconds + "s ";                 
                     document.getElementById("water").classList.add("underwater");
+                    document.getElementById("mountains").style.display = 'none';
                     // Select all bubbles
                     const divs = document.querySelectorAll('div.bubble1');
                     // Make them bubbly"
                     divs.forEach(function(div) {
                         div.classList.add('bubble');
+                        div.classList.remove('snowflake');
                     });
+
                 },1000)
             } else {
                 clearInterval(oxygenFunction);
+                
+                document.getElementById("mountains").style.display = 'block';
                 document.getElementById("o2_timer").innerHTML = ""; 
                 document.getElementById("water").classList.remove("underwater");
                 // Select all bubbles
@@ -151,6 +156,7 @@ function ajax_call() {
                 // Make them bubbly"
                 divs.forEach(function(div) {
                     div.classList.remove('bubble');
+                    div.classList.add('snowflake');
                 });
             }
 
