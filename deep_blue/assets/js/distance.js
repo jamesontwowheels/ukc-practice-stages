@@ -1,6 +1,12 @@
 let id;
 let target;
 let options;
+
+if (user_ID == 29) { 
+  var d_need = 150000;
+  console.log("GOD MODE ACTIVE");} 
+  else { var d_need = 15;} // god mode
+
 fetch('assets/php/location.php')
         .then(response => response.json())
         .then(data => {
@@ -39,11 +45,8 @@ console.log(crd);
   document.getElementById(cp).innerHTML = "CP"+id + " - "+ d + "m away";
   var button = "butt"+id;
   var button_element = $("#"+button);
-  if (user_ID == 29) { 
-    d = 150000;
-    console.log("GOD MODE ACTIVE");} 
-    else {d = 15;} // god mode
-  if (d < 150000) {
+
+  if (d < d_need) {
     // redundant: document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + "check-in"
     button_element.addClass('active');
     button_element.removeClass('inactive')
