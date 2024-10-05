@@ -36,6 +36,7 @@ if (isset($_GET['location'])) {
 <body>
   <h1>MINDGAMES</h1>
 <div id="main">
+  <div id="water">
         <div class="bubble1"></div>
         <div class="bubble1"></div>
         <div class="bubble1"></div>
@@ -69,6 +70,7 @@ if (isset($_GET['location'])) {
             <!-- Array items will be appended here -->
   </ul>
   </div>
+</div>
 </div>
 </div>
 </body>
