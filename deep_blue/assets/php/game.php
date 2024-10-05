@@ -73,7 +73,7 @@ $x = 0;
      $cp_poseidons_gamble = 666;
      $cp_dive_boat = 777;
     
-    $all_cps = [1,2,3,4,5,6,7,11,12,13,14,20,999];
+    $all_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,102,202,333,777,998,999];
     $cp_start_finish = 999;
     $cp_names = [
         11 => "Nemo",
@@ -103,7 +103,8 @@ $x = 0;
         777 => "Spare",
         102 => "Air",
         202 => "Air",
-        999 => "S/F"
+        998 => "Finish",
+        999 => "Start"
         ];
     
     $this_cp_names = $cp_names; //required if cpnames are going to change.
