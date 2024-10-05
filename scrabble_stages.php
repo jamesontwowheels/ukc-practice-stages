@@ -16,8 +16,6 @@ if (!isset($_SESSION['username'])) {
 
 </head>
 <body>
-<a class="stage" href="scrabble_stages">Scrabble +</a><br>
-<a class="stage" href="deep_blue_stages">Deep Blue</a><br>
 <a class="stage" href="geo?location=0">Morden</a><br>
 <a class="stage" href="geo?location=1">Hamptons</a><br>
 <a class="stage" href="geo?location=2">Hither Green</a><br>

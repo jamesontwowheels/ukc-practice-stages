@@ -23,7 +23,7 @@ if (isset($_SESSION['location'])) {
 <head>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="/geo/assets/css/main.css">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
   <h1>MINDGAMES</h1>
@@ -49,4 +49,4 @@ if (isset($_SESSION['location'])) {
 <h3><a href="index.php"><< back to the game</a></h3>
 </div>
 </body>
-<script type="text/javascript" src='/geo/assets/js/leaderboard.js' defer></script>
+<script type="text/javascript" src='assets/js/leaderboard.js' defer></script>

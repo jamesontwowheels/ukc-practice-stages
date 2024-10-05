@@ -21,11 +21,16 @@ if (isset($_GET['location'])) {
 ?>
 
 <head>
+<script type="text/javascript">
+    // Assign the PHP session variable to a JavaScript variable
+    var user = '<?php echo $_SESSION['user_ID']; ?>';
+    console.log("userID = " + user_ID); // Outputs: cybersecurity_influencer
+</script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src='/geo/targets.js'></script>
-<script type="text/javascript" src='/geo/assets/js/distance.js'></script>
-<link rel="stylesheet" href="/geo/assets/css/main.css">
+<script type="text/javascript" src='targets.js'></script>
+<script type="text/javascript" src='assets/js/distance.js'></script>
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
   <h1>MINDGAMES</h1>
@@ -61,5 +66,5 @@ if (isset($_GET['location'])) {
 </div>
 </div>
 </body>
-<script type="text/javascript" src='/geo/assets/js/test.js' defer></script>
-<script type="text/javascript" src='/geo/assets/js/rows.js'></script>
+<script type="text/javascript" src='assets/js/test.js' defer></script>
+<script type="text/javascript" src='assets/js/rows.js'></script>

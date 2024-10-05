@@ -1,7 +1,7 @@
 let id;
 let target;
 let options;
-fetch('/geo/assets/php/location.php')
+fetch('../php/location.php')
         .then(response => response.json())
         .then(data => {
             var location = data.location;
