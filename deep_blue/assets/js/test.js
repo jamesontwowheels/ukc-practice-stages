@@ -136,10 +136,10 @@ function ajax_call() {
                     document.getElementById("o2_timer").innerHTML = o2_minutes + "m " + o2_seconds + "s ";                 
                     document.getElementById("water").classList.add("underwater");
                     // Select all bubbles
-                    const divs = document.querySelectorAll('div.bubbles1');
+                    const divs = document.querySelectorAll('div.bubble1');
                     // Make them bubbly"
                     divs.forEach(function(div) {
-                        div.classList.add('bubbles');
+                        div.classList.add('bubble');
                     });
                 },1000)
             } else {
@@ -147,10 +147,10 @@ function ajax_call() {
                 document.getElementById("o2_timer").innerHTML = ""; 
                 document.getElementById("water").classList.remove("underwater");
                 // Select all bubbles
-                const divs = document.querySelectorAll('div.bubbles1');
+                const divs = document.querySelectorAll('div.bubble1');
                 // Make them bubbly"
                 divs.forEach(function(div) {
-                    div.classList.remove('bubbles');
+                    div.classList.remove('bubble');
                 });
             }
 
