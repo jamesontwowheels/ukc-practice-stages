@@ -42,7 +42,7 @@ if (isset($_GET['location'])) {
         <div class="bubble1"></div>
         <div class="bubble1"></div>
         <div class="bubble1"></div>
-        <div class="mountains">
+        <div id="mountains">
           <div class="mountain mountain-1"></div>
           <div class="mountain mountain-2"></div>
           <div class="mountain mountain-3"></div>
