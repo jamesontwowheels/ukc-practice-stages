@@ -23,7 +23,7 @@ if (isset($_GET['location'])) {
 <head>
 <script type="text/javascript">
     // Assign the PHP session variable to a JavaScript variable
-    var user = '<?php echo $_SESSION['user_ID']; ?>';
+    var user_ID = '<?php echo $_SESSION['user_ID']; ?>';
     console.log("userID = " + user_ID); // Outputs: cybersecurity_influencer
 </script>
 
