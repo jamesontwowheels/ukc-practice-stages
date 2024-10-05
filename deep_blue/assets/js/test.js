@@ -135,6 +135,7 @@ function ajax_call() {
                     const o2_seconds = Math.floor(o2_distance % (60));
                     document.getElementById("o2_timer").innerHTML = o2_minutes + "m " + o2_seconds + "s ";                 
                     document.getElementById("water").classList.add("underwater");
+                    document.getElementById("water").classList.remove("polar");
                     document.getElementById("mountains").style.display = 'none';
                     // Select all bubbles
                     const divs = document.querySelectorAll('div.bubble1');
@@ -151,6 +152,7 @@ function ajax_call() {
                 document.getElementById("mountains").style.display = 'block';
                 document.getElementById("o2_timer").innerHTML = ""; 
                 document.getElementById("water").classList.remove("underwater");
+                document.getElementById("water").classList.add("polar");
                 // Select all bubbles
                 const divs = document.querySelectorAll('div.bubble1');
                 // Make them bubbly"
