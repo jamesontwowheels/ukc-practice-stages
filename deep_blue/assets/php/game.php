@@ -183,26 +183,26 @@ if($debug == 1){ $debug_log[] = '72';};
 //add oxygen
 if (in_array($cp,$cps_oxygen)){
     $oxygen = $t + 600;
-    $results_detailed[$id][] = [$t,$cp,"Oxygen picked up",0,$running_score];
+    $comment = "Oxygen picked up";
 } 
 
 //add spear
 if ($cp == $cp_trident){
     $spear = 1;
-    $results_detailed[$id][] = [$t,$cp,"Trident collected!",0,$running_score];
+    $comment = "Trident collected!";
 }
 
 //collect treasure
 if (in_array($cp,$cps_treasure)){
     if ($t > $oxygen){
-        $results_detailed[$id][] = [$t,$cp,"Oh no, out of oxygen! You've dropped everything",0,$running_score];
+        $comment = "Oh no, out of oxygen! You've dropped everything";
         $inventory = [];
     } elseif (in_array($cp,$inventory)){
-        $results_detailed[$id][] = [$t,$cp,"Treasure already held",0,$running_score];
+        $comment = "Treasure already held";
     }elseif (in_array($cp,$bank)){
-        $results_detailed[$id][] = [$t,$cp,"Treasure already in the bank",0,$running_score];
+        $comment = "Treasure already in the bank";
     } else {
-        $results_detailed[$id][] = [$t,$cp,"Treasure ".$cp." picked-up",0,$running_score];
+        $comment = "Treasure ".$cp." picked-up";
         $inventory[] = $cp;
     }            
 }
@@ -211,14 +211,14 @@ if (in_array($cp,$cps_treasure)){
 if (in_array($cp,$cps_fish)){
     //check spear:
     if($spear == 0){
-        $results_detailed[$id][] = [$t,$cp,"You tried to pick-up fish $cp with no trident",0,$running_score];
+        $comment = "You tried to pick-up fish $cp with no trident";
     } elseif (in_array($cp,$inventory)){
-        $results_detailed[$id][] = [$t,$cp,"Fish already caught this trip",0,$running_score];
+        $comment = "Fish already caught this trip";
     } elseif ($t > $oxygen){
-        $results_detailed[$id][] = [$t,$cp,"Oh no, out of oxygen! You've dropped everything",0,$running_score];
+        $comment = "Oh no, out of oxygen! You've dropped everything";
         $inventory = [];
     } else {
-        $results_detailed[$id][] = [$t,$cp,"Fish $cp speared!",0,$running_score];
+        $comment = "Fish $cp speared!";
         $inventory[] = $cp;
     }            
 }
@@ -228,11 +228,11 @@ if ($cp == $cp_poseidons_gamble){
     $threshold = 80 * $multiplier;
     if($running_score >= $threshold){
     $running_score -= $threshold;
-    $results_detailed[$id][] = [$t,$cp,"Gamble taken!",-$threshold,$running_score];
+    $comment = "Gamble taken!";
     $multiplier += 1;
     $bank = [];
     } else {
-        $results_detailed[$id][] = [$t,$cp,"You don't have enough treasure to pay Poseidon, no gamble taken",0,$running_score];
+        $comment = "You don't have enough treasure to pay Poseidon, no gamble taken";
     }
 }
 
@@ -244,11 +244,11 @@ if ($cp == $cp_dive_boat){
         if (in_array($item,$cps_fish)){    
             $value = $fish * $multiplier;
             $running_score += $value;
-            $results_detailed[$id][] = [$t,$cp,"Fish $item landed!",$value,$running_score];
-        } elseif (in_array($item,$cps_treasure)){
+            $comment = "Fish $item landed!";
+            } elseif (in_array($item,$cps_treasure)){
             $value = $treasure * $multiplier;
             $running_score += $value;
-            $results_detailed[$id][] = [$t,$cp,"Treasure ".$item." stashed!",$value,$running_score];
+            $comment = "Treasure ".$item." stashed!";
             $bank[] = $item;
         }
         $i += 1;
@@ -293,15 +293,6 @@ if ($cp == $cp_dive_boat){
     }
 
     //ONCE WE HAVE CYCLED THROUGH THE CPs..
-
-
-    $words_found = min(count($used_words),10);
-    $wf_bonus = $word_count_bonus[$words_found];
-    $running_score += $wf_bonus;
-    
-    $comment = "Word found bonus = $wf_bonus";
-    $commentary[] = $comment;
-    $results_detailed[$id][] = [$t,$cp,"$words_found words found, + $wf_bonus bonus","",$running_score];
 
     $final_score = $running_score - $time_penalty;
        //live results
