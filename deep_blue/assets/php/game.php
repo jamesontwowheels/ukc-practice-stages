@@ -190,7 +190,7 @@ if (in_array($cp,$cps_oxygen)){
     $comment = "Dive started";
     } else {
         $oxygen_state = [0,0];
-        $comment = "Dive finished"
+        $comment = "Dive finished";
     }
 } 
 
