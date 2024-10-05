@@ -1,4 +1,5 @@
 let countdownFunction = 0;
+let oxygenFunction = 0;
 
 $(document).ready(ajax_call);
 $("body").on("click", "button", ajax_call);
@@ -116,6 +117,27 @@ function ajax_call() {
                   document.getElementById(rowId).style.display = 'none';
                 }
               });
+            
+            //oxygen state
+            var oxygen_state = data["oxygen_state"];
+            console.log(oxygen_state);
+            if(oxygen_state[0] == 1) //oxygen in play
+            {
+                const oxygen_end = oxygen_state[1];
+                oxygenFunction = setInterval(function(){
+                    const o2_now = new Date().getTime();
+                    const o2_now_s = Math.floor(o2_now/1000);
+                    // Calculate the time difference between now and the countdown date
+                    const o2_distance = oxygen_end - o2_now_s;
+
+                    // Time calculations for minutes and seconds
+                    const o2_minutes = Math.floor((o2_distance) / (60));
+                    const o2_seconds = Math.floor(o2_distance % (60));
+                    document.getElementById("o2_timer").innerHTML = o2_minutes + "m " + o2_seconds + "s ";
+                },1000)
+            } else {
+                clearInterval(oxygenFunction);
+            }
 
             //game state
             var game_state = data["game_state"];

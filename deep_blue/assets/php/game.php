@@ -139,6 +139,7 @@ while($x < $count_results){
 if($debug == 1){ $debug_log[] = '72';};
 //GAME SPECIFIC set-up course/result variables for each contestants
     $this_cp_names = $cp_names;
+    $oxygen_state = [0,0];
     $oxygen = 0;
     $inventory = [];
     $spear = 0;
@@ -182,8 +183,15 @@ if($debug == 1){ $debug_log[] = '72';};
         //EXAMPLE: pick up letter - start playing CPs 1-7
 //add oxygen
 if (in_array($cp,$cps_oxygen)){
+    if($oxygen_state[0] == 0){
+    $oxygen_state[0] = 1;
     $oxygen = $t + 600;
-    $comment = "Oxygen picked up";
+    $oxygen_state[1] = $oxygen;
+    $comment = "Dive started";
+    } else {
+        $oxygen_state = [0,0];
+        $comment = "Dive finished"
+    }
 } 
 
 //add spear
@@ -305,6 +313,7 @@ if ($cp == $cp_dive_boat){
 if($_REQUEST["purpose"] !== 2){
     //GAME SPECIFIC
         //e.g. $response["upcoming_letters"] = $upcoming_letters;
+$response["oxygen_state"]=$oxygen_state;
     //UNIVERSAL
 $response["all_cps"]=$all_cps;
 $response["available_cps"]=$available_cps;

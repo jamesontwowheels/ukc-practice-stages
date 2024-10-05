@@ -36,6 +36,7 @@ if (isset($_GET['location'])) {
   <h1>MINDGAMES</h1>
 <div id="main">
 <div id="timer"></div>
+<div id="o2_timer"></div>
 
 <div id="score" class="bucket">
   <h3>Running Score</h3>
