@@ -65,12 +65,12 @@ $x = 0;
     // e.g. $cps_letters = [1,2,3,4,5,6,7];
      //Bulk CPS
      $cps_treasure = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29];
-     $cps_fish = [31,32,33,34];
+     $cps_fish = [31,32,33];
      $cps_oxygen = [102,202];
      //special CPS;
      $cp_trident = 333;
      $cp_start_finish = 999;
-     $cp_poseidons_gamble = 666;
+     $cp_poseidons_gamble = 34;
      $cp_dive_boat = 777;
     
     $all_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,102,202,333,777,998,999];
@@ -98,9 +98,9 @@ $x = 0;
         31 => "Whale",
         32 => "Whale",
         33 => "Whale",
-        34 => "Whale",
-        333 => "Gamble",
-        777 => "Spare",
+        34 => "Gamble",
+        333 => "Trident",
+        777 => "Boat",
         102 => "Air",
         202 => "Air",
         998 => "Finish",
