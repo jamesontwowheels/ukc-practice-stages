@@ -130,7 +130,7 @@ function ajax_call() {
             //puzzle CPs
             var puzzle_cps = data["puzzle_cps"];
             // Loop through the array
-            puzzles_cps.forEach(function(element) {
+            puzzle_cps.forEach(function(element) {
                 // Construct the ID by appending 'row' to the current element
                 const elementId = "butt" + element;
                 
