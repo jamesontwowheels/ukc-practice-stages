@@ -160,7 +160,7 @@ function ajax_call() {
             var oxygen_state = data["oxygen_state"];
             console.log(oxygen_state);
             if(oxygen_state[0] == 1) //oxygen in play
-            if(!oxygenFunction){
+            if(oxygenFunction == null){
             {
                 const oxygen_end = oxygen_state[1];
                 oxygenFunction = setInterval(function(){
