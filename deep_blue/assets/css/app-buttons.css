@@ -1,0 +1,31 @@
+.app-buttons {
+    display: flex;
+    justify-content: space-around; /* Evenly space the buttons */
+    align-items: center;
+    background-color: #007bff; /* Button container background */
+    padding: 10px; /* Padding around the buttons */
+    position: absolute; /* Position it at the bottom */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+}
+
+.app-button {
+    background-color: white; /* Button background */
+    text-decoration: none; /* Remove underline from links */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px 20px; /* Padding for buttons */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.app-button:hover {
+    background-color: #e0e0e0; /* Light gray on hover */
+}
+
+/* Active button style */
+.app-button.active {
+    background-color: #0056b3; /* Darker blue for active button */
+    color: white; /* Change text color for active button */
+}

@@ -24,6 +24,7 @@ if (isset($_SESSION['location'])) {
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/app-buttons.css">
 </head>
 <body>
   <h1>MINDGAMES</h1>
@@ -50,3 +51,4 @@ if (isset($_SESSION['location'])) {
 </div>
 </body>
 <script type="text/javascript" src='assets/js/leaderboard.js' defer></script>
+<script type="text/javascript" src='assets/js/app-buttons.js'></script>

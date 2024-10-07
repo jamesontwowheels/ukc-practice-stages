@@ -33,6 +33,7 @@ if (isset($_GET['location'])) {
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/css/underwater.css">
 <link rel="stylesheet" href="assets/css/polar.css">
+<link rel="stylesheet" href="assets/css/app-buttons.css">
 </head>
 <body>
   <h1>MINDGAMES</h1>
@@ -78,7 +79,13 @@ if (isset($_GET['location'])) {
   </div>
 </div>
 </div>
+<div class="app-buttons">
+        <a href="index.php" class="app-button" id="app1">App 1</a>
+        <a href="leaderboard.php" class="app-button" id="app2">App 2</a>
+        <a href="../stages.php" class="app-button" id="app3">App 3</a>
+</div>
 </div>
 </body>
 <script type="text/javascript" src='assets/js/test.js' defer></script>
 <script type="text/javascript" src='assets/js/rows.js'></script>
+<script type="text/javascript" src='assets/js/app-buttons.js'></script>
