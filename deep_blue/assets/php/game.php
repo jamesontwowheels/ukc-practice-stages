@@ -50,7 +50,7 @@ foreach ($result as $row) {
        // $player_cps[] = $row["Player_ID"];
         $player_cps[$row["Player_ID"]] = [];
     }
-   $player_cps[$row["Player_ID"]][] = [$row["CP_ID"],$row["Time_stamp"]];
+   $player_cps[$row["Player_ID"]][] = [$row["CP_ID"],$row["Time_stamp"],$row["puzzle_answer"]];
    $i += 1;
 }
 $debug_log[] = $i." rows";
@@ -188,6 +188,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
         $cp = $player_result[$z][0];// $cps[$z];
         $t = $player_result[$z][1]; //times[$z];
+        $puzzle_answer = $player_result[$z][2];
         $z += 1;
 
         //EXAMPLE: pick up letter - start playing CPs 1-7
@@ -235,7 +236,7 @@ if (in_array($cp,$cps_fish)){
     } elseif (in_array($cp,$inventory)){
         $comment = "Fish already caught this trip";
     } else {
-        if($user_input == $puzzle_answers[$cp]){
+        if($puzzle_answer == $puzzle_answers[$cp]){
             $comment = "puzzle solved";
         } else {
             $comment = "puzzle incorrect";
