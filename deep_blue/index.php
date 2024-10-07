@@ -81,9 +81,9 @@ if (isset($_GET['location'])) {
 </div>
 </div>
 <div class="app-buttons">
-        <a href="index.php" class="app-button" id="app1">App 1</a>
-        <a href="leaderboard.php" class="app-button" id="app2">App 2</a>
-        <a href="../stages.php" class="app-button" id="app3">App 3</a>
+        <a href="index.php" class="app-button" id="app1">Game</a>
+        <a href="leaderboard.php" class="app-button" id="app2">Scores</a>
+        <a href="../stages.php" class="app-button" id="app3">Exit</a>
 </div>
 </body>
 <script type="text/javascript" src='assets/js/test.js' defer></script>

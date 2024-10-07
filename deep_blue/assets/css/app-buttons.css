@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-around; /* Evenly space the buttons */
     align-items: center;
-    background-color: #007bff; /* Button container background */
+    background-color: #cfcfcf; /* Button container background */
     padding: 10px; /* Padding around the buttons */
     position: fixed; /* Fix position */
     bottom: 0; /* Stick to the bottom */
@@ -18,7 +18,7 @@
     border: none; /* No border */
     border-radius: 20px; /* Rounded corners */
     padding: 15px 20px; /* Padding for buttons */
-    font-size: 16px; /* Font size */
+    font-size: 1em; /* Font size */
     cursor: pointer; /* Pointer on hover */
     transition: background-color 0.3s, box-shadow 0.3s; /* Smooth background and shadow transition */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
