@@ -159,9 +159,9 @@ function ajax_call() {
             //oxygen state
             var oxygen_state = data["oxygen_state"];
             console.log(oxygen_state);
-            if(oxygen_state[0] == 1) //oxygen in play
+            if(oxygen_state[0] == 1) {//oxygen in play
             if(oxygenFunction == 0){
-            {
+            
                 const oxygen_end = oxygen_state[1];
                 oxygenFunction = setInterval(function(){
                     const o2_now = new Date().getTime();
