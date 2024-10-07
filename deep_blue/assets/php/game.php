@@ -7,6 +7,7 @@ $response = [];
 $debug_log = [];
 $commentary = [];
 $debug_log[] = "data play";
+$user_input = $_REQUEST["user_input"];
 
 include 'db_connect.php';
 
@@ -76,6 +77,13 @@ $x = 0;
     $all_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,102,202,333,777,998,999];
     $above_cps = [31,32,33,34,102,202,777,998,999];
     $below_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,102,202,999];
+    $puzzle_cps = [31,32,33];
+    
+    $puzzle_answers = [
+        31 => "yes",
+        32 => "5",
+        33 => 5
+    ];
     
     $cp_names = [
         11 => "Nemo",
@@ -97,9 +105,9 @@ $x = 0;
         27 => "Tuna",
         28 => "Tuna",
         29 => "Tuna",
-        31 => "Whale",
-        32 => "Whale",
-        33 => "Whale",
+        31 => "Seal",
+        32 => "Seal",
+        33 => "Seal",
         34 => "Gamble",
         333 => "Trident",
         777 => "Boat",
@@ -227,8 +235,13 @@ if (in_array($cp,$cps_fish)){
     } elseif (in_array($cp,$inventory)){
         $comment = "Fish already caught this trip";
     } else {
-        $comment = "Fish $cp speared!";
-        $inventory[] = $cp;
+        if($user_input == $puzzle_answers[$cp]){
+            $comment = "puzzle solved";
+        } else {
+            $comment = "puzzle incorrect";
+        }
+        // $comment = "Fish $cp speared!";
+        // $inventory[] = $cp;
     }            
 }
 
@@ -275,7 +288,7 @@ if ($cp == $cp_dive_boat){
                 $game_state = 1;
                 $game_start = $t;
                 $comment = "game started";
-                $available_cps = $all_cps;
+                $available_cps = $above_cps;
             } elseif($game_state == 1){
                 $available_cps = [999];
                 $game_state = 2;
@@ -318,6 +331,7 @@ $response["oxygen_state"]=$oxygen_state;
     //UNIVERSAL
 $response["all_cps"]=$all_cps;
 $response["available_cps"]=$available_cps;
+$response["puzzle_cps"]=$puzzle_cps;
 $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
 $response["debug_log"] = $debug_log;

@@ -30,10 +30,22 @@ function ajax_call() {
     if ($(this).hasClass('inactive') || $(this).hasClass('blocked')){
         console.log('inactive clicked');
     } else {console.log("button clicked / name update");
+    
+    const user_input = "void";
+    if($(this).hasClass('puzzle')){
+        user_input = prompt("Please answer this puzzle:");
+        if (user_input == "void") { return;}
+    } else{ console.log("no puzzle"); }
+
     var cp = $(this).attr('cp');
     cp = cp || 0;
     console.log (cp);
-    
+   
+    if (cp == 999){
+        const userConfirmed = confirm("Are you sure you're ready to start/stop?")
+        if(!userConfirmed) { return;};
+    }
+
     //bit of jazz
     $(this).addClass('blocked');
     var temp_highlight = $("#cp"+cp);
@@ -43,15 +55,12 @@ function ajax_call() {
         temp_highlight.removeClass('clicked');
     }, 2000);
 
-    if (cp == 999){
-        const userConfirmed = confirm("Are you sure you're ready to start/stop?")
-        if(!userConfirmed) { return;};
-    }
+   
 
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: 'assets/php/test.php?purpose=1&cp='+cp,
+        url: 'assets/php/test.php?purpose=1&cp='+cp+'&user_input='+user_input,
         success: function(data) {
             console.log("ajax return");
             var debug_log = data["debug_log"];
@@ -117,6 +126,25 @@ function ajax_call() {
                   document.getElementById(rowId).style.display = 'none';
                 }
               });
+
+            //puzzle CPs
+            var puzzle_cps = data["puzzle_cps"];
+            // Loop through the array
+            puzzles_cps.forEach(function(element) {
+                // Construct the ID by appending 'row' to the current element
+                const elementId = "butt" + element;
+                
+                // Select the element by its ID
+                const targetElement = document.getElementById(elementId);
+                
+                // Check if the element exists in the DOM
+                if (targetElement) {
+                    // Add the "puzzle" class to the selected element
+                    targetElement.classList.add("puzzle");
+                } else {
+                    console.log(`Element with ID "${elementId}" not found.`);
+                }
+            });
             
             //oxygen state
             var oxygen_state = data["oxygen_state"];
