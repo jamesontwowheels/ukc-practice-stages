@@ -230,7 +230,7 @@ if (in_array($cp,$cps_treasure)){
 //collect fish:
 if (in_array($cp,$cps_fish)){
     //check spear:
-    if($spear == 0){
+    if($spear == 5){
         $comment = "You tried to pick-up fish $cp with no trident";
     } elseif (in_array($cp,$inventory)){
         $comment = "Fish already caught this trip";
