@@ -49,6 +49,12 @@ if (isset($_SESSION['location'])) {
   </div>
 <h3><a href="index.php"><< back to the game</a></h3>
 </div>
+
+<div class="app-buttons">
+        <a href="index.php" class="app-button" id="app1">App 1</a>
+        <a href="leaderboard.php" class="app-button" id="app2">App 2</a>
+        <a href="../stages.php" class="app-button" id="app3">App 3</a>
+</div>
 </body>
 <script type="text/javascript" src='assets/js/leaderboard.js' defer></script>
 <script type="text/javascript" src='assets/js/app-buttons.js'></script>

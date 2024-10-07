@@ -1,12 +1,14 @@
+
 .app-buttons {
     display: flex;
     justify-content: space-around; /* Evenly space the buttons */
     align-items: center;
     background-color: #007bff; /* Button container background */
     padding: 10px; /* Padding around the buttons */
-    position: absolute; /* Position it at the bottom */
+    position: fixed; /* Fix position */
     bottom: 0; /* Stick to the bottom */
     width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays on top of other content */
 }
 
 .app-button {
