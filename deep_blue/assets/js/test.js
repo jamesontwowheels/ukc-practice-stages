@@ -160,6 +160,7 @@ function ajax_call() {
             var oxygen_state = data["oxygen_state"];
             console.log(oxygen_state);
             if(oxygen_state[0] == 1) //oxygen in play
+            if(!oxygenFunction){
             {
                 const oxygen_end = oxygen_state[1];
                 oxygenFunction = setInterval(function(){
@@ -192,9 +193,9 @@ function ajax_call() {
                     };
 
                 },1000)
-            } else {
+            }} else {
                 clearInterval(oxygenFunction);
-                
+                oxygenFunction = null;
                 document.getElementById("o2_timer").innerHTML = ""; 
                 document.getElementById("water").classList.remove("underwater");
                 document.getElementById("main").classList.remove("rapid-red");

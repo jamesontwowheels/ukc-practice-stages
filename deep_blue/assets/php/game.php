@@ -19,10 +19,10 @@ ini_set("allow_url_fopen", 1); //this is important for fetching remote files
 //Get event results from DB:
 
 //test_game to be made into a variable
-$query = "select * from dbo.test_game where Player_ID = $user_ID AND location = $location ORDER BY Time_stamp ASC";
+$query = "select * from dbo.test_game where Player_ID = $user_ID AND location = $location AND game = $game ORDER BY Time_stamp ASC";
 
 if($_REQUEST["purpose"] == 2){
-$query = "select * from dbo.test_game where location = $location ORDER BY Time_stamp ASC";
+$query = "select * from dbo.test_game where location = $location AND game = $game ORDER BY Time_stamp ASC";
 
 }
 
