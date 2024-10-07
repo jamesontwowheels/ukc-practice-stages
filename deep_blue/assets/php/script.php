@@ -4,6 +4,15 @@ $db_response = [];
 //generic CP hit
 $cp = $_REQUEST["cp"];
 $user_input = isset($_REQUEST['user_input']) ? $_REQUEST['user_input'] : '';
+
+//trim whitespace
+$input = trim($user_input);
+// Sanitize using filter_var
+$sanitized_input = filter_var($input, FILTER_SANITIZE_STRING); // Note: FILTER_SANITIZE_STRING is deprecated as of PHP 8.1
+// Safely escape for HTML output to prevent XSS
+$safe_input = htmlspecialchars($sanitized_input, ENT_QUOTES, 'UTF-8');
+
+
 $db_response[] = "You hit CP $cp";
 include 'db_connect.php';
 $user_ID = $_SESSION['user_ID'];
@@ -12,7 +21,7 @@ $game = 1;
 $input_time = time();
 
 $sql = "INSERT INTO dbo.test_game (Player_ID, CP_ID, Time_stamp, location, game, puzzle_answer) VALUES 
-    ($user_ID, $cp, $input_time, $location, $game, '$user_input');";
+    ($user_ID, $cp, $input_time, $location, $game, '$safe_input');";
 $db_response[] = $sql;
 if ($conn->query($sql) == TRUE) {
     $db_response[] =  "record inserted successfully";
