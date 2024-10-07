@@ -3,7 +3,7 @@ session_start();
 $db_response = [];
 //generic CP hit
 $cp = $_REQUEST["cp"];
-$user_input = $_REQUEST["user_input"];
+$name = isset($_REQUEST['user_input']) ? $_REQUEST['user_input'] : '';
 $db_response[] = "You hit CP $cp";
 include 'db_connect.php';
 $user_ID = $_SESSION['user_ID'];
@@ -11,8 +11,8 @@ $location = $_SESSION['location'];
 $game = 1;
 $input_time = time();
 
-$sql = "INSERT INTO dbo.test_game (Player_ID, CP_ID, Time_stamp, location) VALUES 
-    ($user_ID, $cp, $input_time, $location);";
+$sql = "INSERT INTO dbo.test_game (Player_ID, CP_ID, Time_stamp, location, game) VALUES 
+    ($user_ID, $cp, $input_time, $location, $game);";
 $db_response[] = $sql;
 if ($conn->query($sql) == TRUE) {
     $db_response[] =  "record inserted successfully";
