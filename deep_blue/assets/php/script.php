@@ -11,8 +11,8 @@ $location = $_SESSION['location'];
 $game = 1;
 $input_time = time();
 
-$sql = "INSERT INTO dbo.test_game (Player_ID, CP_ID, Time_stamp, location, game, puzzle_answer) VALUES 
-    ($user_ID, $cp, $input_time, $location, $game, $user_input);";
+$sql = "INSERT INTO dbo.test_game (Player_ID, CP_ID, Time_stamp, location) VALUES 
+    ($user_ID, $cp, $input_time, $location);";
 $db_response[] = $sql;
 if ($conn->query($sql) == TRUE) {
     $db_response[] =  "record inserted successfully";
