@@ -79,6 +79,12 @@ $x = 0;
     $below_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,102,202,999];
     $puzzle_cps = [31,32,33];
     
+    $puzzle_questions =[
+        31 => "This is going to be quite a long question where we ask a few things, chuck a few numbers in there 15 x 16 7 and maybe some ??? but in the end we want you to answer yes or no. But in the meantime I think we should try and get this closer to about five hundred characters by writing and writing and writing, i'm still about 150 characters short so we might just copy and paste someting but it is actually probably quicker to keep typing because my typing speed is pretty good and i'm there now!",
+        32 => "for this one i'd like a string answer of 5, so i'm hoping that we can compare at the end without tooooo much of an issue",
+        33 => "here I just want something basic."
+    ];
+
     $puzzle_answers = [
         31 => "yes",
         32 => "5",
@@ -333,6 +339,7 @@ $response["oxygen_state"]=$oxygen_state;
 $response["all_cps"]=$all_cps;
 $response["available_cps"]=$available_cps;
 $response["puzzle_cps"]=$puzzle_cps;
+$response["puzzle_questions"]=$puzzle_questions;
 $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
 $response["debug_log"] = $debug_log;

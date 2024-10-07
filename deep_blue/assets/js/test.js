@@ -1,5 +1,6 @@
 let countdownFunction = 0;
 let oxygenFunction = 0;
+var puzzle_questions = [];
 
 $(document).ready(ajax_call);
 $("body").on("click", "button", ajax_call);
@@ -30,10 +31,14 @@ function ajax_call() {
     if ($(this).hasClass('inactive') || $(this).hasClass('blocked')){
         console.log('inactive clicked');
     } else {console.log("button clicked / name update");
+       
+    var cp = $(this).attr('cp');
+    cp = cp || 0;
+    console.log (cp);
     
     var user_input = "void";
     if($(this).hasClass('puzzle')){
-        user_input = prompt("Please answer this puzzle:");
+        user_input = prompt(puzzle_questions[cp]);
         if (user_input == "void" || user_input == "") { 
             console.log("nothing input");
             return;}
@@ -147,6 +152,9 @@ function ajax_call() {
                     console.log(`Element with ID "${elementId}" not found.`);
                 }
             });
+
+            //puzzle questions
+            puzzle_questions = data["puzzle_questions"];
             
             //oxygen state
             var oxygen_state = data["oxygen_state"];
