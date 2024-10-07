@@ -1,5 +1,5 @@
 let countdownFunction = 0;
-let oxygenFunction = 0;
+let oxygenFunction = null;
 var puzzle_questions = [];
 
 $(document).ready(ajax_call);
