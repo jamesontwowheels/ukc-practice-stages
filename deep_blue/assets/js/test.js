@@ -31,10 +31,12 @@ function ajax_call() {
         console.log('inactive clicked');
     } else {console.log("button clicked / name update");
     
-    const user_input = "void";
+    var user_input = "void";
     if($(this).hasClass('puzzle')){
         user_input = prompt("Please answer this puzzle:");
-        if (user_input == "void") { return;}
+        if (user_input == "void" || user_input == "") { 
+            console.log("nothing input");
+            return;}
     } else{ console.log("no puzzle"); }
 
     var cp = $(this).attr('cp');
