@@ -16,14 +16,8 @@ if (!isset($_SESSION['username'])) {
 
 </head>
 <body>
-<a class="stage" href="scrabble_stages.php">Scrabble +</a><br>
-<a class="stage" href="deep_blue_stages.php">Deep Blue</a><br>
-<a class="stage" href="geo?location=0">Morden</a><br>
-<a class="stage" href="geo?location=1">Hamptons</a><br>
-<a class="stage" href="geo?location=2">Hither Green</a><br>
-<a class="stage" href="geo?location=3">St Katherine Docks</a><br>
-<a class="stage" href="geo?location=4">Lightwater</a><br>
-<a class="stage" href="geo?location=5">Manvers Lake</a><br>
+<a class="stage" href="scrabble_stages.php"><img src="images/scrabble-cover.jpeg"><div class="stage-title">Scrabble +</div></a><br>
+<a class="stage" href="deep_blue_stages.php"><img src="images/deep-blue-cover.jpeg"><div class="stage-title">Deep Blue<div></a><br>
 
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
