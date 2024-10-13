@@ -98,11 +98,11 @@ function ajax_call() {
                             element.innerHTML = keyname;
                             element.classList.remove("blocked");
                             if (available_cps.includes(id)) {
-                                console.log(`${id} is available.`);
+                                console.log(id + ' is available.');
                                 rowId = "row"+id;
                                document.getElementById(rowId).style.display = 'block';
                               } else {
-                                console.log(`${id} is not available.`);
+                                console.log(id + ' is not available.');
                                 rowId = "row"+id;
                                 document.getElementById(rowId).style.display = 'none';
                               }
