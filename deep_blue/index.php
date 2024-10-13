@@ -34,6 +34,8 @@ if (isset($_GET['location'])) {
 <link rel="stylesheet" href="assets/css/underwater.css">
 <link rel="stylesheet" href="assets/css/polar.css">
 <link rel="stylesheet" href="assets/css/app-buttons.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
   <h1>MINDGAMES</h1>
@@ -83,9 +85,9 @@ if (isset($_GET['location'])) {
 </div>
 </div>
 <div class="app-buttons">
-        <a href="index.php" class="app-button" id="app1">Game</a>
-        <a href="leaderboard.php" class="app-button" id="app2">Scores</a>
-        <a href="../stages.php" class="app-button" id="app3">Exit</a>
+        <a href="index.php" class="app-button" id="app1"><i class="fas fa-person-running"></i>Game</a>
+        <a href="leaderboard.php" class="app-button" id="app2"><i class="fas fa-ranking-star"></i>Scores</a>
+        <a href="../stages.php" class="app-button" id="app3"><i class="fas fa-clock-rotate-left"></i>Exit</a>
 </div>
 </body>
 <script type="text/javascript" src='assets/js/test.js' defer></script>
