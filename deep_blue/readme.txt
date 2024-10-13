@@ -11,7 +11,10 @@ For the next game:
 - move the history
 - tidy the app buttons
 - jazz the first two pages
-- 
+
+//tech debt
+- point the main pages to a single place for images/css/etc
+
 
 Next jobs:
 
