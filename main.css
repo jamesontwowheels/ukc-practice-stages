@@ -125,12 +125,14 @@ h2 {
     padding: 0.5em;
     
     border-radius: 10px;
+    width:300px;
+    
+    border: 1px solid #ccc;
     margin:auto;
     margin-bottom: 15px;
     display:block;
     background: #7500c0;
     color:#e6e6dc;
-    border: 1px dashed #586557;  
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
