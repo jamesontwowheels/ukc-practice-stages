@@ -123,12 +123,15 @@ h2 {
 
   .stage {
     padding: 0.5em;
+    
+    border-radius: 10px;
+    margin:auto;
+    margin-bottom: 15px;
     display:block;
-    font-size: 2em;
-    border-radius: 0.5em;
     background: #7500c0;
     color:#e6e6dc;
-    border: 1px dashed #586557;
+    border: 1px dashed #586557;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 a.stage {
