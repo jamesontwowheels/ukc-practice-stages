@@ -168,7 +168,7 @@ if($debug == 1){ $debug_log[] = '72';};
 //set-up course/result variables for each contestants
     $this_cp_names = $cp_names;
     $this_word = $word;
-    if($location ==3) {$letter_count = 6;}; //preserving the scores from St K D
+    if($location == 3) {$letter_count = 6;} else {$letter_count = 0;}; //preserving the scores from St K D
     $id = $x;
     $results_ids[] = $id;
     $results_names[$id] = [$name,$surname];
