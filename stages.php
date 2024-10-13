@@ -13,7 +13,6 @@ if (!isset($_SESSION['username'])) {
 
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="manifest" href="/manifest.json">
-
 </head>
 <body>
 <a class="stage-card" href="scrabble_stages.php"><img src="images/scrabble-cover.jpeg"><div class="stage-title">Scrabble +</div></a><br>
