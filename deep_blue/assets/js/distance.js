@@ -3,7 +3,7 @@ let target;
 let options;
 
 if (user_ID == 29) { 
-  var d_need = 150000;
+  var d_need = 300000;
   console.log("GOD MODE ACTIVE");} 
   else { var d_need = 15;} // god mode
 
@@ -27,6 +27,7 @@ function success(pos) {
 
   const crd = pos.coords;
   console.log("Accuracy check: "+crd.accuracy);
+  document.getElementById("accuracy_zone").innerHTML = crd.accuracy + "m";
   // document.getElementById(id).innerHTML = crd.latitude;
   var R = 6371; // Radius of the earth in km
   var dLat = deg2rad(crd.latitude-target.geometry.coordinates[1]);  // deg2rad below

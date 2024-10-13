@@ -119,7 +119,7 @@ function ajax_call() {
             i++;
             } 
             
-            //available CPs
+            //available CPs /// i think this needs to move into the other function where we're checkign whether the rows exist or not first... maybe it all does?
             var available_cps = data["available_cps"];
             var all_cps = data["all_cps"];
             all_cps.forEach(element => {

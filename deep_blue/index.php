@@ -50,9 +50,10 @@ if (isset($_GET['location'])) {
         </div>
 <div id="timer"></div>
 <div id="o2_timer"></div>
+<div id="accuracy"></div>
 
 <div id="score" class="bucket">
-  <h3>Running Score</h3>
+  <h3>Stockpile</h3>
   <div id="score_zone"></div>
 </div>
 
@@ -65,10 +66,11 @@ if (isset($_GET['location'])) {
   <h3>Inventory</h3>
   <div id="inventory_zone"></div>  
   </div>
-  <div id="leaderboard" class="bucket">
-
-  <h3><a href="leaderboard.php">Leaderboard</a></h3> 
-  </div>
+  
+<div id="accuracy" class="bucket">
+<h3>Accuracy</h3>
+<div id="accuracy_zone"></div>
+</div>
 <div id="history" class="bucket">
   <h3>History</h3>
   <button id="toggleButton">show/hide</button>
