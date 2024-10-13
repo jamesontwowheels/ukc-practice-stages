@@ -16,6 +16,7 @@ if (!isset($_SESSION['username'])) {
 
 </head>
 <body>
+<h2>MINDGAMES</h2>
 <a class="stage" href="deep_blue?location=0">Morden</a><br>
 
 <form action="logout.php" method="post">

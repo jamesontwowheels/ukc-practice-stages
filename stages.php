@@ -15,6 +15,7 @@ if (!isset($_SESSION['username'])) {
 <link rel="manifest" href="/manifest.json">
 </head>
 <body>
+<h2>MINDGAMES</h2>
 <a class="stage-card" href="scrabble_stages.php"><img src="images/scrabble-cover.jpeg"><div class="stage-title">Scrabble +</div></a><br>
 <a class="stage-card" href="deep_blue_stages.php"><img src="images/deep-blue-cover.jpeg"><div class="stage-title">Deep Blue</div></a><br>
 

@@ -16,6 +16,7 @@ if (!isset($_SESSION['username'])) {
 
 </head>
 <body>
+<h2>MINDGAMES</h2>
 <a class="stage" href="geo?location=0">Morden</a><br>
 <a class="stage" href="geo?location=1">Hamptons</a><br>
 <a class="stage" href="geo?location=2">Hither Green</a><br>
