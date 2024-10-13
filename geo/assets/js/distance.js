@@ -1,6 +1,12 @@
 let id;
 let target;
 let options;
+
+if (user_ID == 29) { 
+  var d_need = 150000;
+  console.log("GOD MODE ACTIVE");} 
+  else { var d_need = 15;} // god mode
+
 fetch('/geo/assets/php/location.php')
         .then(response => response.json())
         .then(data => {
