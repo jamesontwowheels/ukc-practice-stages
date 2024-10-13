@@ -150,3 +150,32 @@ button {
     padding: 10px 0;
     z-index: 1000;
   }
+
+
+  .stage-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.stage-card img {
+    width: 100%;
+    height: auto;
+}
+
+.stage-card .stage-title {
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #f8f8f8;
+}
+
+.stage-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
