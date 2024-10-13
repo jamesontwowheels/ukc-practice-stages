@@ -75,6 +75,7 @@ function ajax_call() {
             document.getElementById("inventory_zone").innerHTML = "Current word =" + data["current_word"] + "<br> Current bonus = " + data["current_bonus"];
             var cp_names = data["cp_names"];
             var cp_names_keys = Object.keys(cp_names);
+            var available_cps = data["available_cps"];
             console.log(cp_names);
             let i = 0;
             while (i < cp_names_keys.length) {
@@ -96,6 +97,15 @@ function ajax_call() {
                             console.log("Element found:", element);
                             element.innerHTML = keyname;
                             element.classList.remove("blocked");
+                            if (available_cps.includes(id)) {
+                                console.log(`${id} is available.`);
+                                rowId = "row"+id;
+                               document.getElementById(rowId).style.display = 'block';
+                              } else {
+                                console.log(`${id} is not available.`);
+                                rowId = "row"+id;
+                                document.getElementById(rowId).style.display = 'none';
+                              }
                             resolve(element); // Element found, resolve the promise
                         } else if (elapsedTime >= timeout) {
                             console.log("Timeout reached, stopping checks.");
