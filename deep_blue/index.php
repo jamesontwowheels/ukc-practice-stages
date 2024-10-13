@@ -85,9 +85,9 @@ if (isset($_GET['location'])) {
 </div>
 </div>
 <div class="app-buttons">
-        <a href="index.php" class="app-button" id="app1"><i class="fas fa-person-running"></i>Game</a>
-        <a href="leaderboard.php" class="app-button" id="app2"><i class="fas fa-ranking-star"></i>Scores</a>
-        <a href="../stages.php" class="app-button" id="app3"><i class="fas fa-clock-rotate-left"></i>Exit</a>
+        <a href="index.php" class="app-button" id="app1"><i class="fas fa-person-running"></i><br>Game</a>
+        <a href="leaderboard.php" class="app-button" id="app2"><i class="fas fa-list-ol"></i><br>Scores</a>
+        <a href="../stages.php" class="app-button" id="app3"><i class="fas fa-clock-rotate-left"></i><br>Exit</a>
 </div>
 </body>
 <script type="text/javascript" src='assets/js/test.js' defer></script>

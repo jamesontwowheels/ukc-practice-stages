@@ -18,7 +18,7 @@
     border: none; /* No border */
     border-radius: 20px; /* Rounded corners */
     padding: 15px 20px; /* Padding for buttons */
-    font-size: 1em; /* Font size */
+    font-size: 0.7em; /* Font size */
     cursor: pointer; /* Pointer on hover */
     transition: background-color 0.3s, box-shadow 0.3s; /* Smooth background and shadow transition */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
@@ -34,3 +34,8 @@
     color: white; /* Change text color for active button */
     box-shadow: none; /* Remove shadow for active button */
 }
+
+
+.app-button.i {
+    font-size: 3em;
+  }
