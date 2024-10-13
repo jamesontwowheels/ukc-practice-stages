@@ -26,6 +26,7 @@ function success(pos) {
   var id = target.properties.name;
 
   const crd = pos.coords;
+  console.log("Accuracy check: "+crd.accuracy);
   // document.getElementById(id).innerHTML = crd.latitude;
   var R = 6371; // Radius of the earth in km
   var dLat = deg2rad(crd.latitude-target.geometry.coordinates[1]);  // deg2rad below
