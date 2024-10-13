@@ -45,7 +45,7 @@ console.log(crd);
   document.getElementById(cp).innerHTML = "CP"+id + " - "+ d + "m away";
   var button = "butt"+id;
   var button_element = $("#"+button);
-  if (d < 15) {
+  if (d < d_need) {
     // redundant: document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + "check-in"
     button_element.addClass('active');
     button_element.removeClass('inactive')

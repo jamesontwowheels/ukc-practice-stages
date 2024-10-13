@@ -4,10 +4,14 @@ For the template:
 - check the JS (also on cancel allow re-click)
 
 For the next game:
-- god mode
-- mass start (?)
+- mass start (??)
 - different start/finish
 - test the flexible radius
+- leaderboard fix (just load on demand)
+- move the history
+- tidy the app buttons
+- jazz the first two pages
+- 
 
 Next jobs:
 
