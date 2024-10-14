@@ -26,7 +26,6 @@ if (!isset($_SESSION['username'])) {
 <a class="stage" href="geo?location=4">Lightwater</a>
 <a class="stage" href="geo?location=5">Manvers Lake</a>
 <a class="stage" href="geo?location=6">Cobalt Business Park</a>
-
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
 </form>

@@ -5,7 +5,10 @@ let options;
 if (user_ID == 29) { 
   var d_need = 300000;
   console.log("GOD MODE ACTIVE");} 
-  else { var d_need = 15;} // god mode
+  else if (user_ID == 8) {
+  var d_need = 50;
+  console.log("demi-god mode active");    
+  } else { var d_need = 15;} // god mode
 
 fetch('assets/php/location.php')
         .then(response => response.json())
@@ -26,9 +29,12 @@ function success(pos) {
   var id = target.properties.name;
 
   const crd = pos.coords;
-  console.log("Accuracy check: "+crd.accuracy);
-  document.getElementById("accuracy_zone").innerHTML = crd.accuracy + "m";
-  // document.getElementById(id).innerHTML = crd.latitude;
+  var accuracy = Math.round(crd.accuracy);
+  console.log("Accuracy check: "+accuracy);
+  
+  d_need = d_need + accuracy; //generous range
+  document.getElementById("accuracy_zone").innerHTML = accuracy + "m radius:" + d_need;
+    // document.getElementById(id).innerHTML = crd.latitude;
   var R = 6371; // Radius of the earth in km
   var dLat = deg2rad(crd.latitude-target.geometry.coordinates[1]);  // deg2rad below
   var dLon = deg2rad(crd.longitude-target.geometry.coordinates[0]); 
