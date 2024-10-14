@@ -130,7 +130,7 @@ function ajax_call() {
             } 
             
             //available CPs /// i think this needs to move into the other function where we're checkign whether the rows exist or not first... maybe it all does?
-            var available_cps = data["available_cps"];
+           /* var available_cps = data["available_cps"];
             var all_cps = data["all_cps"];
             all_cps.forEach(element => {
                 if (available_cps.includes(element)) {
@@ -143,7 +143,8 @@ function ajax_call() {
                   document.getElementById(rowId).style.display = 'none';
                 }
               });
-
+            */
+           
             //puzzle CPs
             var puzzle_cps = data["puzzle_cps"];
             // Loop through the array
