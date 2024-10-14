@@ -19,9 +19,6 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
 <h2>MINDGAMES</h2>
-<a class="stage" href="geo?location=0">Morden</a>
-<a class="stage" href="geo?location=1">Hamptons</a>
-<a class="stage" href="geo?location=2">Hither Green</a>
 <a class="stage" href="geo?location=3">St Katherine Docks</a>
 <a class="stage" href="geo?location=4">Lightwater</a>
 <a class="stage" href="geo?location=5">Manvers Lake</a>
