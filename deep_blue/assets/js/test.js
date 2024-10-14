@@ -98,7 +98,7 @@ function ajax_call() {
                             console.log("Element found:", element);
                             element.innerHTML = keyname;
                             element.classList.remove("blocked");
-                            if (available_cps.includes(key_id)) {
+                            if (available_cps.includes(parseInt(key_id))) {
                                 console.log(key_id + ' is available.');
                                 rowId = "row"+key_id;
                                document.getElementById(rowId).style.display = 'block';
