@@ -76,6 +76,7 @@ function ajax_call() {
             var cp_names = data["cp_names"];
             var cp_names_keys = Object.keys(cp_names);
             var available_cps = data["available_cps"];
+            console.log(available_cps);
             console.log(cp_names);
             let i = 0;
             while (i < cp_names_keys.length) {
