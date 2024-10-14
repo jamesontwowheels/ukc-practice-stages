@@ -3,12 +3,12 @@ let target;
 let options;
 
 if (user_ID == 29) { 
-  var d_need = 300000;
+  var d_base = 300000;
   console.log("GOD MODE ACTIVE");} 
   else if (user_ID == 8) {
-  var d_need = 50;
+  var d_base = 50;
   console.log("demi-god mode active");    
-  } else { var d_need = 15;} // god mode
+  } else { var d_base = 15;} // god mode
 
 fetch('assets/php/location.php')
         .then(response => response.json())
@@ -32,7 +32,7 @@ function success(pos) {
   var accuracy = Math.round(crd.accuracy);
   console.log("Accuracy check: "+accuracy);
   
-  d_need = d_need + accuracy; //generous range
+  d_need = d_base + accuracy; //generous range
   document.getElementById("accuracy_zone").innerHTML = accuracy + "m radius:" + d_need;
     // document.getElementById(id).innerHTML = crd.latitude;
   var R = 6371; // Radius of the earth in km
