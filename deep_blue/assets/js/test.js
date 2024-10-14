@@ -84,7 +84,7 @@ function ajax_call() {
             console.log(cp_id);
 
             //check that the element exists
-            function checkElementExists(id, keyname, timeout = 15000) {
+            function checkElementExists(id, key_id, keyname, timeout = 15000) {
                 return new Promise((resolve, reject) => {
                     const startTime = Date.now();
             
@@ -98,12 +98,12 @@ function ajax_call() {
                             element.innerHTML = keyname;
                             element.classList.remove("blocked");
                             if (available_cps.includes(id)) {
-                                console.log(id + ' is available.');
-                                rowId = "row"+id;
+                                console.log(key_id + ' is available.');
+                                rowId = "row"+key_id;
                                document.getElementById(rowId).style.display = 'block';
                               } else {
-                                console.log(id + ' is not available.');
-                                rowId = "row"+id;
+                                console.log(key_id + ' is not available.');
+                                rowId = "row"+key_id;
                                 document.getElementById(rowId).style.display = 'none';
                               }
                             resolve(element); // Element found, resolve the promise
@@ -120,7 +120,7 @@ function ajax_call() {
                 });
             }
             var keyname = cp_names[this_key];
-            checkElementExists(cp_id, keyname, 15000).then( function() {
+            checkElementExists(cp_id, this_key, keyname, 15000).then( function() {
                 console.log("trying to add " + cp_names[this_key])
                 //document.getElementById(cp_id).innerHTML = cp_names[this_key];
             }).catch(error => {
@@ -144,7 +144,7 @@ function ajax_call() {
                 }
               });
             */
-           
+
             //puzzle CPs
             var puzzle_cps = data["puzzle_cps"];
             // Loop through the array
