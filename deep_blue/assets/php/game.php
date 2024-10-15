@@ -93,13 +93,13 @@ $x = 0;
     ];
     
     $cp_names = [
-        11 => "Nemo",
-        12 => "Nemo",
-        13 => "Nemo",
-        14 => "Nemo",
-        15 => "Nemo",
-        16 => "Nemo",
-        17 => "Nemo",
+        11 => "Eel",
+        12 => "Eel",
+        13 => "Eel",
+        14 => "Eel",
+        15 => "Eel",
+        16 => "Eel",
+        17 => "Eel",
         18 => "Cod",
         19 => "Cod",
         20 => "Cod",
@@ -115,11 +115,11 @@ $x = 0;
         31 => "Seal",
         32 => "Seal",
         33 => "Seal",
-        34 => "Gamble",
+        34 => "Walrus",
         333 => "Trident",
-        777 => "Boat",
-        102 => "Air",
-        202 => "Air",
+        777 => "Snow Bank",
+        102 => "Ice Hole",
+        202 => "Ice Hole",
         998 => "Finish",
         999 => "Start"
         ];
@@ -226,16 +226,16 @@ if (in_array($cp,$cps_treasure)){
         $comment = "Oh no, out of oxygen! You've dropped everything";
         $inventory = [];
     } elseif (in_array($cp,$inventory)){
-        $comment = "Treasure already held";
+        $comment = "Point $cp already fished";
     }elseif (in_array($cp,$bank)){
-        $comment = "Treasure already in the bank";
+        $comment = "Point $cp already fished";
     } else {
-        $comment = "Treasure ".$cp." picked-up";
+        $comment = "Fish ".$cp." caught";
         $inventory[] = $cp;
     }            
 }
 
-//collect fish:
+//Recruit Seals:
 if (in_array($cp,$cps_fish)){
     //check spear:
     if($spear == 5){

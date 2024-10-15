@@ -4,16 +4,17 @@ For the template:
 - check the JS (also on cancel allow re-click)
 
 For the next game:
-- mass start (no??)
 - shutter the start?
-- different start/finish
+- different start/finish (inc. availability of each)
 - test the flexible radius
-- move the history
-- tidy the app buttons
-- jazz the first two pages
+- Logic for recruiting seals
+- Logic for taking the Gamble
+- Logic for collecting the fish (add the multiplier here)
+- Logic for visitng the bank
 
 //tech debt
 - point the main pages to a single place for images/css/etc
+- unified footer
 
 
 Next jobs:
