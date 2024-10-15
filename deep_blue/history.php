@@ -31,31 +31,25 @@ if (isset($_SESSION['location'])) {
 <body>
   <h1>MINDGAMES</h1>
 <div id="main">
-
-  <div id="leaderboard" class="bucket">
-  <h3>Leaderboard</h3>
-  <div id="leaderboard_zone">
-  <table id="leaderBoard_table" border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Score</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Rows will be added here -->
-        </tbody>
-    </table>
-  </div>  
-  </div>
+<div id="score" class="bucket">
+  <h3>Stockpile</h3>
+  <div id="score_zone"></div>
+</div>
+<div id="history" class="bucket">
+  <h3>History</h3>
+  <button id="toggleButton">show/hide</button>
+  <ul id="commentary-list">
+            <!-- Array items will be appended here -->
+  </ul>
+</div>
 </div>
 
 <div class="app-buttons">
         <a href="index.php" class="app-button" id="app1"><i class="fas fa-person-running"></i><br>Game</a>
         <a href="leaderboard.php" class="app-button" id="app2"><i class="fas fa-list-ol"></i><br>Scores</a>
-        <a href="history.php" class="app-button" id="app3"><i class="fas fa-clock-rotate-left"></i><br>History</a>
-        <a href="../stages.php" class="app-button" id="app4"><i class="fas fa-door-open"></i><br>Exit</a>
+        <a href="history.php" class="app-button" id="app2"><i class="fas fa-clock-rotate-left"></i><br>History</a>
+        <a href="../stages.php" class="app-button" id="app3"><i class="fas fa-door-open"></i><br>Exit</a>
 </div>
 </body>
-<script type="text/javascript" src='assets/js/leaderboard.js' defer></script>
+<script type="text/javascript" src='assets/js/history.js' defer></script>
 <script type="text/javascript" src='assets/js/app-buttons.js'></script>
