@@ -253,7 +253,7 @@ if ($cp == $cp_trident){
     $comment = "Trident collected!";
 }
 
-//collect treasure
+//collect fish
 if (in_array($cp,$cps_fish)){
     if ($t > $oxygen){
         $comment = "Oh no, out of oxygen! You've dropped everything";
@@ -263,7 +263,7 @@ if (in_array($cp,$cps_fish)){
     } else {
         $fish_name = $cp_names[$cp];
         $fish_weight = $fish_weights[$fish_name][$fishing_level];
-        $comment = "$fish_name $cp caught! $fish_weight landed";
+        $comment = "$fish_name $cp caught! ".$fish_weight."kg landed";
         $inventory += $fish_weight;
         $available_below = array_diff($available_below, [$cp]);
         $available_below = array_values($available_below);
@@ -310,11 +310,11 @@ if ($cp == $cp_walrus){
     }
 }
 
-//dive boat
+//snow bank
 if ($cp == $cp_snow_bank){
     $running_score += $inventory;
-    $inventory = 0;
     $comment = $inventory."kg of fish banked.";
+    $inventory = 0;
 }
 
         //start_finish
