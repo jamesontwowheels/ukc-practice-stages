@@ -191,7 +191,7 @@ if($debug == 1){ $debug_log[] = '72';};
     $cps_seals_recruited = [];
     $seal_timers = [];
     $spear = 0;
-    $bank = [];
+    $bank = 0;
     $multiplier = 1;
     $fishing_level = 1;
     $available_below = $below_cps;
@@ -262,7 +262,7 @@ if (in_array($cp,$cps_fish)){
         $comment = "Glitch! This point $cp has already been fished";
     } else {
         $fish_name = $cp_names[$cp];
-        $fish_weight = $fish_weights[$fish_name[$fishing_level]];
+        $fish_weight = $fish_weights[$fish_name][$fishing_level];
         $comment = "$fish_name $cp caught! $fish_weight landed";
         $inventory += $fish_weight;
         $available_below = array_diff($available_below, $cp);
