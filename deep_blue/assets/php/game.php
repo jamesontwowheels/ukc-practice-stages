@@ -286,6 +286,7 @@ if (in_array($cp,$cps_seals)){
             $cps_seals_recruited[] = $cp; //recruit the seal
             $seal_timers[$cp] = $t; //set the timer
             $puzzle_cps = array_diff($puzzle_cps, [$cp]); //remove the puzzle function
+            $puzzle_cps = array_values($puzzle_cps);
         } else {
             $comment = "puzzle incorrect. -2kg fee";
             $running_score -= 2;
