@@ -234,13 +234,6 @@ if($debug == 1){ $debug_log[] = '72';};
 
         //EXAMPLE: pick up letter - start playing CPs 1-7
 
-//check for being out of breath...!
-if($oxygen_state[0] == 1){
-    if($t > $oxygen){
-        $available_below =  array_merge($available_below, $held_fish);
-        $held_fish = [];
-    }
-}
 
         //add oxygen
 if (in_array($cp,$cps_oxygen)){
@@ -253,6 +246,7 @@ if (in_array($cp,$cps_oxygen)){
     } else {
         if($t > $oxygen){
             $available_below =  array_merge($available_below, $held_fish);
+            $available_below = array_values($available_below);
             $held_fish = [];
             $inventory = 0;
             $comment = "Dive finished, but out of oxygen, all held fish released.";
@@ -275,6 +269,7 @@ if (in_array($cp,$cps_fish)){
     if ($t > $oxygen){
         $comment = "Oh no, out of oxygen! You've dropped everything";
         $available_below =  array_merge($available_below, $held_fish);
+        $available_below = array_values($available_below);
         $held_fish = [];
         $inventory = 0;
     } elseif (!in_array($cp,$available_below)){
