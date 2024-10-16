@@ -265,7 +265,7 @@ if (in_array($cp,$cps_fish)){
         $fish_weight = $fish_weights[$fish_name][$fishing_level];
         $comment = "$fish_name $cp caught! $fish_weight landed";
         $inventory += $fish_weight;
-        $available_below = array_diff($available_below, $cp);
+        $available_below = array_diff($available_below, [$cp]);
         $available_cps = $available_below;
     }            
 }
@@ -285,7 +285,7 @@ if (in_array($cp,$cps_seals)){
             $comment = "puzzle solved. Seal $cp recruited";
             $cps_seals_recruited[] = $cp; //recruit the seal
             $seal_timers[$cp] = $t; //set the timer
-            //$puzzle_cps = array_diff($puzzle_cps, $cp); //remove the puzzle function
+            $puzzle_cps = array_diff($puzzle_cps, [$cp]); //remove the puzzle function
         } else {
             $comment = "puzzle incorrect. -2kg fee";
             $running_score -= -2;
