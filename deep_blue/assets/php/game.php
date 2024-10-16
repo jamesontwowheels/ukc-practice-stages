@@ -285,10 +285,10 @@ if (in_array($cp,$cps_seals)){
             $comment = "puzzle solved. Seal $cp recruited";
             $cps_seals_recruited[] = $cp; //recruit the seal
             $seal_timers[$cp] = $t; //set the timer
-            $puzzle_cps = array_diff($puzzle_cps, $cp); //remove the puzzle function
+            //$puzzle_cps = array_diff($puzzle_cps, $cp); //remove the puzzle function
         } else {
             $comment = "puzzle incorrect. -2kg fee";
-            $bank -= -2;
+            $running_score -= -2;
         }
     }            
 }
@@ -310,7 +310,7 @@ if ($cp == $cp_walrus){
 
 //dive boat
 if ($cp == $cp_snow_bank){
-    $bank += $inventory;
+    $running_score += $inventory;
     $inventory = 0;
     $comment = $inventory."kg of fish banked.";
 }
