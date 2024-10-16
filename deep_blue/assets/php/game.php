@@ -258,11 +258,6 @@ if (in_array($cp,$cps_oxygen)){
     }
 } 
 
-//add spear
-if ($cp == $cp_trident){
-    $spear = 1;
-    $comment = "Trident collected!";
-}
 
 //collect fish
 if (in_array($cp,$cps_fish)){
@@ -276,7 +271,7 @@ if (in_array($cp,$cps_fish)){
         $comment = "Glitch! This point $cp has already been fished";
     } else {
         $fish_name = $cp_names[$cp];
-        $held_fish[] = $cp;
+        $held_fish[] = intval($cp);
         $fish_weight = $fish_weights[$fish_name][$fishing_level];
         $comment = "$fish_name $cp caught! ".$fish_weight."kg landed";
         $inventory += $fish_weight;
