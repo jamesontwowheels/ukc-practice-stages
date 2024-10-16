@@ -288,7 +288,7 @@ if (in_array($cp,$cps_seals)){
             $puzzle_cps = array_diff($puzzle_cps, [$cp]); //remove the puzzle function
         } else {
             $comment = "puzzle incorrect. -2kg fee";
-            $running_score -= -2;
+            $running_score -= 2;
         }
     }            
 }
