@@ -190,6 +190,7 @@ if($debug == 1){ $debug_log[] = '72';};
     $inventory = 0;
     $cps_seals_recruited = [];
     $seal_timers = [];
+    $held_fish = [];
     $spear = 0;
     $bank = 0;
     $multiplier = 1;
@@ -232,7 +233,16 @@ if($debug == 1){ $debug_log[] = '72';};
         $z += 1;
 
         //EXAMPLE: pick up letter - start playing CPs 1-7
-//add oxygen
+
+//check for being out of breath...!
+if($oxygen_state[0] == 1){
+    if($t > $oxygen){
+        $available_below =  array_merge($available_below, $held_fish);
+        $held_fish = [];
+    }
+}
+
+        //add oxygen
 if (in_array($cp,$cps_oxygen)){
     if($oxygen_state[0] == 0){
     $oxygen_state[0] = 1;
@@ -241,9 +251,16 @@ if (in_array($cp,$cps_oxygen)){
     $comment = "Dive started";
     $available_cps = $available_below;
     } else {
+        if($t > $oxygen){
+            $available_below =  array_merge($available_below, $held_fish);
+            $held_fish = [];
+            $inventory = 0;
+            $comment = "Dive finished, but out of oxygen, all held fish released.";
+        } else {
+        $comment = "Dive finished";
+        }
         $oxygen_state = [0,0];
         $available_cps = $above_cps;
-        $comment = "Dive finished";
     }
 } 
 
@@ -257,11 +274,14 @@ if ($cp == $cp_trident){
 if (in_array($cp,$cps_fish)){
     if ($t > $oxygen){
         $comment = "Oh no, out of oxygen! You've dropped everything";
+        $available_below =  array_merge($available_below, $held_fish);
+        $held_fish = [];
         $inventory = 0;
     } elseif (!in_array($cp,$available_below)){
         $comment = "Glitch! This point $cp has already been fished";
     } else {
         $fish_name = $cp_names[$cp];
+        $held_fish[] = $cp;
         $fish_weight = $fish_weights[$fish_name][$fishing_level];
         $comment = "$fish_name $cp caught! ".$fish_weight."kg landed";
         $inventory += $fish_weight;
@@ -315,6 +335,7 @@ if ($cp == $cp_snow_bank){
     $running_score += $inventory;
     $comment = $inventory."kg of fish banked.";
     $inventory = 0;
+    $held_fish = [];
 }
 
         //start_finish
