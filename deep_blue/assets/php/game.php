@@ -266,7 +266,8 @@ if (in_array($cp,$cps_fish)){
         $comment = "$fish_name $cp caught! $fish_weight landed";
         $inventory += $fish_weight;
         $available_below = array_diff($available_below, [$cp]);
-        $available_cps = array_values($available_below);
+        $available_below = array_values($available_below);
+        $available_cps = $available_below;
     }            
 }
 
