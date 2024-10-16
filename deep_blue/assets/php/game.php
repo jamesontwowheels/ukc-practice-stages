@@ -66,14 +66,14 @@ $x = 0;
 
     // e.g. $cps_letters = [1,2,3,4,5,6,7];
      //Bulk CPS
-     $cps_treasure = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29];
-     $cps_fish = [31,32,33];
+     $cps_fish = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29];
+     $cps_seals = [31,32,33];
      $cps_oxygen = [102,202];
      //special CPS;
      $cp_trident = 333;
      $cp_start_finish = 999;
-     $cp_poseidons_gamble = 34;
-     $cp_dive_boat = 777;
+     $cp_walrus = 34;
+     $cp_snow_bank = 777;
     
     $all_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,102,202,333,777,998,999];
     $above_cps = [31,32,33,34,102,202,777,998,999];
@@ -92,6 +92,17 @@ $x = 0;
         33 => 5
     ];
     
+    $lesson_cost = [
+        1 => 20,
+        2 => 40
+    ];
+
+    $oxygen_amount = [
+        1 => 600,
+        2 => 480,
+        3 => 360
+    ];
+
     $cp_names = [
         11 => "Eel",
         12 => "Eel",
@@ -123,6 +134,24 @@ $x = 0;
         998 => "Finish",
         999 => "Start"
         ];
+
+    $fish_weights = [
+        "Eel" => [
+            1 => 1,
+            2 => 2,
+            3 => 4
+        ],
+        "Cod" => [
+            1 => 2,
+            2 => 4,
+            3 => 8
+        ],
+        "Tuna" => [
+            1 => 5,
+            2 => 10,
+            3 => 12
+        ],
+    ];
     
     $this_cp_names = $cp_names; //required if cpnames are going to change.
 
@@ -158,10 +187,14 @@ if($debug == 1){ $debug_log[] = '72';};
     $this_cp_names = $cp_names;
     $oxygen_state = [0,0];
     $oxygen = 0;
-    $inventory = [];
+    $inventory = 0;
+    $cps_seals_recruited = [];
+    $seal_timers = [];
     $spear = 0;
     $bank = [];
     $multiplier = 1;
+    $fishing_level = 1;
+    $available_below = $below_cps;
 
 //GENERIC
     $id = $x;
@@ -206,7 +239,7 @@ if (in_array($cp,$cps_oxygen)){
     $oxygen = $t + 75;
     $oxygen_state[1] = $oxygen;
     $comment = "Dive started";
-    $available_cps = $below_cps;
+    $available_cps = $available_below;
     } else {
         $oxygen_state = [0,0];
         $available_cps = $above_cps;
@@ -221,72 +254,65 @@ if ($cp == $cp_trident){
 }
 
 //collect treasure
-if (in_array($cp,$cps_treasure)){
+if (in_array($cp,$cps_fish)){
     if ($t > $oxygen){
         $comment = "Oh no, out of oxygen! You've dropped everything";
-        $inventory = [];
-    } elseif (in_array($cp,$inventory)){
-        $comment = "Point $cp already fished";
-    }elseif (in_array($cp,$bank)){
-        $comment = "Point $cp already fished";
+        $inventory = 0;
+    } elseif (!in_array($cp,$available_below)){
+        $comment = "Glitch! This point $cp has already been fished";
     } else {
-        $comment = "Fish ".$cp." caught";
-        $inventory[] = $cp;
+        $fish_name = $cp_names[$cp];
+        $fish_weight = $fish_weights[$fish_name[$fishing_level]];
+        $comment = "$fish_name $cp caught! $fish_weight landed";
+        $inventory += $fish_weight;
+        $available_below = array_diff($available_below, $cp);
+        $available_cps = $available_below;
     }            
 }
 
 //Recruit Seals:
-if (in_array($cp,$cps_fish)){
-    //check spear:
-    if($spear == 5){
-        $comment = "You tried to pick-up fish $cp with no trident";
-    } elseif (in_array($cp,$inventory)){
-        $comment = "Fish already caught this trip";
+if (in_array($cp,$cps_seals)){
+    //check recruitment
+    if (in_array($cp,$cps_seals_recruited)){
+        // get the seal haul and reset it
+        $seal_haul = floor(($t - $seal_timers[$cp])/60)/2;
+        $seal_timers[$cp] = $t;
+        $inventory += $seal_haul;
+        $comment = "$seal_haul kg fish collected from Seal $cp";
     } else {
         if($puzzle_answer == $puzzle_answers[$cp]){
-            $comment = "puzzle solved";
+            //recruit the seal
+            $comment = "puzzle solved. Seal $cp recruited";
+            $cps_seals_recruited[] = $cp; //recruit the seal
+            $seal_timers[$cp] = $t; //set the timer
+            $puzzle_cps = array_diff($puzzle_cps, $cp); //remove the puzzle function
         } else {
-            $comment = "puzzle incorrect";
+            $comment = "puzzle incorrect. -2kg fee";
+            $bank -= -2;
         }
-        // $comment = "Fish $cp speared!";
-        // $inventory[] = $cp;
     }            
 }
 
-//take gamble
-if ($cp == $cp_poseidons_gamble){
-    $threshold = 80 * $multiplier;
-    if($running_score >= $threshold){
-    $running_score -= $threshold;
-    $comment = "Gamble taken!";
-    $multiplier += 1;
-    $bank = [];
+//take a lesson
+if ($cp == $cp_walrus){
+    if($fishing_level<3){
+    if($running_score >= $lesson_cost[$fishing_level]){
+    $running_score -= $lesson_cost[$fishing_level];
+    $comment = "Lesson $fishing_level taken! Cost of $lesson_cost[$fishing_level]";
+    $fishing_level += 1;
+    $available_below = $below_cps;
     } else {
-        $comment = "You don't have enough treasure to pay Poseidon, no gamble taken";
+        $comment = "You don't have enough fish to pay the wise walrus, no lesson taken";
+    }} else {
+        $comment = "You are a fully trained Level 3 ninja fishing bear";
     }
 }
 
 //dive boat
-if ($cp == $cp_dive_boat){
-    $i = 0;
-    $comment = "boat visited";
-    while($i < count($inventory)){
-        $item = $inventory[$i];
-        if (in_array($item,$cps_fish)){    
-            $value = $fish * $multiplier;
-            $running_score += $value;
-            $comment = "Fish $item landed!";
-            } elseif (in_array($item,$cps_treasure)){
-            $value = $treasure * $multiplier;
-            $running_score += $value;
-            $comment = "Treasure ".$item." stashed!";
-            $bank[] = $item;
-        }
-        $i += 1;
-    }
-    // empty inventory:
-    $inventory = [];
-    $spear = 0;
+if ($cp == $cp_snow_bank){
+    $bank += $inventory;
+    $inventory = 0;
+    $comment = $inventory."kg of fish banked.";
 }
 
         //start_finish
