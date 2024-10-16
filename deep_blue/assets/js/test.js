@@ -147,6 +147,13 @@ function ajax_call() {
             */
 
             //puzzle CPs
+
+            //remove the puzzles first
+            const puzzle_elements = document.querySelectorAll(".puzzle");
+            puzzle_elements.forEach(function(element) {
+                element.classList.remove("puzzle");
+            });
+
             var puzzle_cps = data["puzzle_cps"];
             // Loop through the array
             puzzle_cps.forEach(function(element) {
