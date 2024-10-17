@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KML to JSON Converter</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.min.js"></script>
+</head>
+<body>
+    <h1>KML to JSON Converter</h1>
+    <input type="file" id="fileInput" accept=".kml">
+    <button id="convertButton">Convert to JSON</button>
+    <pre id="jsonOutput"></pre>
+
+    <script>
+        $(document).ready(function() {
+            $('#convertButton').click(function() {
+                var fileInput = document.getElementById('fileInput');
+                if (fileInput.files.length === 0) {
+                    alert('Please select a KML file.');
+                    return;
+                }
+
+                var file = fileInput.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    var kml = (new DOMParser()).parseFromString(event.target.result, 'text/xml');
+                    var geojson = toGeoJSON.kml(kml);
+                    var jsonString = JSON.stringify(geojson, null, 2);
+                    $('#jsonOutput').text(jsonString);
+
+                    // Optionally, send the JSON to the server via AJAX
+                    $.ajax({
+                        url: 'your-server-endpoint.php', // Replace with your server endpoint
+                        type: 'POST',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        data: jsonString,
+                        success: function(response) {
+                            console.log('Server response:', response);
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('AJAX Error:', status, error);
+                        }
+                    });
+                };
+
+                reader.readAsText(file);
+            });
+        });
+    </script>
+</body>
+</html>
