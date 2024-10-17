@@ -396,7 +396,7 @@
           ]
         },
         "properties": {
-          "name": "102",
+          "name": "999",
           "styleUrl": "#control",
           "styleHash": "5c951ac3"
         }
@@ -460,7 +460,7 @@
           ]
         },
         "properties": {
-          "name": "999",
+          "name": "102",
           "styleUrl": "#startfinish",
           "styleHash": "6e1ac58c"
         }
