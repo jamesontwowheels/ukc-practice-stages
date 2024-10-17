@@ -19,7 +19,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
 <h2>MINDGAMES</h2>
-<a class="stage" href="geo?location=0">FCS</a>
+<a class="stage" href="gps?location=0">FCS</a>
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
 </form>
