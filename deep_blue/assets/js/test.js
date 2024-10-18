@@ -76,6 +76,7 @@ function ajax_call() {
             var cp_names = data["cp_names"];
             var cp_names_keys = Object.keys(cp_names);
             var available_cps = data["available_cps"];
+            var puzzle_cps = data["puzzle_cps"];
             console.log(available_cps);
             console.log(cp_names);
             let i = 0;
@@ -98,6 +99,7 @@ function ajax_call() {
                             console.log("Element found:", element);
                             element.innerHTML = keyname;
                             element.classList.remove("blocked");
+                            element.classList.remove("puzzle");
                             if (available_cps.includes(parseInt(key_id))) {
                                 console.log(key_id + ' is available.');
                                 rowId = "row"+key_id;
@@ -107,13 +109,18 @@ function ajax_call() {
                                 rowId = "row"+key_id;
                                 document.getElementById(rowId).style.display = 'none';
                               }
+                            if(puzzle_cps.includes(parseInt(key_id))){
+                                console.log(key_id + ' is puzzle locked');
+                                var puzzle_butt = "butt"+key_id;
+                                document.getElementById(elementId).classList.add("puzzle");
+                            }
                             resolve(element); // Element found, resolve the promise
                         } else if (elapsedTime >= timeout) {
                             console.log("Timeout reached, stopping checks.");
                             reject(new Error("Element not found within timeout"));
                         } else {
                             console.log("Element not found, waiting 3 seconds...");
-                            setTimeout(check, 3000); // Wait for 3 seconds and recheck
+                            setTimeout(check, 250); // Wait for 3 seconds and recheck
                         }
                     }
             
@@ -130,31 +137,13 @@ function ajax_call() {
             i++;
             } 
             
-            //available CPs /// i think this needs to move into the other function where we're checkign whether the rows exist or not first... maybe it all does?
-           /* var available_cps = data["available_cps"];
-            var all_cps = data["all_cps"];
-            all_cps.forEach(element => {
-                if (available_cps.includes(element)) {
-                  console.log(`${element} is available.`);
-                  rowId = "row"+element;
-                 document.getElementById(rowId).style.display = 'block';
-                } else {
-                  console.log(`${element} is not available.`);
-                  rowId = "row"+element;
-                  document.getElementById(rowId).style.display = 'none';
-                }
-              });
-            */
-
-            //puzzle CPs
-
+           //puzzle CPs
             //remove the puzzles first
             const puzzle_elements = document.querySelectorAll(".puzzle");
             puzzle_elements.forEach(function(element) {
                 element.classList.remove("puzzle");
             });
 
-            var puzzle_cps = data["puzzle_cps"];
             // Loop through the array
             puzzle_cps.forEach(function(element) {
                 // Construct the ID by appending 'row' to the current element
