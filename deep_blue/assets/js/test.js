@@ -72,7 +72,8 @@ function ajax_call() {
             console.log("ajax return");
             var debug_log = data["debug_log"];
             console.log(debug_log);
-            document.getElementById("inventory_zone").innerHTML = "Current word =" + data["current_word"] + "<br> Current bonus = " + data["current_bonus"];
+            var inventory = data["inventory"];
+            document.getElementById("inventory_zone").innerHTML = "Fish held =" + inventory;
             var cp_names = data["cp_names"];
             var cp_names_keys = Object.keys(cp_names);
             var available_cps = data["available_cps"];

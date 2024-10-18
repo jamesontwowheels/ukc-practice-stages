@@ -377,6 +377,7 @@ if($_REQUEST["purpose"] !== 2){
 $response["oxygen_state"]=$oxygen_state;
     //UNIVERSAL
 $response["all_cps"]=$all_cps;
+$response["inventory"]=$inventory;
 $response["available_cps"]=$available_cps;
 $response["puzzle_cps"]=$puzzle_cps;
 $response["puzzle_questions"]=$puzzle_questions;
