@@ -231,7 +231,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $t = $player_result[$z][1]; //times[$z];
         $puzzle_answer = $player_result[$z][2];
         $z += 1;
-
+        $puzzle_response = 0;
         //EXAMPLE: pick up letter - start playing CPs 1-7
 
 
@@ -294,12 +294,14 @@ if (in_array($cp,$cps_seals)){
         if($puzzle_answer == $puzzle_answers[$cp]){
             //recruit the seal
             $comment = "puzzle solved. Seal $cp recruited";
+            $puzzle_response = 1;
             $cps_seals_recruited[] = $cp; //recruit the seal
             $seal_timers[$cp] = $t; //set the timer
             $puzzle_cps = array_diff($puzzle_cps, [$cp]); //remove the puzzle function
             $puzzle_cps = array_values($puzzle_cps);
         } else {
             $comment = "puzzle incorrect. -2kg fee";
+            $puzzle_response = 2;
             $running_score -= 2;
         }
     }            
@@ -381,6 +383,7 @@ $response["inventory"]=$inventory;
 $response["available_cps"]=$available_cps;
 $response["puzzle_cps"]=$puzzle_cps;
 $response["puzzle_questions"]=$puzzle_questions;
+$response["puzzle_response"]=$puzzle_response;
 $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
 $response["debug_log"] = $debug_log;

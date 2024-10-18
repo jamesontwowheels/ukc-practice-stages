@@ -39,7 +39,7 @@ function ajax_call() {
     var user_input = "void";
     if($(this).hasClass('puzzle')){
         user_input = prompt(puzzle_questions[cp]);
-        if (user_input == "void" || user_input == "") { 
+        if (user_input === null || user_input == "") { 
             console.log("nothing input");
             return;}
     } else{ console.log("no puzzle"); }
@@ -85,6 +85,14 @@ function ajax_call() {
             var this_key = cp_names_keys[i];
             var cp_id = "butt" + this_key;
             console.log(cp_id);
+
+            //puzzle response
+            var puzzle_response = data["puzzle_response"];
+            if(puzzle_response == 1){
+                alert("Yes! Puzzle correct");
+            } else if(puzzle_response == 2){
+                alert ("No. Puzzle incorrect");
+            }
 
             //check that the element exists
             function checkElementExists(id, key_id, keyname, timeout = 15000) {
