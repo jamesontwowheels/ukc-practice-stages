@@ -81,10 +81,6 @@ function ajax_call() {
             console.log(available_cps);
             console.log(cp_names);
             let i = 0;
-            while (i < cp_names_keys.length) {
-            var this_key = cp_names_keys[i];
-            var cp_id = "butt" + this_key;
-            console.log(cp_id);
 
             //puzzle response
             var puzzle_response = data["puzzle_response"];
@@ -93,6 +89,13 @@ function ajax_call() {
             } else if(puzzle_response == 2){
                 alert ("No. Puzzle incorrect");
             }
+
+            while (i < cp_names_keys.length) {
+            var this_key = cp_names_keys[i];
+            var cp_id = "butt" + this_key;
+            console.log(cp_id);
+
+           
 
             //check that the element exists
             function checkElementExists(id, key_id, keyname, timeout = 15000) {
@@ -200,7 +203,9 @@ function ajax_call() {
                         div.classList.remove('snowflake');
                     });
                     if (o2_distance < 1) {
-                        clearInterval(oxygenFunction); // Stop the time
+                        clearInterval(oxygenFunction); 
+                        document.getElementById("o2_timer").innerHTML = "Out of oxygen";
+                        // Stop the time
                         // Add the pulse-red class to the body to trigger the pulsing effect
                         bodyElement.classList.add('full-red');
                     } else if (o2_distance < 30) {

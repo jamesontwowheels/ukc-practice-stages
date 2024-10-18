@@ -84,6 +84,10 @@
 }
 
         /* Pulse effect */
+        .initial-red {
+            animation: pulse 5s infinite; /* Infinite pulsing */
+        }
+        
         .pulse-red {
             animation: pulse 1s infinite; /* Infinite pulsing */
         }
