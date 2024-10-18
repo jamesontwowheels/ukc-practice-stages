@@ -113,7 +113,7 @@ function ajax_call() {
                             if(puzzle_cps.includes(parseInt(key_id))){
                                 console.log(key_id + ' is puzzle locked');
                                 var puzzle_butt = "butt"+key_id;
-                                document.getElementById(elementId).classList.add("puzzle");
+                                document.getElementById(puzzle_butt).classList.add("puzzle");
                             }
                             resolve(element); // Element found, resolve the promise
                         } else if (elapsedTime >= timeout) {
