@@ -212,6 +212,8 @@ function ajax_call() {
                         bodyElement.classList.add('rapid-red');
                     } else if (o2_distance < 60){
                         bodyElement.classList.add('pulse-red');
+                    } else {
+                        bodyElement.classList.add('initial-red')
                     };
 
                 },1000)
@@ -223,6 +225,7 @@ function ajax_call() {
                 document.getElementById("main").classList.remove("rapid-red");
                 document.getElementById("main").classList.remove("full-red");
                 document.getElementById("main").classList.remove("pulse-red");
+                document.getElementById("main").classList.remove("initial-red");
                 // Select all bubbles
                 const divs = document.querySelectorAll('div.bubble1');
                 // Make them bubbly"

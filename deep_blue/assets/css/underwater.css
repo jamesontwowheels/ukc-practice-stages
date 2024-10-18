@@ -96,7 +96,7 @@
         }
 
         .full-red {
-            background-color: red;
+            background-color: red !important;
         }
 
         @keyframes pulse {
