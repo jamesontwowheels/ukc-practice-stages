@@ -147,7 +147,7 @@ $x = 0;
             2 => 4,
             3 => 8
         ],
-        "Tuna" => [
+        "Tun" => [
             1 => 5,
             2 => 10,
             3 => 12
@@ -272,8 +272,9 @@ if (in_array($cp,$cps_fish)){
         $comment = "Glitch! This point $cp has already been fished";
     } else {
         $fish_name = $cp_names[$cp];
+        $fish_three = substr($fish_name, 0, 3);
         $held_fish[] = intval($cp);
-        $fish_weight = $fish_weights[$fish_name][$fishing_level];
+        $fish_weight = $fish_weights[$fish_three][$fishing_level];
         $comment = "$fish_name $cp caught! ".$fish_weight."kg landed";
         $inventory += $fish_weight;
         $available_below = array_diff($available_below, [$cp]);
