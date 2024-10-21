@@ -67,10 +67,6 @@ if (isset($_GET['location'])) {
    
     </tbody>
   </table>
-<div id="inventory" class="bucket">
-  <h3>Fish held</h3>
-  <div id="inventory_zone"></div>  
-  </div>
 <div id="base-padding" class="bucket">
 </div>
 </div>

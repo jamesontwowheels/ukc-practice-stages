@@ -73,7 +73,7 @@ function ajax_call() {
             var debug_log = data["debug_log"];
             console.log(debug_log);
             var inventory = data["inventory"];
-            document.getElementById("inventory_zone").innerHTML = "Fish held =" + inventory;
+            document.getElementById("inventory_zone").innerHTML = "Fish held: " + inventory;
             var cp_names = data["cp_names"];
             var cp_names_keys = Object.keys(cp_names);
             var available_cps = data["available_cps"];
@@ -277,7 +277,7 @@ function ajax_call() {
                 }
 
             //running score
-            document.getElementById("score_zone").innerHTML = data["running_score"];
+            document.getElementById("score_zone").innerHTML = "Stockpile: " + data["running_score"];
             
             //commentary
             const items = data["commentary"];
