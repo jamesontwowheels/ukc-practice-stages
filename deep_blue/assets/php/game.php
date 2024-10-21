@@ -80,9 +80,9 @@ $x = 0;
     $puzzle_cps = [31,32,33];
     
     $puzzle_questions =[
-        31 => "How many prime numbers are there between 1 and 100?",
-        32 => "The following words each have the same four letters removed in different orders 1: -A-KLA- -, 2: AR- - -I-HOP, 3: -YDRO-AR-ON-, 4: -WIT- - -ACK. Work out the four missing letters and rearrange them to spell the name of a well known business",
-        33 => "An olympic triathlon consists of 1.5km swim, 40km cycle and 10km run. An athlete averaged the following speeds; swim: 2.25km/h, cycle: 30km/h. If it took the athlete exactly 3hrs to complete the triathlong what average speed did they run? (enter number only)"
+        31 => "huh",//"How many prime numbers are there between 1 and 100?",
+        32 => "that",//"The following words each have the same four letters removed in different orders 1: -A-KLA- -, 2: AR- - -I-HOP, 3: -YDRO-AR-ON-, 4: -WIT- - -ACK. Work out the four missing letters and rearrange them to spell the name of a well known business",
+        33 => "this"//"An olympic triathlon consists of 1.5km swim, 40km cycle and 10km run. An athlete averaged the following speeds; swim: 2.25km/h, cycle: 30km/h. If it took the athlete exactly 3hrs to complete the triathlong what average speed did they run? (enter number only)"
     ];
 
     $puzzle_answers = [
