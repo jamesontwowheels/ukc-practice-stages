@@ -73,14 +73,8 @@ if (isset($_GET['location'])) {
 <h3>Accuracy</h3>
 <div id="accuracy_zone"></div>
 </div>
-<div id="history" class="bucket">
-  <h3>History</h3>
-  <button id="toggleButton">show/hide</button>
-  <div id="expandableContent" class="content">
-  <ul id="commentary-list">
-            <!-- Array items will be appended here -->
-  </ul>
-  </div>
+<div id="base-padding" class="bucket">
+</div>
 </div>
 </div>
 </div>

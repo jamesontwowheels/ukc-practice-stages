@@ -71,7 +71,7 @@ $x = 0;
      $cps_oxygen = [102,202,302];
      //special CPS;
      $cp_trident = 333;
-     $cp_start_finish = 999;
+     $cp_start_finish = [998,999];
      $cp_walrus = 34;
      $cp_snow_bank = 777;
     
@@ -240,7 +240,7 @@ if($debug == 1){ $debug_log[] = '72';};
 if (in_array($cp,$cps_oxygen)){
     if($oxygen_state[0] == 0){
     $oxygen_state[0] = 1;
-    $oxygen = $t + 75;
+    $oxygen = $t + 15;
     $oxygen_state[1] = $oxygen;
     $comment = "Dive started";
     $available_cps = $available_below;
@@ -332,7 +332,7 @@ if ($cp == $cp_snow_bank){
 }
 
         //start_finish
-        if($cp == $cp_start_finish){
+        if(in_array($cp,$cp_start_finish)){
             if($game_state == 0)
             {
                 $game_state = 1;
