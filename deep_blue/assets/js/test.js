@@ -193,7 +193,7 @@ function ajax_call() {
                     // Time calculations for minutes and seconds
                     const o2_minutes = Math.floor((o2_distance) / (60));
                     const o2_seconds = Math.floor(o2_distance % (60));
-                    document.getElementById("o2_timer").innerHTML = o2_minutes + "m " + o2_seconds + "s ";                 
+                    document.getElementById("o2_timer").innerHTML = "Oxygen Timer:" + o2_minutes + "m " + o2_seconds + "s ";                 
                     document.getElementById("water").classList.add("underwater");
                     // Select all bubbles
                     const divs = document.querySelectorAll('div.bubble1');
