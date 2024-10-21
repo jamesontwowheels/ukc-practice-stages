@@ -77,7 +77,7 @@ $x = 0;
     
     $all_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,102,202,302,333,777,998,999];
     $above_cps = [31,32,33,34,102,202,302,777,998];
-    $below_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,102,202,302];
+    $below_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,102,202,302,998];
     $puzzle_cps = [31,32,33];
     
     $puzzle_questions =[
@@ -88,7 +88,7 @@ $x = 0;
 
     $puzzle_answers = [
         31 => "25",
-        32 => "HSBC",
+        32 => "hsbc",
         33 => 10
     ];
     
@@ -230,7 +230,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
         $cp = $player_result[$z][0];// $cps[$z];
         $t = $player_result[$z][1]; //times[$z];
-        $puzzle_answer = $player_result[$z][2];
+        $puzzle_answer = strtolower($player_result[$z][2]);
         $z += 1;
         $puzzle_response = 0;
         //EXAMPLE: pick up letter - start playing CPs 1-7

@@ -48,6 +48,8 @@ if (isset($_SESSION['location'])) {
     </table>
   </div>  
   </div>
+<div id="base-padding" class="bucket">
+</div>
 </div>
 
 <div class="app-buttons">

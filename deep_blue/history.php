@@ -42,6 +42,8 @@ if (isset($_SESSION['location'])) {
             <!-- Array items will be appended here -->
   </ul>
 </div>
+<div id="base-padding" class="bucket">
+</div>
 </div>
 
 <div class="app-buttons">
