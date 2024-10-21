@@ -81,15 +81,15 @@ $x = 0;
     $puzzle_cps = [31,32,33];
     
     $puzzle_questions =[
-        31 => "This is going to be quite a long question where we ask a few things, chuck a few numbers in there 15 x 16 7 and maybe some ??? but in the end we want you to answer yes or no. But in the meantime I think we should try and get this closer to about five hundred characters by writing and writing and writing, i'm still about 150 characters short so we might just copy and paste someting but it is actually probably quicker to keep typing because my typing speed is pretty good and i'm there now!",
-        32 => "for this one i'd like a string answer of 5, so i'm hoping that we can compare at the end without tooooo much of an issue",
-        33 => "here I just want something basic."
+        31 => "How many prime numbers are there between 1 and 100?",
+        32 => "The following words each have the same four letters removed in different orders 1: -A-KLA- -, 2: AR- - -I-HOP, 3: -YDRO-AR-ON-, 4: -WIT- - -ACK. Work out the four missing letters and rearrange them to spell the name of a well known business",
+        33 => "An olympic triathlon consists of 1.5km swim, 40km cycle and 10km run. An athlete averaged the following speeds; swim: 2.25km/h, cycle: 30km/h. If it took the athlete exactly 3hrs to complete the triathlong what average speed did they run? (enter number only)"
     ];
 
     $puzzle_answers = [
-        31 => "yes",
-        32 => "5",
-        33 => 5
+        31 => "25",
+        32 => "HSBC",
+        33 => 10
     ];
     
     $lesson_cost = [
