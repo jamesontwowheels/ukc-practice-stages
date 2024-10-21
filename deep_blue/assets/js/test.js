@@ -208,9 +208,9 @@ function ajax_call() {
                         // Stop the time
                         // Add the pulse-red class to the body to trigger the pulsing effect
                         bodyElement.classList.add('full-red');
-                    } else if (o2_distance < 30) {
+                    } else if (o2_distance < 180) {
                         bodyElement.classList.add('rapid-red');
-                    } else if (o2_distance < 60){
+                    } else if (o2_distance < 330){
                         bodyElement.classList.add('pulse-red');
                     } else {
                         bodyElement.classList.add('initial-red')

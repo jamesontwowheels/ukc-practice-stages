@@ -240,7 +240,7 @@ if($debug == 1){ $debug_log[] = '72';};
 if (in_array($cp,$cps_oxygen)){
     if($oxygen_state[0] == 0){
     $oxygen_state[0] = 1;
-    $oxygen = $t + 15;
+    $oxygen = $t + $oxygen_amount[$fishing_level];
     $oxygen_state[1] = $oxygen;
     $comment = "Dive started";
     $available_cps = $available_below;
