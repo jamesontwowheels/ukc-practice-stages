@@ -8,7 +8,7 @@ if (user_ID == 29) {
   else if (user_ID == 8) {
   var d_base = 50;
   console.log("demi-god mode active");    
-  } else { var d_base = 15;} // god mode
+  } else { var d_base = 50;} // god mode
 
 fetch('assets/php/location.php')
         .then(response => response.json())
@@ -32,8 +32,8 @@ function success(pos) {
   var accuracy = Math.round(crd.accuracy);
   console.log("Accuracy check: "+accuracy);
   
-  d_need = d_base + accuracy; //generous range
-  document.getElementById("accuracy_zone").innerHTML = accuracy + "m radius:" + d_need;
+  d_need = d_base; //generous range
+  // document.getElementById("accuracy_zone").innerHTML = accuracy + "m radius:" + d_need;
     // document.getElementById(id).innerHTML = crd.latitude;
   var R = 6371; // Radius of the earth in km
   var dLat = deg2rad(crd.latitude-target.geometry.coordinates[1]);  // deg2rad below

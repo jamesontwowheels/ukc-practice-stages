@@ -55,24 +55,22 @@ if (isset($_GET['location'])) {
 <div id="accuracy"></div>
 
 <div id="score" class="bucket">
-  <h3>Stockpile</h3>
+  <h3>Ice Bank</h3>
   <div id="score_zone"></div>
 </div>
-
+<div id="inventory" class="bucket">
+  <h3>Current catch</h3>
+  <div id="inventory_zone"></div>  
+  </div>
 <table id="checkpoints">
   <tbody>
    
     </tbody>
   </table>
 <div id="inventory" class="bucket">
-  <h3>Inventory</h3>
+  <h3>Fish held</h3>
   <div id="inventory_zone"></div>  
   </div>
-  
-<div id="accuracy" class="bucket">
-<h3>Accuracy</h3>
-<div id="accuracy_zone"></div>
-</div>
 <div id="base-padding" class="bucket">
 </div>
 </div>
