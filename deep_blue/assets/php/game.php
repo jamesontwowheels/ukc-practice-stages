@@ -68,27 +68,28 @@ $x = 0;
      //Bulk CPS
      $cps_fish = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29];
      $cps_seals = [31,32,33];
-     $cps_oxygen = [102,202,302];
+     $cps_oxygen = [102,202];
      //special CPS;
-     $cp_start_finish = [998,999];
+     $cp_trident = 333;
+     $cp_start_finish = 999;
      $cp_walrus = 34;
      $cp_snow_bank = 777;
     
-    $all_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,102,202,777,998,999];
-    $above_cps = [31,32,33,34,102,202,302,777,998];
-    $below_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,102,202,,302,998];
+    $all_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,102,202,333,777,998,999];
+    $above_cps = [31,32,33,34,102,202,777,998,999];
+    $below_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,102,202,999];
     $puzzle_cps = [31,32,33];
     
     $puzzle_questions =[
-        31 => "huh",//"How many prime numbers are there between 1 and 100?",
-        32 => "that",//"The following words each have the same four letters removed in different orders 1: -A-KLA- -, 2: AR- - -I-HOP, 3: -YDRO-AR-ON-, 4: -WIT- - -ACK. Work out the four missing letters and rearrange them to spell the name of a well known business",
-        33 => "this"//"An olympic triathlon consists of 1.5km swim, 40km cycle and 10km run. An athlete averaged the following speeds; swim: 2.25km/h, cycle: 30km/h. If it took the athlete exactly 3hrs to complete the triathlong what average speed did they run? (enter number only)"
+        31 => "This is going to be quite a long question where we ask a few things, chuck a few numbers in there 15 x 16 7 and maybe some ??? but in the end we want you to answer yes or no. But in the meantime I think we should try and get this closer to about five hundred characters by writing and writing and writing, i'm still about 150 characters short so we might just copy and paste someting but it is actually probably quicker to keep typing because my typing speed is pretty good and i'm there now!",
+        32 => "for this one i'd like a string answer of 5, so i'm hoping that we can compare at the end without tooooo much of an issue",
+        33 => "here I just want something basic."
     ];
 
     $puzzle_answers = [
-        31 => "25",
-        32 => "HSBC",
-        33 => 10
+        31 => "yes",
+        32 => "5",
+        33 => 5
     ];
     
     $lesson_cost = [
@@ -126,10 +127,10 @@ $x = 0;
         32 => "Seal",
         33 => "Seal",
         34 => "Walrus",
+        333 => "Trident",
         777 => "Snow Bank",
         102 => "Ice Hole",
         202 => "Ice Hole",
-        302 => "Ice Hole",
         998 => "Finish",
         999 => "Start"
         ];
@@ -173,6 +174,11 @@ while($x < $count_results){
     $player_result = $player_cps[$player]; //$results[$x];
   // don't have this data yet...
     $surname = "data"; //update
+    $finish_time = 3601 ; //update - why is this here???
+    //check for time penalties:
+        if($finish_time > $stage_time){
+            $time_penalty = floor(($finish_time-$stage_time)/5);
+        } else {$time_penalty = 0;}
     $x += 1;
 
     
@@ -325,7 +331,7 @@ if ($cp == $cp_snow_bank){
 }
 
         //start_finish
-        if(in_array($cp, $cp_start_finish)){
+        if($cp == $cp_start_finish){
             if($game_state == 0)
             {
                 $game_state = 1;
