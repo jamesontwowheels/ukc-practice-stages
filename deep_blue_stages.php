@@ -20,6 +20,7 @@ if (!isset($_SESSION['username'])) {
 <body>
 <h2>MINDGAMES</h2>
 <a class="stage" href="deep_blue?location=0">Fenchurch St - 22.10.24</a><br>
+<a class="stage" href="deep_blue?location=1">Rising Sun</a><br>
 
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
