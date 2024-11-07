@@ -385,7 +385,8 @@ $response["inventory"]=$inventory;
 $response["available_cps"]=$available_cps;
 $response["puzzle_cps"]=$puzzle_cps;
 $response["puzzle_questions"]=$puzzle_questions;
-if($incoming_cp !== 0) {
+//don't send back a puzzle response if nothing has been submitted.
+if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;}
 $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
