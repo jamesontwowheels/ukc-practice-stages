@@ -9,7 +9,7 @@ $commentary = [];
 $debug_log[] = "data play";
 $user_input = $_REQUEST["user_input"];
 $game = 1;
-
+$incoming_cp = $cp;
 include 'db_connect.php';
 
 //include custom php
@@ -385,7 +385,8 @@ $response["inventory"]=$inventory;
 $response["available_cps"]=$available_cps;
 $response["puzzle_cps"]=$puzzle_cps;
 $response["puzzle_questions"]=$puzzle_questions;
-$response["puzzle_response"]=$puzzle_response;
+if($incoming_cp !== 0) {
+$response["puzzle_response"]=$puzzle_response;}
 $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
 $response["debug_log"] = $debug_log;
