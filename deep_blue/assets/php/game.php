@@ -167,7 +167,7 @@ $x = 0;
     //values
     $fish = 5;
     $treasure = 10;
-    $stage_time = 75*60;
+    $stage_time = 60*60;
 //start looping the contestants:
 while($x < $count_results){
     $player = $players[$x];
