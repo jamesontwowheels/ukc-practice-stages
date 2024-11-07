@@ -307,5 +307,7 @@ function ajax_call() {
     });
 }}
 
+setInterval(ajax_call, 5000);
+
 
 
