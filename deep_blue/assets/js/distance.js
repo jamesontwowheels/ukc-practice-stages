@@ -32,7 +32,7 @@ function success(pos) {
   var accuracy = Math.round(crd.accuracy);
   console.log("Accuracy check: "+accuracy);
   
-  d_need = d_base; //generous range
+  d_need = d_base + accuracy; //generous range
   // document.getElementById("accuracy_zone").innerHTML = accuracy + "m radius:" + d_need;
     // document.getElementById(id).innerHTML = crd.latitude;
   var R = 6371; // Radius of the earth in km
