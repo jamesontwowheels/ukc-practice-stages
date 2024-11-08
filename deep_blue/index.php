@@ -55,7 +55,7 @@ if (isset($_GET['location'])) {
 <div id="accuracy"></div>
 
 <div id="score" class="bucket">
-  <h3>Ice Bank</h3>
+  <h3>Snow Bank</h3>
   <div id="score_zone"></div>
 </div>
 <div id="inventory" class="bucket">
