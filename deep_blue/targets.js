@@ -1745,7 +1745,7 @@
         ]
       },
       "properties": {
-        "name": "26",
+        "name": "28",
         "styleUrl": "#__managed_style_077CC4A022344BE38C1D",
         "styleMapHash": {
           "normal": "#__managed_style_182C21A402344BE38C1D",
@@ -1805,7 +1805,7 @@
         ]
       },
       "properties": {
-        "name": "20",
+        "name": "21",
         "styleUrl": "#__managed_style_077CC4A022344BE38C1D",
         "styleMapHash": {
           "normal": "#__managed_style_182C21A402344BE38C1D",
