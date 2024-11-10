@@ -1379,7 +1379,7 @@
         ]
       },
       "properties": {
-        "name": "Start/Finish",
+        "name": "999",
         "styleUrl": "#__managed_style_0455406B8A344BF65C99",
         "styleMapHash": {
           "normal": "#__managed_style_12A29A6511344BF65C99",
