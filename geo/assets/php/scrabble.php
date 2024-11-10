@@ -147,7 +147,7 @@ $x = 0;
     $live_result = [];
     $time_penalty = 0;
     //values
-    $stage_time = 75*60;
+    $stage_time = 25*60;
 //start looping the contestants:
 while($x < $count_results){
     $player = $players[$x];
