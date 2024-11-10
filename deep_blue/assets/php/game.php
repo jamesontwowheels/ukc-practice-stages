@@ -81,26 +81,26 @@ $x = 0;
     $puzzle_cps = [31,32,33];
     
     $puzzle_questions =[
-        31 => "How many prime numbers are there between 10 and 100?",
-        32 => "The following words each have the same four letters removed in different orders 1: -A-KLA- -, 2: AR- - -I-HOP, 3: -YDRO-AR-ON-, 4: -WIT- - -ACK. Work out the four missing letters and rearrange them to spell the name of a well known business",
-        33 => "An olympic triathlon consists of 1.5km swim, 40km cycle and 10km run. An athlete averaged the following speeds; swim: 2.25km/h, cycle: 30km/h. If it took the athlete exactly 3hrs to complete the triathlong what average speed did they run? (enter number only)"
+        31 => "What is 1 + 2 + 3 + 4 + 5 + 6",
+        32 => "What is the capital of France",
+        33 => "how many eggs are there in a dozen"
     ];
 
     $puzzle_answers = [
         31 => "21",
-        32 => "hsbc",
-        33 => 10
+        32 => "Paris",
+        33 => 12
     ];
     
     $lesson_cost = [
-        1 => 20,
-        2 => 40
+        1 => 10,
+        2 => 20
     ];
 
     $oxygen_amount = [
-        1 => 600,
-        2 => 600,
-        3 => 600
+        1 => 300,
+        2 => 300,
+        3 => 300
     ];
 
     $cp_names = [
@@ -167,7 +167,7 @@ $x = 0;
     //values
     $fish = 5;
     $treasure = 10;
-    $stage_time = 60*60;
+    $stage_time = 30*60;
 //start looping the contestants:
 while($x < $count_results){
     $player = $players[$x];
