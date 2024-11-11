@@ -45,8 +45,9 @@ function ajax_call() {
     } else{ console.log("no puzzle"); }
 
     var cp = $(this).attr('cp');
-    cp = cp || 0;
+    cp = Number.isInteger(Number(cp)) ? Number(cp) : 0;
     console.log (cp);
+   
    
     if (cp == 999){
         const userConfirmed = confirm("Are you sure you're ready to start/stop?")
