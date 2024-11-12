@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: #04AA6D;} /* Green */
+.button2 {background-color: #008CBA;} /* Blue */
+</style>
+</head>
+<body>
+
+<a href="post_2.php?led_1=1&user=1"><button class="button button1">Green</button></a>
+<a href="post_pomodoro.php?led_2=1&user=1&purpose=1"><button class="button button2">Blue - good</button></a>
+<a href="post_pomodoro.php?led_2=1&user=1&purpose=2"><button class="button button2">Blue - bad</button></a>
+<a href="post_pomodoro.php?led_2=1&user=1&purpose=3"><button class="button button2">Blue - undo</button></a>
+<a href="post_3.php?led_2=1&user=1&purpose=3"><button class="button button2">Blue - undo</button></a>
+
+</body>
+</html>
