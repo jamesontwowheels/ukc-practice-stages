@@ -22,7 +22,7 @@ date_default_timezone_set("Europe/London");
 if ($purpose == 1){
 
   $sql = "INSERT INTO dbo.track_table (user_id, goal_1, date_int, purpose ) VALUES 
-  ($user, 1, $led_1, $daysAfter, $purpose);";
+  ($user, 1, $daysAfter, $purpose);";
 $db_response[] = $sql;
 if ($conn->query($sql) == TRUE) {
   $db_response[] =  "record inserted successfully";
