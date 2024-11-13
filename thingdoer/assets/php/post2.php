@@ -4,9 +4,9 @@
 include 'db_connect.php';
 
 //get the inputs
-$led_1 = $_GET["led_1"];
-$user = $_GET['user'];
-$purpose = $_GET['purpose'];
+$led_1 = (int) $_GET["led_1"];
+$user = (int) $_GET['user'];
+$purpose = (int) $_GET['purpose'];
 
 //create a date
 date_default_timezone_set("Europe/London");
