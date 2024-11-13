@@ -16,13 +16,13 @@ $today = new DateTime("now");
 // Calculate the difference in days
 $interval = $startDate->diff($today);
 $daysAfter = $interval->days;
-
+echo "days after $daysAfter";
 //define the update
 if ($purpose == 1) {
     // Using a prepared statement to avoid SQL injection
     $sql = "INSERT INTO dbo.track_table (user_id, goal_1, date_int, purpose) VALUES (:user, :led_1, :daysAfter, :purpose)";
     $stmt = $conn->prepare($sql);
-
+    echo $sql;
     // Bind parameters
     $stmt->bindParam(':user', $user, PDO::PARAM_INT);
     $stmt->bindParam(':led_1', $led_1, PDO::PARAM_INT);
