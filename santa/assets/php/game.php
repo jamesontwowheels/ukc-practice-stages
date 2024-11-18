@@ -41,7 +41,7 @@ while ($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
 }
 
 if($teams_active){
-
+    $debug_log[]  = "44. teams active";
     //get all the teams
     $query3 = "select * from dbo.teams where game = :game and location = :location";
     $stmt3 = $conn->prepare($query3);
@@ -55,6 +55,7 @@ if($teams_active){
             "members" => [],
             "cps" => []
         ];
+    $debug_log[]  = "58. count teams";
     }
 
     //get all the team_members
@@ -68,6 +69,8 @@ if($teams_active){
     while ($row4 = $stmt4->fetch(PDO::FETCH_ASSOC)) {
        $teams[$row4["team"]]["members"][] = $row4["player_ID"];
        $teamed_players[] = $row4["player_ID"];
+       
+    $debug_log[]  = "73. count team_members";
     }
 }
 

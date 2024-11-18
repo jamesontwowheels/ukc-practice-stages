@@ -78,8 +78,6 @@ function ajax_call() {
             var cp_names_keys = Object.keys(cp_names);
             var available_cps = data["available_cps"];
             var puzzle_cps = data["puzzle_cps"];
-            console.log(available_cps);
-            console.log(cp_names);
             let i = 0;
 
             //puzzle response
@@ -93,7 +91,6 @@ function ajax_call() {
             while (i < cp_names_keys.length) {
             var this_key = cp_names_keys[i];
             var cp_id = "butt" + this_key;
-            console.log(cp_id);
 
            
 
@@ -113,16 +110,13 @@ function ajax_call() {
                             element.classList.remove("blocked");
                             element.classList.remove("puzzle");
                             if (available_cps.includes(parseInt(key_id))) {
-                                console.log(key_id + ' is available.');
                                 rowId = "row"+key_id;
                                document.getElementById(rowId).style.display = 'block';
                               } else {
-                                console.log(key_id + ' is not available.');
                                 rowId = "row"+key_id;
                                 document.getElementById(rowId).style.display = 'none';
                               }
                             if(puzzle_cps.includes(parseInt(key_id))){
-                                console.log(key_id + ' is puzzle locked');
                                 var puzzle_butt = "butt"+key_id;
                                 document.getElementById(puzzle_butt).classList.add("puzzle");
                             }
