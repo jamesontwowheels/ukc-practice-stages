@@ -89,7 +89,7 @@ foreach ($result as $row) {
    $player_cps[$row["Player_ID"]][] = [$row["CP_ID"],$row["Time_stamp"],$row["puzzle_answer"],$row["Player_ID"]];
    $i += 1;
 }
-$debug_log[] = $i." rows";
+$debug_log[] = $player_cps;
 
 //build the teams
 
