@@ -102,6 +102,10 @@ if($teams_active == true){
         usort($team["cps"], function ($a, $b) {
             return $a[1] <=> $b[1]; // Compare the second elements
         });
+        
+        $key = key($team);
+        $debug_log[] = "key = ".$key;
+        $teams[$key][$cps] = $team["cps"];
     }   
     
     //check for stragglers? YES WE SHOULD DO THIS!!!!!!!!!!!!!!
