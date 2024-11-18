@@ -115,6 +115,10 @@ if($teams_active == true){
         ];
     }
     $count_results = count($teams);
+    
+    $debug_log[]  = "count teams = $count_results";
+    
+    $debug_log[]  = $teams;
 }
 else {
 if($debug == 1){ $debug_log[] = '19';};
