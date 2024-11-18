@@ -9,7 +9,7 @@ $debug_log = [];
 $commentary = [];
 $debug_log[] = "data play";
 $user_input = $_REQUEST["user_input"];
-$game = 1;
+$game = 4;
 $incoming_cp = $cp;
 include 'db_connect.php';
 
