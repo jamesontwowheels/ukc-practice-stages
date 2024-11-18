@@ -1,0 +1,41 @@
+
+.app-buttons {
+    display: flex;
+    justify-content: space-around; /* Evenly space the buttons */
+    align-items: center;
+    background-color: #cfcfcf; /* Button container background */
+    padding: 10px; /* Padding around the buttons */
+    position: fixed; /* Fix position */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.app-button {
+    background-color: #ffffff; /* Button background */
+    color: #333333; /* Text color */
+    text-decoration: none; /* Remove underline from links */
+    border: none; /* No border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 15px 20px; /* Padding for buttons */
+    font-size: 0.7em; /* Font size */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth background and shadow transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.app-button:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+.app-button.active {
+    background-color: #0056b3; /* Darker blue for active button */
+    color: white; /* Change text color for active button */
+    box-shadow: none; /* Remove shadow for active button */
+}
+
+
+.app-button i {
+    font-size: 3em;
+  }

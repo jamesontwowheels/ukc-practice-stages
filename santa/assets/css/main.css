@@ -1,0 +1,185 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('made_evolve.otf') format('opentype');
+}
+
+html, body {
+    background: #131110;
+    font-family: 'CustomFont', sans-serif;
+    color: #131110;
+    font-size: 1.5em;
+    background-image: linear-gradient(45deg, #a100ff, #b455aa);
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
+    margin-top: 1em;
+}
+
+#main {
+    padding: 1em;
+    margin: 1em;
+    background: #131110;
+    color:#e6e6dc;
+    font-size: inherit;
+}
+
+button.active {
+    background: #dcafff;
+    border-radius: 25px;
+    font-size: 1em;
+    min-width: 200px;
+    min-height: 100px;
+    transition: min-height 0.5s ease;
+    z-index: 2;
+    position: relative;
+}
+
+button.inactive {
+    border: 1px #96968c dashed;
+    background: #131110;
+    color: #96968c;
+    border-radius: 25px;
+    font-size: 1em;
+    min-width: 150px;
+    min-height: 50px;
+    transition: min-height 0.5s ease;
+}
+
+button.blocked {
+    background: #b82e45 !important ;
+}
+
+table, tr {
+    font-size: inherit;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    color:#e6e6dc;
+}
+
+td {
+    font-size: inherit;
+    margin-left: 10%;
+    margin-right: 10%;
+    color:#e6e6dc;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: #9e895d 1px solid;
+}
+
+.check_in {
+    font-size: inherit;
+    width: 2em;
+    border-radius: 15px;
+}
+
+.bucket {
+    border-bottom: #96968c 1px dashed;
+}
+
+
+ #timer {
+            font-size: 2em;
+            color: #e6e6dc;
+            margin-top: 20px;
+            margin: auto;
+            text-align: center;
+        }
+
+#timer.complete {
+            color: #64ff50;
+}
+
+.stage {
+    padding: 0.5em;
+    display:block;
+    font-size: 2em;
+    border-radius: 0.5em;
+    background: #7500c0;
+    color:#e6e6dc;
+    border: 1px dashed #586557;
+}
+
+a.stage {
+    color: #e6e6dc;
+    text-decoration: none;
+    display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.clicked {
+    background: #00ffff;
+    transition: 1.5s ease-in-out;
+}
+
+.content {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s ease;
+}
+
+/* Expanded state */
+.content.expand {
+    height: auto; /* Change to the desired height or let it adjust based on the content */
+    transition: height 0.5s ease;
+}
+
+button {
+    border-radius: 25px;
+    background-color: #96968c;
+    color: black;
+    font-size: 0.8em;
+    min-width: 150px;
+    min-height: 50px;
+    transition: min-height 0.5s ease;
+}
+  /* Button bar at the bottom */
+  .button-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+
+  .stage-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.stage-card img {
+    width: 100%;
+    height: auto;
+}
+
+.stage-card .stage-title {
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #f8f8f8;
+}
+
+.stage-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#base-padding {
+    height: 300px; 
+}

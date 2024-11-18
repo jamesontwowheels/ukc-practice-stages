@@ -21,6 +21,7 @@ if (!isset($_SESSION['username'])) {
 <a class="stage-card" href="scrabble_stages.php"><img src="images/scrabble-cover.jpeg"><div class="stage-title">Scrabble +</div></a><br>
 <a class="stage-card" href="deep_blue_stages.php"><img src="images/deep-blue-cover.jpeg"><div class="stage-title">Deep Blue</div></a><br>
 <a class="stage-card" href="gps_stages.php"><img src="images/gps-test-cover.jpeg"><div class="stage-title">GPS Test</div></a><br>
+<a class="stage-card" href="santa_stages.php"><img src="images/gps-test-cover.jpeg"><div class="stage-title">Santa</div></a><br>
 
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
