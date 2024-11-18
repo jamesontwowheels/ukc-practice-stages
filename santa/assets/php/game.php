@@ -95,7 +95,7 @@ $debug_log[] = $player_cps;
 
 if($teams_active == true){
 
-    foreach ($teams as $team) {
+    foreach ($teams as $key => $team) {
         foreach ($team["members"] as $team_member){
             $team["cps"] = array_merge($team["cps"],$player_cps[$team_member]);
         }
@@ -103,7 +103,6 @@ if($teams_active == true){
             return $a[1] <=> $b[1]; // Compare the second elements
         });
         
-        $key = key($team);
         $debug_log[] = "key = ".$key;
         $teams[$key]["cps"] = $team["cps"];
     }   
@@ -195,9 +194,9 @@ $x = 0;
     //values
     $stage_time = 30*60;
 //start looping the contestants:
-foreach($teams as $team){
+foreach($teams as $team_UID => $team){
         //while($x < $count_results){
-    $team_UID = key($team);
+    /// not needed $team_UID = key($team);
     $name = $team["name"];
     $team_result = $team["cps"]; //$results[$x];
   // don't have this data yet...
