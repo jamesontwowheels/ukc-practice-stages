@@ -210,48 +210,49 @@ if($debug == 1){ $debug_log[] = '72';};
 //GAME SPECIFIC set-up course/result variables for each contestants
     $this_cp_names = $cp_names;
     $gift_times = [
-        11 => 0,
-        12 => 0,
+        "11" => 0,
+        "12" => 0,
         13 => 0,
         14 => 0,
         15 => 0];
     $gift_states = [0,0,0,0,0];
     $gift_recipes = [
-        11 => [1,2,3],
-        12 => [1,1,1],
-        13 => [2,3,4,5,2],
-        14 => [1],
-        15 => [5,4,5,4,5]
+        "11" => [1,2,3],
+        "12" => [1,1,1],
+        "13" => [2,3,4,5,2],
+        "14" => [1],
+        "15" => [5,4,5,4,5]
     ];
 
     $build_states = [
-        11 => [0,[],0],
-        12 => [0,[],0],        
+        "11" => [0,[],0],
+        "12" => [0,[],0],        
         13 => [0,[],0],
         14 => [0,[],0],
         15 => [0,[],0]
     ];
 
     $resource_states = [
-        1 => 0,
-        2 => 0,
-        3 => 0,
-        4 => 0,
-        5 => 0
+        "1" => 0,
+        "2" => 0,
+        "3" => 0,
+        "4" => 0,
+        "5" => 0
     ];
 
     $resource_refresh = [
-        1 => 0,
-        2 => 10,
-        3 => 20,
-        4 => 30,
-        5 => 40
+        "1" => 0,
+        "2" => 10,
+        "3" => 20,
+        "4" => 30,
+        "5" => 40
     ];
 
     foreach($team["members"] as $team_member){
         $bags[$team_member] = [];
         $sacks[$team_member] = [];
-        $debug_log[] = "bags = ".$bags;
+        $debug_log[] = "bags = ";
+        $debug_log[] = $bags;
     }
     
 //GENERIC
