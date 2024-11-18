@@ -105,7 +105,7 @@ if($teams_active == true){
         
         $key = key($team);
         $debug_log[] = "key = ".$key;
-        $teams[$key][$cps] = $team["cps"];
+        $teams[$key]["cps"] = $team["cps"];
     }   
     
     //check for stragglers? YES WE SHOULD DO THIS!!!!!!!!!!!!!!
