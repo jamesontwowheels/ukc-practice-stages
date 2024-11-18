@@ -251,6 +251,7 @@ if($debug == 1){ $debug_log[] = '72';};
     foreach($team["members"] as $team_member){
         $bags[$team_member] = [];
         $sacks[$team_member] = [];
+        $debug_log[] = "bags = ".$bags;
     }
     
 //GENERIC
@@ -297,7 +298,6 @@ if($debug == 1){ $debug_log[] = '72';};
                 array_unshift($bags[$pl], $cp);                 // Add the element to the front of the array
                 $comment = "Resource collected";
                 $array = array_slice($bags[$pl], 0, 3);  //drop any extra items
-            
                 $resource_states[$cp] = $t + $resource_refresh[$cp];            //and set time-out on next resource
             }
         } 
