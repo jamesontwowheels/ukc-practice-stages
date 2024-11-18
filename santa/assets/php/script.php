@@ -17,7 +17,7 @@ $db_response[] = "You hit CP $cp";
 include 'db_connect.php';
 $user_ID = $_SESSION['user_ID'];
 $location = $_SESSION['location'];
-$game = 1;
+$game = 4;
 $input_time = time();
 
 $sql = "INSERT INTO dbo.test_game (Player_ID, CP_ID, Time_stamp, location, game, puzzle_answer) VALUES 
