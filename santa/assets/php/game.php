@@ -315,7 +315,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     $index = array_search($resource_required, $bags[$pl]);
                     // If the value exists, remove the first occurrence
                     if ($index !== false) {
-                    array_splice($$bags[$pl], $index, 1);  // Remove the thing from the bag
+                    array_splice($bags[$pl], $index, 1);  // Remove the thing from the bag
                     }
                     $current_length += 1;
                     $comment = "Build step $current_length on $cp taken.";
