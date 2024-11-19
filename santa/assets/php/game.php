@@ -296,9 +296,9 @@ if($debug == 1){ $debug_log[] = '72';};
                 $comment = "Resource unavailable. Wait $early seconds";
             } else {
             //add to bag
-                $bags[$pl] = array_unshift($bags[$pl], $cp);                 // Add the element to the front of the array
+                $bags[$pl] = $cp; //array_unshift($bags[$pl], $cp);                 // Add the element to the front of the array
                 $comment = "Resource collected";
-                $bags[$pl] = array_slice($bags[$pl], 0, 3);  //drop any extra items
+                //$array = array_slice($bags[$pl], 0, 3);  //drop any extra items
                 $resource_states[$cp] = $t + $resource_refresh[$cp];            //and set time-out on next resource
             }
         } 
@@ -315,7 +315,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     $index = array_search($resource_required, $bags[$pl]);
                     // If the value exists, remove the first occurrence
                     if ($index !== false) {
-                    $bags[$pl] = array_splice($bags[$pl], $index, 1);  // Remove the thing from the bag
+                    array_splice($$bags[$pl], $index, 1);  // Remove the thing from the bag
                     }
                     $current_length += 1;
                     $comment = "Build step $current_length on $cp taken.";
