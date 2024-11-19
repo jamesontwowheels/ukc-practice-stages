@@ -126,11 +126,11 @@ function ajax_call() {
                             reject(new Error("Element not found within timeout"));
                         } else {
                             console.log("Element not found, waiting 3 seconds...");
-                            //setTimeout(check, 250); // Wait for 3 seconds and recheck //THIS ISNT THE TIME TO FIX IT,,, but this is BAD! IT SETS ADDITONALY CHECK like CRZY!!
+                            setTimeout(check, 250); // Wait for 3 seconds and recheck //THIS ISNT THE TIME TO FIX IT,,, but this is BAD! IT SETS ADDITONALY CHECK like CRZY!!
                         }
                     }
             
-                    //check(); // Start the checking process
+                    check(); // Start the checking process
                 });
             }
             var keyname = cp_names[this_key];
