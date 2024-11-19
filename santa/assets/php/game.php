@@ -134,7 +134,7 @@ $x = 0;
 
     // e.g. $cps_letters = [1,2,3,4,5,6,7];
      //Bulk CPS
-     $cps_resources = [1,2,3,4,5];
+     $cps_resources = [1,2,3,4];
      $cps_elves = [11,12,13,14,15];
      $cps_kids = [21,22,23,24,25,26,27];
 
