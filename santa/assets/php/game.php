@@ -282,7 +282,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $cp = $team_result[$z][0];// $cps[$z];
         $t = $team_result[$z][1]; //times[$z];
         $puzzle_answer = strtolower($team_result[$z][2]);
-        $pl = $team_results[$z][3];
+        $pl = $team_result[$z][3];
         $z += 1;
         $puzzle_response = 0;
 
@@ -296,9 +296,9 @@ if($debug == 1){ $debug_log[] = '72';};
                 $comment = "Resource unavailable. Wait $early seconds";
             } else {
             //add to bag
-                $bags[$pl] = $cp; //array_unshift($bags[$pl], $cp);                 // Add the element to the front of the array
+                array_unshift($bags[$pl], $cp);                 // Add the element to the front of the array
                 $comment = "Resource collected";
-                //$array = array_slice($bags[$pl], 0, 3);  //drop any extra items
+                array_slice($bags[$pl], 0, 3);  //drop any extra items
                 $resource_states[$cp] = $t + $resource_refresh[$cp];            //and set time-out on next resource
             }
         } 
