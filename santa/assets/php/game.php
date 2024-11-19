@@ -180,7 +180,7 @@ $x = 0;
         998 => "Finish",
         999 => "Start"
         ];
-    
+    $puzzle_cps = [];
     $this_cp_names = $cp_names; //required if cpnames are going to change.
 
     //results catchers
