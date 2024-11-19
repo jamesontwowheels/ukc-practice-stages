@@ -296,9 +296,9 @@ if($debug == 1){ $debug_log[] = '72';};
                 $comment = "Resource unavailable. Wait $early seconds";
             } else {
             //add to bag
-                array_unshift($bags[$pl], $cp);                 // Add the element to the front of the array
+                $bags[$pl] = $cp; //array_unshift($bags[$pl], $cp);                 // Add the element to the front of the array
                 $comment = "Resource collected";
-                $array = array_slice($bags[$pl], 0, 3);  //drop any extra items
+                // $array = array_slice($bags[$pl], 0, 3);  //drop any extra items
                 $resource_states[$cp] = $t + $resource_refresh[$cp];            //and set time-out on next resource
             }
         } 
