@@ -287,7 +287,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
     // cycle through the punch list;
     $z = 0;
-    /*
+    
     while ($z < $count_cps){
  
         // add to detailed results = $results_detailed[$id][] = [_your code_];
@@ -425,19 +425,19 @@ if($debug == 1){ $debug_log[] = '72';};
         $commentary[] = $comment;
         $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
     }
-*/
+
     //ONCE WE HAVE CYCLED THROUGH THE CPs..
 
-//    $final_score = $running_score - $time_penalty;
-//    $time = $game_time;
-//       //live results
-//       $live_result[$name]=$final_score;
-//   $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
+    $final_score = $running_score - $time_penalty;
+    $time = $game_time;
+       //live results
+       $live_result[$name]=$final_score;
+   $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
    
 }
 
 //CHOOSE WHAT TO ISSUE BACK, BASED ON PORPOISE
-/*
+
 if($_REQUEST["purpose"] !== 2){
     //GAME SPECIFIC
     //UNIVERSAL
@@ -453,6 +453,6 @@ $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 }
 $response["live_scores"] = $live_result;
-*/
+
 $response["debug_log"] = $debug_log;
 echo json_encode($response);
