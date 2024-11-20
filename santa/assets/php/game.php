@@ -186,7 +186,7 @@ $x = 0;
     $time_penalty = 0;
     //values
     $stage_time = 75*60;
-/*
+
 
 //start looping the contestants:
 foreach($teams as $team_UID => $team){
@@ -283,7 +283,7 @@ if($debug == 1){ $debug_log[] = '72';};
     $game_start = 0;
     $game_end = 0;
 
-
+/*
     // cycle through the punch list;
     $z = 0;
     
