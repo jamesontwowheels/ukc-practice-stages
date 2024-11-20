@@ -43,8 +43,8 @@ function findLongestChronologicalConsecutive($punches) {
                 $longestSequence = $currentSequence;
             }
             // Reset the sequence and attempt to start from the current control
-           // $currentSequence = [$controlId];
-          //  $expectedControlId = $controlId + 1;
+         //   $currentSequence = [$controlId];
+         //   $expectedControlId = $controlId + 1;
         }
         // Otherwise, skip this control and continue checking
     }
@@ -105,9 +105,10 @@ usort($competitorSequences, function($a, $b) {
             text-shadow: 1px 1px 4px #c62828;
         }
         table {
-            width: 70%;
-            border-collapse: collapse;
+            width: 90%;
+            max-width: 900px;
             margin: 20px auto;
+            border-collapse: collapse;
             font-size: 1.2em;
             background-color: #fffaf0;
             border-radius: 10px;
@@ -138,6 +139,29 @@ usort($competitorSequences, function($a, $b) {
             margin-top: 20px;
             font-size: 0.9em;
             color: #777;
+        }
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            table {
+                font-size: 1em;
+            }
+            th, td {
+                padding: 8px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            table {
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 6px;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
