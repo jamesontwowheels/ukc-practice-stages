@@ -431,6 +431,7 @@ if($debug == 1){ $debug_log[] = '72';};
        //live results
        $live_result[$name]=$final_score;
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
+   */
 }
 
 //CHOOSE WHAT TO ISSUE BACK, BASED ON PORPOISE
