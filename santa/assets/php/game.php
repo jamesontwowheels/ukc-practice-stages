@@ -428,11 +428,11 @@ if($debug == 1){ $debug_log[] = '72';};
 */
     //ONCE WE HAVE CYCLED THROUGH THE CPs..
 
-    $final_score = $running_score - $time_penalty;
-    $time = $game_time;
-       //live results
-       $live_result[$name]=$final_score;
-   $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
+//    $final_score = $running_score - $time_penalty;
+//    $time = $game_time;
+//       //live results
+//       $live_result[$name]=$final_score;
+//   $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
    
 }
 
