@@ -28,7 +28,7 @@ function findLongestChronologicalConsecutive($punches) {
 
     $longestSequence = [];
     $currentSequence = [];
-    $expectedControlId = null;
+    $expectedControlId = 10;
 
     foreach ($punches as $punch) {
         $controlId = (int)$punch['ControlId'];
@@ -43,8 +43,8 @@ function findLongestChronologicalConsecutive($punches) {
                 $longestSequence = $currentSequence;
             }
             // Reset the sequence and attempt to start from the current control
-            $currentSequence = [$controlId];
-            $expectedControlId = $controlId + 1;
+           // $currentSequence = [$controlId];
+          //  $expectedControlId = $controlId + 1;
         }
         // Otherwise, skip this control and continue checking
     }
@@ -72,8 +72,17 @@ foreach ($data['results'] as $participant) {
     $longestSequence = findLongestChronologicalConsecutive($punches);
 
     // Store the result
-    $competitorSequences[$name] = $longestSequence;
+    $competitorSequences[] = [
+        'name' => $name,
+        'sequence' => $longestSequence,
+        'length' => count($longestSequence)
+    ];
 }
+
+// Sort the array by the length of the sequence in descending order
+usort($competitorSequences, function($a, $b) {
+    return $b['length'] - $a['length'];
+});
 
 // Output the results as an HTML table
 ?>
@@ -143,11 +152,11 @@ foreach ($data['results'] as $participant) {
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($competitorSequences as $name => $sequence): ?>
+            <?php foreach ($competitorSequences as $result): ?>
                 <tr>
-                    <td><?= htmlspecialchars($name) ?></td>
-                    <td><?= htmlspecialchars(implode(", ", $sequence)) ?></td>
-                    <td><?= count($sequence) ?></td>
+                    <td><?= htmlspecialchars($result['name']) ?></td>
+                    <td><?= htmlspecialchars(implode(", ", $result['sequence'])) ?></td>
+                    <td><?= $result['length'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
