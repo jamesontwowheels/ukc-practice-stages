@@ -434,14 +434,9 @@ if($debug == 1){ $debug_log[] = '72';};
 //CHOOSE WHAT TO ISSUE BACK, BASED ON PORPOISE
 if($_REQUEST["purpose"] !== 2){
     //GAME SPECIFIC
-        //e.g. $response["upcoming_letters"] = $upcoming_letters;
-$response["oxygen_state"]=$oxygen_state;
     //UNIVERSAL
 $response["all_cps"]=$all_cps;
-$response["inventory"]=$inventory;
 $response["available_cps"]=$available_cps;
-$response["puzzle_cps"]=$puzzle_cps;
-$response["puzzle_questions"]=$puzzle_questions;
 //don't send back a puzzle response if nothing has been submitted.
 if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;}
