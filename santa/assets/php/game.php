@@ -80,7 +80,7 @@ $i = 0;
 //build punches list
 $player_cps = [];
 $players = [];
-/*
+
 foreach ($result as $row) {
     if(!in_array($row["Player_ID"],$players)){
         $players[] = $row["Player_ID"];
