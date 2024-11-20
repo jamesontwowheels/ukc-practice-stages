@@ -132,7 +132,7 @@ $x = 0;
 
 // GAME SPECIFIC
 //set-up the static constants (each requires it's own rule...):
-/*
+
     // e.g. $cps_letters = [1,2,3,4,5,6,7];
      //Bulk CPS
      $cps_resources = [1,2,3,4,5,6];
@@ -186,6 +186,8 @@ $x = 0;
     $time_penalty = 0;
     //values
     $stage_time = 75*60;
+/*
+
 //start looping the contestants:
 foreach($teams as $team_UID => $team){
         //while($x < $count_results){
