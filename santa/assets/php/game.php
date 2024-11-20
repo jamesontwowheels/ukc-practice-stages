@@ -435,7 +435,7 @@ if($debug == 1){ $debug_log[] = '72';};
    $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
    
 }
-
+/*
 //CHOOSE WHAT TO ISSUE BACK, BASED ON PORPOISE
 
 if($_REQUEST["purpose"] !== 2){
@@ -453,6 +453,6 @@ $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 }
 $response["live_scores"] = $live_result;
-
+*/
 $response["debug_log"] = $debug_log;
 echo json_encode($response);
