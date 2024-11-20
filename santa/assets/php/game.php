@@ -282,6 +282,7 @@ if($debug == 1){ $debug_log[] = '72';};
     $game_state = 0;
     $game_start = 0;
     $game_end = 0;
+    $game_time = 0;
 
 
     // cycle through the punch list;
