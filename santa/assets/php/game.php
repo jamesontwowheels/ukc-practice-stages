@@ -287,7 +287,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
     // cycle through the punch list;
     $z = 0;
-    
+    /*
     while ($z < $count_cps){
  
         // add to detailed results = $results_detailed[$id][] = [_your code_];
@@ -425,7 +425,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $commentary[] = $comment;
         $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
     }
-
+*/
     //ONCE WE HAVE CYCLED THROUGH THE CPs..
 
     $final_score = $running_score - $time_penalty;
