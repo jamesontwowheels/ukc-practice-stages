@@ -1,6 +1,7 @@
 let id;
 let target;
 let options;
+let button_detail;
 
 if (user_ID == 29) { 
   var d_base = 300000;
@@ -48,7 +49,7 @@ function success(pos) {
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = Math.round(R * c * 1000); // Distance in m
   cp = "cp" + id;
-  document.getElementById(cp).innerHTML = d + "m away";
+  document.getElementById(cp).innerHTML = d + "m away " + button_detail[id];
   var button = "butt"+id;
   var button_element = $("#"+button);
 

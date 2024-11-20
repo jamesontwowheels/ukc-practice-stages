@@ -134,8 +134,8 @@ $x = 0;
 
     // e.g. $cps_letters = [1,2,3,4,5,6,7];
      //Bulk CPS
-     $cps_resources = [1,2,3,4];
-     $cps_elves = [11,12,13,14,15];
+     $cps_resources = [1,2,3,4,5,6];
+     $cps_elves = [11,12,13,14,15,16];
      $cps_kids = [21,22,23,24,25,26,27];
 
      //special CPS;
@@ -149,34 +149,27 @@ $x = 0;
     $inside_cps = [11,12,13,14,15,51,998];
     
     $cp_names = [
-        1 => "Eel 1",
-        2 => "Eel 2",
-        3 => "Eel 3",
-        4 => "Eel 4",
-        5 => "Eel 5",
-        11 => "Eel 6",
-        12 => "Eel 7",
-        13 => "Cod 1",
-        14 => "Cod 2",
-        15 => "Cod 3",
-        21 => "Cod 4",
-        22 => "Cod 5",
-        23 => "Cod 6",
-        24 => "Cod 7",
-        25 => "Tuna 1",
-        26 => "Tuna 2",
-        27 => "Tuna 3",
-        28 => "Tuna 4",
-        29 => "Tuna 5",
-        31 => "Seal 1",
-        32 => "Seal 2",
-        33 => "Seal 3",
-        34 => "Walrus",
-        333 => "Trident",
-        777 => "Snow Bank",
-        102 => "Ice Hole 1",
-        202 => "Ice Hole 2",
-        302 => "Ice Hole 3",
+        1 => "Wool",
+        2 => "Wood",
+        3 => "Plastic",
+        4 => "Carbon",
+        5 => "Metal",
+        6 => "Lithium",
+        11 => "Elf 1",
+        12 => "Elf 2",
+        13 => "Elf 3",
+        14 => "Elf 4",
+        15 => "Elf 5",
+        16 => "Elf 6",
+        21 => "Olivia",
+        22 => "Noah",
+        23 => "Amelia",
+        24 => "George",
+        25 => "Isla",
+        26 => "Leo",
+        51 => "Portal",
+        101 => "Mr Claus",
+        102 => "Mrs Claus",
         998 => "Finish",
         999 => "Start"
         ];
@@ -192,7 +185,7 @@ $x = 0;
     $live_result = [];
     $time_penalty = 0;
     //values
-    $stage_time = 30*60;
+    $stage_time = 75*60;
 //start looping the contestants:
 foreach($teams as $team_UID => $team){
         //while($x < $count_results){
@@ -210,43 +203,61 @@ if($debug == 1){ $debug_log[] = '72';};
 //GAME SPECIFIC set-up course/result variables for each contestants
     $this_cp_names = $cp_names;
     $gift_times = [
-        "11" => 0,
-        "12" => 0,
+        11 => 0,
+        12 => 0,
         13 => 0,
         14 => 0,
-        15 => 0];
-    $gift_states = [0,0,0,0,0];
+        15 => 0,
+        16 => 0];
+    $gift_states = [0,0,0,0,0,0];
     $gift_recipes = [
-        "11" => [1,2,3],
-        "12" => [1,1,1],
-        "13" => [2,3,4,5,2],
-        "14" => [1],
-        "15" => [5,4,5,4,5]
+        11 => [1,2,3],
+        12 => [1,1,1],
+        13 => [2,3,4,5,2],
+        14 => [1],
+        15 => [5,4,5,4,5],
+        16 => [5,4,5,4,5]
     ];
 
     $build_states = [
-        "11" => [0,[],0],
-        "12" => [0,[],0],        
+        11 => [0,[],0],
+        12 => [0,[],0],        
         13 => [0,[],0],
         14 => [0,[],0],
-        15 => [0,[],0]
+        15 => [0,[],0],
+        16 => [0,[],0]
     ];
 
-    $resource_states = [
-        "1" => 0,
-        "2" => 0,
-        "3" => 0,
-        "4" => 0,
-        "5" => 0
+    $resource_start = [
+        1 => 0,
+        2 => 0,
+        3 => 0,
+        4 => 0,
+        5 => 0,
+        6 => 0
     ];
+
+    $resource_used = [
+        1 => 0,
+        2 => 0,
+        3 => 0,
+        4 => 0,
+        5 => 0,
+        6 => 0
+    ];
+
+    $resource_available = [];
 
     $resource_refresh = [
         "1" => 0,
         "2" => 10,
         "3" => 20,
         "4" => 30,
-        "5" => 40
+        "5" => 40,
+        "6" => 40
     ];
+
+    $map_level = 0;
 
     foreach($team["members"] as $team_member){
         $bags[$team_member] = [];
@@ -285,20 +296,31 @@ if($debug == 1){ $debug_log[] = '72';};
         $pl = $team_result[$z][3];
         $z += 1;
         $puzzle_response = 0;
+        $game_time = $t - $game_start;
 
 
         //pick up materials
         if (in_array($cp,$cps_resources)){
-    
+            
+            foreach($cps_resources as $resource){
+                $gross_resource = $resource_start + floor($game_time/$resource_refresh[$resource]);
+                $net_resource = $gross_resource - $resource_used[$resource];
+                $resource_available[$resource] = $net_resource;
+            }
+
             //if resource is available
-            if($resource_states[$cp] > $t){
-                $early = $resource_states[$cp] - $t;
+            if($resource_available[$cp] < 1){
+                $early = $game_time % $resource_refresh[$cp];
                 $comment = "Resource unavailable. Wait $early seconds";
-            } else {
+            } elseif (count($bags[$pl]) == 10) {
+                $comment = "You can't carry any more, resource lost";
+                $resource_used[$cp] += 1;
+            } {
             //add to bag
                 array_unshift($bags[$pl], $cp);                 // Add the element to the front of the array
                 $comment = "Resource collected";
-                array_slice($bags[$pl], 0, 3);  //drop any extra items
+                // array_slice($bags[$pl], 0, 3);  //drop any extra items
+                $resource_used[$cp] += 1;
                 $resource_states[$cp] = $t + $resource_refresh[$cp];            //and set time-out on next resource
             }
         } 
@@ -338,6 +360,32 @@ if($debug == 1){ $debug_log[] = '72';};
             else {
                 $comment = "Gift not ready yet";
             }
+            }
+        }
+
+        //Deliver presents:
+
+        if(in_array($cp,$cps_kids)) {
+            //deliver a present
+            $index = array_search($resource_required, $bags[$pl]);
+            // If the value exists, remove the first occurrence
+            if ($index !== false) {
+                array_splice($bags[$pl], $index, 1);  // Remove the thing from the bag
+                }
+        }
+
+        //enter the north pole
+        if($cp == $cp_workshop){
+            if($game_time < 600){
+                $comment = "The portal is not open yet";
+            } else {
+                if($map_level == 0){
+                    $map_level = 1;
+                    $available_cps = $outside_cps;
+                } else {
+                    $map_level = 0;
+                    $available_cps = $inside_cps;
+                }
             }
         }
 

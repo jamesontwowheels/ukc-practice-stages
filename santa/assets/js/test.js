@@ -213,7 +213,9 @@ function ajax_call() {
 
             //running score
             document.getElementById("score_zone").innerHTML = "Stockpile: " + data["running_score"];
-                        
+             
+            var button_detail = ["blurb","blib"];
+
         },
         error: function(xhr, status, error) {
             console.error("AJAX Error: ", status, error);

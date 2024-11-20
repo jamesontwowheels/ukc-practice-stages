@@ -18,47 +18,14 @@ if ($data === NULL || !isset($data['results'])) {
     die("Error decoding JSON data or invalid structure.");
 }
 
-// Function to find the longest sequence of consecutive ControlIds increasing by one
-// when ordered by TimeAfterStartSecs, skipping wrong ControlIds
-function findLongestChronologicalConsecutive($punches) {
-    // Sort punches by TimeAfterStartSecs
-    usort($punches, function($a, $b) {
-        return $a['TimeAfterStartSecs'] - $b['TimeAfterStartSecs'];
-    });
-
-    $longestSequence = [];
-    $currentSequence = [];
-    $expectedControlId = null;
-
-    foreach ($punches as $punch) {
-        $controlId = (int)$punch['ControlId'];
-
-        if ($expectedControlId === null || $controlId === $expectedControlId) {
-            // Start a new sequence or continue the current one
-            $currentSequence[] = $controlId;
-            $expectedControlId = $controlId + 1; // Update the expected ControlId
-        } elseif ($controlId > $expectedControlId) {
-            // Missed the expected ControlId; save the current sequence if it's the longest
-            if (count($currentSequence) > count($longestSequence)) {
-                $longestSequence = $currentSequence;
-            }
-            // Reset the sequence and attempt to start from the current control
-            $currentSequence = [$controlId];
-            $expectedControlId = $controlId + 1;
-        }
-        // Otherwise, skip this control and continue checking
-    }
-
-    // Final check after the loop
-    if (count($currentSequence) > count($longestSequence)) {
-        $longestSequence = $currentSequence;
-    }
-
-    return $longestSequence;
+// Function to calculate score based on ControlId
+function calculateControlScore($controlId) {
+    $firstDigit = (int)substr($controlId, 0, 1); // Extract the first digit of the ControlId
+    return $firstDigit * 10; // Return score (10 for 10-19, 20 for 20-29, etc.)
 }
 
-// Initialize an array to store the results for each competitor
-$competitorSequences = [];
+// Initialize an array to store the competitors' progress over time
+$raceData = [];
 
 // Parse each competitor's data
 foreach ($data['results'] as $participant) {
@@ -68,19 +35,40 @@ foreach ($data['results'] as $participant) {
     // Extract punches
     $punches = $participant['Punches'] ?? [];
 
-    // Find the longest sequence of consecutive ControlIds in chronological order
-    $longestSequence = findLongestChronologicalConsecutive($punches);
+    // Sort punches by TimeAfterStartSecs to ensure we show the progression in order
+    usort($punches, function($a, $b) {
+        return $a['TimeAfterStartSecs'] - $b['TimeAfterStartSecs'];
+    });
 
-    // Store the result
-    $competitorSequences[$name] = $longestSequence;
+    // Prepare the time and cumulative score data
+    $times = [];
+    $scores = [];
+    $cumulativeScore = 0;
+
+    foreach ($punches as $punch) {
+        $controlId = (int)$punch['ControlId'];
+        $score = calculateControlScore($controlId); // Calculate score for the control
+        $cumulativeScore += $score; // Add the score to the cumulative total
+
+        $times[] = $punch['TimeAfterStartSecs'];
+        $scores[] = $cumulativeScore; // Store the cumulative score at each time
+    }
+
+    // Store the race data for the competitor
+    $raceData[] = [
+        'name' => $name,
+        'times' => $times,
+        'scores' => $scores
+    ];
 }
 
-// Output the results as an HTML table
+// Output the results as an HTML page with a chart
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Longest Consecutive ControlIDs</title>
+    <title>Race Chart - Cumulative Scores Over Time</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -95,34 +83,11 @@ foreach ($data['results'] as $participant) {
             margin-top: 20px;
             text-shadow: 1px 1px 4px #c62828;
         }
-        table {
-            width: 70%;
-            border-collapse: collapse;
-            margin: 20px auto;
-            font-size: 1.2em;
-            background-color: #fffaf0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        table, th, td {
-            border: 1px solid #d32f2f;
-        }
-        th {
-            background-color: #d32f2f;
-            color: #ffffff;
-            padding: 10px;
-        }
-        td {
-            text-align: center;
-            padding: 10px;
-            color: #555;
-        }
-        tbody tr:nth-child(even) {
-            background-color: #ffe0b2;
-        }
-        tbody tr:nth-child(odd) {
-            background-color: #ffccbc;
+        #raceChart {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+            height: 1800px
         }
         footer {
             text-align: center;
@@ -133,27 +98,66 @@ foreach ($data['results'] as $participant) {
     </style>
 </head>
 <body>
-    <h2>🎄 Longest Consecutive ControlIDs - Christmas Edition 🎄</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Competitor</th>
-                <th>Longest Sequence</th>
-                <th>Length</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($competitorSequences as $name => $sequence): ?>
-                <tr>
-                    <td><?= htmlspecialchars($name) ?></td>
-                    <td><?= htmlspecialchars(implode(", ", $sequence)) ?></td>
-                    <td><?= count($sequence) ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+    <h2>🎄 Race Chart - Cumulative Scores Over Time 🎄</h2>
+
+    <canvas id="raceChart"></canvas>
+
     <footer>
         🎅 Happy Holidays and Good Luck to All Competitors! 🎅
     </footer>
+
+    <script>
+        // Data for the chart
+        var raceData = <?php echo json_encode($raceData); ?>;
+
+        // Prepare datasets for the chart
+        var datasets = raceData.map(function(competitor) {
+            return {
+                label: competitor.name,
+                data: competitor.times.map(function(time, index) {
+                    return {x: time, y: competitor.scores[index]};
+                }),
+                borderColor: '#' + Math.floor(Math.random()*16777215).toString(16), // Random color
+                fill: false,
+                tension: 0.1
+            };
+        });
+
+        // Create the chart
+        var ctx = document.getElementById('raceChart').getContext('2d');
+        var raceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                        title: {
+                            display: true,
+                            text: 'Time (seconds after start)'
+                        }
+                    },
+                    y: {
+                        type: 'linear',
+                        title: {
+                            display: true,
+                            text: 'Cumulative Score'
+                        },
+                        min: 0
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Race Progression - Cumulative Scores Over Time'
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
