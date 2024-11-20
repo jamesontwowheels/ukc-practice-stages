@@ -1,52 +1,6 @@
 <?PHP
 session_start();
 
-header('Content-Type: application/json'); // Set content type to JSON
-
-// Custom error handler to format errors as JSON
-set_error_handler(function($errno, $errstr, $errfile, $errline) {
-    http_response_code(500); // Internal server error
-    echo json_encode([
-        "error" => true,
-        "message" => $errstr,
-        "file" => $errfile,
-        "line" => $errline,
-    ]);
-    exit; // Stop script execution
-});
-
-// Catch fatal errors (shutdown function)
-register_shutdown_function(function() {
-    $error = error_get_last();
-    if ($error && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
-        http_response_code(500); // Internal server error
-        echo json_encode([
-            "error" => true,
-            "message" => $error['message'],
-            "file" => $error['file'],
-            "line" => $error['line'],
-        ]);
-        exit; // Stop script execution
-    }
-});
-
-// Exception handler
-set_exception_handler(function($exception) {
-    http_response_code(500); // Internal server error
-    echo json_encode([
-        "error" => true,
-        "message" => $exception->getMessage(),
-        "file" => $exception->getFile(),
-        "line" => $exception->getLine(),
-    ]);
-    exit; // Stop script execution
-});
-
-// PHP error reporting settings
-ini_set('display_errors', 0);
-ini_set('log_errors', 1);
-error_reporting(E_ALL);
-
 $user_ID = $_SESSION['user_ID'];
 $location = $_SESSION['location'];
 $debug = 1;
@@ -178,7 +132,7 @@ $x = 0;
 
 // GAME SPECIFIC
 //set-up the static constants (each requires it's own rule...):
-
+/*
     // e.g. $cps_letters = [1,2,3,4,5,6,7];
      //Bulk CPS
      $cps_resources = [1,2,3,4,5,6];
@@ -221,7 +175,7 @@ $x = 0;
         ];
     $puzzle_cps = [];
     $this_cp_names = $cp_names; //required if cpnames are going to change.
-
+*/
     //results catchers
     $results_detailed = [];
     $results_summary = [];
@@ -478,6 +432,7 @@ if($debug == 1){ $debug_log[] = '72';};
 }
 
 //CHOOSE WHAT TO ISSUE BACK, BASED ON PORPOISE
+/*
 if($_REQUEST["purpose"] !== 2){
     //GAME SPECIFIC
     //UNIVERSAL
@@ -495,3 +450,4 @@ $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 }
 $response["live_scores"] = $live_result;
 echo json_encode($response);
+*/
