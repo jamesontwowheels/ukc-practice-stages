@@ -28,7 +28,7 @@ if($_REQUEST["purpose"] == 2){
 $query = "select * from dbo.test_game where location = $location AND game = $game ORDER BY Time_stamp ASC";
 
 }
-
+/*
 $result = $conn->query($query);
 
 $usernames = [];
