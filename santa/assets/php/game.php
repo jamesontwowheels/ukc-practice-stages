@@ -28,7 +28,7 @@ if($_REQUEST["purpose"] == 2){
 $query = "select * from dbo.test_game where location = $location AND game = $game ORDER BY Time_stamp ASC";
 
 }
-/*
+
 $result = $conn->query($query);
 
 $usernames = [];
@@ -80,7 +80,7 @@ $i = 0;
 //build punches list
 $player_cps = [];
 $players = [];
-
+/*
 foreach ($result as $row) {
     if(!in_array($row["Player_ID"],$players)){
         $players[] = $row["Player_ID"];
@@ -443,11 +443,11 @@ if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;}
 $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
-$response["debug_log"] = $debug_log;
 $response["cp_names"] = $this_cp_names;
 $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 }
 $response["live_scores"] = $live_result;
-echo json_encode($response);
 */
+$response["debug_log"] = $debug_log;
+echo json_encode($response);
