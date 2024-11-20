@@ -175,7 +175,7 @@ $x = 0;
         ];
     $puzzle_cps = [];
     $this_cp_names = $cp_names; //required if cpnames are going to change.
-*/
+
     //results catchers
     $results_detailed = [];
     $results_summary = [];
