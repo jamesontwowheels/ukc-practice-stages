@@ -146,7 +146,6 @@ $x = 0;
      $cp_workshop = 51;
      $cp_start_finish = [998,999];
      $cp_ = 34;
-     $cp_snow_bank = 777;
     
     $all_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,102,202,302,333,777,998,999];
     $outside_cps = [1,2,3,4,5,21,22,23,24,25,51,998];
@@ -439,8 +438,8 @@ if($debug == 1){ $debug_log[] = '72';};
 if($_REQUEST["purpose"] !== 2){
     //GAME SPECIFIC
     //UNIVERSAL
-$response["all_cps"]=$all_cps;
-$response["available_cps"]=$available_cps;
+$response["all_cps"]= $all_cps;
+$response["available_cps"]= $available_cps;
 //don't send back a puzzle response if nothing has been submitted.
 if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;}
