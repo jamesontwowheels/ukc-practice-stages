@@ -1,7 +1,50 @@
 <?PHP
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+
+header('Content-Type: application/json'); // Set content type to JSON
+
+// Custom error handler to format errors as JSON
+set_error_handler(function($errno, $errstr, $errfile, $errline) {
+    http_response_code(500); // Internal server error
+    echo json_encode([
+        "error" => true,
+        "message" => $errstr,
+        "file" => $errfile,
+        "line" => $errline,
+    ]);
+    exit; // Stop script execution
+});
+
+// Catch fatal errors (shutdown function)
+register_shutdown_function(function() {
+    $error = error_get_last();
+    if ($error && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
+        http_response_code(500); // Internal server error
+        echo json_encode([
+            "error" => true,
+            "message" => $error['message'],
+            "file" => $error['file'],
+            "line" => $error['line'],
+        ]);
+        exit; // Stop script execution
+    }
+});
+
+// Exception handler
+set_exception_handler(function($exception) {
+    http_response_code(500); // Internal server error
+    echo json_encode([
+        "error" => true,
+        "message" => $exception->getMessage(),
+        "file" => $exception->getFile(),
+        "line" => $exception->getLine(),
+    ]);
+    exit; // Stop script execution
+});
+
+// PHP error reporting settings
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
 error_reporting(E_ALL);
 
 $user_ID = $_SESSION['user_ID'];
