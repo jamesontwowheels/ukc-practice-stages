@@ -401,7 +401,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $game_state = 1;
                 $game_start = $t;
                 $comment = "game started";
-                $available_cps = $above_cps;
+                $available_cps = $outside_cps;
             } elseif($game_state == 1){
                 $available_cps = [999];
                 $game_state = 2;
