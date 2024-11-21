@@ -98,7 +98,9 @@ if($teams_active == true){
 
     foreach ($teams as $key => $team) {
         foreach ($team["members"] as $team_member){
+            if (isset($player_cps[$team_member])) {
             $team["cps"] = array_merge($team["cps"],$player_cps[$team_member]);
+            }
         }
         usort($team["cps"], function ($a, $b) {
             return $a[1] <=> $b[1]; // Compare the second elements
