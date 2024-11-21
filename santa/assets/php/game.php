@@ -326,7 +326,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $comment = "Resource collected";
                 // array_slice($bags[$pl], 0, 3);  //drop any extra items
                 $resource_used[$cp] += 1;
-                $resource_states[$cp] = $t + $resource_refresh[$cp];            //and set time-out on next resource
+                // $resource_states[$cp] = $t + $resource_refresh[$cp];            //and set time-out on next resource
             }
         } 
 
