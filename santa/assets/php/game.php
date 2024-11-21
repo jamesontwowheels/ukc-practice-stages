@@ -320,7 +320,7 @@ if($debug == 1){ $debug_log[] = '72';};
             } elseif (count($bags[$pl]) == 10) {
                 $comment = "You can't carry any more, resource lost";
                 $resource_used[$cp] += 1;
-            } {
+            } else {
             //add to bag
                 array_unshift($bags[$pl], $cp);                 // Add the element to the front of the array
                 $comment = "Resource collected";
