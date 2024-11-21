@@ -253,7 +253,7 @@ if($debug == 1){ $debug_log[] = '72';};
     $resource_available = [];
 
     $resource_refresh = [
-        "1" => 0,
+        "1" => 1,
         "2" => 10,
         "3" => 20,
         "4" => 30,
