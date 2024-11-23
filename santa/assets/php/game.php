@@ -267,11 +267,14 @@ if($debug == 1){ $debug_log[] = '72';};
         "6" => 40
     ];
 
-    $map_level = 0;
+    
 
     foreach($team["members"] as $team_member){
         $bags[$team_member] = [];
         $sacks[$team_member] = [];
+        $map_level[$team_member] = 0;
+        $available_cps[$team_member] = [999];
+
         $debug_log[] = "bags = ";
         $debug_log[] = $bags;
     }
@@ -391,12 +394,12 @@ if($debug == 1){ $debug_log[] = '72';};
             if($game_time < 600){
                 $comment = "The portal is not open yet";
             } else {
-                if($map_level == 0){
-                    $map_level = 1;
-                    $available_cps = $outside_cps;
+                if($map_level[$pl] == 0){
+                    $map_level[$pl] = 1;
+                    $available_cps[$pl] = $outside_cps;
                 } else {
-                    $map_level = 0;
-                    $available_cps = $inside_cps;
+                    $map_level[$pl] = 0;
+                    $available_cps[$pl] = $inside_cps;
                 }
             }
         }
@@ -414,9 +417,9 @@ if($debug == 1){ $debug_log[] = '72';};
                 $game_state = 1;
                 $game_start = $t;
                 $comment = "game started";
-                $available_cps = $outside_cps;
+                $available_cps[$pl] = $outside_cps;
             } elseif($game_state == 1){
-                $available_cps = [999];
+                $available_cps[$pl] = [999];
                 $game_state = 2;
                 $game_end = $t;
                 $comment = "game ended";
@@ -457,7 +460,7 @@ if($_REQUEST["purpose"] !== 2){
     //GAME SPECIFIC
     //UNIVERSAL
 $response["all_cps"]= $all_cps;
-$response["available_cps"]= $available_cps;
+$response["available_cps"]= $available_cps[$pl];
 //don't send back a puzzle response if nothing has been submitted.
 if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;}
