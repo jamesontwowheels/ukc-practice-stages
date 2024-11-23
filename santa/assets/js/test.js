@@ -166,6 +166,13 @@ function ajax_call() {
                     console.log(`Element with ID "${elementId}" not found.`);
                 }
             });
+            
+            //alert feedback
+            var alert = data["alert"];
+            console.log(alert);
+            if (alert != 0) {
+                alert(alert);
+            }
 
             //puzzle questions
             puzzle_questions = data["puzzle_questions"];

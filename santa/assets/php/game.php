@@ -140,16 +140,22 @@ $x = 0;
      $cps_resources = [1,2,3,4,5,6];
      $cps_elves = [11,12,13,14,15,16];
      $cps_kids = [21,22,23,24,25,26,27];
+     $cps_santas = [101,102];
 
      //special CPS;
      $cp_workshop = 51;
      $cp_start_finish = [998,999];
      $cp_ = 34;
     
-    $all_cps = [11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,102,202,302,333,777,998,999];
-    $outside_cps = [1,2,3,4,5,21,22,23,24,25,51,998];
+    $all_cps = [1,2,3,4,5,6,11,12,13,14,15,16,21,22,23,24,25,26,51,101,102,998];
+    $outside_cps = [1,2,3,4,5,21,22,23,24,25,51,101,102,998];
     $inside_cps = [11,12,13,14,15,51,998];
     
+    $santa_info = [
+        101 => "The Nice List is Olivia, Noah, Amelia, George, Isla and Leo",
+        102 => "The Resources are located as follows: R1 = Wool, R2 = Wood, R3 = Plastic, R4 = Carbon, R5 = Metal, R6 = Lithium"
+    ];
+
     $cp_names = [
         1 => "Wool",
         2 => "Wood",
@@ -301,6 +307,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $pl = $team_result[$z][3];
         $z += 1;
         $puzzle_response = 0;
+        $alert = 0;
         $game_time = $t - $game_start;
 
 
@@ -394,6 +401,12 @@ if($debug == 1){ $debug_log[] = '72';};
             }
         }
 
+        //Get info from the clauses
+        if(in_array($cp,$cps_santas)){
+            $alert = $santa_info[$cp];
+            $comment = "$cp_names[$cp] visited";
+        }
+
         //start_finish
         if(in_array($cp,$cp_start_finish)){
             if($game_state == 0)
@@ -449,6 +462,7 @@ $response["available_cps"]= $available_cps;
 if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;}
 $response["running_score"] = $running_score;
+$response["alert"] = $alert;
 $response["commentary"] = $commentary;
 $response["cp_names"] = $this_cp_names;
 $response["usernames"] = $usernames;
