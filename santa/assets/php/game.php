@@ -379,7 +379,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 //and if the toy has all the parts, set it to build         
             } else {
             //if in collect mode
-            if($t < $build_states[$cp][2]){
+            if($t > $build_states[$cp][2]){
               $sacks[$pl][] = $cp;
               $build_states[$cp][0] = 0;
               $comment = "Gift $cp collected";  
