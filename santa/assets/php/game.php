@@ -461,6 +461,7 @@ $response["available_cps"]= $available_cps;
 //don't send back a puzzle response if nothing has been submitted.
 if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;}
+$response["puzzle_cps"] = [];
 $response["running_score"] = $running_score;
 $response["alert"] = $alert;
 $response["commentary"] = $commentary;
