@@ -212,6 +212,16 @@ foreach($teams as $team_UID => $team){
 if($debug == 1){ $debug_log[] = '72';};
 //GAME SPECIFIC set-up course/result variables for each contestants
     $this_cp_names = $cp_names;
+
+    $wishlists = [
+        21 => [11,12,13],
+        22 => [12,13,15],
+        23 => [13,14,16],
+        24 => [15,13,12],
+        25 => [11,16,15],
+        26 => [16,13,14]
+    ];
+
     $gift_times = [
         11 => 0,
         12 => 0,
@@ -219,7 +229,9 @@ if($debug == 1){ $debug_log[] = '72';};
         14 => 0,
         15 => 0,
         16 => 0];
+
     $gift_states = [0,0,0,0,0,0];
+
     $gift_recipes = [
         11 => [1,2,3],
         12 => [1,1,1],
@@ -382,11 +394,20 @@ if($debug == 1){ $debug_log[] = '72';};
 
         if(in_array($cp,$cps_kids)) {
             //deliver a present
-            $index = array_search($resource_required, $bags[$pl]);
-            // If the value exists, remove the first occurrence
-            if ($index !== false) {
-                array_splice($bags[$pl], $index, 1);  // Remove the thing from the bag
-                }
+            $this_wishlist = $wishlists[$cp];
+            $comment = "No presents found for ".$cp_names[$cp];
+            foreach($this_wishlist as $present){
+                $key = array_search($present, $sacks[$pl]);
+                if ($key !== false) {
+                unset($sacks[$pl][$key]); // remove from sack
+                
+                $key2 = array_search($present,$this_wishlist);
+                unset($wishlists[$cp][$key2]); //remove from wishlist
+                $comment = $cp_names[$present]." delivered to ".$cp_names[$cp];
+                break;
+            }
+        
+            }
         }
 
         //enter the north pole
