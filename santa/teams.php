@@ -1,6 +1,6 @@
 <?php
 // db_connect.php should include your database connection setup
-include 'db_connect.php';
+include 'assets/php/db_connect.php';
 
 // Start session for player identification
 session_start();
