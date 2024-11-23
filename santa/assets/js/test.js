@@ -168,10 +168,10 @@ function ajax_call() {
             });
             
             //alert feedback
-            var alert = data["alert"];
-            console.log(alert);
-            if (alert != 0) {
-                alert(alert);
+            var alert_response = data["alert"];
+            console.log(alert_response);
+            if (alert_response != 0) {
+                alert(alert_response);
             }
 
             //puzzle questions
