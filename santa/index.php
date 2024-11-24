@@ -40,6 +40,9 @@ if (isset($_GET['location'])) {
 <body>
   <h1>MINDGAMES</h1>
 <div id="main">
+  <div id="teams">
+  <a href="index.php" class="app-button" id="app1"><i class="fas fa-person-running"></i><br>Team Set-up</a>
+  </div>
   <div id="water">
         <div class="bubble1"></div>
         <div class="bubble1"></div>
