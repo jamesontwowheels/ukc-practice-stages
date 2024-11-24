@@ -74,17 +74,16 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/underwater.css">
-    <link rel="stylesheet" href="assets/css/polar.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../main.css">  
     <link rel="stylesheet" href="assets/css/app-buttons.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>Team Management</title>
 </head>
 <body>
-    <h1>Team Management</h1>
-    <div id="main">
+    <h2>Team Management</h2>
+    <div class="login-container">
+    <div class="login-form smallem">
     <?php if (!empty($message)): ?>
         <p style="color: green;"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
@@ -107,6 +106,7 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
         </select>
         <button type="submit" name="join_team">Join Team</button>
     </form>
+    </div>
     </div>
     <div class="app-buttons">
             <a href="index.php" class="app-button" id="app1"><i class="fas fa-person-running"></i><br>Game</a>
