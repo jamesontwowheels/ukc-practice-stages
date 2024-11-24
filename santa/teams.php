@@ -5,6 +5,8 @@ include 'assets/php/db_connect.php';
 // Start session for player identification
 session_start();
 $player_id = $_SESSION['player_id']; // Assuming player ID is stored in session
+$game = 4;
+$location = 0;
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -12,16 +14,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Create a new team
         $team_name = $_POST['team_name'];
         if (!empty($team_name)) {
-            $query = "INSERT INTO teams (name) VALUES (:name)";
+            $query = "INSERT INTO teams (name, game, location) VALUES (:name, :game, :location)";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':name', $team_name);
+            $stmt->bindParam(':game', $game);
+            $stmt->bindParam(':location', $location);
             if ($stmt->execute()) {
                 $team_id = $conn->lastInsertId();
                 // Add player to the newly created team
-                $query = "INSERT INTO team_members (team_id, player_id) VALUES (:team_id, :player_id)";
+                $query = "INSERT INTO team_members (team, player_ID, location, game) VALUES (:team_id, :player_id, :location, :game)";
                 $stmt = $conn->prepare($query);
                 $stmt->bindParam(':team_id', $team_id);
                 $stmt->bindParam(':player_id', $player_id);
+                $stmt->bindParam(':location', $player_id);
+                $stmt->bindParam(':game', $player_id);
                 $stmt->execute();
                 $message = "Team '$team_name' created successfully!";
             } else {
@@ -33,10 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (isset($_POST['join_team'])) {
         // Join an existing team
         $team_id = $_POST['team_id'];
-        $query = "INSERT INTO team_members (team_id, player_id) VALUES (:team_id, :player_id)";
+        $query = "INSERT INTO team_members (team, player_ID) VALUES (:team_id, :player_id)";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':team_id', $team_id);
         $stmt->bindParam(':player_id', $player_id);
+        $stmt->bindParam(':location', $location);
+        $stmt->bindParam(':game', $game);
         if ($stmt->execute()) {
             $message = "Successfully joined the team.";
         } else {
