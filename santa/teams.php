@@ -72,8 +72,6 @@ $query = "SELECT * FROM teams";
 $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
@@ -118,4 +116,3 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </body>
 <script type="text/javascript" src='assets/js/app-buttons.js'></script>
-</html>
