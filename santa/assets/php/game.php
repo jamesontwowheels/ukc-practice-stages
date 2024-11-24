@@ -200,6 +200,7 @@ $x = 0;
     $time_penalty = 0;
     //values
     $stage_time = 75*60;
+    $alert = 0;
 
 
 //start looping the contestants:
@@ -496,7 +497,7 @@ if($_REQUEST["purpose"] !== 2){
     //GAME SPECIFIC
     //UNIVERSAL
 $response["all_cps"]= $all_cps;
-$response["available_cps"]= $available_cps[$pl];
+$response["available_cps"]= $available_cps[$user_ID];
 //don't send back a puzzle response if nothing has been submitted.
 if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;}
