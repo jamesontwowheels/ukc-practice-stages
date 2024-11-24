@@ -85,7 +85,7 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
         <select id="team_id" name="team_id" required>
             <option value="">-- Select a Team --</option>
             <?php foreach ($teams as $team): ?>
-                <option value="<?= $team['id'] ?>"><?= htmlspecialchars($team['name']) ?></option>
+                <option value="<?= $team['UID'] ?>"><?= htmlspecialchars($team['name']) ?></option>
             <?php endforeach; ?>
         </select>
         <button type="submit" name="join_team">Join Team</button>
