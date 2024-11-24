@@ -205,11 +205,14 @@ $x = 0;
 //start looping the contestants:
 foreach($teams as $team_UID => $team){
 
-    if($_REQUEST["purpose"] != 2){
+    if($_REQUEST["purpose"] < 2){
         if($team_UID != $this_team){
+            $debug_log[] = "skipping $team_UID";
             continue; //skipping teams that aren't the active one
         }
     }
+
+    $debug_log[] = "playing with $team_UID";
         //while($x < $count_results){
     /// not needed $team_UID = key($team);
     $name = $team["name"];
@@ -450,7 +453,8 @@ if($debug == 1){ $debug_log[] = '72';};
                 $game_state = 1;
                 $game_start = $t;
                 $comment = "game started";
-                $available_cps[$pl] = $outside_cps;
+                foreach($team["members"] as $team_member){
+                    $available_cps[$team_member] = [999];}
             } elseif($game_state == 1){
                 $available_cps[$pl] = [999];
                 $game_state = 2;
