@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (isset($_POST['join_team'])) {
         // Join an existing team
         $team_id = $_POST['team_id'];
-        $query = "INSERT INTO team_members (team, player_ID) VALUES (:team_id, :player_id)";
+        $query = "INSERT INTO team_members (team, player_ID,location, game) VALUES (:team_id, :player_id, :location, :game)";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':team_id', $team_id);
         $stmt->bindParam(':player_id', $player_id);
