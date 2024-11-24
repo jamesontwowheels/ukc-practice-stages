@@ -22,9 +22,9 @@ ini_set("allow_url_fopen", 1); //this is important for fetching remote files
 //Get event results from DB:
 
 //test_game to be made into a variable
-$query = "select * from dbo.test_game where Player_ID = $user_ID AND location = $location AND game = $game ORDER BY Time_stamp ASC";
+$query = "select * from dbo.test_game where location = $location AND game = $game ORDER BY Time_stamp ASC";
 
-if($_REQUEST["purpose"] == 2){
+if($_REQUEST["purpose"] == 2){ //irrelevant as we need everything in a teams scenario
 $query = "select * from dbo.test_game where location = $location AND game = $game ORDER BY Time_stamp ASC";
 
 }
@@ -70,6 +70,9 @@ if($teams_active){
     while ($row4 = $stmt4->fetch(PDO::FETCH_ASSOC)) {
        $teams[$row4["team"]]["members"][] = $row4["player_ID"];
        $teamed_players[] = $row4["player_ID"];
+       if($row4["player_ID"] == $user_ID){
+        $this_team = $row4["team"];
+       }
        
     $debug_log[]  = "73. count team_members";
     }
@@ -114,6 +117,9 @@ if($teams_active == true){
     $stragglers = array_diff($players, $teamed_players);
     foreach($stragglers as $straggler){
         $strag_name = "strag_".$straggler;
+        if($straggler == $user_ID){
+            $this_team = $strag_name;
+        }
         $teams[$strag_name] = [
             "name" => $usernames[$straggler],
             "members" => [$straggler],
@@ -198,6 +204,12 @@ $x = 0;
 
 //start looping the contestants:
 foreach($teams as $team_UID => $team){
+
+    if($_REQUEST["purpose"] != 2){
+        if($team_UID != $this_team){
+            continue; //skipping teams that aren't the active one
+        }
+    }
         //while($x < $count_results){
     /// not needed $team_UID = key($team);
     $name = $team["name"];
@@ -456,7 +468,6 @@ if($debug == 1){ $debug_log[] = '72';};
                 $game_start = 0;
                 $game_end = 0;
                 $comment = "game reset";
-                $commentary[] = $comment;
             }
         }
 
