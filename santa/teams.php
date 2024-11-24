@@ -21,6 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bindParam(':location', $location);
             if ($stmt->execute()) {
                 $team_id = $conn->lastInsertId();
+                //remove from any existing teams
+                $query = "DELETE from team_members  where player_ID = :player_id AND location = :location AND game = :game";
+                $stmt = $conn->prepare($query);
+                $stmt->bindParam(':player_id', $player_id);
+                $stmt->bindParam(':location', $location);
+                $stmt->bindParam(':game', $game);
+                $stmt->execute();
                 // Add player to the newly created team
                 $query = "INSERT INTO team_members (team, player_ID, location, game) VALUES (:team_id, :player_id, :location, :game)";
                 $stmt = $conn->prepare($query);
@@ -69,12 +76,16 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/underwater.css">
+    <link rel="stylesheet" href="assets/css/polar.css">
+    <link rel="stylesheet" href="assets/css/app-buttons.css">
     <title>Team Management</title>
 </head>
 <body>
     <h1>Team Management</h1>
-
+    <div id="main">
     <?php if (!empty($message)): ?>
         <p style="color: green;"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
@@ -97,5 +108,12 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
         </select>
         <button type="submit" name="join_team">Join Team</button>
     </form>
+    </div>
+    <div class="app-buttons">
+            <a href="index.php" class="app-button" id="app1"><i class="fas fa-person-running"></i><br>Game</a>
+            <a href="leaderboard.php" class="app-button" id="app2"><i class="fas fa-list-ol"></i><br>Scores</a>
+            <a href="history.php" class="app-button" id="app3"><i class="fas fa-clock-rotate-left"></i><br>History</a>
+            <a href="../stages.php" class="app-button" id="app4"><i class="fas fa-door-open"></i><br>Exit</a>
+    </div>
 </body>
 </html>
