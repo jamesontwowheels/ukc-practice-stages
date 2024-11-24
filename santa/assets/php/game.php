@@ -477,7 +477,7 @@ if($debug == 1){ $debug_log[] = '72';};
         }
 
         //ONCE THE CP ACTION HAS BEEN TAKEN:
-        $commentary[] = $comment;
+        $commentary[] = $pl." - ".$comment;
         $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
     }
 
