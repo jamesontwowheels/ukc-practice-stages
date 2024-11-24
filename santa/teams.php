@@ -4,7 +4,7 @@ include 'assets/php/db_connect.php';
 
 // Start session for player identification
 session_start();
-$player_id = $_SESSION['player_id']; // Assuming player ID is stored in session
+$player_id = $_SESSION['user_id']; // Assuming player ID is stored in session
 $game = 4;
 $location = 0;
 
