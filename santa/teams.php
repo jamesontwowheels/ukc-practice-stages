@@ -82,8 +82,6 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
 
 <head>
     <link rel="stylesheet" href="../main.css">  
-    <link rel="stylesheet" href="assets/css/app-buttons.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Management</title>
@@ -96,14 +94,15 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
         <p style="color: green;"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
 
-    <h2>Create a New Team</h2>
+    <a href="game.php"><button>Return to Game</button></a>
+    <h3>Create a New Team</h3>
     <form method="post">
         <label for="team_name">Team Name:</label>
         <input type="text" id="team_name" name="team_name" required>
         <button type="submit" name="create_team">Create Team</button>
     </form>
 
-    <h2>Join an Existing Team</h2>
+    <h3>Join an Existing Team</h3>
     <form method="post">
         <label for="team_id">Select a Team:</label>
         <select id="team_id" name="team_id" required>
@@ -115,12 +114,6 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
         <button type="submit" name="join_team">Join Team</button>
     </form>
     </div>
-    </div>
-    <div class="app-buttons">
-            <a href="index.php" class="app-button" id="app1"><i class="fas fa-person-running"></i><br>Game</a>
-            <a href="leaderboard.php" class="app-button" id="app2"><i class="fas fa-list-ol"></i><br>Scores</a>
-            <a href="history.php" class="app-button" id="app3"><i class="fas fa-clock-rotate-left"></i><br>History</a>
-            <a href="../stages.php" class="app-button" id="app4"><i class="fas fa-door-open"></i><br>Exit</a>
     </div>
 </body>
 <script type="text/javascript" src='assets/js/app-buttons.js'></script>
