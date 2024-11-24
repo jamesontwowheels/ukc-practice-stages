@@ -4,7 +4,7 @@ include 'assets/php/db_connect.php';
 
 // Start session for player identification
 session_start();
-$player_id = $_SESSION['user_id']; // Assuming player ID is stored in session
+$player_id = $_SESSION['user_ID']; // Assuming player ID is stored in session
 $game = 4;
 $location = 0;
 
@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt = $conn->prepare($query);
                 $stmt->bindParam(':team_id', $team_id);
                 $stmt->bindParam(':player_id', $player_id);
-                $stmt->bindParam(':location', $player_id);
-                $stmt->bindParam(':game', $player_id);
+                $stmt->bindParam(':location', $location);
+                $stmt->bindParam(':game', $game);
                 $stmt->execute();
                 $message = "Team '$team_name' created successfully!";
             } else {
