@@ -81,6 +81,7 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="assets/css/underwater.css">
     <link rel="stylesheet" href="assets/css/polar.css">
     <link rel="stylesheet" href="assets/css/app-buttons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>Team Management</title>
 </head>
 <body>
@@ -116,4 +117,5 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
             <a href="../stages.php" class="app-button" id="app4"><i class="fas fa-door-open"></i><br>Exit</a>
     </div>
 </body>
+<script type="text/javascript" src='assets/js/app-buttons.js'></script>
 </html>
