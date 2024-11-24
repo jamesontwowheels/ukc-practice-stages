@@ -426,9 +426,9 @@ if($debug == 1){ $debug_log[] = '72';};
             }
         }
 
-        //enter the north pole
+        //exit the north pole
         if($cp == $cp_workshop){
-            if($game_time < 600){
+            if($game_time < 20){
                 $comment = "The portal is not open yet";
             } else {
                 if($map_level[$pl] == 0){
@@ -455,7 +455,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $game_start = $t;
                 $comment = "game started";
                 foreach($team["members"] as $team_member){
-                    $available_cps[$team_member] = [999];}
+                    $available_cps[$team_member] = $inside_cps;}
             } elseif($game_state == 1){
                 $available_cps[$pl] = [999];
                 $game_state = 2;
