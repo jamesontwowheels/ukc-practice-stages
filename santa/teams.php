@@ -94,7 +94,7 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
         <p style="color: green;"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
 
-    <a href="game.php"><button>Return to Game</button></a>
+    <a href="index.php"><button>Return to Game</button></a>
     <h3>Create a New Team</h3>
     <form method="post">
         <label for="team_name">Team Name:</label>
@@ -116,4 +116,3 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
     </div>
     </div>
 </body>
-<script type="text/javascript" src='assets/js/app-buttons.js'></script>
