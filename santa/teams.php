@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (isset($_POST['join_team'])) {
         // Join an existing team
         $team_id = $_POST['team_id'];
-        $query = "DELETE * from team_members  where player_ID = :player_id AND location = :location AND game = :game";
+        $query = "DELETE from team_members  where player_ID = :player_id AND location = :location AND game = :game";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':player_id', $player_id);
         $stmt->bindParam(':location', $location);
