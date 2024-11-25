@@ -230,30 +230,30 @@ if($debug == 1){ $debug_log[] = '72';};
 
     $wishlists = [
         21 => [11,12,13],
-        22 => [12,13,15],
-        23 => [13,14,16],
-        24 => [15,13,12],
-        25 => [11,16,15],
-        26 => [16,13,14]
+        22 => [14,15,16],
+        23 => [16,11,12],
+        24 => [13,14,15],
+        25 => [12,14,11],
+        26 => [15,13,16]
     ];
 
     $gift_times = [
-        11 => 0,
-        12 => 0,
-        13 => 0,
-        14 => 0,
-        15 => 0,
-        16 => 0];
+        11 => 120,
+        12 => 120,
+        13 => 240,
+        14 => 240,
+        15 => 360,
+        16 => 480];
 
     $gift_states = [0,0,0,0,0,0];
 
     $gift_recipes = [
-        11 => [1,2,3],
-        12 => [1,1,1],
-        13 => [2,3,4,5,2],
-        14 => [1],
-        15 => [5,4,5,4,5],
-        16 => [5,4,5,4,5]
+        11 => [1,1,1],
+        12 => [2,2,5,2],
+        13 => [4,4,5,3],
+        14 => [3,5,3,6],
+        15 => [3,4,5,6],
+        16 => [5,3,6,6]
     ];
 
     $gift_score = [
@@ -286,12 +286,12 @@ if($debug == 1){ $debug_log[] = '72';};
     ];
 
     $resource_start = [
-        1 => 0,
-        2 => 0,
-        3 => 0,
-        4 => 0,
-        5 => 0,
-        6 => 0
+        1 => 3,
+        2 => 3,
+        3 => 1,
+        4 => 1,
+        5 => 6,
+        6 => 6
     ];
 
     $resource_used = [
@@ -306,12 +306,21 @@ if($debug == 1){ $debug_log[] = '72';};
     $resource_available = [];
 
     $resource_refresh = [
+        "1" => 300,
+        "2" => 300,
+        "3" => 600,
+        "4" => 600,
+        "5" => 900,
+        "6" => 900
+    ];
+
+    $resource_refresh_vol = [
         "1" => 1,
-        "2" => 10,
-        "3" => 20,
-        "4" => 30,
-        "5" => 40,
-        "6" => 40
+        "2" => 1,
+        "3" => 4,
+        "4" => 2,
+        "5" => 2,
+        "6" => 2
     ];
 
     
@@ -366,7 +375,7 @@ if($debug == 1){ $debug_log[] = '72';};
         if (in_array($cp,$cps_resources)){
             
             foreach($cps_resources as $resource){
-                $gross_resource = $resource_start[$resource] + floor($game_time/$resource_refresh[$resource]);
+                $gross_resource = $resource_start[$resource] + $resource_refresh_vol[$resource]*floor($game_time/$resource_refresh[$resource]);
                 $net_resource = $gross_resource - $resource_used[$resource];
                 $resource_available[$resource] = $net_resource;
             }
