@@ -78,7 +78,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Fetch existing teams
 $query = "SELECT * FROM teams";
 $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
-$current_team = $teams[$team_id]["name"];
+
+$query = "SELECT * FROM team_members where player_ID = $player_id";
+$this_team = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
+$current_team = $this_team["team"];
 echo "current team = $current_team";
 ?>
 
