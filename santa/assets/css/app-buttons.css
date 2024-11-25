@@ -6,6 +6,12 @@
     background-color: #cfcfcf; /* Button container background */
 }
 
+#footer_info{
+    color:#2e2e2e;
+}
+
+
+
 .app-buttons {
     display: flex;
     justify-content: space-around; /* Evenly space the buttons */

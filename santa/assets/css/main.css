@@ -82,8 +82,7 @@ td {
 
 
  #timer {
-            font-size: 2em;
-            color: #e6e6dc;
+            font-size: 1.5em;
             margin-top: 20px;
             margin: auto;
             text-align: center;
@@ -91,6 +90,10 @@ td {
 
 #timer.complete {
             color: #64ff50;
+}
+
+#score {
+    font-size: 1.5em;
 }
 
 .stage {
