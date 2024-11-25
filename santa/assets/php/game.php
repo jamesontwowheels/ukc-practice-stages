@@ -485,6 +485,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     $map_level[$pl] = 0;
                     $available_cps[$pl] = $inside_cps;
                 }
+                $comment = "Portal. Zooooom";
             }
         }
 
@@ -530,7 +531,7 @@ if($debug == 1){ $debug_log[] = '72';};
         }
 
         //ONCE THE CP ACTION HAS BEEN TAKEN:
-        $commentary[] = $pl." - ".$comment." - ".$t;
+        $commentary[] = $pl." - ".$comment;
         $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
     }
 
