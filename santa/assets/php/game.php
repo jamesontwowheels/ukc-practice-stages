@@ -204,7 +204,7 @@ $x = 0;
 //start looping the contestants:
 foreach($teams as $team_UID => $team){
 
-    if($_REQUEST["purpose"] < 2){
+    if($_REQUEST["purpose"] != 2){
         if($team_UID != $this_team){
             $debug_log[] = "skipping $team_UID";
             continue; //skipping teams that aren't the active one
