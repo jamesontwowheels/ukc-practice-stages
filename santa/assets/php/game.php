@@ -197,7 +197,6 @@ $x = 0;
     $results_names= [];
     $available_cps = [999]; //which CPs are immediately available?
     $live_result = [];
-    $time_penalty = 0;
     //values
     $stage_time = 75*60;
     $alert = 0;
@@ -327,7 +326,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $debug_log[] = $bags;
     }
     
-//GENERIC
+//GENERIC player specific starting values
     $id = $x;
     $results_ids[] = $id;
     $results_names[$id] = [$name,$surname];
@@ -342,6 +341,7 @@ if($debug == 1){ $debug_log[] = '72';};
     $game_start = 0;
     $game_end = 0;
     $game_time = 0;
+    $time_penalty = 0;
 
 
     // cycle through the punch list;
@@ -518,7 +518,7 @@ if($debug == 1){ $debug_log[] = '72';};
                  //check for time penalties:    
                 $finish_time = $game_end - $game_start; //update
                 if($finish_time > $stage_time){
-                $time_penalty = floor(($finish_time-$stage_time)/5);
+                $time_penalty = 1 + floor(($finish_time-$stage_time)/20);
             } else {$time_penalty = 0;}
         }
         //
