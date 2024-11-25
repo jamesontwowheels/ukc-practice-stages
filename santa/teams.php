@@ -78,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Fetch existing teams
 $query = "SELECT * FROM teams";
 $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
+$current_team = $teams[$team_id];
 ?>
 
 <head>
@@ -93,8 +94,8 @@ $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
     <?php if (!empty($message)): ?>
         <p style="color: green;"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
-
     <a href="index.php"><button>Return to Game</button></a>
+    <br>
     <h3>Create a New Team</h3>
     <form method="post">
         <label for="team_name">Team Name:</label>
