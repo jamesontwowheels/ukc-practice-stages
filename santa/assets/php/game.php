@@ -7,7 +7,6 @@ $debug = 1;
 $teams_active = true;
 $response = [];
 $debug_log = [];
-$commentary = [];
 $debug_log[] = "data play";
 $user_input = $_REQUEST["user_input"];
 $game = 4;
@@ -341,6 +340,7 @@ if($debug == 1){ $debug_log[] = '72';};
     $results_names[$id] = [$name,$surname];
     $results_detailed[$id] = [];
     $results_summary[$id] = [];
+    $commentary = [];
     $count_cps = count($team_result);
     $y = 0;
     $cps = []; //pretty sure this is defunct TO BE TESTED AND REMOVED
@@ -384,7 +384,7 @@ if($debug == 1){ $debug_log[] = '72';};
             if($resource_available[$cp] < 1){
                 $early = $resource_refresh[$cp] - $game_time % $resource_refresh[$cp];
                 $comment = "Resource unavailable. Wait $early seconds";
-            } elseif (count($bags[$pl]) == 10) {
+            } elseif (count($bags[$pl]) == 8) {
                 $comment = "You can't carry any more, resource lost";
                 $resource_used[$cp] += 1;
             } else {
