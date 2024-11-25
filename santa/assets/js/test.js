@@ -87,7 +87,7 @@ function ajax_call() {
                 var names = cp_names;
                 // Function to count occurrences and generate HTML
                 function generateList(keys, names) {
-                    const counts = keys.reduce((acc, key) => {
+                    var counts = keys.reduce((acc, key) => {
                         acc[key] = (acc[key] || 0) + 1;
                         return acc;
                     }, {});
