@@ -1,3 +1,9 @@
+#footer {
+    position:fixed;
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
 
 .app-buttons {
     display: flex;
