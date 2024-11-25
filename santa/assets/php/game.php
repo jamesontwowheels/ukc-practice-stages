@@ -436,7 +436,8 @@ if($debug == 1){ $debug_log[] = '72';};
             foreach($this_wishlist as $present){
                 $key = array_search($present, $sacks[$pl]);
                 if ($key !== false) {
-                unset($sacks[$pl][$key]); // remove from sack
+                array_splice($sacks[$pl], $key, 1);  // Remove from sack
+                // unset($sacks[$pl][$key]); // remove from sack
                 
                 $key2 = array_search($present,$this_wishlist);
                 unset($wishlists[$cp][$key2]); //remove from wishlist
