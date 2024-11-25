@@ -491,6 +491,12 @@ if($debug == 1){ $debug_log[] = '72';};
         if(in_array($cp,$cps_santas)){
             $alert = $santa_info[$cp];
             $comment = "$cp_names[$cp] visited";
+            if(count($bags[$pl]) >0){
+                $sell = count($bags[$pl]) /2;
+                $bags[$pl] = [];
+                $running_score += $sell;
+                $comment = $comment.". Resource sold for $sell units";
+            }
         }
 
         //start_finish
