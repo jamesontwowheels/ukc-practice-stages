@@ -89,6 +89,9 @@ $current_team = $teams[$team_id];
 </head>
 <body>
     <h2>Team Management</h2>
+    <?php if (!empty($current_team)): ?>
+        <p style="color: green;"><?= htmlspecialchars($current_team) ?></p>
+    <?php endif; ?>
     <div class="login-container">
     <div class="login-form smallem">
     <?php if (!empty($message)): ?>
