@@ -116,7 +116,7 @@ if($teams_active == true){
     //check for stragglers? YES WE SHOULD DO THIS!!!!!!!!!!!!!!
     $stragglers = array_diff($players, $teamed_players);
     foreach($stragglers as $straggler){
-        $strag_name = "strag_".$straggler;
+        $strag_name = "solo_".$straggler;
         if($straggler == $user_ID){
             $this_team = $strag_name;
         }
@@ -256,6 +256,26 @@ if($debug == 1){ $debug_log[] = '72';};
         15 => [5,4,5,4,5],
         16 => [5,4,5,4,5]
     ];
+
+    $gift_score = [
+        11 => 4,
+        12 => 6,
+        13 => 8,
+        14 => 12,
+        15 => 14,
+        16 => 16
+    ];
+
+    $gift_count = [
+        11 => 0,
+        12 => 0,
+        13 => 0,
+        14 => 0,
+        15 => 0,
+        16 => 0
+    ];
+
+    $gifted = [];
 
     $build_states = [
         11 => [0,[],0],
@@ -419,7 +439,33 @@ if($debug == 1){ $debug_log[] = '72';};
                 
                 $key2 = array_search($present,$this_wishlist);
                 unset($wishlists[$cp][$key2]); //remove from wishlist
-                $comment = $cp_names[$present]." delivered to ".$cp_names[$cp];
+                $comment = $cp_names[$present]." delivered to ".$cp_names[$cp]." +".$gift_score[$present];
+
+                //scoring happens here:
+                $running_score += $gift_score[$present];
+
+                    //all gifts to a kid
+                    if(count($wishlists[$cp]) == 0){
+                        $running_score += 20;
+                        $comment = $comment.". Wishlist complete, +20 bonus";
+                    }
+
+                    //any gift to all kids
+                    if(!in_array($cp,$gifted)){
+                        $gifted[] = $cp;
+                        if(count($gifted)==6){
+                            $running_score += 30;
+                            $comment = $comment.". All nice kids gifted, +30 bonus";
+                        }
+                    }
+
+                    //all gifts of a type
+                    $gift_count[$present] += 1;
+                    if($gift_count[$present] == 3){
+                        $running_score += 20;
+                        $comment = $comment.". All ".$cp_names[$present]." gifted, +20 bonus";
+                    }
+
                 break;
             }
         
