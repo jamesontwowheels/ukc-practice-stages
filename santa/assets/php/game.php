@@ -403,7 +403,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     array_splice($bags[$pl], $index, 1);  // Remove the thing from the bag
                     }
                     $current_length += 1;
-                    $comment = "Build step $current_length on $cp taken. $t";
+                    $comment = "Build step $current_length on $cp taken.";
                 if($current_length == count($gift_recipes[$cp]) ){
                     $build_states[$cp][0] = 1;
                     $build_states[$cp][2] = $t + $gift_times[$cp]; 
@@ -530,7 +530,7 @@ if($debug == 1){ $debug_log[] = '72';};
         }
 
         //ONCE THE CP ACTION HAS BEEN TAKEN:
-        $commentary[] = $pl." - ".$comment;
+        $commentary[] = $pl." - ".$comment." - ".$t;
         $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
     }
 
