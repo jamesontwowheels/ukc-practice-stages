@@ -382,7 +382,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
             //if resource is available
             if($resource_available[$cp] < 1){
-                $early = $game_time % $resource_refresh[$cp];
+                $early = $resource_refresh[$cp] - $game_time % $resource_refresh[$cp];
                 $comment = "Resource unavailable. Wait $early seconds";
             } elseif (count($bags[$pl]) == 10) {
                 $comment = "You can't carry any more, resource lost";
