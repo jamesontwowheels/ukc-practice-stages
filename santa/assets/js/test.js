@@ -73,12 +73,32 @@ function ajax_call() {
             var debug_log = data["debug_log"];
             console.log(debug_log);
             var inventory = data["inventory"];
-            document.getElementById("inventory_zone").innerHTML = "Fish held: " + inventory;
             var cp_names = data["cp_names"];
             var cp_names_keys = Object.keys(cp_names);
             var available_cps = data["available_cps"];
             var puzzle_cps = data["puzzle_cps"];
             let i = 0;
+
+            //inventories:
+                // Count occurrences of each key
+                var keys1 = inventory[0];
+                var keys2 = inventory[1];
+                console.log(inventory);
+                var names = cp_names;
+                // Function to count occurrences and generate HTML
+                function generateList(keys, names) {
+                    const counts = keys.reduce((acc, key) => {
+                        acc[key] = (acc[key] || 0) + 1;
+                        return acc;
+                    }, {});
+                    return Object.entries(counts)
+                        .map(([key, count]) => `<li>${names[key]}: ${count}</li>`)
+                        .join("");
+                }
+
+                // Output to different lists
+                document.getElementById("output_resources").innerHTML = generateList(keys1, names);
+                document.getElementById("output_gifts").innerHTML = generateList(keys2, names);
 
             //puzzle response
             var puzzle_response = data["puzzle_response"];

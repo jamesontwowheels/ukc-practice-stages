@@ -63,7 +63,12 @@ if (isset($_GET['location'])) {
 </div>
 <div id="inventory" class="bucket">
   <h3>Current catch</h3>
-  <div id="inventory_zone"></div>  
+  <div id="inventory_zone">
+    <table><tr>
+      <td><ul id="output_resources"></ul></td>
+      <td><ul id="output_gifts"></ul></td>
+    </tr></table>
+  </div>  
   </div>
 <table id="checkpoints">
   <tbody>

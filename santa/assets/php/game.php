@@ -562,6 +562,7 @@ $response["commentary"] = $commentary;
 $response["cp_names"] = $this_cp_names;
 $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
+$response["inventory"] = [$bags[$pl],$sacks[$pl]];
 }
 $response["live_scores"] = $live_result;
 
