@@ -86,14 +86,18 @@ td {
             margin-top: 20px;
             margin: auto;
             text-align: center;
+            color:#2e2e2e;
         }
 
 #timer.complete {
             color: #64ff50;
 }
 
-#score {
+#score_zone {
     font-size: 1.5em;
+    color:#2e2e2e;
+    margin: auto;
+    text-align: center;
 }
 
 .stage {
