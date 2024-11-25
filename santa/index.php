@@ -53,10 +53,13 @@ if (isset($_GET['location'])) {
           <div class="mountain mountain-2"></div>
           <div class="mountain mountain-3"></div>
         </div>
-<div id="timer"></div>
+<div id="timer_old"></div>
 <div id="o2_timer"></div>
 <div id="accuracy"></div>
-
+<div id="score" class="bucket">
+  <h3>Score</h3>
+  <h3 id="score_zone"></h3>
+</div>
 
 <div id="inventory" class="bucket">
   <h3>Inventory</h3>
@@ -79,10 +82,11 @@ if (isset($_GET['location'])) {
 </div>
 <div id="footer">
   <div id="footer_info">
-  <div id="score" class="bucket">
-  <h3>Score</h3>
-  <div id="score_zone"></div>
-</div>
+    <table><tr>
+      <td><h3 id="score_zone"></h3></td>
+      <td><div id="timer"></div></td>
+  </tr></table>
+  
   </div>
 <div class="app-buttons">
         <a href="index.php" class="app-button" id="app1"><i class="fas fa-person-running"></i><br>Game</a>

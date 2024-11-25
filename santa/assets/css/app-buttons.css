@@ -3,6 +3,7 @@
     bottom: 0; /* Stick to the bottom */
     width: 100%; /* Full width */
     z-index: 1000; /* Ensure it stays on top of other content */
+    background-color: #cfcfcf; /* Button container background */
 }
 
 .app-buttons {
@@ -11,7 +12,7 @@
     align-items: center;
     background-color: #cfcfcf; /* Button container background */
     padding: 10px; /* Padding around the buttons */
-    position: fixed; /* Fix position */
+   /* position: fixed; /* Fix position */
     bottom: 0; /* Stick to the bottom */
     width: 100%; /* Full width */
     z-index: 1000; /* Ensure it stays on top of other content */

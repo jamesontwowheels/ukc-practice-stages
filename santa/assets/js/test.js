@@ -239,7 +239,7 @@ function ajax_call() {
                 }
 
             //running score
-            document.getElementById("score_zone").innerHTML = "Stockpile: " + data["running_score"];
+            document.getElementById("score_zone").innerHTML = "Score: " + data["running_score"];
              
             var button_detail = ["blurb","blib"];
 
