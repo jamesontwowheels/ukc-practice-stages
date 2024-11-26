@@ -89,7 +89,6 @@ foreach($this_team_members as $ttm){
         }
     }
 }
-echo "current team = $current_team_name";
 ?>
 
 <head>
@@ -100,8 +99,8 @@ echo "current team = $current_team_name";
 </head>
 <body>
     <h2>Team Management</h2>
-    <?php if (!empty($current_team)): ?>
-        <p style="color: green;"><?= htmlspecialchars($current_team) ?></p>
+    <?php if (!empty($current_team_name)): ?>
+        <h3>Current Team: <?= htmlspecialchars($current_team_name) ?></h3>
     <?php endif; ?>
     <div class="login-container">
     <div class="login-form smallem">
