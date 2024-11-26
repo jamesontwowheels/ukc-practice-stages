@@ -519,6 +519,7 @@ if($debug == 1){ $debug_log[] = '72';};
             if($game_state == 0)
             {
                 $game_state = 1;
+                $team_finish_count = 0;
                 $game_start = $t;
                 $comment = "game started";
                 foreach($team["members"] as $team_member){
