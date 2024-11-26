@@ -80,9 +80,10 @@ $query = "SELECT * FROM teams";
 $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
 
 $query = "SELECT * FROM team_members where player_ID = $player_id";
-echo $query;
-$this_team = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
-$current_team = $this_team["team"];
+$this_team_members = $conn->query($query);
+foreach($this_team_members as $ttm){
+    $current_team = $ttm["team"];
+}
 echo "current team = $current_team";
 ?>
 
