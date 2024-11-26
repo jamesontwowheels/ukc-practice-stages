@@ -534,8 +534,8 @@ if($debug == 1){ $debug_log[] = '72';};
             elseif
             ($cp == 998){
                 $team_finish_count += 1;
-                if($team_finish_count == $team_player_count){
                 $available_cps[$pl] = [999];
+                if($team_finish_count == $team_player_count){
                 $game_state = 2;
                 $game_end = $t;
                 $comment = "game ended";
