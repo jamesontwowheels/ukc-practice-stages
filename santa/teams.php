@@ -83,8 +83,13 @@ $query = "SELECT * FROM team_members where player_ID = $player_id";
 $this_team_members = $conn->query($query);
 foreach($this_team_members as $ttm){
     $current_team = $ttm["team"];
+    foreach($teams as $team){
+        if($team["UID"]==$current_team){
+            $current_team_name = $team["name"];
+        }
+    }
 }
-echo "current team = $current_team";
+echo "current team = $current_team_name";
 ?>
 
 <head>
