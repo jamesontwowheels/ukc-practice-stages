@@ -157,7 +157,7 @@ $x = 0;
     $inside_cps = [11,12,13,14,15,16,51,101,102,998];
     
     $santa_info = [
-        101 => "The Nice List is Olivia, Noah, Amelia, George, Isla and Leo",
+        101 => "The children are located as follows:  CH1 = Olivia, CH2 = Noah, CH3 = Amelia, CH4 = George, CH5 = Isla, CH6 = Leo",
         102 => "The Resources are located as follows: R1 = Wool, R2 = Wood, R3 = Plastic, R4 = Carbon, R5 = Metal, R6 = Lithium"
     ];
 
@@ -514,6 +514,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
         //start_finish
         if(in_array($cp,$cp_start_finish)){
+            if($cp == 999){
             if($game_state == 0)
             {
                 $game_state = 1;
@@ -521,7 +522,15 @@ if($debug == 1){ $debug_log[] = '72';};
                 $comment = "game started";
                 foreach($team["members"] as $team_member){
                     $available_cps[$team_member] = $inside_cps;}
-            } elseif($game_state == 1){
+            } 
+            elseif ($game_state == 2) {
+               $game_state = 0;
+               $game_start = 0;
+               $game_end = 0;
+               $comment = "game reset";
+           } }
+            elseif
+            ($cp == 998){
                 $available_cps[$pl] = [999];
                 $game_state = 2;
                 $game_end = $t;
@@ -533,12 +542,6 @@ if($debug == 1){ $debug_log[] = '72';};
             } else {$time_penalty = 0;}
         }
         //
-             else {
-                $game_state = 0;
-                $game_start = 0;
-                $game_end = 0;
-                $comment = "game reset";
-            }
         }
 
         //ONCE THE CP ACTION HAS BEEN TAKEN:

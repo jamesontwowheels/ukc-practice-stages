@@ -41,7 +41,7 @@ if (isset($_GET['location'])) {
   <h1>MINDGAMES</h1>
 <div id="main">
   <div id="teams">
-  <a href="teams.php" class="app-button" id="app1"><i class="fas fa-people-group"></i><br>Team Set-up</a>
+  <a href="teams.php" class="team-button"><br>Team Set-up</a>
   </div>
   <div id="water">
         <div class="bubble1"></div>

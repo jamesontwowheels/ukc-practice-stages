@@ -9,7 +9,7 @@ if (user_ID == 29) {
   else if (user_ID == 8) {
   var d_base = 15;
   console.log("demi-god mode active");    
-  } else { var d_base = 3000000;} // god mode
+  } else { var d_base = 35;} // god mode
 
 fetch('assets/php/location.php')
         .then(response => response.json())

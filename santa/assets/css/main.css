@@ -190,3 +190,15 @@ button {
 #base-padding {
     height: 300px; 
 }
+
+.team-button {
+    display: block;
+    margin: auto;
+    width: 60%;
+    text-align: center;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 1.5em;
+}
