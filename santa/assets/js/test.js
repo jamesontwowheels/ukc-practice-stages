@@ -97,8 +97,8 @@ function ajax_call() {
                 }
 
                 // Output to different lists
-                document.getElementById("output_resources").innerHTML = generateList(keys1, names);
-                document.getElementById("output_gifts").innerHTML = generateList(keys2, names);
+                if(keys1 !== null){document.getElementById("output_resources").innerHTML = generateList(keys1, names);}
+                if(keys2 !== null){document.getElementById("output_gifts").innerHTML = generateList(keys2, names);}
 
             //puzzle response
             var puzzle_response = data["puzzle_response"];

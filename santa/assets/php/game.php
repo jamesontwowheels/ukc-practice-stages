@@ -390,8 +390,8 @@ if($debug == 1){ $debug_log[] = '72';};
             } else {
             //add to bag
                 array_unshift($bags[$pl], $cp);                 // Add the element to the front of the array
-                $name = $cp_names[$cp];
-                $comment = "$name collected";
+                $name_temp = $cp_names[$cp];
+                $comment = "$name_temp collected";
                 // array_slice($bags[$pl], 0, 3);  //drop any extra items
                 $resource_used[$cp] += 1;
                 // $resource_states[$cp] = $t + $resource_refresh[$cp];            //and set time-out on next resource
