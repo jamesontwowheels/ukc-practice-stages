@@ -535,10 +535,11 @@ if($debug == 1){ $debug_log[] = '72';};
             ($cp == 998){
                 $team_finish_count += 1;
                 $available_cps[$pl] = [999];
+                $comment = "game partially ended";
                 if($team_finish_count == $team_player_count){
                 $game_state = 2;
                 $game_end = $t;
-                $comment = "game ended";
+                $comment = "game completely ended";
                  //check for time penalties:    
                 $finish_time = $game_end - $game_start; //update
                 if($finish_time > $stage_time){
