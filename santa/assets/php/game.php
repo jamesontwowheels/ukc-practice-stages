@@ -238,12 +238,12 @@ if($debug == 1){ $debug_log[] = '72';};
     ];
 
     $gift_times = [
-        11 => 12,
-        12 => 12,
-        13 => 24,
-        14 => 24,
-        15 => 36,
-        16 => 48];
+        11 => 120,
+        12 => 120,
+        13 => 240,
+        14 => 240,
+        15 => 360,
+        16 => 480];
 
     $gift_states = [0,0,0,0,0,0];
 
@@ -306,12 +306,12 @@ if($debug == 1){ $debug_log[] = '72';};
     $resource_available = [];
 
     $resource_refresh = [
-        "1" => 30,
-        "2" => 30,
-        "3" => 60,
-        "4" => 60,
-        "5" => 90,
-        "6" => 90
+        "1" => 300,
+        "2" => 300,
+        "3" => 600,
+        "4" => 600,
+        "5" => 900,
+        "6" => 900
     ];
 
     $resource_refresh_vol = [
@@ -487,7 +487,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
         //exit the north pole
         if($cp == $cp_workshop){
-            if($game_time < 20){
+            if($game_time < 600){
                 $comment = "The portal is not open yet";
             } else {
                 if($map_level[$pl] == 0){
