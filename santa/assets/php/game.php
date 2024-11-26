@@ -219,7 +219,8 @@ foreach($teams as $team_UID => $team){
   // don't have this data yet...
     $surname = "data"; //update
     $finish_time = 0 ; //update - why is this here???
-
+    $team_player_count = 0;
+    $team_finish_count = 0;
     $x += 1;
 
     
@@ -329,7 +330,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $sacks[$team_member] = [];
         $map_level[$team_member] = 0;
         $available_cps[$team_member] = [999];
-
+        $team_player_count += 1;
         $debug_log[] = "bags = ";
         $debug_log[] = $bags;
     }
@@ -413,7 +414,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     array_splice($bags[$pl], $index, 1);  // Remove the thing from the bag
                     }
                     $current_length += 1;
-                    $comment = "Build step $current_length on $cp taken.";
+                    $comment = "Build step $current_length on $cp_names[$cp] taken.";
                 if($current_length == count($gift_recipes[$cp]) ){
                     $build_states[$cp][0] = 1;
                     $build_states[$cp][2] = $t + $gift_times[$cp]; 
@@ -531,6 +532,8 @@ if($debug == 1){ $debug_log[] = '72';};
            } }
             elseif
             ($cp == 998){
+                $team_finish_count += 1;
+                if($team_finish_count == $team_player_count){
                 $available_cps[$pl] = [999];
                 $game_state = 2;
                 $game_end = $t;
@@ -541,11 +544,12 @@ if($debug == 1){ $debug_log[] = '72';};
                 $time_penalty = 1 + floor(($finish_time-$stage_time)/20);
             } else {$time_penalty = 0;}
         }
+        }
         //
         }
 
         //ONCE THE CP ACTION HAS BEEN TAKEN:
-        $commentary[] = $pl." - ".$comment;
+        $commentary[] = "Player ".$pl." - ".$comment;
         $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
     }
 
