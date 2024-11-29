@@ -205,13 +205,14 @@ button {
 
 #tempMessage {
     position: fixed;
-    top: 0;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #333;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
+    font-size: 2em;
     display: none; /* Hidden initially */
     z-index: 1000;
     opacity: 0; /* Fully transparent initially */
