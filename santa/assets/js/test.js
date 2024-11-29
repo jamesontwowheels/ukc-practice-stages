@@ -96,8 +96,9 @@ function ajax_call() {
             var cp_names_keys = Object.keys(cp_names);
             var available_cps = data["available_cps"];
             var puzzle_cps = data["puzzle_cps"];
+            var comment = data["comment"];
             let i = 0;
-            showTemporaryMessage('Hello! This message will disappear in 3 seconds.', 3000);
+            showTemporaryMessage(comment, 3000);
             //inventories:
                 // Count occurrences of each key
                 var keys1 = inventory[0];
