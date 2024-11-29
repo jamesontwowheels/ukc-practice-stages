@@ -202,3 +202,18 @@ button {
     text-decoration: none;
     font-size: 1.5em;
 }
+
+#tempMessage {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none; /* Hidden initially */
+    z-index: 1000;
+    opacity: 0; /* Fully transparent initially */
+    transition: opacity 0.5s ease-in-out;
+  }

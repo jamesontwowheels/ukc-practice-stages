@@ -40,6 +40,7 @@ if (isset($_GET['location'])) {
 <body>
   <h1>MINDGAMES</h1>
 <div id="main">
+<div id="tempMessage">This is a temporary message!</div>
   <div id="teams">
   <a href="teams.php" class="team-button"><br>Team Set-up</a>
   </div>

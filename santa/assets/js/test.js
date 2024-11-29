@@ -9,6 +9,25 @@ function pause(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function showTemporaryMessage(message, duration) {
+    const tempMessage = document.getElementById('tempMessage');
+    
+    // Set the message
+    tempMessage.textContent = message;
+    
+    // Display the message
+    tempMessage.style.display = 'block';
+    tempMessage.style.opacity = '1';
+    
+    // Hide the message after the specified duration
+    setTimeout(() => {
+      tempMessage.style.opacity = '0'; // Fade out
+      setTimeout(() => {
+        tempMessage.style.display = 'none'; // Hide after fade out
+      }, 500); // Matches the fade-out transition duration
+    }, duration);
+  }
+
 $(document).ready(function() {
     // On button click, toggle the expandable content
     $("#toggleButton").on("click", function() {
@@ -78,7 +97,7 @@ function ajax_call() {
             var available_cps = data["available_cps"];
             var puzzle_cps = data["puzzle_cps"];
             let i = 0;
-
+            showTemporaryMessage('Hello! This message will disappear in 3 seconds.', 3000);
             //inventories:
                 // Count occurrences of each key
                 var keys1 = inventory[0];
