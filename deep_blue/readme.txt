@@ -9,15 +9,18 @@ For the next game:
 //Tech Debt
 - Point the main pages to a single place for images/css/etc
 - Unified footer
-- Shutter the starts
-- App download page
+- Teams or Solo option.
 - Better leaderboard
-- Independent course loads (!)
-- Email reminder for passwords
-- Next game
 - That damn countdown
+- Email reminder for passwords
+- Segment the code
 
+//Features:
 
+- Shutter the starts >>         requires an admin mode/portal
+- Independent course loads (!)
+- Next game mechanics >>        requires the next game
+- Multi-functional buttons
 
 Structure of app:
 

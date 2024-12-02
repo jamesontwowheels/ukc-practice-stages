@@ -4,36 +4,23 @@
 include 'db_connect.php';
 
 //get the inputs
-$led_1 = $_GET["led_1"];
-$user = $_GET['user'];
+$inputValue = $_GET["InputValue"];
+$userName = $_GET['user'];
 $purpose = $_GET['purpose'];
 
 //create a date
-date_default_timezone_set("Europe/London");
-  $startDate = new DateTime("2024-11-01");
-  // Get today's date
-  $today = new DateTime("now");
-  // Calculate the difference in days
-  $interval = $startDate->diff($today);
-  $daysAfter = $interval->days;
+$createdAt = (new DateTime())->format('Y-m-d H:i:s'); // Format date as 'YYYY-MM-DD HH:MM:SS'
+
 
 //define the update
-
-if ($purpose == 1){
-
-  $sql = "INSERT INTO dbo.track_table (user_id, goal_1, date_int, purpose ) VALUES 
-  ($user, 1, $daysAfter, $purpose);";
+$sql = "INSERT INTO dbo.thingdoer (Purpose, CreatedAt, InputValue, UserName) VALUES 
+    ($purpose, $createdAt, $inputValue, $username);";
 $db_response[] = $sql;
 if ($conn->query($sql) == TRUE) {
-  $db_response[] =  "record inserted successfully";
-  $last_id = $conn->insert_id;
-  $db_response[] = "The success inserted ID is: " . $last_id . "<br>";
+    echo "record inserted successfully";
+    $last_id = $conn->insert_id;
+  echo "The success inserted ID is: " . $last_id . "<br>";
 } else {
-  $db_response[] = "Error: " . $sql . "<br>" . $conn->error;
-  $db_response[] = "The last inserted ID is: " . $last_id . "<br>";
+    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "The last inserted ID is: " . $last_id . "<br>";
 }
-
-}
-
-//send it to the db
-
