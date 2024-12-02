@@ -14,7 +14,7 @@ $createdAt = (new DateTime())->format('Y-m-d H:i:s'); // Format date as 'YYYY-MM
 
 //define the update
 $sql = "INSERT INTO dbo.thingdoer (Purpose, CreatedAt, InputValue, UserName) VALUES 
-    ($purpose, $createdAt, $inputValue, $username);";
+    ($purpose, $createdAt, $inputValue, $userName);";
   
 echo $sql; 
 if ($conn->query($sql) == TRUE) {
