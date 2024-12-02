@@ -42,7 +42,7 @@
 
     <script>
         // Example: Fetch the count dynamically via API or inline script
-        fetch('/assets/php/get_count.php') // Replace with your API endpoint
+        fetch('assets/php/get_count.php') // Replace with your API endpoint
             .then(response => response.json())
             .then(data => {
                 document.getElementById('count').textContent = data.count; // Assuming the response has a `count` field
