@@ -37,7 +37,7 @@
 <body>
     <div class="count-container">
         <h1 id="count">0</h1>
-        <p>Records Found</p>
+        <p>Distraction Count</p>
     </div>
 
     <script>
