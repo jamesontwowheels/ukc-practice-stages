@@ -13,13 +13,13 @@ $createdAt = (new DateTime())->format('Y-m-d\TH:i:s'); // Format for DATETIME2
 
 
 //define the update
-$sql = "INSERT INTO dbo.thingdoer (Purpose, CreatedAt, InputValue, UserName) VALUES 
-    ($purpose, $createdAt, $inputValue, $userName);";
-  
-echo $sql; 
-if ($conn->query($sql) == TRUE) {
-    echo "record inserted successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-    echo "The last inserted ID is: " . $last_id . "<br>";
-}
+
+$sql = "INSERT INTO dbo.thingdoer (Purpose, CreatedAt, InputValue, UserName) VALUES (:purpose, :createdAt, :inputValue, :userName)";
+$stmt = $conn->prepare($sql);
+
+$stmt->bindParam(':purpose', $purpose);
+$stmt->bindParam(':createdAt', $createdAt); // Correctly formatted datetime
+$stmt->bindParam(':inputValue', $inputValue);
+$stmt->bindParam(':userName', $userName);
+
+$stmt->execute();
