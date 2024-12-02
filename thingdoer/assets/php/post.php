@@ -9,7 +9,7 @@ $userName = $_GET['user'];
 $purpose = $_GET['purpose'];
 
 //create a date
-$createdAt = (new DateTime())->format('Y-m-d H:i:s'); // Format date as 'YYYY-MM-DD HH:MM:SS'
+$createdAt = (new DateTime())->format('Y-m-d\TH:i:s'); // Format for DATETIME2
 
 
 //define the update
