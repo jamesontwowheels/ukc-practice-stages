@@ -158,7 +158,7 @@ $x = 0;
     
     $santa_info = [
         101 => "The children are located as follows:  CH1 = Olivia, CH2 = Noah, CH3 = Amelia, CH4 = George, CH5 = Isla, CH6 = Leo",
-        102 => "The Resources are located as follows: R1 = Wool, R2 = Wood, R3 = Plastic, R4 = Carbon, R5 = Metal, R6 = Lithium"
+        102 => "Mrs Claus says thanks for selling her your stuff!"//"The Resources are located as follows: R1 = Wool, R2 = Wood, R3 = Plastic, R4 = Carbon, R5 = Metal, R6 = Lithium"
     ];
 
     $cp_names = [
@@ -172,16 +172,16 @@ $x = 0;
         12 => "Tree House",
         13 => "Bike",
         14 => "Playstation",
-        15 => "RC Car",
-        16 => "Laptop",
-        21 => "Olivia",
-        22 => "Noah",
-        23 => "Amelia",
-        24 => "George",
-        25 => "Isla",
-        26 => "Leo",
-        51 => "Portal",
-        101 => "Mr Claus",
+        //15 => "RC Car",
+        //16 => "Laptop",
+        21 => "Ada",
+        22 => "Ben",
+        23 => "Cat",
+        24 => "Dom",
+        //25 => "Isla",
+        //26 => "Leo",
+        51 => "Workshop",
+        //101 => "Mr Claus",
         102 => "Mrs Claus",
         998 => "Finish",
         999 => "Start"
@@ -197,7 +197,7 @@ $x = 0;
     $available_cps = [999]; //which CPs are immediately available?
     $live_result = [];
     //values
-    $stage_time = 75*60;
+    $stage_time = 60*60;
     $alert = 0;
 
 
@@ -230,9 +230,9 @@ if($debug == 1){ $debug_log[] = '72';};
 
     $wishlists = [
         21 => [11,12,13],
-        22 => [14,15,16],
-        23 => [16,11,12],
-        24 => [13,14,15],
+        22 => [11,12,14],           //OG = [14,15,16],
+        23 => [11,13,14],           //OG = [16,11,12],
+        24 => [12,13,14],           //OG = [13,14,15],
         25 => [12,14,11],
         26 => [15,13,16]
     ];
@@ -240,8 +240,8 @@ if($debug == 1){ $debug_log[] = '72';};
     $gift_times = [
         11 => 120,
         12 => 120,
-        13 => 240,
-        14 => 240,
+        13 => 120,
+        14 => 120,
         15 => 360,
         16 => 480];
 
@@ -286,12 +286,12 @@ if($debug == 1){ $debug_log[] = '72';};
     ];
 
     $resource_start = [
-        1 => 3,
-        2 => 3,
-        3 => 1,
-        4 => 1,
-        5 => 6,
-        6 => 6
+        1 => 300,
+        2 => 300,
+        3 => 100,
+        4 => 100,
+        5 => 600,
+        6 => 600
     ];
 
     $resource_used = [
@@ -328,7 +328,7 @@ if($debug == 1){ $debug_log[] = '72';};
     foreach($team["members"] as $team_member){
         $bags[$team_member] = [];
         $sacks[$team_member] = [];
-        $map_level[$team_member] = 0;
+        $map_level[$team_member] = 1;
         $available_cps[$team_member] = [999];
         $team_player_count += 1;
         $debug_log[] = "bags = ";
@@ -385,8 +385,8 @@ if($debug == 1){ $debug_log[] = '72';};
             if($resource_available[$cp] < 1){
                 $early = $resource_refresh[$cp] - $game_time % $resource_refresh[$cp];
                 $comment = "Resource unavailable. Wait $early seconds";
-            } elseif (count($bags[$pl]) == 8) {
-                $comment = "You can't carry any more, resource lost";
+            } elseif (count($bags[$pl]) == 4) {
+                $comment = "You can't carry any more, you can visit Mrs Claus to sell?";
                 $resource_used[$cp] += 1;
             } else {
             //add to bag
@@ -487,17 +487,18 @@ if($debug == 1){ $debug_log[] = '72';};
 
         //exit the north pole
         if($cp == $cp_workshop){
-            if($game_time < 600){
+            if($game_time < 1){
                 $comment = "The portal is not open yet";
             } else {
                 if($map_level[$pl] == 0){
                     $map_level[$pl] = 1;
                     $available_cps[$pl] = $outside_cps;
+                    $comment = "Leaving the workshop";
                 } else {
                     $map_level[$pl] = 0;
                     $available_cps[$pl] = $inside_cps;
+                    $comment = "entering the workshop";
                 }
-                $comment = "Portal. Zooooom";
             }
         }
 
@@ -523,7 +524,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $game_start = $t;
                 $comment = "game started";
                 foreach($team["members"] as $team_member){
-                    $available_cps[$team_member] = $inside_cps;}
+                    $available_cps[$team_member] = $outside_cps;}
             } 
             elseif ($game_state == 2) {
                $game_state = 0;
