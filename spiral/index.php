@@ -28,7 +28,7 @@ function findLongestChronologicalConsecutive($punches) {
 
     $longestSequence = [];
     $currentSequence = [];
-    $expectedControlId = 10;
+    $expectedControlId = 1;
 
     foreach ($punches as $punch) {
         $controlId = (int)$punch['ControlId'];
@@ -36,11 +36,14 @@ function findLongestChronologicalConsecutive($punches) {
         if ($expectedControlId === null || $controlId === $expectedControlId) {
             // Start a new sequence or continue the current one
             $currentSequence[] = $controlId;
+            $score = ($expectedControlId % 5 ) * 10;
+            if($score == 0) { $score = 50;};
+            $running_score += $score;
             $expectedControlId = $controlId + 1; // Update the expected ControlId
         } elseif ($controlId > $expectedControlId) {
             // Missed the expected ControlId; save the current sequence if it's the longest
             if (count($currentSequence) > count($longestSequence)) {
-                $longestSequence = $currentSequence;
+                $longestSequence["sequence"] = $currentSequence;
             }
             // Reset the sequence and attempt to start from the current control
          //   $currentSequence = [$controlId];
@@ -51,9 +54,9 @@ function findLongestChronologicalConsecutive($punches) {
 
     // Final check after the loop
     if (count($currentSequence) > count($longestSequence)) {
-        $longestSequence = $currentSequence;
+        $longestSequence["sequence"] = $currentSequence;
     }
-
+    $longestSequence["score"] = $running_score;
     return $longestSequence;
 }
 
@@ -71,17 +74,27 @@ foreach ($data['results'] as $participant) {
     // Find the longest sequence of consecutive ControlIds in chronological order
     $longestSequence = findLongestChronologicalConsecutive($punches);
 
+    $secs_late = max($particpant['TotalTimeSecs'] - 3600,0);
+    if($secs_late > 0) {
+        $penalty = floor($secs_late/3) + 1;
+    };
+
+    $final_score = $longestSequence["score"] - $penalty;
+
     // Store the result
     $competitorSequences[] = [
         'name' => $name,
-        'sequence' => $longestSequence,
-        'length' => count($longestSequence)
+        'sequence' => $longestSequence["sequence"],
+        'length' => count($longestSequence["sequence"]),
+        'score' => $longestSequence["score"],
+        'penalty' => $penalty,
+        'final score' => $final_score
     ];
 }
 
 // Sort the array by the length of the sequence in descending order
 usort($competitorSequences, function($a, $b) {
-    return $b['length'] - $a['length'];
+    return $b['final score'] - $a['final score'];
 });
 
 // Output the results as an HTML table
@@ -89,7 +102,7 @@ usort($competitorSequences, function($a, $b) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Longest Consecutive ControlIDs</title>
+    <title>Rob's Streeto Spiral</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -173,6 +186,9 @@ usort($competitorSequences, function($a, $b) {
                 <th>Competitor</th>
                 <th>Longest Sequence</th>
                 <th>Length</th>
+                <th>Score</th>
+                <th>Penalty</th>
+                <th>Final Score</th>
             </tr>
         </thead>
         <tbody>
@@ -181,6 +197,9 @@ usort($competitorSequences, function($a, $b) {
                     <td><?= htmlspecialchars($result['name']) ?></td>
                     <td><?= htmlspecialchars(implode(", ", $result['sequence'])) ?></td>
                     <td><?= $result['length'] ?></td>
+                    <td><?= htmlspecialchars($result['score']) ?></td>
+                    <td><?= htmlspecialchars($result['penalty']) ?></td>
+                    <td><?= htmlspecialchars($result['final score']) ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
