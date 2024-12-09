@@ -45,6 +45,7 @@ function findLongestChronologicalConsecutive($punches) {
             $running_score += $score;
             $expectedControlId = $controlId + 1; // Update the expected ControlId
         } elseif ($controlId > $expectedControlId) {
+            break;
             // Missed the expected ControlId; save the current sequence if it's the longest
             if (count($currentSequence) > count($longestSequence)) {
                 $longestSequence["sequence"] = $currentSequence;
@@ -60,6 +61,7 @@ function findLongestChronologicalConsecutive($punches) {
     if (count($currentSequence) > count($longestSequence)) {
         $longestSequence["sequence"] = $currentSequence;
     }
+    $longestSequence["sequence"] = $currentSequence;
     $longestSequence["score"] = $running_score;
     return $longestSequence;
 }
@@ -77,11 +79,17 @@ foreach ($data['results'] as $participant) {
 
     // Find the longest sequence of consecutive ControlIds in chronological order
     $longestSequence = findLongestChronologicalConsecutive($punches);
-
-    $secs_late = max($particpant['TotalTimeSecs'] - 3600,0);
+    $penalty = 0; //$participant['TotalTimeSecs']; 
+    $seconds = $participant['TotalTimeSecs'];
+    $secs_late = max($seconds - 3600,0);
     if($secs_late > 0) {
-        $penalty = floor($secs_late/3) + 1;
+        $penalty = ceil($secs_late/2);
     };
+
+    $hours = floor($seconds / 3600);
+    $minutes = floor(($seconds % 3600) / 60);
+    $remainingSeconds = $seconds % 60;
+    $pretty_time = sprintf("%02d:%02d:%02d", $hours, $minutes, $remainingSeconds);
 
     $final_score = $longestSequence["score"] - $penalty;
 
@@ -91,6 +99,8 @@ foreach ($data['results'] as $participant) {
         'sequence' => $longestSequence["sequence"],
         'length' => count($longestSequence["sequence"]),
         'score' => $longestSequence["score"],
+        'time' => $pretty_time,
+        'time_secs' => $seconds,
         'penalty' => $penalty,
         'final score' => $final_score
     ];
@@ -98,6 +108,10 @@ foreach ($data['results'] as $participant) {
 
 // Sort the array by the length of the sequence in descending order
 usort($competitorSequences, function($a, $b) {
+    if ($b['final score'] == $a['final score']) {
+        // Secondary comparison: id
+        return $a['time_secs'] - $b['time_secs'];
+    }
     return $b['final score'] - $a['final score'];
 });
 
@@ -187,21 +201,28 @@ usort($competitorSequences, function($a, $b) {
     <table>
         <thead>
             <tr>
+                <th>P</th>
                 <th>Competitor</th>
                 <th>Longest Sequence</th>
                 <th>Length</th>
                 <th>Score</th>
+                <th>Time</th>
                 <th>Penalty</th>
                 <th>Final Score</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($competitorSequences as $result): ?>
+            <?php 
+                $p_rank = 0;
+                foreach ($competitorSequences as $result): 
+                $p_rank += 1;?>
                 <tr>
+                    <td><?= $p_rank; ?></td>
                     <td><?= htmlspecialchars($result['name']) ?></td>
                     <td><?= htmlspecialchars(implode(", ", $result['sequence'])) ?></td>
                     <td><?= $result['length'] ?></td>
                     <td><?= htmlspecialchars($result['score']) ?></td>
+                    <td><?= htmlspecialchars($result['time']) ?></td>
                     <td><?= htmlspecialchars($result['penalty']) ?></td>
                     <td><?= htmlspecialchars($result['final score']) ?></td>
                 </tr>
