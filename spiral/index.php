@@ -26,9 +26,13 @@ function findLongestChronologicalConsecutive($punches) {
         return $a['TimeAfterStartSecs'] - $b['TimeAfterStartSecs'];
     });
 
-    $longestSequence = [];
+    $longestSequence = [
+        "sequence" => [],
+        "score" => 0
+    ];
     $currentSequence = [];
     $expectedControlId = 1;
+    $running_score = 0;
 
     foreach ($punches as $punch) {
         $controlId = (int)$punch['ControlId'];
@@ -179,7 +183,7 @@ usort($competitorSequences, function($a, $b) {
     </style>
 </head>
 <body>
-    <h2>🎄 Longest Consecutive ControlIDs - Christmas Edition 🎄</h2>
+    <h2>🎄 MVOC Spiral Streeto - Christmas Edition 🎄</h2>
     <table>
         <thead>
             <tr>
