@@ -1,6 +1,6 @@
 <?php
 // Define the URL to fetch data from
-$url = "https://p.fne.com.au:8886/resultsGetPublicForEvent?eventName=Weybridge%20Nov24%20PXAS%20ScoreQ60";
+$url = "https://p.fne.com.au:8886/resultsGetPublicForEvent?eventName=Ashtead%20Dec24%20PXAS%20ScoreV60";
 
 // Fetch data from the URL
 $response = file_get_contents($url);
