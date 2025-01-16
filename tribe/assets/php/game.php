@@ -143,7 +143,7 @@ $x = 0;
 
         $animal_locations = [
             1 => [
-                'king' => [0, 0, 0], //[team,count,start time]
+                'king' => [32, 5, 0], //[team,count,start time]
                 'bush' => [1 => 0, 2 => 0, 3 => 0],
             ],
             2 => [
