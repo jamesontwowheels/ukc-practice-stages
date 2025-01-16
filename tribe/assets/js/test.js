@@ -189,7 +189,7 @@ function ajax_call() {
             newDiv.id = `cp_option_` + this_key;
             
             // Optionally, set inner text or styles
-            newDiv.innerText = `Option ` + this_key + '<button class="submit_button active" cp="' + this_key + '">Submit</button.';
+            newDiv.innerText = `Option ` + this_key + '<button class="submit_button active" cp="' + this_key + '">Submit</button>';
             newDiv.style.padding = '10px';
             newDiv.style.border = '1px solid #ccc';
             newDiv.style.margin = '5px 0';
@@ -291,10 +291,11 @@ function ajax_call() {
 }}
 
 function cp_explore() {
+    console.log ("exploring the CP");
     var cp = $(this).attr('cp');
     var cp_option_id = 'cp_option_' + cp;
     document.getElementById(cp_option_id).classList.add("cp-option-show");
-    document.getElementById(cp_option_id).classList.show("cp-option");
+    document.getElementById(cp_option_id).classList.remove("cp-option");
 }
 
 
