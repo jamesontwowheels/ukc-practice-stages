@@ -93,10 +93,10 @@ foreach ($result as $row) {
     if(!in_array($row["Player_ID"],$players)){
         $players[$row["Player_ID"]] = [];
     }
-  $all_punches[] = [$row["CP_ID"],$row["Time_stamp"],$row["puzzle_answer"],$row["Player_ID"],$player_teams[$row["Player_ID"]]["team"],$row["purpose"]]; //this has all punches now.
+  $all_punches[] = [$row["CP_ID"],$row["Time_stamp"],$row["puzzle_answer"],$row["Player_ID"],$player_details[$row["Player_ID"]]["team"],$row["purpose"]]; //this has all punches now.
    $i += 1;
 }
-$debug_log[] = $player_cps;
+$debug_log[] = $all_punches;
 
 //build the teams
 
