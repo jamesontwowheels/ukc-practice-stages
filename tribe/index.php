@@ -44,6 +44,9 @@ if (isset($_GET['location'])) {
   <div id="teams">
   <a href="teams.php" class="team-button"><br>Team Set-up</a>
   </div>
+  <div id="cp_options">
+    
+  </div>
   <div id="water">
         <div class="bubble1"></div>
         <div class="bubble1"></div>

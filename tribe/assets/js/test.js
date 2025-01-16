@@ -128,11 +128,10 @@ function ajax_call() {
                 alert ("No. Puzzle incorrect");
             }
 
+            const parentDiv = document.getElementById('cp_options');
             while (i < cp_names_keys.length) {
             var this_key = cp_names_keys[i];
             var cp_id = "butt" + this_key;
-
-           
 
             //check that the element exists
             function checkElementExists(id, key_id, keyname, timeout = 15000) {
@@ -180,6 +179,23 @@ function ajax_call() {
             }).catch(error => {
                 console.error(error.message);
             });
+
+            //add CP options
+                // Create a new DIV element
+            const newDiv = document.createElement('div');
+            
+            // Set the ID attribute
+            newDiv.id = `cp_option_` + this_key;
+            
+            // Optionally, set inner text or styles
+            newDiv.innerText = `Option ` + this_key;
+            newDiv.style.padding = '10px';
+            newDiv.style.border = '1px solid #ccc';
+            newDiv.style.margin = '5px 0';
+            
+            // Append the new DIV to the parent DIV
+            parentDiv.appendChild(newDiv);
+
             i++;
             } 
             
