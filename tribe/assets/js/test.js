@@ -3,7 +3,7 @@ let oxygenFunction = 0;
 var puzzle_questions = [];
 
 $(document).ready(ajax_call);
-$("body").on("click", "button", ajax_call);
+$("body").on("click", "submit_button", ajax_call);
 
 function pause(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -188,10 +188,11 @@ function ajax_call() {
             newDiv.id = `cp_option_` + this_key;
             
             // Optionally, set inner text or styles
-            newDiv.innerText = `Option ` + this_key;
+            newDiv.innerText = `Option ` + this_key + '<button class="submit_button active" cp="' + this_key + '">Submit</button.';
             newDiv.style.padding = '10px';
             newDiv.style.border = '1px solid #ccc';
             newDiv.style.margin = '5px 0';
+            newDiv.classList.add('cp-option');
             
             // Append the new DIV to the parent DIV
             parentDiv.appendChild(newDiv);
