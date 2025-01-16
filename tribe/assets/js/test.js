@@ -3,7 +3,8 @@ let oxygenFunction = 0;
 var puzzle_questions = [];
 
 $(document).ready(ajax_call);
-$("body").on("click", "submit_button", ajax_call);
+$("body").on("click", ".submit_button", ajax_call);
+$("body").on("click", ".cp_button", cp_explore);
 
 function pause(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -288,6 +289,13 @@ function ajax_call() {
         
     });
 }}
+
+function cp_explore() {
+    var cp = $(this).attr('cp');
+    var cp_option_id = 'cp_option_' + cp;
+    document.getElementById(cp_option_id).classList.add("cp-option-show");
+    document.getElementById(cp_option_id).classList.show("cp-option");
+}
 
 
 

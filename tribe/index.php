@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {
     // Redirect to login page if not logged in
@@ -45,7 +44,7 @@ if (isset($_GET['location'])) {
   <a href="teams.php" class="team-button"><br>Team Set-up</a>
   </div>
   <div id="cp_options">
-    
+
   </div>
   <div id="water">
         <div class="bubble1"></div>
