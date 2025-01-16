@@ -9,7 +9,7 @@ $response = [];
 $debug_log = [];
 $debug_log[] = "data play";
 $user_input = $_REQUEST["user_input"];
-$game = 4;
+$game = 5;
 $incoming_cp = $cp;
 include 'db_connect.php';
 
@@ -302,7 +302,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $puzzle_answer = strtolower($all_punches[$z][2]);
         $pl = $all_punches[$z][3];
         $tm = $all_punches[$z][4];
-        $purp = $all_punches[$z][5];
+        $purp = 1; //$all_punches[$z][5];
         $z += 1;
         $puzzle_response = 0;
         $alert = 0;
