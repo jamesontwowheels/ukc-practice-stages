@@ -224,13 +224,17 @@ button {
   }
 
   .cp-option-show {
-    position: fixed; /* Keeps the div in a fixed position on the screen */
-    z-index: 1000; /* Ensures it appears in front of most elements */
-    width: 300px; /* Set a consistent width */
-    padding: 20px; /* Add padding inside the card */
-    border-radius: 8px; /* Rounded corners for a card-like appearance */
-    background-color: white; /* Default background color */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    border: 1px solid #ccc; /* Optional border for better visibility */
+    position: fixed; /* Fixed position ensures the cards stay in the viewport */
+    z-index: 1000; /* Keeps cards in front of other elements */
+    width: 400px; /* Larger card size */
+    padding: 30px; /* Add padding inside the card */
+    border-radius: 12px; /* Rounded corners for a smooth look */
+    background-color: #ffffff; /* White background for a clean design */
+    color: #333; /* Dark text color for good contrast */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.2); /* Deep shadow for emphasis */
     text-align: center; /* Center-align text */
+    font-family: Arial, sans-serif; /* Clean, modern font */
+    font-size: 18px; /* Readable text size */
+    transform: translate(-50%, -50%); /* Center cards with top and left */
+    cursor: pointer; /* Pointer cursor for interactivity */
   }

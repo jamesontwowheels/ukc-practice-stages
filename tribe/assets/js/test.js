@@ -189,7 +189,7 @@ function ajax_call() {
             newDiv.id = `cp_option_` + this_key;
             
             // Optionally, set inner text or styles
-            newDiv.innerText = `Option ` + this_key + '<button class="submit_button active" cp="' + this_key + '">Submit</button>';
+            newDiv.innerHTML = `Option ` + this_key + '<button class="submit_button active" cp="' + this_key + '">Submit</button>';
             newDiv.style.padding = '10px';
             newDiv.style.border = '1px solid #ccc';
             newDiv.style.margin = '5px 0';
