@@ -57,6 +57,7 @@ if($teams_active){
         ];
     $debug_log[]  = "58. count teams";
     }
+    $debug_log[] = $teams;
 
     //get all the team_members
     $query4 = "select * from dbo.team_members where game = :game and location = :location";
@@ -139,7 +140,7 @@ $x = 0;
         999 => "Start"
         ];
     
-        $teams = [1,2,3];
+        // $teams = [1,2,3];
 
         $animal_locations = [
             1 => [
