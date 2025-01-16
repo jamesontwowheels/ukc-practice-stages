@@ -189,7 +189,7 @@ function ajax_call() {
             newDiv.id = `cp_option_` + this_key;
             
             // Optionally, set inner text or styles
-            newDiv.innerHTML = `Option ` + this_key + '<button class="submit_button active" cp="' + this_key + '">Submit</button>';
+            newDiv.innerHTML = `<span class="close-btn">&times;</span>Option ` + this_key + '<button class="submit_button active" cp="' + this_key + '">Submit</button>';
             newDiv.style.padding = '10px';
             newDiv.style.border = '1px solid #ccc';
             newDiv.style.margin = '5px 0';
@@ -298,6 +298,14 @@ function cp_explore() {
     document.getElementById(cp_option_id).classList.remove("cp-option");
 }
 
+// Add event listener to all close buttons
+document.querySelectorAll('.close-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+        const parentCard = this.parentElement; // Get the parent card
+        parentCard.classList.remove('cp-options-show'); // Remove the "show" class
+        parentCard.classList.add('cp-options'); // Add the "cp-options" class
+    });
+});
 
 
 

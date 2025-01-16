@@ -226,7 +226,8 @@ button {
   .cp-option-show {
     position: fixed; /* Fixed position ensures the cards stay in the viewport */
     z-index: 1000; /* Keeps cards in front of other elements */
-    width: 400px; /* Larger card size */
+    width: 60%; /* Larger card size */
+    min-height:40%;
     padding: 30px; /* Add padding inside the card */
     border-radius: 12px; /* Rounded corners for a smooth look */
     background-color: #ffffff; /* White background for a clean design */
@@ -235,6 +236,22 @@ button {
     text-align: center; /* Center-align text */
     font-family: Arial, sans-serif; /* Clean, modern font */
     font-size: 18px; /* Readable text size */
-    transform: translate(-50%, -50%); /* Center cards with top and left */
     cursor: pointer; /* Pointer cursor for interactivity */
+    top: 30%; /* Position from top of the screen */
+    left: 20%; /* Position from left of the screen */
   }
+
+/* Styling for the close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    background: transparent;
+    border: none;
+    outline: none;
+}
