@@ -80,7 +80,7 @@ function ajax_call() {
 
     //bit of jazz
     $(this).addClass('blocked');
-    var temp_highlight = $(this);
+    var temp_highlight = $("#cp"+cp);
     temp_highlight.addClass('clicked');
     
     setTimeout(function() {
@@ -88,7 +88,7 @@ function ajax_call() {
     }, 2000);
 
    
-
+    console.log('ajax fire');
     $.ajax({
         type: 'POST',
         dataType: 'json',
