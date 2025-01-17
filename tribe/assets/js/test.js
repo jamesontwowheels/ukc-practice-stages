@@ -192,7 +192,7 @@ function ajax_call() {
             newDiv.innerHTML = `<div class="cp-header">`+ cp_names[this_key] +`</div><span class="close-btn">&times;</span>Option ` + this_key + '<button class="submit_button active" cp="' + this_key + '">Submit</button>';
             newDiv.classList.add('cp-option');
             var these_options = cp_options[this_key];
-            these_options.forEach(item => {
+            these_options.forEach(function(item) {
                 newDiv.innerHTML += '<button class="submit_button active" cp="' + this_key + '" purpose="'+ item.key +'">'+ item.value +'</button>';                
             });
             
