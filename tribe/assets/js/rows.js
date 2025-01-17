@@ -22,7 +22,7 @@ for (let i = 0; i < targets.length; i++) {
                 
                 const newDiv = document.createElement('div');
                 cp_options.id = `cp_option_card_${target.properties.name}`;
-                cp_options.innerHTML = `<div class="cp-header">`+ cp_names[this_key] +`</div><span class="close-btn">&times;</span><div class="cp_option_space_${target.properties.name}"></div>`;
+                cp_options.innerHTML = `<div class="cp-header">${target.properties.name}</div><span class="close-btn">&times;</span><div class="cp_option_space_${target.properties.name}"></div>`;
                 cp_options.classList.add('cp-option');
                 cp_options.appendChild(newDiv);
             }
