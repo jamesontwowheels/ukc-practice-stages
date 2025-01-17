@@ -289,7 +289,7 @@ function ajax_call() {
 function cp_explore() {
     console.log ("exploring the CP");
     var cp = $(this).attr('cp');
-    var cp_option_id = 'cp_option_' + cp;
+    var cp_option_id = 'cp_option_card_' + cp;
     document.getElementById(cp_option_id).classList.add("cp-option-show");
     document.getElementById(cp_option_id).classList.remove("cp-option");
 }
