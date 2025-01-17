@@ -191,9 +191,6 @@ function ajax_call() {
             
             // Optionally, set inner text or styles
             newDiv.innerHTML = `<div class="cp-header">`+ cp_names[this_key] +`</div><span class="close-btn">&times;</span>Option ` + this_key + '<button class="submit_button active" cp="' + this_key + '">Submit</button>';
-            newDiv.style.padding = '10px';
-            newDiv.style.border = '1px solid #ccc';
-            newDiv.style.margin = '5px 0';
             newDiv.classList.add('cp-option');
             
             // Append the new DIV to the parent DIV
