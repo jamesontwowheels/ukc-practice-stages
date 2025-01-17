@@ -189,19 +189,12 @@ function ajax_call() {
             const newDiv = document.createElement('div');
             
             // Set the ID attribute
-            newDiv.id = `cp_option_` + this_key;
-            newDiv.innerHTML = `<div class="cp-header">`+ cp_names[this_key] +`</div><span class="close-btn">&times;</span>Option ` + this_key + '<button class="submit_button active" cp="' + this_key + '">Submit</button>';
-            newDiv.classList.add('cp-option');
-            var these_options = cp_options[this_key];
-            console.log(these_options);
+            const target_space = `cp_option_space_` + this_key;
 
             Object.keys(these_options).forEach(key => {
-                newDiv.innerHTML += '<button class="submit_button active" cp="' + this_key + '" purpose="'+ key +'">' + these_options[key] + '</button>';                
+                target_space.innerHTML += '<button class="submit_button active" cp="' + this_key + '" purpose="'+ key +'">' + these_options[key] + '</button>';                
             });
             
-            // Append the new DIV to the parent DIV
-            parentDiv.appendChild(newDiv);
-
             i++;
             } 
             

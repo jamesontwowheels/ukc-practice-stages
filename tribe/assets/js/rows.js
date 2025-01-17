@@ -6,6 +6,7 @@ fetch('assets/php/location.php')
             var targets = games[location];
             console.log (targets);
 const tableBody = document.querySelector('#checkpoints tbody');
+const cp_options = document.querySelector('#cp_options');
 for (let i = 0; i < targets.length; i++) {
                 console.log(targets[i].properties.name);
                 target = targets[i];
@@ -17,5 +18,11 @@ for (let i = 0; i < targets.length; i++) {
                 `;
                 console.log(row);
                 tableBody.appendChild(row);
+
+
+                newDiv.id = `cp_option_card_${target.properties.name}`;
+                newDiv.innerHTML = `<div class="cp-header">`+ cp_names[this_key] +`</div><span class="close-btn">&times;</span><div class="cp_option_space_${target.properties.name}"></div>`;
+                newDiv.classList.add('cp-option');
+                cp_options.appendChild(newDiv);
             }
         })
