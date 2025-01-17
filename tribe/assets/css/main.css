@@ -241,6 +241,17 @@ button {
     left: 20%; /* Position from left of the screen */
   }
 
+  .cp-header {
+    background-color: #007bff; /* Blue header background */
+    color: #fff; /* White text for contrast */
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
 /* Styling for the close button */
 .close-btn {
     position: absolute;
