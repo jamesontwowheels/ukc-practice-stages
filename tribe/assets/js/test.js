@@ -194,8 +194,9 @@ function ajax_call() {
             newDiv.classList.add('cp-option');
             var these_options = cp_options[this_key];
             console.log(these_options);
-            these_options.forEach(function(item) {
-                newDiv.innerHTML += '<button class="submit_button active" cp="' + this_key + '" purpose="'+ item.key +'">'+ item.value +'</button>';                
+
+            Object.keys(these_options).forEach(key => {
+                newDiv.innerHTML += '<button class="submit_button active" cp="' + this_key + '" purpose="'+ key +'">' + these_options[key] + '</button>';                
             });
             
             // Append the new DIV to the parent DIV
