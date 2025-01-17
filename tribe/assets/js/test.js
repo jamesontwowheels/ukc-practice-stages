@@ -186,7 +186,6 @@ function ajax_call() {
 
             //add CP options
                 // Create a new DIV element
-            const newDiv = document.createElement('div');
             
             // Set the ID attribute
             const target_space = `cp_option_space_` + this_key;

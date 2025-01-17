@@ -19,10 +19,11 @@ for (let i = 0; i < targets.length; i++) {
                 console.log(row);
                 tableBody.appendChild(row);
 
-
-                newDiv.id = `cp_option_card_${target.properties.name}`;
-                newDiv.innerHTML = `<div class="cp-header">`+ cp_names[this_key] +`</div><span class="close-btn">&times;</span><div class="cp_option_space_${target.properties.name}"></div>`;
-                newDiv.classList.add('cp-option');
+                
+                const newDiv = document.createElement('div');
+                cp_options.id = `cp_option_card_${target.properties.name}`;
+                cp_options.innerHTML = `<div class="cp-header">`+ cp_names[this_key] +`</div><span class="close-btn">&times;</span><div class="cp_option_space_${target.properties.name}"></div>`;
+                cp_options.classList.add('cp-option');
                 cp_options.appendChild(newDiv);
             }
         })
