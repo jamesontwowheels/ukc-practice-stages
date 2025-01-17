@@ -21,7 +21,7 @@ $location = $_SESSION['location'];
 $game = 5;
 $input_time = time();
 
-$sql = "INSERT INTO dbo.test_game (Player_ID, CP_ID, Time_stamp, location, game, puzzle_answer, option) VALUES 
+$sql = "INSERT INTO dbo.test_game (Player_ID, CP_ID, Time_stamp, location, game, puzzle_answer, cp_option) VALUES 
     ($user_ID, $cp, $input_time, $location, $game, '$safe_input', $cp_option_choice);";
 $db_response[] = $sql;
 if ($conn->query($sql) == TRUE) {
