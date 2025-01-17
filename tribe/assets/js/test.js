@@ -96,6 +96,7 @@ function ajax_call() {
             var inventory = data["inventory"];
             var cp_names = data["cp_names"];
             var cp_names_keys = Object.keys(cp_names);
+            var cp_options = data["cp_options"];
             var available_cps = data["available_cps"];
             var puzzle_cps = data["puzzle_cps"];
             var comment = data["comment"];
@@ -188,10 +189,12 @@ function ajax_call() {
             
             // Set the ID attribute
             newDiv.id = `cp_option_` + this_key;
-            
-            // Optionally, set inner text or styles
             newDiv.innerHTML = `<div class="cp-header">`+ cp_names[this_key] +`</div><span class="close-btn">&times;</span>Option ` + this_key + '<button class="submit_button active" cp="' + this_key + '">Submit</button>';
             newDiv.classList.add('cp-option');
+            var these_options = cp_options[this_key];
+            these_options.forEach(item => {
+                newDiv.innerHTML += '<button class="submit_button active" cp="' + this_key + '" purpose="'+ item.key +'">'+ item.value +'</button>';                
+            });
             
             // Append the new DIV to the parent DIV
             parentDiv.appendChild(newDiv);

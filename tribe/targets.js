@@ -150,54 +150,6 @@
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -0.07868732762363231,
-            51.517566588490496,
-            0
-          ]
-        },
-        "properties": {
-          "name": "10",
-          "styleUrl": "#control",
-          "styleHash": "5c951ac3"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            -0.0743933459552985,
-            51.51692751592586,
-            0
-          ]
-        },
-        "properties": {
-          "name": "11",
-          "styleUrl": "#control",
-          "styleHash": "5c951ac3"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            -0.07017096885090629,
-            51.51688510250909,
-            0
-          ]
-        },
-        "properties": {
-          "name": "12",
-          "styleUrl": "#control",
-          "styleHash": "5c951ac3"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
             -0.06672931568621113,
             51.51695888494797,
             0

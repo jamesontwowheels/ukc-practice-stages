@@ -139,6 +139,29 @@ $x = 0;
         998 => "Finish",
         999 => "Start"
         ];
+
+    $cp_options = [
+            1 => [1 => "Pick-up Animal", 2 => "Leave animal"],
+            2 => [1 => "Pick-up Animal", 2 => "Leave animal"],
+            3 => [1 => "Pick-up Animal", 2 => "Leave animal"],
+            4 => [1 => "Pick-up Animal", 2 => "Leave animal"],
+            5 => [1 => "Pick-up Animal", 2 => "Leave animal"],
+            6 => [1 => "Pick-up Animal", 2 => "Leave animal"],
+            7 => [1 => "Pick-up Animal", 2 => "Leave animal"],
+            8 => [1 => "Pick-up Animal", 2 => "Leave animal"],
+            9 => [1 => "Pick-up Animal", 2 => "Leave animal"],
+            21 => [1 => "Submit"],
+            22 => [1 => "Submit"],
+            23 => [1 => "Submit"],
+            24 => [1 => "Submit"],
+            25 => [1 => "Leave animals"],
+            31 => [1 => "Pick-up Animal", 2 => "Leave animal"],
+            32 => [1 => "Pick-up Animal", 2 => "Leave animal"],
+            33 => [1 => "Pick-up Animal", 2 => "Leave animal"],
+            100 => [1 => "Climb Mountain"],
+            998 => [1 => "Finish"],
+            999 => [1 => "Start"]
+    ];
     
         // $teams = [1,2,3];
 
@@ -452,6 +475,7 @@ $response["running_score"] = $running_score;
 $response["alert"] = $alert;
 $response["commentary"] = $commentary;
 $response["cp_names"] = $this_cp_names;
+$response["cp_options"] = $cp_options;
 $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 $response["inventory"] = [$bags[$user_ID],$sacks[$user_ID]];
