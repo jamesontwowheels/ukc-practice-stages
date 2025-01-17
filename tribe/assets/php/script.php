@@ -3,6 +3,7 @@ session_start();
 $db_response = [];
 //generic CP hit
 $cp = $_REQUEST["cp"];
+$cp_option_choice = $_REQUEST["cp_option_choice"];
 $user_input = isset($_REQUEST['user_input']) ? $_REQUEST['user_input'] : '';
 
 //trim whitespace
@@ -20,8 +21,8 @@ $location = $_SESSION['location'];
 $game = 5;
 $input_time = time();
 
-$sql = "INSERT INTO dbo.test_game (Player_ID, CP_ID, Time_stamp, location, game, puzzle_answer) VALUES 
-    ($user_ID, $cp, $input_time, $location, $game, '$safe_input');";
+$sql = "INSERT INTO dbo.test_game (Player_ID, CP_ID, Time_stamp, location, game, puzzle_answer, option) VALUES 
+    ($user_ID, $cp, $input_time, $location, $game, '$safe_input', $cp_option_choice);";
 $db_response[] = $sql;
 if ($conn->query($sql) == TRUE) {
     $db_response[] =  "record inserted successfully";

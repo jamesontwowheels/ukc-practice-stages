@@ -56,7 +56,11 @@ function ajax_call() {
     var cp = $(this).attr('cp');
     cp = cp || 0;
     console.log (cp);
-    
+
+    var cp_option_choice = $(this).attr('cp_option_choice');
+    cp = cp || 0;
+    console.log (cp_option_choice);
+
     var user_input = "void";
     if($(this).hasClass('puzzle')){
         user_input = prompt(puzzle_questions[cp]);
@@ -76,7 +80,7 @@ function ajax_call() {
 
     //bit of jazz
     $(this).addClass('blocked');
-    var temp_highlight = $("#cp"+cp);
+    var temp_highlight = $(this);
     temp_highlight.addClass('clicked');
     
     setTimeout(function() {
@@ -88,7 +92,7 @@ function ajax_call() {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: 'assets/php/test.php?purpose=1&cp='+cp+'&user_input='+user_input,
+        url: 'assets/php/test.php?cp_option_choice='+cp_option_choice+'&purpose=1&cp='+cp+'&user_input='+user_input,
         success: function(data) {
             console.log("ajax return");
             var debug_log = data["debug_log"];
@@ -190,10 +194,11 @@ function ajax_call() {
             // Set the ID attribute
             const target_space = `cp_option_card_` + this_key;
             var these_options = cp_options[this_key];   
-            console.log(these_options);            
+            console.log(these_options); 
+            document.getElementById(target_space).innerHTML = "";           
             Object.keys(these_options).forEach(key => {
                 console.log('ping option');
-                document.getElementById(target_space).innerHTML += '<button class="submit_button active" cp="' + this_key + '" purpose="'+ key +'">' + these_options[key] + '</button>';                
+                document.getElementById(target_space).innerHTML += '<button class="submit_button active" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
             });
             
             i++;
