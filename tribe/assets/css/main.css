@@ -223,46 +223,76 @@ button {
     display: none;
   }
 
-  .cp-option-show {
-    position: fixed; /* Fixed position ensures the cards stay in the viewport */
-    z-index: 1000; /* Keeps cards in front of other elements */
-    width: 60%; /* Larger card size */
-    min-height:40%;
-    padding: 30px; /* Add padding inside the card */
-    border-radius: 12px; /* Rounded corners for a smooth look */
-    background-color: #ffffff; /* White background for a clean design */
-    color: #333; /* Dark text color for good contrast */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.2); /* Deep shadow for emphasis */
-    text-align: center; /* Center-align text */
-    font-family: Arial, sans-serif; /* Clean, modern font */
-    font-size: 18px; /* Readable text size */
-    cursor: pointer; /* Pointer cursor for interactivity */
-    top: 30%; /* Position from top of the screen */
-    left: 20%; /* Position from left of the screen */
-  }
+/* General card styling for mobile */
+.cp-option-show {
+    position: fixed;
+    z-index: 1000;
+    width: 90%; /* Set width to 90% of the screen */
+    max-width: 400px; /* Limit the width for larger devices */
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    overflow: hidden; /* Ensures content doesn't spill out */
+}
 
-  .cp-header {
+/* Header styling for mobile */
+.cp-header {
     background-color: #007bff; /* Blue header background */
     color: #fff; /* White text for contrast */
-    font-size: 20px;
+    font-size: 18px; /* Smaller font size for mobile */
     font-weight: bold;
     text-align: center;
     padding: 10px 0;
     width: 100%;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
 
-/* Styling for the close button */
+/* Content inside the card */
+.cp-content {
+    padding: 15px; /* Adjust padding for mobile */
+    font-size: 14px; /* Slightly smaller font size */
+    color: #555;
+}
+
+/* Close button styling for mobile */
 .close-btn {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 18px;
+    font-size: 16px; /* Slightly smaller close button */
     color: red;
     font-weight: bold;
     cursor: pointer;
     z-index: 1001;
-    background: transparent;
-    border: none;
-    outline: none;
+}
+
+.close-btn:hover {
+    color: darkred;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .cp-option-show {
+        width: 95%; /* Make the card almost full width on smaller screens */
+        font-size: 14px; /* Further reduce font size */
+    }
+
+    .cp-header {
+        font-size: 16px; /* Adjust header font size */
+    }
+
+    .close-btn {
+        font-size: 14px; /* Adjust close button size */
+    }
 }
