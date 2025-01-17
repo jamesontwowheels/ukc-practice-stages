@@ -188,7 +188,7 @@ function ajax_call() {
                 // Create a new DIV element
             
             // Set the ID attribute
-            const target_space = `cp_option_space_` + this_key;
+            const target_space = `cp_option_card_` + this_key;
             var these_options = cp_options[this_key];               
             Object.keys(these_options).forEach(key => {
                 target_space.innerHTML += '<button class="submit_button active" cp="' + this_key + '" purpose="'+ key +'">' + these_options[key] + '</button>';                
