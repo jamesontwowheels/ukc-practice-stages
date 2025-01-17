@@ -193,7 +193,7 @@ function ajax_call() {
             console.log(these_options);            
             Object.keys(these_options).forEach(key => {
                 console.log('ping option');
-                target_space.innerHTML += '<button class="submit_button active" cp="' + this_key + '" purpose="'+ key +'">' + these_options[key] + '</button>';                
+                document.getElementById(target_space).innerHTML += '<button class="submit_button active" cp="' + this_key + '" purpose="'+ key +'">' + these_options[key] + '</button>';                
             });
             
             i++;
