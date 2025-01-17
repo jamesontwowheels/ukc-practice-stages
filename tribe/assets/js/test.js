@@ -6,6 +6,7 @@ $(document).ready(ajax_call);
 $("body").on("click", ".submit_button", ajax_call);
 $("body").on("click", ".cp_button", cp_explore);
 
+
 function pause(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -298,13 +299,10 @@ function cp_explore() {
     document.getElementById(cp_option_id).classList.remove("cp-option");
 }
 
-// Add event listener to all close buttons
-document.querySelectorAll('.close-btn').forEach(btn => {
-    btn.addEventListener('click', function () {
-        const parentCard = this.parentElement; // Get the parent card
-        parentCard.classList.remove('cp-options-show'); // Remove the "show" class
-        parentCard.classList.add('cp-options'); // Add the "cp-options" class
-    });
+$(document).on('click', '.close-btn', function () {
+    const $parentCard = $(this).parent(); // Get the parent card
+    $parentCard.removeClass('cp-option-show'); // Remove the "show" class
+    $parentCard.addClass('cp-option'); // Add the "cp-options" class
 });
 
 
