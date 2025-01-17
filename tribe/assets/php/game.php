@@ -380,6 +380,10 @@ if($debug == 1){ $debug_log[] = '72';};
                             //check for change of ownership
                             $ownership_check = true;
                         }
+                        
+                        $comment = "animal left";
+                } else {
+                    $comment = "you are not carrying any animals";
                 }
 
             }
