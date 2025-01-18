@@ -165,11 +165,14 @@ function ajax_call() {
                               } else {
                                 rowId = "row"+key_id;
                                 document.getElementById(rowId).style.display = 'none';
-                              }
+                              };
                             if(puzzle_cps.includes(parseInt(key_id))){
                                 var puzzle_butt = "butt"+key_id;
                                 document.getElementById(puzzle_butt).classList.add("puzzle");
-                            }                             //add CP options
+                                };     
+                                
+                                console.log("this here");
+                                //add CP options
                                 const target_space = `cp_option_card_` + this_key;
                                 var these_options = cp_options[this_key];   
                                 console.log(these_options); 
@@ -178,6 +181,14 @@ function ajax_call() {
                                     console.log('ping option');
                                     document.getElementById(target_space).innerHTML += '<button class="submit_button active" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
                                     });
+                                
+                                /* 
+                                    show the team in charge 
+                                    show how many it is held by
+                                    default graphics if held by your team
+                                    if not held by your team - show how many of yours in the bush, add .enemy_graphics
+
+                                */
                                     
                             resolve(element); // Element found, resolve the promise
 
