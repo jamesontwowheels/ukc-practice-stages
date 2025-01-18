@@ -481,6 +481,7 @@ $response["commentary"] = $commentary;
 $response["cp_names"] = $this_cp_names;
 $response["cp_options"] = $cp_options;
 $response["animal_locations"] = $animal_locations;
+$response["teams"] = $teams;
 $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 $response["inventory"] = [$bags[$user_ID],$sacks[$user_ID]];

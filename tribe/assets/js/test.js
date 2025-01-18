@@ -169,10 +169,7 @@ function ajax_call() {
                             if(puzzle_cps.includes(parseInt(key_id))){
                                 var puzzle_butt = "butt"+key_id;
                                 document.getElementById(puzzle_butt).classList.add("puzzle");
-                            }
-                            resolve(element); // Element found, resolve the promise
-
-                             //add CP options
+                            }                             //add CP options
                                 const target_space = `cp_option_card_` + this_key;
                                 var these_options = cp_options[this_key];   
                                 console.log(these_options); 
@@ -181,6 +178,8 @@ function ajax_call() {
                                     console.log('ping option');
                                     document.getElementById(target_space).innerHTML += '<button class="submit_button active" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
                                     });
+                                    
+                            resolve(element); // Element found, resolve the promise
 
                         } else if (elapsedTime >= timeout) {
                             console.log("Timeout reached, stopping checks.");
