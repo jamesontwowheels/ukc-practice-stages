@@ -468,7 +468,7 @@ if($_REQUEST["purpose"] !== 2){
     //GAME SPECIFIC
     //UNIVERSAL
 $response["all_cps"]= $all_cps;
-$response["available_cps"]= $available_cps[$user_ID];
+$response["available_cps"]= $all_cps; //available_cps[$user_ID]; THIS NEEDS TO BE UPDATED!!!
 //don't send back a puzzle response if nothing has been submitted.
 if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;
