@@ -101,10 +101,13 @@ function ajax_call() {
             var cp_names = data["cp_names"];
             var cp_names_keys = Object.keys(cp_names);
             var cp_options = data["cp_options"];
-            console.log(cp_options);
             var available_cps = data["available_cps"];
             var puzzle_cps = data["puzzle_cps"];
             var comment = data["comment"];
+            var teams = data["teams"];
+            var animal_locations = data["animal_locations"];
+            console.log(animal_locations);
+            console.log(teams);
             let i = 0;
             showTemporaryMessage(comment, 3000);
             //inventories:
@@ -168,6 +171,17 @@ function ajax_call() {
                                 document.getElementById(puzzle_butt).classList.add("puzzle");
                             }
                             resolve(element); // Element found, resolve the promise
+
+                             //add CP options
+                                const target_space = `cp_option_card_` + this_key;
+                                var these_options = cp_options[this_key];   
+                                console.log(these_options); 
+                                document.getElementById(target_space).innerHTML = "";           
+                                Object.keys(these_options).forEach(key => {
+                                    console.log('ping option');
+                                    document.getElementById(target_space).innerHTML += '<button class="submit_button active" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
+                                    });
+
                         } else if (elapsedTime >= timeout) {
                             console.log("Timeout reached, stopping checks.");
                             reject(new Error("Element not found within timeout"));
@@ -188,18 +202,7 @@ function ajax_call() {
                 console.error(error.message);
             });
 
-            //add CP options
-                // Create a new DIV element
             
-            // Set the ID attribute
-            const target_space = `cp_option_card_` + this_key;
-            var these_options = cp_options[this_key];   
-            console.log(these_options); 
-            document.getElementById(target_space).innerHTML = "";           
-            Object.keys(these_options).forEach(key => {
-                console.log('ping option');
-                document.getElementById(target_space).innerHTML += '<button class="submit_button active" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
-            });
             
             i++;
             } 

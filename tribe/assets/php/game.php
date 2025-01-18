@@ -171,47 +171,47 @@ $x = 0;
                 'bush' => [1 => 0, 2 => 0, 3 => 0],
             ],
             2 => [
-                'king' => [0, 0, 0],
+                'king' => [32, 5, 0],
                 'bush' => [1 => 0, 2 => 0, 3 => 0]
             ],
             3 => [
-                'king' => [0, 0, 0],
+                'king' => [32, 5, 0],
                 'bush' => [1 => 0, 2 => 0, 3 => 0]
             ],
             4 => [
-                'king' => [0, 0, 0],
+                'king' => [33, 5, 0],
                 'bush' => [1 => 0, 2 => 0, 3 => 0]
             ],
             5 => [
-                'king' => [0, 0, 0],
+                'king' => [33, 5, 0],
                 'bush' => [1 => 0, 2 => 0, 3 => 0]
             ],
             6 => [
-                'king' => [0, 0, 0],
+                'king' => [33, 5, 0],
                 'bush' => [1 => 0, 2 => 0, 3 => 0]
             ],
             7 => [
-                'king' => [0, 0, 0],
+                'king' => [34, 5, 0],
                 'bush' => [1 => 0, 2 => 0, 3 => 0]
             ],
             8 => [
-                'king' => [0, 0, 0],
+                'king' => [34, 5, 0],
                 'bush' => [1 => 0, 2 => 0, 3 => 0]
             ],
             9 => [
-                'king' => [0, 0, 0],
+                'king' => [34, 5, 0],
                 'bush' => [1 => 0, 2 => 0, 3 => 0]
             ],
             31 => [
-                'king' => [0, 0, 0],
+                'king' => [32, 5, 0],
                 'bush' => [1 => 0, 2 => 0, 3 => 0]
             ],
             32 => [
-                'king' => [0, 0, 0],
+                'king' => [33, 5, 0],
                 'bush' => [1 => 0, 2 => 0, 3 => 0]
             ],
             33 => [
-                'king' => [0, 0, 0],
+                'king' => [34, 5, 0],
                 'bush' => [1 => 0, 2 => 0, 3 => 0]
             ],
         ];
@@ -480,6 +480,7 @@ $response["alert"] = $alert;
 $response["commentary"] = $commentary;
 $response["cp_names"] = $this_cp_names;
 $response["cp_options"] = $cp_options;
+$response["animal_locations"] = $animal_locations;
 $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 $response["inventory"] = [$bags[$user_ID],$sacks[$user_ID]];
