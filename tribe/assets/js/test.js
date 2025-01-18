@@ -173,7 +173,7 @@ function ajax_call() {
                                 
                                 console.log("this here");
                                 //add CP options
-                                const target_space = `cp_option_card_` + this_key;
+                                const target_space = `cp_option_space_` + this_key;
                                 var these_options = cp_options[this_key];   
                                 console.log(these_options); 
                                 document.getElementById(target_space).innerHTML = "";           
