@@ -57,7 +57,7 @@ function ajax_call() {
     cp = cp || 0;
     console.log (cp);
 
-    if ($(this).classList.contains('cp_button')){
+    if ($(this).hasClass('cp_button')){
         cp = 0;
     }
 
