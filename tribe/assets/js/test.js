@@ -183,7 +183,7 @@ function ajax_call() {
                                     document.getElementById(target_space).innerHTML += '<button class="submit_button active" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
                                     });
                                 
-                                var cp_animals = animal_locations[$this_key];
+                                var cp_animals = animal_locations[this_key];
                                 var cp_king = cp_animals["king"][0];
                                 var cp_king_name = teams[cp_king];
                                 var cp_king_size = cp_animals["king"][1];
