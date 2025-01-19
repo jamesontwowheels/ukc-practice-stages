@@ -192,11 +192,14 @@ function ajax_call() {
                                 var cp_king_name = teams[cp_king];
                                 var cp_king_size = cp_animals["king"][1];
                                 const info_space = `cp_info_space_`+ this_key;
+                                var cp_space = `cp_option_card_`+this_key;
 
                                 if(cp_king == this_team){
                                     document.getElementById(info_space).innerHTML =  "You control this watering hole with " +cp_king_size+" animals.";
+                                    document.getElementById(cp_space).addClass('hole_owned');
                                 } else {
                                     document.getElementById(info_space).innerHTML =  "This watering hole is controlled by " + cp_king_name["name"] + " with " +cp_king_size+" animals.";
+                                    document.getElementById(cp_space).addClass('hole_not_owned');
                                 };
 
                                 /* 

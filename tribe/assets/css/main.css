@@ -229,7 +229,7 @@ button {
     z-index: 1000;
     width: 90%; /* Set width to 90% of the screen */
     border-radius: 12px;
-    background-color: #ffffff;
+    min-height: 40%;
     color: #333;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -239,6 +239,18 @@ button {
     top: 50%;
     left: 50%;
     overflow: hidden; /* Ensures content doesn't spill out */
+}
+
+.hole_owned {
+    background: rgb(129, 255, 156)
+}
+
+.hole_not_owned {
+    background: rgb(255, 129, 129)
+}
+
+.submit_button {
+    margin: 5%;
 }
 
 /* Header styling for mobile */

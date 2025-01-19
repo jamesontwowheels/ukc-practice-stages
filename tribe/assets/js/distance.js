@@ -75,7 +75,7 @@ function success(pos) {
     Math.cos(deg2rad(crd.latitude)) * Math.cos(deg2rad(target.geometry.coordinates[1])) * 
     Math.sin(dLon/2) * Math.sin(dLon/2)
     ; 
-    const bearing = calculateBearing(target.geometry.coordinates[1], target.geometry.coordinates[0], crd.latitude, crd.longitude);
+    const bearing = calculateBearing(crd.latitude, crd.longitude, target.geometry.coordinates[1], target.geometry.coordinates[0]);
     const direction = getCompassDirection(bearing);
     
     console.log(`Bearing: ${bearing.toFixed(2)}°`);
