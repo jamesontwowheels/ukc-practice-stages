@@ -105,6 +105,7 @@ function ajax_call() {
             var puzzle_cps = data["puzzle_cps"];
             var comment = data["comment"];
             var teams = data["teams"];
+            var this_team   = data["this_team"];
             var animal_locations = data["animal_locations"];
             console.log(animal_locations);
             console.log(teams);
@@ -182,6 +183,18 @@ function ajax_call() {
                                     document.getElementById(target_space).innerHTML += '<button class="submit_button active" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
                                     });
                                 
+                                var cp_animals = animal_locations[$this_key];
+                                var cp_king = cp_animals["king"][0];
+                                var cp_king_name = teams[cp_king];
+                                var cp_king_size = cp_animals["king"][1];
+                                const info_space = `cp_info_space_`+ this_key;
+
+                                if($cp_king == this_team){
+                                    document.getElementById(info_space).innerHTML =  "You control this watering hole with " +cp_king_size+" animals.";
+                                } else {
+                                    document.getElementById(info_space).innerHTML =  "This watering hole is controlled by " + cp_king_name + " with " +cp_king_size+" animals.";
+                                };
+
                                 /* 
                                     show the team in charge 
                                     show how many it is held by

@@ -479,6 +479,7 @@ $response["running_score"] = $running_score;
 $response["alert"] = $alert;
 $response["commentary"] = $commentary;
 $response["cp_names"] = $this_cp_names;
+$response["this_team"] = $this_team;
 $response["cp_options"] = $cp_options;
 $response["animal_locations"] = $animal_locations;
 $response["teams"] = $teams;
