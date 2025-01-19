@@ -189,7 +189,7 @@ function ajax_call() {
                                 var cp_king_size = cp_animals["king"][1];
                                 const info_space = `cp_info_space_`+ this_key;
 
-                                if($cp_king == this_team){
+                                if(cp_king == this_team){
                                     document.getElementById(info_space).innerHTML =  "You control this watering hole with " +cp_king_size+" animals.";
                                 } else {
                                     document.getElementById(info_space).innerHTML =  "This watering hole is controlled by " + cp_king_name + " with " +cp_king_size+" animals.";
