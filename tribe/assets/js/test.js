@@ -62,7 +62,7 @@ function ajax_call() {
     }
 
     var cp_option_choice = $(this).attr('cp_option_choice');
-    cp_option_choice = cp || 0;
+    cp_option_choice = cp_option_choice || 0;
     console.log (cp_option_choice);
 
     var user_input = "void";
