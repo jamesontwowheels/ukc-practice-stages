@@ -57,9 +57,6 @@ function ajax_call() {
     cp = cp || 0;
     console.log (cp);
 
-    if ($(this).hasClass('cp_button')){
-        cp = 0;
-    }
 
     var cp_option_choice = $(this).attr('cp_option_choice');
     cp_option_choice = cp_option_choice || 0;
@@ -76,6 +73,10 @@ function ajax_call() {
     var cp = $(this).attr('cp');
     cp = Number.isInteger(Number(cp)) ? Number(cp) : 0;
     console.log (cp);
+    
+    if ($(this).hasClass('cp_button')){
+        cp = 0;
+    }
    
     if (cp == 999){
         const userConfirmed = confirm("Are you sure you're ready to start/stop?")
