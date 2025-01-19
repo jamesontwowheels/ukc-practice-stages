@@ -57,8 +57,12 @@ function ajax_call() {
     cp = cp || 0;
     console.log (cp);
 
+    if ($(this).classList.contains('cp_button')){
+        cp = 0;
+    }
+
     var cp_option_choice = $(this).attr('cp_option_choice');
-    cp = cp || 0;
+    cp_option_choice = cp || 0;
     console.log (cp_option_choice);
 
     var user_input = "void";
