@@ -187,6 +187,9 @@ function ajax_call() {
                                     document.getElementById(target_space).innerHTML += '<button class="submit_button active" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
                                     });
                                 
+                                var cp_header_id = "cp-header-"+this_key;
+                                document.getElementById(cp_header_id).innerHTML = cp_names[this_key];
+
                                 var cp_animals = animal_locations[this_key];
                                 var cp_king = cp_animals["king"][0];
                                 var cp_king_name = teams[cp_king];
@@ -196,10 +199,12 @@ function ajax_call() {
 
                                 if(cp_king == this_team){
                                     document.getElementById(info_space).innerHTML =  "You control this watering hole with " +cp_king_size+" animals.";
-                                    document.getElementById(cp_space).addClass('hole_owned');
+                                    document.getElementById(cp_space).classList.add('hole_owned');
+                                    document.getElementById(cp_space).classList.remove('hole_not_owned');
                                 } else {
                                     document.getElementById(info_space).innerHTML =  "This watering hole is controlled by " + cp_king_name["name"] + " with " +cp_king_size+" animals.";
-                                    document.getElementById(cp_space).addClass('hole_not_owned');
+                                    document.getElementById(cp_space).classList.add('hole_not_owned');
+                                    document.getElementById(cp_space).classList.remove('hole_owned');
                                 };
 
                                 /* 
