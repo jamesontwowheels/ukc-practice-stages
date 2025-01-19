@@ -23,6 +23,36 @@ function deg2rad(degrees) {
   return degrees * (Math.PI / 180);
 }
 
+//adding in the bearing functions here:
+      function calculateBearing(lat1, lon1, lat2, lon2) {
+        // Convert degrees to radians
+        const toRadians = degrees => degrees * (Math.PI / 180);
+        const toDegrees = radians => radians * (180 / Math.PI);
+
+        const lat1Rad = toRadians(lat1);
+        const lat2Rad = toRadians(lat2);
+        const deltaLonRad = toRadians(lon2 - lon1);
+
+        // Calculate bearing using the formula
+        const y = Math.sin(deltaLonRad) * Math.cos(lat2Rad);
+        const x = Math.cos(lat1Rad) * Math.sin(lat2Rad) -
+                  Math.sin(lat1Rad) * Math.cos(lat2Rad) * Math.cos(deltaLonRad);
+        let bearing = toDegrees(Math.atan2(y, x));
+
+        // Normalize to 0–360 degrees
+        bearing = (bearing + 360) % 360;
+        return bearing;
+      }
+
+      function getCompassDirection(bearing) {
+        const directions = [
+            "North", "North-East", "East", "South-East",
+            "South", "South-West", "West", "North-West", "North"
+        ];
+        const index = Math.round(bearing / 45);
+        return directions[index % 8];
+      }
+
 function success(pos) {
 
   for (let i = 0; i < targets.length; i++) {
@@ -53,14 +83,20 @@ function success(pos) {
   var button = "butt"+id;
   var button_element = $("#"+button);
 
+      const bearing = calculateBearing(target.geometry.coordinates[1], target.geometry.coordinates[0], crd.latitude, crd.longitude);
+      const direction = getCompassDirection(bearing);
+      
+      console.log(`Bearing: ${bearing.toFixed(2)}°`);
+      console.log(`Direction: ${direction}`);
+
   if (d < d_need) {
-    // redundant: document.getElementById(cp).innerHTML = document.getElementById(cp).innerHTML + "check-in"
     button_element.addClass('active');
     button_element.removeClass('inactive')
 
   } else {
     button_element.addClass('inactive');
     button_element.removeClass('active')
+    //this is where we need to add the 'hide the options'
     document.getElementById(cp).innerHTML = d + "m away";
   }
 }
