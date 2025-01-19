@@ -75,19 +75,20 @@ function success(pos) {
     Math.cos(deg2rad(crd.latitude)) * Math.cos(deg2rad(target.geometry.coordinates[1])) * 
     Math.sin(dLon/2) * Math.sin(dLon/2)
     ; 
+    const bearing = calculateBearing(target.geometry.coordinates[1], target.geometry.coordinates[0], crd.latitude, crd.longitude);
+    const direction = getCompassDirection(bearing);
     
+    console.log(`Bearing: ${bearing.toFixed(2)}°`);
+    console.log(`Direction: ${direction}`);
+
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = Math.round(R * c * 1000); // Distance in m
   cp = "cp" + id;
-  document.getElementById(cp).innerHTML = d + "m away ";
+  document.getElementById(cp).innerHTML = d + "m " + direction;
   var button = "butt"+id;
   var button_element = $("#"+button);
 
-      const bearing = calculateBearing(target.geometry.coordinates[1], target.geometry.coordinates[0], crd.latitude, crd.longitude);
-      const direction = getCompassDirection(bearing);
-      
-      console.log(`Bearing: ${bearing.toFixed(2)}°`);
-      console.log(`Direction: ${direction}`);
+
 
   if (d < d_need) {
     button_element.addClass('active');
