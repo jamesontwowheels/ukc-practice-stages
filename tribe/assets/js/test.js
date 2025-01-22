@@ -184,7 +184,7 @@ function ajax_call() {
                                 console.log(these_options); 
                                 document.getElementById(target_space).innerHTML = "";           
                                 Object.keys(these_options).forEach(key => {
-                                    console.log('ping option');
+                                    console.log(puzzle_cps + 'search' + this_key);
                                     var puzzle_class = "";
                                     if(puzzle_cps.includes(parseInt(this_key))){
                                         puzzle_class = "puzzle";
