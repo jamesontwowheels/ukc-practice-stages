@@ -195,6 +195,7 @@ function ajax_call() {
                                 var cp_king = cp_animals["king"][0];
                                 var cp_king_name = teams[cp_king];
                                 var cp_king_size = cp_animals["king"][1];
+                                var cp_bush = cp_animals["bush"][this_team];
                                 const info_space = `cp_info_space_`+ this_key;
                                 var cp_space = `cp_option_card_`+this_key;
 
@@ -204,6 +205,7 @@ function ajax_call() {
                                     document.getElementById(cp_space).classList.remove('hole_not_owned');
                                 } else {
                                     document.getElementById(info_space).innerHTML =  "This watering hole is controlled by " + cp_king_name["name"] + " with " +cp_king_size+" animals.";
+                                    document.getElementById(info_space).innerHTML +=  "You have " + cp_bush + " animals lying in ambush";
                                     document.getElementById(cp_space).classList.add('hole_not_owned');
                                     document.getElementById(cp_space).classList.remove('hole_owned');
                                 };
