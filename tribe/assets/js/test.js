@@ -174,10 +174,10 @@ function ajax_call() {
                               };
                             if(puzzle_cps.includes(parseInt(key_id))){
                                 var puzzle_butt = "butt"+key_id;
-                                document.getElementById(puzzle_butt).classList.add("puzzle");
+                                // document.getElementById(puzzle_butt).classList.add("puzzle"); - no thanks, not today!
                                 };     
                                 
-                                console.log("this here");
+                                //ALL ** THIS ** LOGIC ** SHOULD ** BE ** IN ** THE ** BACK ** END....!
                                 //add CP options
                                 const target_space = `cp_option_space_` + this_key;
                                 var these_options = cp_options[this_key];   
@@ -185,11 +185,18 @@ function ajax_call() {
                                 document.getElementById(target_space).innerHTML = "";           
                                 Object.keys(these_options).forEach(key => {
                                     console.log('ping option');
-                                    document.getElementById(target_space).innerHTML += '<button class="submit_button active" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
+                                    var puzzle_class = "";
+                                    if(puzzle_cps.includes(parseInt(this_key))){
+                                        puzzle_class = "puzzle";
+                                    }
+                                    document.getElementById(target_space).innerHTML += '<button class="submit_button active ' + puzzle_class + '" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
                                     });
                                 
                                 var cp_header_id = "cp-header-"+this_key;
                                 document.getElementById(cp_header_id).innerHTML = cp_names[this_key];
+
+                                
+                                
 
                                 var cp_animals = animal_locations[this_key];
                                 var cp_king = cp_animals["king"][0];

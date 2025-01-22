@@ -217,12 +217,21 @@ $x = 0;
         ];
         
         $monkey_progress = [
-            1 => 21,
-            2 => 21,
-            3 => 21
+            32 => 21,
+            33 => 21,
+            34 => 21
         ];
 
-        $puzzle_cps = [];
+        $puzzle_cps = [21,22,23,24,25];
+
+        $puzzle_answers =[
+            21 => "1",
+            22 => "2",
+            23 => "3",
+            24 => "4",
+            25 => "5"
+        ];
+
         $this_cp_names = $cp_names; //required if cpnames are going to change.
 
     //results catchers (don't change this, it's solid)
@@ -244,6 +253,7 @@ $x = 0;
     // monkey level
     // score
     $score = [32 => 0, 33 => 0, 34 => 0];
+    $available_cps = [32 => [], 33 => [], 34 => []];
     // chat?
     // team name
     
@@ -287,13 +297,8 @@ if($debug == 1){ $debug_log[] = '72';};
     $this_cp_names = $cp_names;
 
     foreach($team["members"] as $team_member){
-        $bags[$team_member] = [];
-        $sacks[$team_member] = [];
-        $map_level[$team_member] = 1;
-        $available_cps[$team_member] = [999];
+        // $available_cps[$team_member] = [999]; CPs are per team in this game
         $team_player_count += 1;
-        $debug_log[] = "bags = ";
-        $debug_log[] = $bags;
     }
     
 //GENERIC player specific starting values
@@ -409,6 +414,18 @@ if($debug == 1){ $debug_log[] = '72';};
         //visit the mountain
 
         //visit a monkey point
+
+        if(in_array($cp,$puzzle_cps)){
+            if($cp == $monkey_progress[$tm]){
+                if($puzzle_response == $puzzle_answers[$cp]){
+                    $monkey_progress[$tm] += 1;
+                    $available_cps[$tm] = $monkey_progress[$tm];
+                    $comment = "Puzzle solved! Now go find ".$cp_names[$monkey_progress[$tm]];
+                }
+            } else {
+                $comment = "this puzzle has been solved!";
+            }
+        }
 
         //start_finish
         if(in_array($cp,$cp_start_finish)){

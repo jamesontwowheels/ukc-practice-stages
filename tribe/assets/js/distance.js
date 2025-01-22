@@ -83,7 +83,8 @@ function success(pos) {
 
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = Math.round(R * c * 1000); // Distance in m
-  cp = "cp" + id;
+  var cp = "cp" + id;
+  var option_element = "cp_option_card_" + id;
   document.getElementById(cp).innerHTML = d + "m " + direction;
   var button = "butt"+id;
   var button_element = $("#"+button);
@@ -98,6 +99,8 @@ function success(pos) {
     button_element.addClass('inactive');
     button_element.removeClass('active')
     //this is where we need to add the 'hide the options'
+    option_element.addClass('cp-option');
+    option_element.removeClass('cp-option-show');
     document.getElementById(cp).innerHTML = d + "m away";
   }
 }
