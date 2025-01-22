@@ -491,7 +491,7 @@ if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;
 $response["alert"] = $alert;
 $response["comment"] = $comment;}
-$response["puzzle_cps"] = [];
+$response["puzzle_cps"] = $cps_monkey;
 $response["running_score"] = $running_score;
 $response["alert"] = $alert;
 $response["commentary"] = $commentary;
