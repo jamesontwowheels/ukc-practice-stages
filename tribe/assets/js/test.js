@@ -186,7 +186,8 @@ function ajax_call() {
                                 Object.keys(these_options).forEach(key => {
                                     console.log(puzzle_cps + 'search' + this_key);
                                     var puzzle_class = "";
-                                    if(puzzle_cps.includes(parseInt(this_key))){
+                                    if(puzzle_cps.map(Number).includes(parseInt(this_key))){
+                                        console.log("found");
                                         puzzle_class = "puzzle";
                                     }
                                     document.getElementById(target_space).innerHTML += '<button class="submit_button active ' + puzzle_class + '" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
