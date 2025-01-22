@@ -224,6 +224,14 @@ $x = 0;
 
         $puzzle_cps = [21,22,23,24,25];
 
+        $puzzle_questions = [
+            21 => "1",
+            22 => "2",
+            23 => "3",
+            24 => "4",
+            25 => "5"
+        ];
+
         $puzzle_answers =[
             21 => "1",
             22 => "2",
@@ -491,7 +499,8 @@ if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;
 $response["alert"] = $alert;
 $response["comment"] = $comment;}
-$response["puzzle_cps"] = $cps_monkey;
+$response["puzzle_cps"] = $puzzle_cps;
+$response["puzzle_questions"] = $puzzle_questions;
 $response["running_score"] = $running_score;
 $response["alert"] = $alert;
 $response["commentary"] = $commentary;
