@@ -198,7 +198,7 @@ function ajax_call() {
                                 document.getElementById(cp_header_id).innerHTML = cp_names[this_key];
 
                                 
-                                
+                                var cp_space = `cp_option_card_`+this_key;
                                 if(watering_holes.map(Number).includes(parseInt(this_key))){
                                     var cp_animals = animal_locations[this_key];
                                     var cp_king = cp_animals["king"][0];
@@ -206,7 +206,7 @@ function ajax_call() {
                                     var cp_king_size = cp_animals["king"][1];
                                     var cp_bush = cp_animals["bush"][this_team];
                                     const info_space = `cp_info_space_`+ this_key;
-                                    var cp_space = `cp_option_card_`+this_key;
+                                    
 
                                     if(cp_king == this_team){
                                         document.getElementById(info_space).innerHTML =  "You control this watering hole with " +cp_king_size+" animals.";
@@ -218,6 +218,8 @@ function ajax_call() {
                                         document.getElementById(cp_space).classList.add('hole_not_owned');
                                         document.getElementById(cp_space).classList.remove('hole_owned');
                                     };
+                                } else  {
+                                    document.getElementById(cp_space).classList.add('hole_owned'); //not really the right thing but at tester
                                 }
                                 /* 
                                     show the team in charge 
