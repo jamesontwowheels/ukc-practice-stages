@@ -499,6 +499,7 @@ if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;
 $response["alert"] = $alert;
 $response["comment"] = $comment;}
+$response["watering_holes"]= $cps_holes;
 $response["puzzle_cps"] = $puzzle_cps;
 $response["puzzle_questions"] = $puzzle_questions;
 $response["running_score"] = $running_score;
