@@ -117,6 +117,8 @@ $x = 0;
     
     $all_cps = array_merge($cps_holes,$cps_monkey,$cps_muster,$cp_mountain,$cp_start_finish);
     
+    $initial_cps = array_merge($cps_holes,$cps_muster,$cp_mountain,$cp_start_finish,[21]);
+
     $cp_names = [
         1 => "Lion 1",
         2 => "Lion 2",
@@ -261,7 +263,7 @@ $x = 0;
     // monkey level
     // score
     $score = [32 => 0, 33 => 0, 34 => 0];
-    $available_cps = [32 => [], 33 => [], 34 => []];
+    $available_cps = [32 => $initial_cps, 33 => $initial_cps, 34 => $initial_cps];
     // chat?
     // team name
     
@@ -427,7 +429,7 @@ if($debug == 1){ $debug_log[] = '72';};
             if($cp == $monkey_progress[$tm]){
                 if($puzzle_response == $puzzle_answers[$cp]){
                     $monkey_progress[$tm] += 1;
-                    $available_cps[$tm] = $monkey_progress[$tm];
+                    $available_cps[$tm][] = $monkey_progress[$tm];
                     $comment = "Puzzle solved! Now go find ".$cp_names[$monkey_progress[$tm]];
                 }
             } else {
@@ -493,7 +495,7 @@ if($_REQUEST["purpose"] !== 2){
     //GAME SPECIFIC
     //UNIVERSAL
 $response["all_cps"]= $all_cps;
-$response["available_cps"]= $all_cps; //available_cps[$user_ID]; THIS NEEDS TO BE UPDATED!!!
+$response["available_cps"]= $available_cps[$this_team]; //available_cps[$user_ID]; THIS NEEDS TO BE UPDATED!!!
 //don't send back a puzzle response if nothing has been submitted.
 if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;

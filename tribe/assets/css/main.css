@@ -249,6 +249,10 @@ button {
     background: rgb(255, 129, 129)
 }
 
+.neutral {
+    background: rgb(250, 249, 192)
+}
+
 .submit_button {
     margin: 5%;
 }

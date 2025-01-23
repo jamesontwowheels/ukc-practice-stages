@@ -219,7 +219,7 @@ function ajax_call() {
                                         document.getElementById(cp_space).classList.remove('hole_owned');
                                     };
                                 } else  {
-                                    document.getElementById(cp_space).classList.add('hole_owned'); //not really the right thing but at tester
+                                    document.getElementById(cp_space).classList.add('neutral'); //not really the right thing but a tester
                                 }
                                 /* 
                                     show the team in charge 
