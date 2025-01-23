@@ -429,7 +429,7 @@ if($debug == 1){ $debug_log[] = '72';};
             $debug_log[] = "puzzle pinged";
             if($cp == $monkey_progress[$tm]){
                 $debug_log[] = "right puzzle";
-                if($puzzle_response == $puzzle_answers[$cp]){
+                if($puzzle_answer == $puzzle_answers[$cp]){
                     $debug_log[] = "puzzle right";
                     $monkey_progress[$tm] += 1;
                     $available_cps[$tm][] = $monkey_progress[$tm];
