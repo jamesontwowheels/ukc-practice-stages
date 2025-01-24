@@ -245,9 +245,9 @@ function ajax_call() {
                                         row.insertCell().textContent = item.king[1];
                                         row.insertCell().textContent = item.bush[this_team];
                                     });
-
+                    
                                     // Append the table to the div
-                                    container.appendChild(table);
+                                    viewpoint.appendChild(table);
                                 }
                                 
                                 /* 
