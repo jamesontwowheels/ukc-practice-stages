@@ -249,7 +249,7 @@ function ajax_call() {
                                     // Append the table to the div
                                     container.appendChild(table);
                                 }
-                                }
+                                
                                 /* 
                                     show the team in charge 
                                     show how many it is held by
