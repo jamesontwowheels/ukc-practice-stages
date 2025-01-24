@@ -239,7 +239,7 @@ function ajax_call() {
                                     });
 
                                     // Loop through the array and create a row for each item
-                                    animal_locations.forEach(item => {
+                                    Object.values(animal_locations).forEach(item => {
                                         const row = table.insertRow();
                                         row.insertCell().textContent = item.king[0];
                                         row.insertCell().textContent = item.king[1];
