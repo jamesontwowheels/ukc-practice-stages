@@ -137,7 +137,7 @@ $x = 0;
         31 => "Lion base",
         32 => "Rhino base",
         33 => "Hyena base",
-        100 => "Mountain",
+        100 => "View Point",
         998 => "Finish",
         999 => "Start"
         ];
@@ -160,7 +160,7 @@ $x = 0;
             31 => [1 => "Pick-up Animal", 2 => "Leave animal"],
             32 => [1 => "Pick-up Animal", 2 => "Leave animal"],
             33 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            100 => [1 => "Climb Mountain"],
+            100 => [],
             998 => [1 => "Finish"],
             999 => [1 => "Start"]
     ];
@@ -422,6 +422,7 @@ if($debug == 1){ $debug_log[] = '72';};
             //visit a muster point
         
         //visit the mountain
+        //is there even a checkpoint here??
 
         //visit a monkey point
 

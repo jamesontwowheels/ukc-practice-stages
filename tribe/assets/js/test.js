@@ -199,13 +199,14 @@ function ajax_call() {
 
                                 
                                 var cp_space = `cp_option_card_`+this_key;
+                                const info_space = `cp_info_space_`+ this_key;
+
                                 if(watering_holes.map(Number).includes(parseInt(this_key))){
                                     var cp_animals = animal_locations[this_key];
                                     var cp_king = cp_animals["king"][0];
                                     var cp_king_name = teams[cp_king];
                                     var cp_king_size = cp_animals["king"][1];
                                     var cp_bush = cp_animals["bush"][this_team];
-                                    const info_space = `cp_info_space_`+ this_key;
                                     
 
                                     if(cp_king == this_team){
@@ -220,6 +221,34 @@ function ajax_call() {
                                     };
                                 } else  {
                                     document.getElementById(cp_space).classList.add('neutral'); //not really the right thing but a tester
+                                }
+
+                                //viewpoint FE logic
+                                if(this_key == 100){
+
+                                    const viewpoint = document.getElementById(info_space); 
+                                    // Create a table element
+                                    const table = document.createElement("table");
+
+                                    // Create a header row
+                                    const headerRow = table.insertRow();
+                                    ["Owner", "Count", "Ambush"].forEach(headerText => {
+                                        const th = document.createElement("th");
+                                        th.textContent = headerText;
+                                        headerRow.appendChild(th);
+                                    });
+
+                                    // Loop through the array and create a row for each item
+                                    animal_locations.forEach(item => {
+                                        const row = table.insertRow();
+                                        row.insertCell().textContent = item.king[0];
+                                        row.insertCell().textContent = item.king[1];
+                                        row.insertCell().textContent = item.bush[this_team];
+                                    });
+
+                                    // Append the table to the div
+                                    container.appendChild(table);
+                                }
                                 }
                                 /* 
                                     show the team in charge 
