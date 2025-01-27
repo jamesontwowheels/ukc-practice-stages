@@ -230,23 +230,27 @@ function ajax_call() {
                                     viewpoint.innerHTML = ""; 
                                     // Create a table element
                                     const table = document.createElement("table");
+                                    table.classList.add('viewpoint');
 
                                     // Create a header row
                                     const headerRow = table.insertRow();
-                                    ["Watering hole owner", "Count", "Your animals in ambush"].forEach(headerText => {
+                                    ["CP Name","Watering hole owner", "Count", "Your animals in ambush"].forEach(headerText => {
                                         const th = document.createElement("th");
                                         th.textContent = headerText;
                                         headerRow.appendChild(th);
                                     });
 
                                     // Loop through the array and create a row for each item
-                                    Object.values(animal_locations).forEach(item => {
+                                    for(const [key, value] of Object.entries(animal_locations)){
                                         const row = table.insertRow();
-                                        console.log(Object.keys(item));
-                                        row.insertCell().textContent = item;
-                                        row.insertCell().textContent = teams[item.king[0]]["name"];
-                                        row.insertCell().textContent = item.king[1];
-                                        row.insertCell().textContent = item.bush[this_team];
+                                        row.insertCell().textContent = key;
+                                        row.insertCell().textContent = teams[value.king[0]]["name"];
+                                        row.insertCell().textContent = value.king[1];
+                                        row.insertCell().textContent = value.bush[this_team];
+                                    }
+
+                                    Object.values(animal_locations).forEach(item => {
+                                        
                                     });
                     
                                     // Append the table to the div
