@@ -101,7 +101,6 @@ function success(pos) {
     //this is where we need to add the 'hide the options'
     option_element.addClass('cp-option');
     option_element.removeClass('cp-option-show');
-    document.getElementById(cp).innerHTML = d + "m away";
   }
 }
 }

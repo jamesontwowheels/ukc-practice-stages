@@ -156,7 +156,7 @@ $x = 0;
             22 => [1 => "Submit"],
             23 => [1 => "Submit"],
             24 => [1 => "Submit"],
-            25 => [1 => "Leave animals"],
+            25 => [1 => "Claim Prize"],
             31 => [1 => "Pick-up Animal", 2 => "Leave animal"],
             32 => [1 => "Pick-up Animal", 2 => "Leave animal"],
             33 => [1 => "Pick-up Animal", 2 => "Leave animal"],
@@ -246,6 +246,12 @@ $x = 0;
             23 => "3",
             24 => "4",
             25 => "5"
+        ];
+
+        $monkey_prizes = [
+            32 => [0,0],
+            33 => [0,0],
+            34 => [0,0]
         ];
 
         $this_cp_names = $cp_names; //required if cpnames are going to change.
@@ -357,6 +363,10 @@ if($debug == 1){ $debug_log[] = '72';};
         $alert = 0;
         $game_time = $t - $game_start;
 
+        if ($t > $stage_time){
+            $comment = "Game Over";
+            continue;
+        }
 
         //visit a watering hole
 
@@ -478,6 +488,7 @@ if($debug == 1){ $debug_log[] = '72';};
         //visit a monkey point
 
         if(in_array($cp,$puzzle_cps)){
+            if($cp != 25){
             $debug_log[] = "puzzle pinged";
             if($cp == $monkey_progress[$tm]){
                 $debug_log[] = "right puzzle";
@@ -489,6 +500,17 @@ if($debug == 1){ $debug_log[] = '72';};
                 }
             } else {
                 $comment = "this puzzle has been solved!";
+            } }
+            else {
+                if($monkey_prizes[$tm][0] == 0){
+                    $comment = "Prize already collected";
+                } else {
+                    $prize = $stage_time - $t;
+                    $live_result[$tm] += $prize;
+                    $comment = "Monkey prize of $prize collected";
+                    $monkey_prizes[$tm][0] = 1;
+                    $monkey_prizes[$tm][1] = $prize;
+                }
             }
         }
 
