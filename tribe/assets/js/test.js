@@ -226,7 +226,8 @@ function ajax_call() {
                                 //viewpoint FE logic
                                 if(this_key == 100){
 
-                                    const viewpoint = document.getElementById(info_space); 
+                                    const viewpoint = document.getElementById(info_space);
+                                    viewpoint.innerHTML = ""; 
                                     // Create a table element
                                     const table = document.createElement("table");
 
