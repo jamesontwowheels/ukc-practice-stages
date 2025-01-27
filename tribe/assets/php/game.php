@@ -233,7 +233,15 @@ $x = 0;
         $puzzle_cps = [21,22,23,24,25];
 
         $puzzle_questions = [
-            21 => "1",
+            21 => "Fill in the gaps to complete seven 5-letter words reading downwards. The inserted letters will spell out the name of a famous author.<br>
+                    <table>
+                    <tr><td>A</td><td>C</td><td>L</td><td>B</td><td>S</td><td>M</td><td>M</td></tr>
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>I</td><td>A</td><td>R</td><td>A</td><td>E</td><td>A</td><td>A</td></tr>
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>S</td><td>R</td><td>H</td><td>E</td><td>P</td><td>T</td><td>A</td></tr>
+                    </table>
+                    ",
             22 => "2",
             23 => "3",
             24 => "4",
@@ -241,7 +249,7 @@ $x = 0;
         ];
 
         $puzzle_answers =[
-            21 => "1",
+            21 => "charles dickens",
             22 => "2",
             23 => "3",
             24 => "4",
