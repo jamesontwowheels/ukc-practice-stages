@@ -206,7 +206,7 @@ function ajax_call() {
                                     document.getElementById(cp_space).classList.add('neutral'); //not really the right thing but a tester
                                 }
 
-                                if(puzzle_cps.map(Number).incldes(parseInt(this_key))){
+                                if(puzzle_cps.map(Number).includes(parseInt(this_key))){
                                     document.getElementById(info_space).innerHTML = puzzle_questions[this_key];
                                 }
 

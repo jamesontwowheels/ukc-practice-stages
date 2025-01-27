@@ -234,7 +234,7 @@ $x = 0;
 
         $puzzle_questions = [
             21 => "Fill in the gaps to complete seven 5-letter words reading downwards. The inserted letters will spell out the name of a famous author.<br>
-                    <table>
+                    <table class='viewpoint'>
                     <tr><td>A</td><td>C</td><td>L</td><td>B</td><td>S</td><td>M</td><td>M</td></tr>
                     <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                     <tr><td>I</td><td>A</td><td>R</td><td>A</td><td>E</td><td>A</td><td>A</td></tr>
