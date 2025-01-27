@@ -526,7 +526,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 if($monkey_prizes[$tm][0] == 0){
                     $comment = "Prize already collected";
                 } else {
-                    $prize = $stage_time - $t;
+                    $prize = $stage_time - $t - $game_start;
                     $live_result[$tm] += $prize;
                     $comment = "Monkey prize of $prize collected";
                     $monkey_prizes[$tm][0] = 1;
@@ -584,6 +584,7 @@ $final_results = ["Lions" => 0, "Rhinos" => 0, "Hyenas" => 0];
 $final_results["Lions"] = $live_result[32];
 $final_results["Rhinos"] = $live_result[33];
 $final_results["Hyenas"] = $live_result[34];
+$debug_log[] = $final_results;
 
 
 //CHOOSE WHAT TO ISSUE BACK, BASED ON PORPOISE
