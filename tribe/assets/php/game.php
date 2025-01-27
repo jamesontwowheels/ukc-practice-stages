@@ -224,6 +224,12 @@ $x = 0;
             34 => 21
         ];
 
+        $muster_destination = [
+            32 => 31,
+            33 => 32,
+            34 => 33
+        ];
+
         $puzzle_cps = [21,22,23,24,25];
 
         $puzzle_questions = [
@@ -408,6 +414,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         //score the points
                         $score[$al["king"][0]] += ($t - $al["king"][2]);
                         //change the ownership
+                        $animal_locations[$muster_destination[$al["king"][0]]][1] += $al["king"][1];
                         $al["king"][0] = $key;
                         $al["king"][1] = $value;
                         $al["king"][2] = $t;
