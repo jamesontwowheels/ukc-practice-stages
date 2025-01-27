@@ -383,7 +383,8 @@ if($debug == 1){ $debug_log[] = '72';};
             foreach($cps_holes as $hole){
                 $watering_hole = $animal_locations[$hole];
                 $owner = $watering_hole["king"][0];
-                $live_result[$owner] += $stage_time - ($watering_hole["king"][2] - $start_time);
+                $live_result[$owner] += ($stage_time - $watering_hole["king"][2]);
+                $debug_log[] = "holelog";
             }
             continue;
         }
@@ -455,7 +456,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         $animal_locations[$muster_destination[$al["king"][0]]]["king"][1] += $al["king"][1];
                         $al["king"][0] = $key;
                         $al["king"][1] = $value;
-                        $al["king"][2] = $t;
+                        $al["king"][2] = $t-$game_start;
                         $al["bush"][$key] = 0;
                         $comment = $comment.". Team $tm are now in control of the watering hole $cp";
                     }
