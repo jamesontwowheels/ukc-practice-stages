@@ -420,9 +420,44 @@ if($debug == 1){ $debug_log[] = '72';};
         }
 
             //visit a muster point
+
+            if(in_array($cp, $cps_muster)){
+                $al = $animal_locations[$cp];
+                //if it's the right point
+                if($al["king"][0] == $tm){
+                //to pick up animals
+                    if($purp == 1){
+                        //if there's animals
+                        if($al["king"][1] > 0){
+                            //and the hand isn't full
+                            if($players[$pl]["hand"] < $hand_limit){
+                                $players[$pl]["hand"] += 1;
+                                $al["king"][1] -= 1;
+                            }
+                            else {
+                                $comment = "your hand is full";
+                            }
+                        } else {
+                            $comment = "there are no animals to pick-up";
+                        }
+                    } elseif ($purp == 2) {
+                        //if there's animals to drop
+                        if($players[$pl]["hand"] > 0){
+                                $players[$pl]["hand"] -= 1;
+                                $al["king"][1] += 1;
+                                "Animal left at muster point";
+                            } else {
+                            $comment = "you are not carrying any animals";
+                        }
+                    }
+                } else {
+                    $comment = "this isn't your muster point";
+                }
+                $animal_locations[$cp] = $al; // update master animal locations.
+            }
         
         //visit the mountain
-        //is there even a checkpoint here??
+        //is there even a checkpoint here?? nope
 
         //visit a monkey point
 
