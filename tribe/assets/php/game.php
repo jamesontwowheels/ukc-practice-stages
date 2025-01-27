@@ -384,7 +384,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $watering_hole = $animal_locations[$hole];
                 $owner = $watering_hole["king"][0];
                 $live_result[$owner] += ($stage_time - $watering_hole["king"][2]);
-                $debug_log[] = "holelog";
+                $debug_log[] = $owner + ' - ' + $live_result[$owner];
             }
             continue;
         }
@@ -451,7 +451,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 foreach($al["bush"] as $key => $value){
                     if($value > $al["king"][1]){
                         //score the points
-                        $live_result[$al["king"][0]] += ($t - $al["king"][2]);
+                        $live_result[$al["king"][0]] += (($t - $game_start) - $al["king"][2]);
                         //change the ownership
                         $animal_locations[$muster_destination[$al["king"][0]]]["king"][1] += $al["king"][1];
                         $al["king"][0] = $key;
