@@ -275,7 +275,11 @@ $x = 0;
     // monkey level
     // score
     $score = [32 => 0, 33 => 0, 34 => 0];
-    $available_cps = [32 => $initial_cps, 33 => $initial_cps, 34 => $initial_cps];
+    $available_cps = [32 => [], 33 => [], 34 => []];
+    if($user_ID == 29){
+        $available_cps = [32 => $initial_cps, 33 => $initial_cps, 34 => $initial_cps];
+    }
+
     $commentary = [32 => [], 33 => [], 34 => []];
     $live_result = [32 => 0, 33 => 0, 34 => 0];
     $pl_finishers=  [];
@@ -522,11 +526,9 @@ if($debug == 1){ $debug_log[] = '72';};
             if($game_state == 0)
             {
                 $game_state = 1;
-                $team_finish_count = 0;
                 $game_start = $t;
                 $comment = "game started";
-                foreach($team["members"] as $team_member){
-                    $available_cps[$team_member] = $outside_cps;}
+                $available_cps = [32 => $initial_cps, 33 => $initial_cps, 34 => $initial_cps];
             } 
             elseif ($game_state == 2) {
                $game_state = 0;
