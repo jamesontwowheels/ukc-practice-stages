@@ -41,10 +41,12 @@ window.onload = function() {
             .then(data => {
                 // Handle the successful response
                 const live_scores = data["live_scores"];
+                const debug = data["debug_log"];
                 console.log(live_scores);
+                console.log(debug);
                 const usernames = data["usernames"];
                 const arrayOfPairs = Object.entries(live_scores);
-                console.log(arrayofPairs);
+                console.log(arrayOfPairs);
                 updateLeaderboard(arrayOfPairs);
             })
             .catch(error => {
