@@ -535,19 +535,14 @@ if($debug == 1){ $debug_log[] = '72';};
            } }
             elseif
             ($cp == 998){
-                $team_finish_count += 1;
-                $available_cps[$pl] = [999];
-                $comment = "game partially ended";
-                if($team_finish_count == $team_player_count){
-                $game_state = 2;
-                $game_end = $t;
-                $comment = "game completely ended";
-                 //check for time penalties:    
-                $finish_time = $game_end - $game_start; //update
-                if($finish_time > $stage_time){
-                $time_penalty = 1 + floor(($finish_time-$stage_time)/20);
-            } else {$time_penalty = 0;}
-        }
+                if(in_array($pl,$pl_finshers)){
+                    $comment = "already finished";
+                } else {
+                    $pl_finishers[] = $pl;
+                    $comment = "finished";
+                    $live_result[$tm] += 300;
+                }
+            }
         }
         //
         }
