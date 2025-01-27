@@ -243,7 +243,7 @@ function ajax_call() {
                                     // Loop through the array and create a row for each item
                                     for(const [key, value] of Object.entries(animal_locations)){
                                         const row = table.insertRow();
-                                        row.insertCell().textContent = key;
+                                        row.insertCell().textContent = cp_names[key];
                                         row.insertCell().textContent = teams[value.king[0]]["name"];
                                         row.insertCell().textContent = value.king[1];
                                         row.insertCell().textContent = value.bush[this_team];
