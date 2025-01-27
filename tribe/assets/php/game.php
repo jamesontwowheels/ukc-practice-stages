@@ -311,7 +311,7 @@ $x = 0;
 //start looping the contestants:
 foreach($teams as $team_UID => $team){
 
-    if($_REQUEST["purpose"] != 2){
+    if($_REQUEST["purpose"] != 3){
         if($team_UID != $this_team){
             $debug_log[] = "skipping $team_UID";
             continue; //skipping teams that aren't the active one
@@ -383,7 +383,7 @@ if($debug == 1){ $debug_log[] = '72';};
             foreach($cps_holes as $hole){
                 $watering_hole = $animal_locations[$hole];
                 $owner = $watering_hole["king"][0];
-                $live_result[$owner] += 1 + ($stage_time - $watering_hole["king"][2]);
+                $live_result[$owner] += ($stage_time - $watering_hole["king"][2]);
                 $debug_log[] = $owner;
             }
             continue;
