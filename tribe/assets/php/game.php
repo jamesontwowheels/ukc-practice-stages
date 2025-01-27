@@ -384,7 +384,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $watering_hole = $animal_locations[$hole];
                 $owner = $watering_hole["king"][0];
                 $live_result[$owner] += ($stage_time - $watering_hole["king"][2]);
-                $debug_log[] = $owner + ' - ' + $live_result[$owner];
+                $debug_log[] = $owner;
             }
             continue;
         }
@@ -580,6 +580,12 @@ if($debug == 1){ $debug_log[] = '72';};
    
 }
 
+$final_results = ["Lions" => 0, "Rhinos" => 0, "Hyenas" => 0];
+$final_results["Lions"] = $live_result[32];
+$final_results["Rhinos"] = $live_result[33];
+$final_results["Hyenas"] = $live_result[34];
+
+
 //CHOOSE WHAT TO ISSUE BACK, BASED ON PORPOISE
 
 if($_REQUEST["purpose"] !== 2){
@@ -607,7 +613,7 @@ $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 $response["inventory"] = [$players[$user_ID]["hand"]];
 }
-$response["live_scores"] = $live_result;
+$response["live_scores"] = $final_results;
 
 $response["debug_log"] = $debug_log;
 echo json_encode($response);
