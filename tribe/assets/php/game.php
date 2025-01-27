@@ -242,15 +242,15 @@ $x = 0;
                     <tr><td>S</td><td>R</td><td>H</td><td>E</td><td>P</td><td>T</td><td>A</td></tr>
                     </table>
                     ",
-            22 => "2",
-            23 => "3",
+            22 => "Which African country has been encrypted using a shift cypher? <br> <h3>MGPAC</h3>",
+            23 => "The numbers in and around each square are all linked. What number should be placed in the final square?<br> <img src='img/missing_number_puzzle.png'>",
             24 => "4",
             25 => "5"
         ];
 
         $puzzle_answers =[
             21 => "charles dickens",
-            22 => "2",
+            22 => "kenya",
             23 => "3",
             24 => "4",
             25 => "5"
