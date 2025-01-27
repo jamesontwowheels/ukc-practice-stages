@@ -379,6 +379,12 @@ if($debug == 1){ $debug_log[] = '72';};
         if ($game_state == 1 && ($t - $game_start) > $stage_time){
             $comment = "Game Over";
             $commentary[$tm][] = "Player ".$pl." - ".$comment;
+            $game_state = 2;
+            foreach($cps_holes as $hole){
+                $watering_hole = $animal_locations[$hole];
+                $owner = $watering_hole["king"][0];
+                $live_result[$owner] += $stage_time - ($watering_hole["king"][2] - $start_time);
+            }
             continue;
         }
 

@@ -110,13 +110,6 @@ foreach($this_team_members as $ttm){
     <?php endif; ?>
     <a href="index.php"><button>Return to Game</button></a>
     <br><br>
-    <h3>Create a New Team</h3>
-    <form method="post">
-        <label for="team_name">Team Name:</label>
-        <input type="text" id="team_name" name="team_name" required>
-        <button type="submit" name="create_team">Create Team</button>
-    </form>
-        <br><br>
     <h3>Join an Existing Team</h3>
     <form method="post">
         <label for="team_id">Select a Team:</label>
