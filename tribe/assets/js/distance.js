@@ -84,7 +84,7 @@ function success(pos) {
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = Math.round(R * c * 1000); // Distance in m
   var cp = "cp" + id;
-  var option_element = "cp_option_card_" + id;
+  var option_element = $("#cp_option_card_" + id);
   document.getElementById(cp).innerHTML = d + "m " + direction;
   var button = "butt"+id;
   var button_element = $("#"+button);
