@@ -244,15 +244,15 @@ $x = 0;
                     ",
             22 => "Which African country has been encrypted using a shift cypher? <br> <h3>MGPAC</h3>",
             23 => "The numbers in and around each square are all linked. What number should be placed in the final square?<br><br><img class='puzzle_pic' src='assets/img/missing_number_puzzle.png'>",
-            24 => "4",
+            24 => "How many triangles are in this picture?<br><br><img class='puzzle_pic' src='assets/img/puzzle_pic_2.png'>",
             25 => "Congratulations on reaching the Monkey Pool. Claim your prize!"
         ];
 
         $puzzle_answers =[
             21 => "charles dickens",
             22 => "kenya",
-            23 => "3",
-            24 => "4",
+            23 => "12",
+            24 => "24",
             25 => "5"
         ];
 
