@@ -264,6 +264,11 @@ button {
     color: black;
 }
 
+.puzzle_pic {
+    width: 70%;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
 .submit_button {
     margin: 5%;
 }

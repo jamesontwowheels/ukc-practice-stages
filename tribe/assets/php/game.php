@@ -243,9 +243,9 @@ $x = 0;
                     </table>
                     ",
             22 => "Which African country has been encrypted using a shift cypher? <br> <h3>MGPAC</h3>",
-            23 => "The numbers in and around each square are all linked. What number should be placed in the final square?<br> <img src='img/missing_number_puzzle.png'>",
+            23 => "The numbers in and around each square are all linked. What number should be placed in the final square?<br><br><img class='puzzle_pic' src='assets/img/missing_number_puzzle.png'>",
             24 => "4",
-            25 => "5"
+            25 => "Congratulations on reaching the Monkey Pool. Claim your prize!"
         ];
 
         $puzzle_answers =[
