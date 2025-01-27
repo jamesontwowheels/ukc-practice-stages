@@ -414,7 +414,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         //score the points
                         $score[$al["king"][0]] += ($t - $al["king"][2]);
                         //change the ownership
-                        $animal_locations[$muster_destination[$al["king"][0]]][1] += $al["king"][1];
+                        $animal_locations[$muster_destination[$al["king"][0]]]["king"][1] += $al["king"][1];
                         $al["king"][0] = $key;
                         $al["king"][1] = $value;
                         $al["king"][2] = $t;
