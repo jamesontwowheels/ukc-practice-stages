@@ -233,7 +233,7 @@ function ajax_call() {
 
                                     // Create a header row
                                     const headerRow = table.insertRow();
-                                    ["Owner", "Count", "Ambush"].forEach(headerText => {
+                                    ["Watering hole owner", "Count", "Your animals in ambush"].forEach(headerText => {
                                         const th = document.createElement("th");
                                         th.textContent = headerText;
                                         headerRow.appendChild(th);
@@ -242,7 +242,9 @@ function ajax_call() {
                                     // Loop through the array and create a row for each item
                                     Object.values(animal_locations).forEach(item => {
                                         const row = table.insertRow();
-                                        row.insertCell().textContent = item.king[0];
+                                        console.log(Object.keys(item));
+                                        row.insertCell().textContent = item;
+                                        row.insertCell().textContent = teams[item.king[0]]["name"];
                                         row.insertCell().textContent = item.king[1];
                                         row.insertCell().textContent = item.bush[this_team];
                                     });
