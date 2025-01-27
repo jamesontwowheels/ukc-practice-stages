@@ -433,6 +433,7 @@ if($debug == 1){ $debug_log[] = '72';};
                             if($players[$pl]["hand"] < $hand_limit){
                                 $players[$pl]["hand"] += 1;
                                 $al["king"][1] -= 1;
+                                $comment = "animal picked-up";
                             }
                             else {
                                 $comment = "your hand is full";
