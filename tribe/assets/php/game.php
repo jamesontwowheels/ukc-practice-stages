@@ -270,6 +270,10 @@ $x = 0;
     // score
     $score = [32 => 0, 33 => 0, 34 => 0];
     $available_cps = [32 => $initial_cps, 33 => $initial_cps, 34 => $initial_cps];
+    $commentary = [32 => [], 33 => [], 34 => []];
+    $live_result = [32 => 0, 33 => 0, 34 => 0];
+    
+
     // chat?
     // team name
     
@@ -323,7 +327,7 @@ if($debug == 1){ $debug_log[] = '72';};
     $results_names[$id] = [$name,$surname];
     $results_detailed[$id] = [];
     $results_summary[$id] = [];
-    $commentary = [];
+    //$commentary = [];
     $count_cps = count($all_punches);
     $y = 0;
     $running_score = 0;
@@ -416,7 +420,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 foreach($al["bush"] as $key => $value){
                     if($value > $al["king"][1]){
                         //score the points
-                        $score[$al["king"][0]] += ($t - $al["king"][2]);
+                        $live_result[$al["king"][0]] += ($t - $al["king"][2]);
                         //change the ownership
                         $animal_locations[$muster_destination[$al["king"][0]]]["king"][1] += $al["king"][1];
                         $al["king"][0] = $key;
@@ -526,7 +530,7 @@ if($debug == 1){ $debug_log[] = '72';};
         }
 
         //ONCE THE CP ACTION HAS BEEN TAKEN:
-        $commentary[] = "Player ".$pl." - ".$comment;
+        $commentary[$tm] = "Player ".$pl." - ".$comment;
         $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
     }
 
@@ -535,8 +539,8 @@ if($debug == 1){ $debug_log[] = '72';};
     $final_score = $running_score - $time_penalty;
     $time = $game_time;
        //live results
-       $live_result[$name]=$final_score;
-   $results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
+        //$live_result[$name]=$final_score;
+        //$results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
    
 }
 
@@ -557,7 +561,7 @@ $response["puzzle_cps"] = $puzzle_cps;
 $response["puzzle_questions"] = $puzzle_questions;
 $response["running_score"] = $running_score;
 $response["alert"] = $alert;
-$response["commentary"] = $commentary;
+$response["commentary"] = $commentary[$this_team];
 $response["cp_names"] = $this_cp_names;
 $response["this_team"] = $this_team;
 $response["cp_options"] = $cp_options;
