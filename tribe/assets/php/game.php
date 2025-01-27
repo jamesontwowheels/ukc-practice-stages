@@ -518,7 +518,7 @@ $response["animal_locations"] = $animal_locations;
 $response["teams"] = $teams;
 $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
-$response["inventory"] = [[$players][$user_ID]["hand"]];
+$response["inventory"] = [$players[$user_ID]["hand"]];
 }
 $response["live_scores"] = $live_result;
 
