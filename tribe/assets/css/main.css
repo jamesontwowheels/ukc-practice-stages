@@ -253,7 +253,7 @@ button {
     background: rgb(250, 249, 192)
 }
 
-.viewpoint {
+.viewpoint td {
     padding-top: 0.1em;
     padding-bottom: 0.1em;
     color: black;
