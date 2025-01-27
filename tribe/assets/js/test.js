@@ -118,25 +118,8 @@ function ajax_call() {
             let i = 0;
             showTemporaryMessage(comment, 3000);
             //inventories:
-                // Count occurrences of each key
-                var keys1 = inventory[0];
-                var keys2 = inventory[1];
-                console.log(inventory);
-                var names = cp_names;
-                // Function to count occurrences and generate HTML
-                function generateList(keys, names) {
-                    var counts = keys.reduce((acc, key) => {
-                        acc[key] = (acc[key] || 0) + 1;
-                        return acc;
-                    }, {});
-                    return Object.entries(counts)
-                        .map(([key, count]) => `<li>${names[key]}: ${count}</li>`)
-                        .join("");
-                }
-
-                // Output to different lists
-                if(keys1 !== null){document.getElementById("output_resources").innerHTML = generateList(keys1, names);}
-                if(keys2 !== null){document.getElementById("output_gifts").innerHTML = generateList(keys2, names);}
+            console.log(inventory);
+            document.getElementById("inventory_zone").innerHTML = "Animals held: " + inventory;
 
             //puzzle response
             var puzzle_response = data["puzzle_response"];
