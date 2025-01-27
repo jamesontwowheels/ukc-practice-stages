@@ -363,8 +363,9 @@ if($debug == 1){ $debug_log[] = '72';};
         $alert = 0;
         $game_time = $t - $game_start;
 
-        if ($t > $stage_time){
+        if ($game_state == 1 && $t > $stage_time){
             $comment = "Game Over";
+            $commentary[$tm][] = "Player ".$pl." - ".$comment;
             continue;
         }
 
