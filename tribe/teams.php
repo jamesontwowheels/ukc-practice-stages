@@ -13,7 +13,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 $player_id = $_SESSION['user_ID']; // Assuming player ID is stored in session
-$game = 4;
+$game = 5;
 $location = 0;
 
 // Handle form submission
