@@ -445,7 +445,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         if($players[$pl]["hand"] > 0){
                                 $players[$pl]["hand"] -= 1;
                                 $al["king"][1] += 1;
-                                "Animal left at muster point";
+                                $comment = "Animal left at muster point";
                             } else {
                             $comment = "you are not carrying any animals";
                         }
