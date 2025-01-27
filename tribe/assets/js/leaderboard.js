@@ -41,8 +41,10 @@ window.onload = function() {
             .then(data => {
                 // Handle the successful response
                 const live_scores = data["live_scores"];
+                console.log(live_scores);
                 const usernames = data["usernames"];
                 const arrayOfPairs = Object.entries(live_scores);
+                console.log(arrayofPairs);
                 updateLeaderboard(arrayOfPairs);
             })
             .catch(error => {
