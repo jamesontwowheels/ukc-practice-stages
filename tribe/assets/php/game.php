@@ -278,6 +278,7 @@ $x = 0;
     $available_cps = [32 => $initial_cps, 33 => $initial_cps, 34 => $initial_cps];
     $commentary = [32 => [], 33 => [], 34 => []];
     $live_result = [32 => 0, 33 => 0, 34 => 0];
+    $pl_finishers=  [];
     
 
     // chat?
@@ -535,7 +536,7 @@ if($debug == 1){ $debug_log[] = '72';};
            } }
             elseif
             ($cp == 998){
-                if(in_array($pl,$pl_finshers)){
+                if(in_array($pl,$pl_finishers)){
                     $comment = "already finished";
                 } else {
                     $pl_finishers[] = $pl;
@@ -545,7 +546,7 @@ if($debug == 1){ $debug_log[] = '72';};
             }
         }
         //
-        }
+        
 
         //ONCE THE CP ACTION HAS BEEN TAKEN:
         $commentary[$tm][] = "Player ".$pl." - ".$comment;
