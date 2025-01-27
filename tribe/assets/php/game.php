@@ -371,6 +371,9 @@ if($debug == 1){ $debug_log[] = '72';};
                 }
             if($purp == 1) //pick up an animal
             {
+                if($hole_owned == 1 && $current_animals == 1){
+                    $comment = "you can't remove the last defender";
+                } else {
                 if($players[$pl]["hand"] < $hand_limit)
                 {
                     if($current_animals > 0)
@@ -389,6 +392,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         }
                 } else {
                     $comment = "you can't pick up any more animals";
+                }
                 }
             } else //deploy an animal
             {
