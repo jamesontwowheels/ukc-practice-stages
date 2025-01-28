@@ -234,7 +234,7 @@ function ajax_call() {
 
                                     // Create a header row
                                     const headerRow = table.insertRow();
-                                    ["CP Name","Watering hole owner (count)", $teams[$this_team]["name"] + " in ambush"].forEach(headerText => {
+                                    ["CP Name","Watering hole owner (count)", teams[this_team]["name"] + " in ambush"].forEach(headerText => {
                                         const th = document.createElement("th");
                                         th.textContent = headerText;
                                         headerRow.appendChild(th);
