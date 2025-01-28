@@ -118,9 +118,9 @@ $x = 0;
     $all_cps = array_merge($cps_holes,$cps_monkey,$cps_muster,$cp_mountain,$cp_start_finish);
     
     $initial_cps = array_merge($cps_holes,$cps_muster,$cp_mountain,$cp_start_finish,[21]);
-    $in_game_cps_a = array_merge($cps_holes,$cp_mountain,[998],[21],[32]);
-    $in_game_cps_b = array_merge($cps_holes,$cp_mountain,[998],[21],[33]);
-    $in_game_cps_c = array_merge($cps_holes,$cp_mountain,[998],[21],[34]);
+    $in_game_cps_a = array_merge($cps_holes,$cp_mountain,[998],[21],[31]);
+    $in_game_cps_b = array_merge($cps_holes,$cp_mountain,[998],[21],[32]);
+    $in_game_cps_c = array_merge($cps_holes,$cp_mountain,[998],[21],[33]);
 
     $cp_names = [
         1 => "Lion 1",
@@ -533,7 +533,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 if($monkey_prizes[$tm][0] == 1){
                     $comment = "Prize already collected";
                 } else {
-                    $prize = $stage_time - $t - $game_start;
+                    $prize = $stage_time - ($t - $game_start);
                     $live_result[$tm] += $prize;
                     $comment = "Monkey prize of $prize collected";
                     $monkey_prizes[$tm][0] = 1;
