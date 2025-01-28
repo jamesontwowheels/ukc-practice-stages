@@ -106,6 +106,7 @@ function ajax_call() {
             var cp_names = data["cp_names"];
             var cp_names_keys = Object.keys(cp_names);
             var cp_options = data["cp_options"];
+            var muster_cps = data["muster_cps"];
             var available_cps = data["available_cps"];
             var puzzle_cps = data["puzzle_cps"];
             var watering_holes = data["watering_holes"];
