@@ -354,7 +354,7 @@ function ajax_call() {
                     // Display the result in the element with id="timer"
                     document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
                 },1000)} else if (game_state[0] == 2){
-
+                document.getElementById("teams").style.display = "none";
                 console.log ("timer cancelled! Interval = " + countdownFunction);
                     clearInterval(countdownFunction);
 
