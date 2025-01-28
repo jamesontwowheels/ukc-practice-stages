@@ -216,7 +216,7 @@ function ajax_call() {
                                         document.getElementById(cp_space).classList.add('hole_owned');
                                         document.getElementById(cp_space).classList.remove('hole_not_owned');
                                     
-                                }
+                                }}
 
                                 if(puzzle_cps.map(Number).includes(parseInt(this_key))){
                                    document.getElementById(info_space).innerHTML = puzzle_questions[this_key];
