@@ -64,7 +64,7 @@ function ajax_call() {
 
     var user_input = "void";
     if($(this).hasClass('puzzle')){
-        user_input = prompt(puzzle_questions[cp]);
+        user_input = prompt("submit your answer");
         if (user_input === null || user_input == "") { 
             console.log("nothing input");
             return;}
@@ -234,7 +234,7 @@ function ajax_call() {
 
                                     // Create a header row
                                     const headerRow = table.insertRow();
-                                    ["CP Name","Watering hole owner", "Count", "Your animals in ambush"].forEach(headerText => {
+                                    ["CP Name","Watering hole owner (count)", $teams[$this_team]["name"] + " in ambush"].forEach(headerText => {
                                         const th = document.createElement("th");
                                         th.textContent = headerText;
                                         headerRow.appendChild(th);
@@ -244,8 +244,8 @@ function ajax_call() {
                                     for(const [key, value] of Object.entries(animal_locations)){
                                         const row = table.insertRow();
                                         row.insertCell().textContent = cp_names[key];
-                                        row.insertCell().textContent = teams[value.king[0]]["name"];
-                                        row.insertCell().textContent = value.king[1];
+                                        row.insertCell().textContent = teams[value.king[0]]["name"] + " (" + value.king[1] + ")";
+                                        //row.insertCell().textContent = value.king[1];
                                         row.insertCell().textContent = value.bush[this_team];
                                     }
 

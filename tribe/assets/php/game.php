@@ -118,6 +118,9 @@ $x = 0;
     $all_cps = array_merge($cps_holes,$cps_monkey,$cps_muster,$cp_mountain,$cp_start_finish);
     
     $initial_cps = array_merge($cps_holes,$cps_muster,$cp_mountain,$cp_start_finish,[21]);
+    $in_game_cps_a = array_merge($cps_holes,$cp_mountain,[998],[21],[32]);
+    $in_game_cps_b = array_merge($cps_holes,$cp_mountain,[998],[21],[33]);
+    $in_game_cps_c = array_merge($cps_holes,$cp_mountain,[998],[21],[34]);
 
     $cp_names = [
         1 => "Lion 1",
@@ -152,10 +155,10 @@ $x = 0;
             7 => [1 => "Pick-up Animal", 2 => "Leave animal"],
             8 => [1 => "Pick-up Animal", 2 => "Leave animal"],
             9 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            21 => [1 => "Submit"],
-            22 => [1 => "Submit"],
-            23 => [1 => "Submit"],
-            24 => [1 => "Submit"],
+            21 => [1 => "Respond"],
+            22 => [1 => "Respond"],
+            23 => [1 => "Respond"],
+            24 => [1 => "Respond"],
             25 => [1 => "Claim Prize"],
             31 => [1 => "Pick-up Animal", 2 => "Leave animal"],
             32 => [1 => "Pick-up Animal", 2 => "Leave animal"],
@@ -311,7 +314,7 @@ $x = 0;
 //start looping the contestants:
 foreach($teams as $team_UID => $team){
 
-    if($_REQUEST["purpose"] != 3){
+    if($_REQUEST["purpose"] != 45){
         if($team_UID != $this_team){
             $debug_log[] = "skipping $team_UID";
             continue; //skipping teams that aren't the active one
@@ -527,7 +530,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $comment = "this puzzle has been solved!";
             } }
             else {
-                if($monkey_prizes[$tm][0] == 0){
+                if($monkey_prizes[$tm][0] == 1){
                     $comment = "Prize already collected";
                 } else {
                     $prize = $stage_time - $t - $game_start;
@@ -547,7 +550,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $game_state = 1;
                 $game_start = $t;
                 $comment = "game started";
-                $available_cps = [32 => $initial_cps, 33 => $initial_cps, 34 => $initial_cps];
+                $available_cps = [32 => $in_game_cps_a, 33 => $in_game_cps_b, 34 => $in_game_cps_c];
             } 
             elseif ($game_state == 2) {
                $game_state = 0;
