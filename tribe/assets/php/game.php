@@ -389,6 +389,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $live_result[$owner] += ($stage_time - $watering_hole["king"][2]);
                 $debug_log[] = $owner;
             }
+            $available_cps = [32 => [], 33 => [], 34 => []];
             continue;
         }
 
