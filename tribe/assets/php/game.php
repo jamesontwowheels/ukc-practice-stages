@@ -604,6 +604,7 @@ $response["puzzle_response"]=$puzzle_response;
 $response["alert"] = $alert;
 $response["comment"] = $comment;}
 $response["watering_holes"]= $cps_holes;
+$response["muster_cps"]=$cps_muster;
 $response["puzzle_cps"] = $puzzle_cps;
 $response["puzzle_questions"] = $puzzle_questions;
 $response["running_score"] = $running_score;

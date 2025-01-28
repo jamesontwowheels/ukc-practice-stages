@@ -206,8 +206,20 @@ function ajax_call() {
                                     document.getElementById(cp_space).classList.add('neutral'); //not really the right thing but a tester
                                 }
 
+                                if(muster_cps.map(Number).includes(parseInt(this_key))){
+                                    var cp_animals = animal_locations[this_key];
+                                    var cp_king = cp_animals["king"][0];
+                                    var cp_king_name = teams[cp_king];
+                                    var cp_king_size = cp_animals["king"][1];
+                                    if(cp_king == this_team){
+                                        document.getElementById(info_space).innerHTML =  "Welcome to your muster point. You currently have <h3>" +cp_king_size+" animals</h3> here.";
+                                        document.getElementById(cp_space).classList.add('hole_owned');
+                                        document.getElementById(cp_space).classList.remove('hole_not_owned');
+                                    
+                                }
+
                                 if(puzzle_cps.map(Number).includes(parseInt(this_key))){
-                                    document.getElementById(info_space).innerHTML = puzzle_questions[this_key];
+                                   document.getElementById(info_space).innerHTML = puzzle_questions[this_key];
                                 }
 
                                 //viewpoint FE logic
