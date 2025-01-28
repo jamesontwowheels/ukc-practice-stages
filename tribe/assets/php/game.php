@@ -518,6 +518,10 @@ if($debug == 1){ $debug_log[] = '72';};
                     $monkey_progress[$tm] += 1;
                     $available_cps[$tm][] = $monkey_progress[$tm];
                     $comment = "Puzzle solved! Now go find ".$cp_names[$monkey_progress[$tm]];
+                    if($pl == $user_ID) {$puzzle_response = 1;}
+                } else{
+                    $comment = "incorrect answer";
+                    if($pl == $user_ID) {$puzzle_response = 2;}
                 }
             } else {
                 $comment = "this puzzle has been solved!";
