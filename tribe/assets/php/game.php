@@ -233,7 +233,7 @@ $x = 0;
             34 => 33
         ];
 
-        $puzzle_cps = [21,22,23,24,25];
+        $puzzle_cps = [21,22,23,24];
 
         $puzzle_questions = [
             21 => "Fill in the gaps to complete seven 5-letter words reading downwards. The inserted letters will spell out the name of a famous author.<br>
@@ -512,7 +512,7 @@ if($debug == 1){ $debug_log[] = '72';};
         //visit a monkey point
 
         if(in_array($cp,$puzzle_cps)){
-            if($cp != 25){
+            
             $debug_log[] = "puzzle pinged";
             if($cp == $monkey_progress[$tm]){
                 $debug_log[] = "right puzzle";
@@ -528,17 +528,19 @@ if($debug == 1){ $debug_log[] = '72';};
                 }
             } else {
                 $comment = "this puzzle has been solved!";
-            } }
-            else {
-                if($monkey_prizes[$tm][0] == 1){
-                    $comment = "Prize already collected";
-                } else {
-                    $prize = $stage_time - ($t - $game_start);
-                    $live_result[$tm] += $prize;
-                    $comment = "Monkey prize of $prize collected";
-                    $monkey_prizes[$tm][0] = 1;
-                    $monkey_prizes[$tm][1] = $prize;
-                }
+            }
+        }
+
+        if($cp == 25) {
+            if($monkey_prizes[$tm][0] == 1){
+                $comment = "Prize already collected";
+            } else {
+                $prize = $stage_time - ($t - $game_start);
+                $live_result[$tm] += $prize;
+                $comment = "Monkey prize of $prize collected";
+                $monkey_prizes[$tm][0] = 1;
+                $monkey_prizes[$tm][1] = $prize;
+                if($pl == $user_ID) {$puzzle_response = 3;}
             }
         }
 

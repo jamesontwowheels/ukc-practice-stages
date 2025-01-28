@@ -128,6 +128,8 @@ function ajax_call() {
                 alert("Yes! Puzzle correct");
             } else if(puzzle_response == 2){
                 alert ("No. Puzzle incorrect");
+            } else if (puzzle_response == 3) {
+                alert ("Prize collected!");
             }
 
             const parentDiv = document.getElementById('cp_options');
@@ -198,8 +200,8 @@ function ajax_call() {
                                         document.getElementById(cp_space).classList.add('hole_owned');
                                         document.getElementById(cp_space).classList.remove('hole_not_owned');
                                     } else {
-                                        document.getElementById(info_space).innerHTML =  "This watering hole is controlled by " + cp_king_name["name"] + " with " +cp_king_size+" animals.";
-                                        document.getElementById(info_space).innerHTML +=  "You have " + cp_bush + " animals lying in ambush";
+                                        document.getElementById(info_space).innerHTML =  "This watering hole is controlled by: <h3>" + cp_king_size + " " + cp_king_name["name"] + "</h3>";
+                                        document.getElementById(info_space).innerHTML +=  "<br><br> You have <b>" + cp_bush + "</b> animals lying in ambush";
                                         document.getElementById(cp_space).classList.add('hole_not_owned');
                                         document.getElementById(cp_space).classList.remove('hole_owned');
                                     };
