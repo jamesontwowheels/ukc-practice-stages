@@ -3,7 +3,7 @@ let target;
 let options;
 
 if (user_ID == 29) { 
-  var d_base = 300000;
+  var d_base = 30000000;
   console.log("GOD MODE ACTIVE");} 
   else if (user_ID == 8) {
   var d_base = 15;
