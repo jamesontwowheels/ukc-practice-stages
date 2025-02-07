@@ -114,7 +114,7 @@ function createBarChart1(labels, data, totalLast7Days, overallTotal) {
     totalContainer.className = "totals";
     totalContainer.innerHTML = `
         <p><strong>Total Minutes (Last 7 Days):</strong> ${totalLast7Days}</p>
-        <p><strong>Overall Total Minutes Before 7:30 AM:</strong> ${overallTotal}</p>
+        <p><strong>Total Minutes Before 7:30 AM:</strong> ${overallTotal}</p>
     `;
     widgetZone.appendChild(totalContainer);
 }
