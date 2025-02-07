@@ -2,11 +2,7 @@
 
 include 'assets/php/db_connect.php';
 
-$led_1 = $_GET["led_1"];
-$user = $_GET['user'];
-$purpose = $_GET['purpose'];
-
-echo 'purpose = ' . $purpose;
+$button_ID = $_GET["button_ID"];
 
 /* $servername = "localhost";
 $username = "root";
@@ -22,25 +18,16 @@ if ($conn->connect_error) {
 //echo "Connected successfully";
 */
 
-$table = 'thingdoer_inputs';
-
-if($purpose == 1){
+$table = 'thingdoer_buttons';
 
   try {
     // Assuming you already have a PDO connection named $pdo
-    $sql = "INSERT INTO $table (Purpose, CreatedAt, InputValue,UserName) 
-            VALUES (:purpose, :createdAt, :inputValue, :userName)";
+    $sql = "SELECT widget FROM $table WHERE UID = :button_ID";
     
     $stmt = $conn->prepare($sql);
 
-    // Create a DateTime2 formatted timestamp
-    $datetime2 = (new DateTime())->format('Y-m-d\TH:i:s.u') . '0';
-
     // Bind parameters securely
-    $stmt->bindParam(':purpose', $led_1, PDO::PARAM_INT);
-    $stmt->bindParam(':createdAt', $datetime2, PDO::PARAM_STR);
-    $stmt->bindParam(':inputValue', $led_1, PDO::PARAM_INT);
-    $stmt->bindParam(':userName', $user, PDO::PARAM_STR);
+    $stmt->bindParam(':button_ID', $button_ID, PDO::PARAM_INT);
 
     // Execute the statement
     if ($stmt->execute()) {
@@ -51,5 +38,4 @@ if($purpose == 1){
 } catch (PDOException $e) {
     // Log or display error message
     echo "Database Error: " . $e->getMessage();
-}
 }

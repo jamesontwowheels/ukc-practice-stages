@@ -14,7 +14,7 @@ $createdAt = (new DateTime())->format('Y-m-d\TH:i:s'); // Format for DATETIME2
 
 //define the update
 
-$sql = "INSERT INTO dbo.thingdoer (Purpose, CreatedAt, InputValue, UserName) VALUES (:purpose, :createdAt, :inputValue, :userName)";
+$sql = "INSERT INTO dbo.thingdoer_inputs (Purpose, CreatedAt, InputValue, UserName) VALUES (:purpose, :createdAt, :inputValue, :userName)";
 $stmt = $conn->prepare($sql);
 
 $stmt->bindParam(':purpose', $purpose);
