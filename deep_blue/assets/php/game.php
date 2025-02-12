@@ -98,9 +98,9 @@ $x = 0;
     ];
 
     $oxygen_amount = [
-        1 => 300,
-        2 => 300,
-        3 => 300
+        1 => 600,
+        2 => 540,
+        3 => 480
     ];
 
     $cp_names = [
@@ -167,7 +167,7 @@ $x = 0;
     //values
     $fish = 5;
     $treasure = 10;
-    $stage_time = 30*60;
+    $stage_time = 75*60;
 //start looping the contestants:
 while($x < $count_results){
     $player = $players[$x];
