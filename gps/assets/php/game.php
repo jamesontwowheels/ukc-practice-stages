@@ -104,6 +104,16 @@ $x = 0;
     ];
 
     $cp_names = [
+        1 => "Eel",
+        2 => "Eel",
+        3 => "Eel",
+        4 => "Eel",
+        5 => "Eel",
+        6 => "Eel",
+        7 => "Eel",
+        8 => "Cod",
+        9 => "Cod",
+        10 => "Cod",
         11 => "Eel",
         12 => "Eel",
         13 => "Eel",
@@ -123,14 +133,7 @@ $x = 0;
         27 => "Tuna",
         28 => "Tuna",
         29 => "Tuna",
-        31 => "Seal",
-        32 => "Seal",
-        33 => "Seal",
-        34 => "Walrus",
-        333 => "Trident",
-        777 => "Snow Bank",
-        102 => "Ice Hole",
-        202 => "Ice Hole",
+      
         998 => "Finish",
         999 => "Start"
         ];
