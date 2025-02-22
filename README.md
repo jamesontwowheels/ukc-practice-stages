@@ -15,3 +15,15 @@ This sample demonstrates a tiny Hello World PHP app for [App Service](https://do
 ## Contributing
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+## Next updates
+
+- Unified javascript: 
+    - generic rules for passing CP information/options/response
+- Standardised game.php:
+    - team/individual structure ready for re-use
+- Game Launch screen/admin screen
+- Location active checker (required for mass-start)
+- Another attempt at real-time updates
+- Split the app from Thingdoer
+- 
