@@ -8,7 +8,11 @@ if (!isset($_SESSION['username'])) {
     // Redirect to login page if not logged in
     header("Location: index.php");
     exit;
-}?>
+}
+
+$_SESSION['game'] = 6;
+
+?>
 <head>
 
 <link rel="stylesheet" href="main.css">
@@ -19,13 +23,8 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
 <h2>MINDGAMES</h2>
-<a class="stage" href="deep_blue?location=5">Whitley Bay</a><br>
-<a class="stage" href="deep_blue?location=3">Court Rec</a><br>
-<a class="stage" href="deep_blue?location=4">Lightwater</a><br>
-<a class="stage" href="deep_blue?location=2">Focus Group</a><br>
-<a class="stage" href="deep_blue?location=0">Fenchurch St - 22.10.24</a><br>
-<a class="stage" href="deep_blue?location=1">Rising Sun</a><br>
-
+<a class="stage" href="snakes?location=0">ARG</a>
+<a class="stage" href="snakes?location=1">FCS</a>
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
 </form>
