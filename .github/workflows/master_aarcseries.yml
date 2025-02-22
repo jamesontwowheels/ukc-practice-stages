@@ -12,6 +12,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read #This is required for actions/checkout
 
     steps:
       - uses: actions/checkout@v4
@@ -48,6 +50,7 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
+      contents: read #This is required for actions/checkout
 
     steps:
       - name: Download artifact from build job
@@ -59,14 +62,14 @@ jobs:
         run: unzip release.zip
       
       - name: Login to Azure
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_EABC2ACE83F7423F8579BDA045B080A3 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D874499EB0974155B8C86142FA98CFAA }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_4A3543E344ED4D5BB1C04AFFDD9E717E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_9888AF7F01B145E19579A7532344A910 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D413A579BE04422E9593550B40E157F7 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_91FFD7CF7BE34709A1F63B57B2E87B3D }}
 
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'aarcseries'
