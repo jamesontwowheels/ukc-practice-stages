@@ -21,6 +21,7 @@ if (!isset($_SESSION['username'])) {
 <h2>MINDGAMES</h2>
 <a class="stage" href="santa?location=0">ARG</a>
 <a class="stage" href="santa?location=1">FCS</a>
+<a class="stage" href="santa?location=2">Horton</a>
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
 </form>
