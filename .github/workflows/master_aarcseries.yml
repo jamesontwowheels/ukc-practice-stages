@@ -75,4 +75,5 @@ jobs:
           app-name: 'aarcseries'
           slot-name: 'Production'
           package: .
+          deployment-method: 'run-from-package'
           
