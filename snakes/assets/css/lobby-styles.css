@@ -19,3 +19,38 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+#game-container {
+    max-width: 400px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+}
+
+.countdown-circle {
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+#countdown-progress {
+    transition: stroke-dashoffset 1s linear;
+}
+
+#countdown-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}

@@ -9,11 +9,15 @@ if (!isset($_SESSION['user_ID'])) {
 }
 
 $user_ID = $_SESSION['user_ID'];
+$location = $_SESSION['location'];
+$game = $_SESSION['game'];
 
 try {
-    $query = "SELECT COUNT(*) AS count FROM team_members WHERE player_ID = :user_ID";
+    $query = "SELECT COUNT(*) AS count FROM team_members WHERE player_ID = :user_ID and location = :location and game = :game";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(":user_ID", $user_ID);
+    $stmt->bindParam(":location", $location);
+    $stmt->bindParam(":game", $game);
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 

@@ -23,8 +23,8 @@ $_SESSION['game'] = 6;
 </head>
 <body>
 <h2>MINDGAMES</h2>
-<a class="stage" href="snakes?location=0">ARG</a>
-<a class="stage" href="snakes?location=1">FCS</a>
+<a class="stage" href="snakes/lobby.php?location=0">ARG</a>
+<a class="stage" href="snakes/lobby.php?location=1">FCS</a>
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
 </form>

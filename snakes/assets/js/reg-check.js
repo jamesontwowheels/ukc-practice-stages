@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     statusText.textContent = "You have joined the game!";
                     joinBtn.style.display = "none";
                 } else {
-                    statusText.textContent = "Error joining game.";
+                    statusText.textContent = "Errorer joining game.";
                 }
             })
             .catch(error => {
