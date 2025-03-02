@@ -687,7 +687,7 @@
           ]
         },
         "properties": {
-          "name": "1",
+          "name": "5",
           "styleUrl": "#control",
           "styleHash": "5c951ac3"
         }
