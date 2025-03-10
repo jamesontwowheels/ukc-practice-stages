@@ -173,3 +173,31 @@ a.stage {
 .stage-card:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
+
+
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  display: block;
+  width: 100%; /* Adjust as needed */
+  height: auto;
+}
+
+
+.overlay {
+  position: absolute;
+  bottom: 0; /* Stick to the bottom */
+  left: 0;
+  width: 100%;
+  background: rgba(255, 0, 0, 0.8); /* Strong red background */
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px 0; /* Increase padding for better visibility */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5); /* Adds depth */
+}

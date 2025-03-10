@@ -18,6 +18,15 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
 <h2>MINDGAMES</h2>
+<br>
+<div class="image-container stage-card">
+    <img src="images/goldrush-cover.jpeg" alt="Coming Soon">
+    <div class="overlay">Coming Soon</div>
+</div><br>
+<a class="image-container stage-card" href="snake_stages.php">
+    <img src="images/snakes-cover.jpg" alt="Coming Soon">
+    <div class="overlay">Coming Soon</div>
+</a><br>
 <a class="stage-card" href="dry_january_stages.php"><img src="images/dry-january.png"><div class="stage-title">Dry January</div></a><br>
 <a class="stage-card" href="santa_stages.php"><img src="images/santa-cover.png"><div class="stage-title">Rudolph's Rounds</div></a><br>
 <a class="stage-card" href="scrabble_stages.php"><img src="images/scrabble-cover.jpeg"><div class="stage-title">Scrabble +</div></a><br>

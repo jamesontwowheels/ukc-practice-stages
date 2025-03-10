@@ -103,20 +103,15 @@ function ajax_call() {
             var debug_log = data["debug_log"];
             console.log(debug_log);
             var inventory = data["inventory"];
-            var cp_names = data["cp_names"];
-            var cp_names_keys = Object.keys(cp_names);
-            var cp_options = data["cp_options"];
-            var muster_cps = data["muster_cps"];
-            var available_cps = data["available_cps"];
-            var puzzle_cps = data["puzzle_cps"];
-            var watering_holes = data["watering_holes"];
+            var cp_bible = data["cp_bible"];
+            var cp_keys = Object.keys(cp_bible);
+            console.log(cp_bible);
+            console.log(cp_keys);
             var comment = data["comment"];
             var teams = data["teams"];
             var this_team   = data["this_team"];
-            var animal_locations = data["animal_locations"];
-            console.log(animal_locations);
+
             console.log(teams);
-            let i = 0;
             showTemporaryMessage(comment, 3000);
             //inventories:
             console.log(inventory);
@@ -132,13 +127,8 @@ function ajax_call() {
                 alert ("Prize collected!");
             }
 
-            const parentDiv = document.getElementById('cp_options');
-            while (i < cp_names_keys.length) {
-            var this_key = cp_names_keys[i];
-            var cp_id = "butt" + this_key;
-
-            //check that the element exists
-            function checkElementExists(id, key_id, keyname, timeout = 15000) {
+            
+            function checkElementExists(id, key_id, keyname, cpx, timeout = 15000) {
                 return new Promise((resolve, reject) => {
                     const startTime = Date.now();
             
@@ -152,14 +142,14 @@ function ajax_call() {
                             element.innerHTML = keyname;
                             element.classList.remove("blocked");
                             element.classList.remove("puzzle");
-                            if (available_cps.includes(parseInt(key_id))) {
+                            if (cpx["available"]) {
                                 rowId = "row"+key_id;
                                document.getElementById(rowId).style.display = 'block';
                               } else {
                                 rowId = "row"+key_id;
                                 document.getElementById(rowId).style.display = 'none';
                               };
-                            if(puzzle_cps.includes(parseInt(key_id))){
+                            if(cpx["puzzle"]){
                                 var puzzle_butt = "butt"+key_id;
                                 // document.getElementById(puzzle_butt).classList.add("puzzle"); - no thanks, not today!
                                 };     
@@ -167,13 +157,12 @@ function ajax_call() {
                                 //ALL ** THIS ** LOGIC ** SHOULD ** BE ** IN ** THE ** BACK ** END....!
                                 //add CP options
                                 const target_space = `cp_option_space_` + this_key;
-                                var these_options = cp_options[this_key];   
+                                var these_options = cpx["options"];   
                                 console.log(these_options); 
                                 document.getElementById(target_space).innerHTML = "";           
                                 Object.keys(these_options).forEach(key => {
-                                    console.log(puzzle_cps + 'search' + this_key);
                                     var puzzle_class = "";
-                                    if(puzzle_cps.map(Number).includes(parseInt(this_key))){
+                                    if(cpx["puzzle"]){
                                         console.log("found");
                                         puzzle_class = "puzzle";
                                     }
@@ -181,92 +170,14 @@ function ajax_call() {
                                     });
                                 
                                 var cp_header_id = "cp-header-"+this_key;
-                                document.getElementById(cp_header_id).innerHTML = cp_names[this_key];
+                                document.getElementById(cp_header_id).innerHTML = cpx["name"];
 
                                 
                                 var cp_space = `cp_option_card_`+this_key;
                                 const info_space = `cp_info_space_`+ this_key;
 
-                                if(watering_holes.map(Number).includes(parseInt(this_key))){
-                                    var cp_animals = animal_locations[this_key];
-                                    var cp_king = cp_animals["king"][0];
-                                    var cp_king_name = teams[cp_king];
-                                    var cp_king_size = cp_animals["king"][1];
-                                    var cp_bush = cp_animals["bush"][this_team];
-                                    
-
-                                    if(cp_king == this_team){
-                                        document.getElementById(info_space).innerHTML =  "You control this watering hole with " +cp_king_size+" animals.";
-                                        document.getElementById(cp_space).classList.add('hole_owned');
-                                        document.getElementById(cp_space).classList.remove('hole_not_owned');
-                                    } else {
-                                        document.getElementById(info_space).innerHTML =  "This watering hole is controlled by: <h3>" + cp_king_size + " " + cp_king_name["name"] + "</h3>";
-                                        document.getElementById(info_space).innerHTML +=  "<br><br> You have <b>" + cp_bush + "</b> animals lying in ambush";
-                                        document.getElementById(cp_space).classList.add('hole_not_owned');
-                                        document.getElementById(cp_space).classList.remove('hole_owned');
-                                    };
-                                } else  {
-                                    document.getElementById(cp_space).classList.add('neutral'); //not really the right thing but a tester
-                                }
-
-                                if(muster_cps.map(Number).includes(parseInt(this_key))){
-                                    var cp_animals = animal_locations[this_key];
-                                    var cp_king = cp_animals["king"][0];
-                                    var cp_king_name = teams[cp_king];
-                                    var cp_king_size = cp_animals["king"][1];
-                                    if(cp_king == this_team){
-                                        document.getElementById(info_space).innerHTML =  "Welcome to your muster point. You currently have <h3>" +cp_king_size+" animals</h3> here.";
-                                        document.getElementById(cp_space).classList.add('hole_owned');
-                                        document.getElementById(cp_space).classList.remove('hole_not_owned');
-                                    
-                                }}
-
-                                if(puzzle_cps.map(Number).includes(parseInt(this_key))){
-                                   document.getElementById(info_space).innerHTML = puzzle_questions[this_key];
-                                }
-
-                                //viewpoint FE logic
-                                if(this_key == 100){
-
-                                    const viewpoint = document.getElementById(info_space);
-                                    viewpoint.innerHTML = ""; 
-                                    // Create a table element
-                                    const table = document.createElement("table");
-                                    table.classList.add('viewpoint');
-
-                                    // Create a header row
-                                    const headerRow = table.insertRow();
-                                    ["CP Name","Watering hole owner (count)", teams[this_team]["name"] + " in ambush"].forEach(headerText => {
-                                        const th = document.createElement("th");
-                                        th.textContent = headerText;
-                                        headerRow.appendChild(th);
-                                    });
-
-                                    // Loop through the array and create a row for each item
-                                    for(const [key, value] of Object.entries(animal_locations)){
-                                        const row = table.insertRow();
-                                        row.insertCell().textContent = cp_names[key];
-                                        row.insertCell().textContent = teams[value.king[0]]["name"] + " (" + value.king[1] + ")";
-                                        //row.insertCell().textContent = value.king[1];
-                                        row.insertCell().textContent = value.bush[this_team];
-                                    }
-
-                                    Object.values(animal_locations).forEach(item => {
-                                        
-                                    });
-                    
-                                    // Append the table to the div
-                                    viewpoint.appendChild(table);
-                                }
-                                
-                                /* 
-                                    show the team in charge 
-                                    show how many it is held by
-                                    default graphics if held by your team
-                                    if not held by your team - show how many of yours in the bush, add .enemy_graphics
-
-                                */
-                                    
+                                document.getElementById(info_space).innerHTML = cpx["message"];
+                                document.getElementById(cp_space).classList.add('neutral');
                             resolve(element); // Element found, resolve the promise
 
                         } else if (elapsedTime >= timeout) {
@@ -281,44 +192,24 @@ function ajax_call() {
                     check(); // Start the checking process
                 });
             }
-            var keyname = cp_names[this_key];
-            checkElementExists(cp_id, this_key, keyname, 15000).then( function() {
-                console.log("trying to add " + cp_names[this_key])
-                //document.getElementById(cp_id).innerHTML = cp_names[this_key];
-            }).catch(error => {
-                console.error(error.message);
-            });
 
-            
-            
-            i++;
-            } 
-            
-            /**
-           //puzzle CPs
-            //remove the puzzles first
-            const puzzle_elements = document.querySelectorAll(".puzzle");
-            puzzle_elements.forEach(function(element) {
-                element.classList.remove("puzzle");
-            });
+            for (let cp in cp_bible) {
+                var this_cp = cp_bible[cp]; // Logs each object's details
+                var cp_id = "butt" + this_cp["cp"];
+                var cp_name = this_cp["name"];
+                var this_key = this_cp["cp"];
+                
+                checkElementExists(cp_id, this_key, cp_name, this_cp, 15000).then( function() {
+                    console.log("trying to add " + this_cp["name"])
+                    //document.getElementById(cp_id).innerHTML = cp_names[this_key];
+                }).catch(error => {
+                    console.error(error.message);
+                });
+            }
 
-            // Loop through the array
-            puzzle_cps.forEach(function(element) {
-                // Construct the ID by appending 'row' to the current element
-                const elementId = "butt" + element;
-                
-                // Select the element by its ID
-                const targetElement = document.getElementById(elementId);
-                
-                // Check if the element exists in the DOM
-                if (targetElement) {
-                    // Add the "puzzle" class to the selected element
-                    targetElement.classList.add("puzzle");
-                } else {
-                    console.log(`Element with ID "${elementId}" not found.`);
-                }
-            });*/
+            const parentDiv = document.getElementById('cp_options');
             
+         
             //alert feedback
             var alert_response = data["alert"];
             console.log(alert_response);
@@ -326,9 +217,6 @@ function ajax_call() {
                 alert(alert_response);
             }
 
-            //puzzle questions
-            puzzle_questions = data["puzzle_questions"];
-            
             //game state
             var game_state = data["game_state"];
             console.log(game_state);

@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-$_SESSION['game'] = 6;
+$_SESSION['game'] = 995;
 
 ?>
 <head>

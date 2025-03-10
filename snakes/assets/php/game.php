@@ -3,13 +3,13 @@ session_start();
 
 $user_ID = $_SESSION['user_ID'];
 $location = $_SESSION['location'];
+$game = $_SESSION['game'];
 $debug = 1;
 $teams_active = true;
 $response = [];
 $debug_log = [];
 $debug_log[] = "data play";
 $user_input = $_REQUEST["user_input"];
-$game = 5;
 $incoming_cp = $cp;
 include 'db_connect.php';
 
@@ -29,13 +29,20 @@ $query = "select * from dbo.test_game where location = $location AND game = $gam
 
 $result = $conn->query($query);
 
+$query = "select * from dbo.test_game where game = :game and location = :location";
+    $stmt = $conn->prepare($query);
+    // Bind values to the placeholders
+    $stmt->bindValue(':game', $game, PDO::PARAM_INT);
+    $stmt->bindValue(':location', $location, PDO::PARAM_INT);
+    $stmt->execute();
+
 $usernames = [];
 $query2 = "select * from dbo.users";
 
 //don't strictly always need all users. but haven't got a viable filter on this yet. This will come from the pre-game page
-$stmt = $conn->prepare($query2);
-    $stmt->execute();
-while ($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
+$stmt2 = $conn->prepare($query2);
+    $stmt2->execute();
+while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
     $usernames[$row2['id']] = $row2['name'];
 }
 
@@ -52,7 +59,14 @@ if($teams_active){
         $teams[$row3['UID']] = [
             "name" => $row3['name'],
             "members" => [],
-            "cps" => []
+            "cps" => [],
+            "params" => [
+                "snakes" => [],
+                "fruit" => 0,
+                "fruit_box" => [],
+                "commentary" => [],
+                "location" => 0
+            ]
         ];
     $debug_log[]  = "58. count teams";
     }
@@ -76,8 +90,11 @@ if($teams_active){
        //set-up the player
        $player_details[$row4["player_ID"]] = [ 
             "team" => $row4["team"],
-            "name" => $usernames[$row4["player_ID"]]];
+            "name" => $usernames[$row4["player_ID"]],
+            "params" => [ "last_cp" => 8]
+        ];
     $debug_log[]  = "73. count team_members";
+    $debug_log['player details'] = $player_details;
     }
 }
 
@@ -88,7 +105,7 @@ $player_cps = [];
 $all_punches = [];
 $players = [];
 
-foreach ($result as $row) {
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     if(!in_array($row["Player_ID"],$players)){
         $players[$row["Player_ID"]] = []; //this means that we're only initiating players once they have hit their first checkpoint, does this matter?
     }
@@ -106,180 +123,75 @@ $x = 0;
 
     // e.g. $cps_letters = [1,2,3,4,5,6,7];
      //Bulk CPS
-     $cps_holes = [1,2,3,4,5,6,7,8,9];
-     $cps_monkey = [21,22,23,24,25];
-     $cps_muster = [31,32,33];
 
      //special CPS;
-     $cp_mountain = [100];
      $cp_start_finish = [998,999];
-    
-    $all_cps = array_merge($cps_holes,$cps_monkey,$cps_muster,$cp_mountain,$cp_start_finish);
-    
-    $initial_cps = array_merge($cps_holes,$cps_muster,$cp_mountain,$cp_start_finish,[21]);
-    $in_game_cps_a = array_merge($cps_holes,$cp_mountain,[998],[21],[31]);
-    $in_game_cps_b = array_merge($cps_holes,$cp_mountain,[998],[21],[32]);
-    $in_game_cps_c = array_merge($cps_holes,$cp_mountain,[998],[21],[33]);
 
     $cp_bible = [
         1 => [
-            "name" => "lion 1",
+            "cp" => 1,
+            "name" => "A",
+            "type" => "dice",
+            "score" => [1,2,3],
             "puzzle" => false,
             "puzzle_q" => "",
             "puzzle_a" => "",
-            "message" => "This is what you can do here",
+            "message" => "Checkpoint A",
             "options" => [
-                1 => "Option 1",
-                2 => "Option 2"
+                1 => "Move"
             ],
             "available" => true
-        ] //etc
+        ],
+        2 => [
+            
+            "cp" => 2,
+            "name" => "B",
+            "type" => "dice",
+            "score" => [1,2,3],
+            "puzzle" => false,
+            "puzzle_q" => "",
+            "puzzle_a" => "",
+            "message" => "Checkpoint A",
+            "options" => [
+                1 => "Move"
+            ],
+            "available" => false
+        ],
+        999 => [
+            
+            "cp" => 999,
+            "name" => "s/f",
+            "type" => "start_finish",
+            "score" => [1,2,3],
+            "puzzle" => false,
+            "puzzle_q" => "x",
+            "puzzle_a" => "x",
+            "message" => "Checkpoint A",
+            "options" => [
+                1 => "Move"
+            ],
+            "available" => true
+        ]
+         //etc
     ];
 
-    $cp_names = [
-        1 => "Lion 1",
-        2 => "Lion 2",
-        3 => "Lion 3",
-        4 => "Rhino 1",
-        5 => "Rhino 2",
-        6 => "Rhino 3",
-        7 => "Hyena 1",
-        8 => "Hyena 2",
-        9 => "Hyena 3",
-        21 => "Monkey 1",
-        22 => "Monkey 2",
-        23 => "Monkey 3",
-        24 => "Monkey 4",
-        25 => "Monkey 5",
-        31 => "Lion base",
-        32 => "Rhino base",
-        33 => "Hyena base",
-        100 => "View Point",
-        998 => "Finish",
-        999 => "Start"
-        ];
-
-    $cp_options = [
-            1 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            2 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            3 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            4 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            5 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            6 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            7 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            8 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            9 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            21 => [1 => "Respond"],
-            22 => [1 => "Respond"],
-            23 => [1 => "Respond"],
-            24 => [1 => "Respond"],
-            25 => [1 => "Claim Prize"],
-            31 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            32 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            33 => [1 => "Pick-up Animal", 2 => "Leave animal"],
-            100 => [],
-            998 => [1 => "Finish"],
-            999 => [1 => "Start"]
+    $special_squares = [
+        10 => [
+            "type" => "snake",
+            "endpoint" => 2    
+        ],
+        30 => [
+            "type" => "ladder",
+            "endpoint" => 45    
+        ],
+        31 => [
+            "type" => "snake",
+            "endpoint" => 29    
+        ]
     ];
-    
-        // $teams = [1,2,3];
 
-        $animal_locations = [
-            1 => [
-                'king' => [32, 5, 0], //[team,count,start time]
-                'bush' => [32 => 0, 33 => 0, 34 => 0],
-            ],
-            2 => [
-                'king' => [32, 3, 0],
-                'bush' => [32 => 0, 33 => 0, 34 => 0]
-            ],
-            3 => [
-                'king' => [32, 1, 0],
-                'bush' => [32 => 0, 33 => 0, 34 => 0]
-            ],
-            4 => [
-                'king' => [33, 5, 0],
-                'bush' => [32 => 0, 33 => 0, 34 => 0]
-            ],
-            5 => [
-                'king' => [33, 3, 0],
-                'bush' => [32 => 0, 33 => 0, 34 => 0]
-            ],
-            6 => [
-                'king' => [33, 1, 0],
-                'bush' => [32 => 0, 33 => 0, 34 => 0]
-            ],
-            7 => [
-                'king' => [34, 5, 0],
-                'bush' => [32 => 0, 33 => 0, 34 => 0]
-            ],
-            8 => [
-                'king' => [34, 3, 0],
-                'bush' => [32 => 0, 33 => 0, 34 => 0]
-            ],
-            9 => [
-                'king' => [34, 1, 0],
-                'bush' => [32 => 0, 33 => 0, 34 => 0]
-            ],
-            31 => [
-                'king' => [32, 20, 0],
-                'bush' => [32 => 0, 33 => 0, 34 => 0]
-            ],
-            32 => [
-                'king' => [33, 20, 0],
-                'bush' => [32 => 0, 33 => 0, 34 => 0]
-            ],
-            33 => [
-                'king' => [34, 20, 0],
-                'bush' => [32 => 0, 33 => 0, 34 => 0]
-            ],
-        ];
-        
-        $monkey_progress = [
-            32 => 21,
-            33 => 21,
-            34 => 21
-        ];
 
-        $muster_destination = [
-            32 => 31,
-            33 => 32,
-            34 => 33
-        ];
-
-        $puzzle_cps = [21,22,23,24];
-
-        $puzzle_questions = [
-            21 => "Fill in the gaps to complete seven 5-letter words reading downwards. The inserted letters will spell out the name of a famous author.<br>
-                    <table class='viewpoint'>
-                    <tr><td>A</td><td>C</td><td>L</td><td>B</td><td>S</td><td>M</td><td>M</td></tr>
-                    <tr><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
-                    <tr><td>I</td><td>A</td><td>R</td><td>A</td><td>E</td><td>A</td><td>A</td></tr>
-                    <tr><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
-                    <tr><td>S</td><td>R</td><td>H</td><td>E</td><td>P</td><td>T</td><td>A</td></tr>
-                    </table>
-                    ",
-            22 => "Which African country has been encrypted using a shift cypher? <br> <h3>MGPAC</h3>",
-            23 => "The numbers in and around each square are all linked. What number should be placed in the final square?<br><br><img class='puzzle_pic' src='assets/img/missing_number_puzzle.png'>",
-            24 => "How many triangles are in this picture?<br><br><img class='puzzle_pic' src='assets/img/puzzle_pic_2.png'>",
-            25 => "Congratulations on reaching the Monkey Pool. Claim your prize!"
-        ];
-
-        $puzzle_answers =[
-            21 => "charles dickens",
-            22 => "kenya",
-            23 => "12",
-            24 => "24",
-            25 => "5"
-        ];
-
-        $monkey_prizes = [
-            32 => [0,0],
-            33 => [0,0],
-            34 => [0,0]
-        ];
-
-        $this_cp_names = $cp_names; //required if cpnames are going to change.
+   // $this_cp_names = $cp_names; //required if cpnames are going to change.
 
     //results catchers (don't change this, it's solid)
     $results_detailed = [];
@@ -296,17 +208,10 @@ $x = 0;
 
 //TEAM SPECIFIC catchers (customise the catchers here)
 
-    //  for each team
-    // monkey level
-    // score
-    $score = [32 => 0, 33 => 0, 34 => 0];
-    $available_cps = [32 => [], 33 => [], 34 => []];
     if($user_ID == 29){
-        $available_cps = [32 => $initial_cps, 33 => $initial_cps, 34 => $initial_cps];
+        $cp_bible[999]["available"] = true;
     }
 
-    $commentary = [32 => [], 33 => [], 34 => []];
-    $live_result = [32 => 0, 33 => 0, 34 => 0];
     $pl_finishers=  [];
     
 
@@ -350,7 +255,7 @@ foreach($teams as $team_UID => $team){
     
 if($debug == 1){ $debug_log[] = '72';};
 //GAME SPECIFIC set-up course/result variables for each contestants
-    $this_cp_names = $cp_names;
+   // $this_cp_names = $cp_names;
 
     foreach($team["members"] as $team_member){
         // $available_cps[$team_member] = [999]; CPs are per team in this game
@@ -382,192 +287,82 @@ if($debug == 1){ $debug_log[] = '72';};
         // add to detailed results = $results_detailed[$id][] = [_your code_];
         // add to summary results = $results_summary[$id][] = [_your code_];
 
-        $cp = $all_punches[$z][0];// $cps[$z];
+        $cp_number = intval($all_punches[$z][0]);
+        $cp = $cp_bible[$cp_number];// $cps[$z];
         $t = $all_punches[$z][1]; //times[$z];
         $puzzle_answer = strtolower($all_punches[$z][2]);
-        $pl = $all_punches[$z][3];
-        $tm = $all_punches[$z][4];
+        $pl = intval($all_punches[$z][3]);
+        $tm = intval($all_punches[$z][4]);
         $purp = $all_punches[$z][5];
+        $debug_log['297'] = $all_punches[$z];
         $z += 1;
         $puzzle_response = 0;
         $alert = 0;
         $game_time = $t - $game_start;
+        $timezone = floor($game_time/1800);
 
-        if ($game_state == 1 && ($t - $game_start) > $stage_time){
-            $comment = "Game Over";
-            $commentary[$tm][] = "Player ".$pl." - ".$comment;
-            $game_state = 2;
-            foreach($cps_holes as $hole){
-                $watering_hole = $animal_locations[$hole];
-                $owner = $watering_hole["king"][0];
-                $live_result[$owner] += ($stage_time - $watering_hole["king"][2]);
-                $debug_log[] = $owner;
+        //Dice Rolls
+        if($cp["type"] == "dice") {
+            if($cp_number == $player_details[$pl]["params"]["last_cp"]){
+                $comment = "You can't visit the same checkpoint twice in a row";
+            } else{
+                $debug_log['cp_number'] = $cp_number;
+                $debug_log['team'] = $teams[$tm];
+                $player_details[$pl]["params"]["last_cp"] = $cp_number;
+                $comment = "you moved a few squares";
+                $new_location = min(100, $teams[$tm]['params']['location'] + $cp["score"][$timezone]);
+                if(in_array($new_location,$special_squares)){
+                    $this_special = $special_squares[$new_location];
+                    if($this_special['type'] == "snake"){
+                        if(in_array($new_location,$teams[$tm]["params"]["snakes"])){
+                            $comment = "snake already captured";
+                        } elseif ($teams[$tm]["params"]["fruit"]>0){
+                            $teams[$tm]["params"]["fruit"] -= 1;
+                            $teams[$tm]["params"]["snakes"][] = $new_location;
+                        } else {
+                            $new_location = $this_special['endpoint'];
+                            $comment = "you were eaten by a snake!";
+                        }
+                    } else {
+                        $new_location = $this_special['endpoint'];
+                        $comment = "you climbed a ladder";
+                    }
+                } 
             }
-            $available_cps = [32 => [], 33 => [], 34 => []];
-            continue;
         }
 
-        //visit a watering hole
+        //Fruit stops
 
-        if(in_array($cp, $cps_holes)){
-            $ownership_check = false;
-            $al = $animal_locations[$cp];
-            if($al["king"][0] == $tm)
-                {
-                    $hole_owned = 1;
-                    $current_animals = $al["king"][1];
-                    $current_time = $al["king"][2];
-                } else {
-                    $hole_owned = 0;
-                    $current_animals = $al["bush"][$tm];
-                    $current_time = $al["king"][2];
+        if($cp['type'] == 'fruit'){
+            if(in_array($cp_number,$teams[$tm]["params"]['fruit_box'])){
+                $comment = "Fruit already collected";
+            } else {
+                if($puzzle_answer == $cp["puzzle_a"]){
+                    $teams[$tm]["params"]["fruit_box"][] = $cp_number;
+                    $teams[$tm]["params"]["fruit"] += 1;
+                    $comment = "puzzle solved, fruit collected";
                 }
-            if($purp == 1) //pick up an animal
-            {
-                if($hole_owned == 1 && $current_animals == 1){
-                    $comment = "you can't remove the last defender";
-                } else {
-                if($players[$pl]["hand"] < $hand_limit)
-                {
-                    if($current_animals > 0)
-                        {
-                            $players[$pl]["hand"] += 1;
-                            if($hole_owned){
-                            $al["king"][1] -= 1;
-                            //check for change of ownership
-                            $ownership_check = true;
-                            } else {
-                                $al["bush"][$tm] -= 1;
-                            }
-                            $comment = "animal picked up";
-                        } else {
-                            $comment = "no animals available";
-                        }
-                } else {
-                    $comment = "you can't pick up any more animals";
-                }
-                }
-            } else //deploy an animal
-            {
-                if($players[$pl]["hand"] > 0) {
-                    $players[$pl]["hand"] -= 1;
-                    if($hole_owned){
-                        $al["king"][1] += 1;
-                        } else {
-                            $al["bush"][$tm] += 1;
-                            //check for change of ownership
-                            $ownership_check = true;
-                        }
-                        
-                        $comment = "animal left";
-                } else {
-                    $comment = "you are not carrying any animals";
-                }
-
-            }
-            if($ownership_check){
-                foreach($al["bush"] as $key => $value){
-                    if($value > $al["king"][1]){
-                        //score the points
-                        $live_result[$al["king"][0]] += (($t - $game_start) - $al["king"][2]);
-                        //change the ownership
-                        $animal_locations[$muster_destination[$al["king"][0]]]["king"][1] += $al["king"][1];
-                        $al["king"][0] = $key;
-                        $al["king"][1] = $value;
-                        $al["king"][2] = $t-$game_start;
-                        $al["bush"][$key] = 0;
-                        $comment = $comment.". Team $tm are now in control of the watering hole $cp";
-                    }
-                }
-            }
-            $animal_locations[$cp] = $al; // update master animal locations.
-        }
-
-            //visit a muster point
-
-            if(in_array($cp, $cps_muster)){
-                $al = $animal_locations[$cp];
-                //if it's the right point
-                if($al["king"][0] == $tm){
-                //to pick up animals
-                    if($purp == 1){
-                        //if there's animals
-                        if($al["king"][1] > 0){
-                            //and the hand isn't full
-                            if($players[$pl]["hand"] < $hand_limit){
-                                $players[$pl]["hand"] += 1;
-                                $al["king"][1] -= 1;
-                                $comment = "animal picked-up";
-                            }
-                            else {
-                                $comment = "your hand is full";
-                            }
-                        } else {
-                            $comment = "there are no animals to pick-up";
-                        }
-                    } elseif ($purp == 2) {
-                        //if there's animals to drop
-                        if($players[$pl]["hand"] > 0){
-                                $players[$pl]["hand"] -= 1;
-                                $al["king"][1] += 1;
-                                $comment = "Animal left at muster point";
-                            } else {
-                            $comment = "you are not carrying any animals";
-                        }
-                    }
-                } else {
-                    $comment = "this isn't your muster point";
-                }
-                $animal_locations[$cp] = $al; // update master animal locations.
-            }
-        
-        //visit the mountain
-        //is there even a checkpoint here?? nope
-
-        //visit a monkey point
-
-        if(in_array($cp,$puzzle_cps)){
-            
-            $debug_log[] = "puzzle pinged";
-            if($cp == $monkey_progress[$tm]){
-                $debug_log[] = "right puzzle";
-                if($puzzle_answer == $puzzle_answers[$cp]){
-                    $debug_log[] = "puzzle right";
-                    $monkey_progress[$tm] += 1;
-                    $available_cps[$tm][] = $monkey_progress[$tm];
-                    $comment = "Puzzle solved! Now go find ".$cp_names[$monkey_progress[$tm]];
-                    if($pl == $user_ID) {$puzzle_response = 1;}
-                } else{
+                else {
                     $comment = "incorrect answer";
-                    if($pl == $user_ID) {$puzzle_response = 2;}
                 }
-            } else {
-                $comment = "this puzzle has been solved!";
-            }
-        }
-
-        if($cp == 25) {
-            if($monkey_prizes[$tm][0] == 1){
-                $comment = "Prize already collected";
-            } else {
-                $prize = $stage_time - ($t - $game_start);
-                $live_result[$tm] += $prize;
-                $comment = "Monkey prize of $prize collected";
-                $monkey_prizes[$tm][0] = 1;
-                $monkey_prizes[$tm][1] = $prize;
-                if($pl == $user_ID) {$puzzle_response = 3;}
             }
         }
 
         //start_finish
-        if(in_array($cp,$cp_start_finish)){
-            if($cp == 999){
+        if($cp['type'] == "start_finish"){
+            if($cp_number == 999){
             if($game_state == 0)
             {
                 $game_state = 1;
                 $game_start = $t;
                 $comment = "game started";
-                $available_cps = [32 => $in_game_cps_a, 33 => $in_game_cps_b, 34 => $in_game_cps_c];
+                if($tm == $this_team){
+                    foreach ($cp_bible as &$checkpoint) {
+                        $checkpoint["available"] = true;
+                    }
+                    unset($checkpoint);
+                    $cp_bible[999]["available"] = false;
+                }
             } 
             elseif ($game_state == 2) {
                $game_state = 0;
@@ -576,13 +371,19 @@ if($debug == 1){ $debug_log[] = '72';};
                $comment = "game reset";
            } }
             elseif
-            ($cp == 998){
+            ($cp_number == 998){
                 if(in_array($pl,$pl_finishers)){
                     $comment = "already finished";
                 } else {
                     $pl_finishers[] = $pl;
                     $comment = "finished";
-                    $live_result[$tm] += 300;
+                    if($tm == $this_team){
+                        foreach ($cp_bible as &$checkpoint) {
+                            $checkpoint["available"] = false;
+                        }
+                        unset($checkpoint);
+                        $cp_bible[999]["available"] = true;
+                    }
                 }
             }
         }
@@ -590,8 +391,8 @@ if($debug == 1){ $debug_log[] = '72';};
         
 
         //ONCE THE CP ACTION HAS BEEN TAKEN:
-        $commentary[$tm][] = "Player ".$pl." - ".$comment;
-        $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
+        $teams[$tm]["commentary"][] = "Player ".$pl." - ".$comment;
+        $results_detailed[$id][] = [$t,$cp_number,$comment,"",$running_score];
     }
 
     //ONCE WE HAVE CYCLED THROUGH THE CPs..
@@ -603,11 +404,11 @@ if($debug == 1){ $debug_log[] = '72';};
         //$results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
    
 }
-
-$final_results = ["Lions" => 0, "Rhinos" => 0, "Hyenas" => 0];
+$final_results = [];
+/*$final_results = ["Lions" => 0, "Rhinos" => 0, "Hyenas" => 0];
 $final_results["Lions"] = $live_result[32];
 $final_results["Rhinos"] = $live_result[33];
-$final_results["Hyenas"] = $live_result[34];
+$final_results["Hyenas"] = $live_result[34];*/
 $debug_log[] = $final_results;
 
 
@@ -616,28 +417,19 @@ $debug_log[] = $final_results;
 if($_REQUEST["purpose"] !== 2){
     //GAME SPECIFIC
     //UNIVERSAL
-$response["all_cps"]= $all_cps;
-$response["available_cps"]= $available_cps[$this_team]; //available_cps[$user_ID]; THIS NEEDS TO BE UPDATED!!!
+$response["cp_bible"]= $cp_bible; //available_cps[$user_ID]; THIS NEEDS TO BE UPDATED!!!
 //don't send back a puzzle response if nothing has been submitted.
 if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;
-$response["alert"] = $alert;
 $response["comment"] = $comment;}
-$response["watering_holes"]= $cps_holes;
-$response["muster_cps"]=$cps_muster;
-$response["puzzle_cps"] = $puzzle_cps;
-$response["puzzle_questions"] = $puzzle_questions;
 $response["running_score"] = $running_score;
 $response["alert"] = $alert;
-$response["commentary"] = $commentary[$this_team];
-$response["cp_names"] = $this_cp_names;
+$response["commentary"] = $teams[$this_team];
 $response["this_team"] = $this_team;
-$response["cp_options"] = $cp_options;
-$response["animal_locations"] = $animal_locations;
 $response["teams"] = $teams;
 $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
-$response["inventory"] = [$players[$user_ID]["hand"]];
+$response["inventory"] = [];
 }
 $response["live_scores"] = $final_results;
 

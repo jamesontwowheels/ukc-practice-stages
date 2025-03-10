@@ -61,7 +61,6 @@ function success(pos) {
 
   const crd = pos.coords;
   var accuracy = Math.round(crd.accuracy);
-  console.log("Accuracy check: "+accuracy);
   
   d_need = d_base + accuracy; //generous range
   // document.getElementById("accuracy_zone").innerHTML = accuracy + "m radius:" + d_need;
@@ -78,8 +77,6 @@ function success(pos) {
     const bearing = calculateBearing(crd.latitude, crd.longitude, target.geometry.coordinates[1], target.geometry.coordinates[0]);
     const direction = getCompassDirection(bearing);
     
-    console.log(`Bearing: ${bearing.toFixed(2)}°`);
-    console.log(`Direction: ${direction}`);
 
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = Math.round(R * c * 1000); // Distance in m

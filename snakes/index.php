@@ -11,6 +11,8 @@ if (!isset($_SESSION['username'])) {
 if (isset($_GET['location'])) {
     // Set session variables
     $_SESSION['location'] = $_GET['location'];
+    $game = 995;
+$_SESSION['game'] = $game;
 } elseif (isset(($_SESSION['location']))){} else {
   // Redirect to login page if not logged in
   header("Location: ../stages.php");

@@ -13,8 +13,8 @@ if (!isset($_SESSION['username'])) {
 }
 
 $player_id = $_SESSION['user_ID']; // Assuming player ID is stored in session
-$game = 5;
-$location = 0;
+$game = $_SESSION['game'];
+$location = $_SESSION['location'];
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Fetch existing teams
-$query = "SELECT * FROM teams where game = 5";
+$query = "SELECT * FROM teams where game = $game";
 $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
 
 $query = "SELECT * FROM team_members where player_ID = $player_id";
@@ -108,7 +108,13 @@ foreach($this_team_members as $ttm){
     <?php if (!empty($message)): ?>
         <p style="color: green;"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
-    <a href="index.php"><button>Return to Game</button></a>
+    <a href="index.php"><button>Return to Game</button></a><br><br>
+    <h3>Create a New Team</h3>
+    <form method="post">
+        <label for="team_name">Team Name:</label>
+        <input type="text" id="team_name" name="team_name" required>
+        <button type="submit" name="create_team">Create Team</button>
+    </form>
     <br><br>
     <h3>Join an Existing Team</h3>
     <form method="post">
