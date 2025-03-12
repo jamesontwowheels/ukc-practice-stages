@@ -7,7 +7,6 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-// Check if 'word' and 'score' parameters are present in the GET request
 if (isset($_GET['location'])) {
     // Set session variables
     $_SESSION['location'] = $_GET['location'];
@@ -17,6 +16,12 @@ $_SESSION['game'] = $game;
   // Redirect to login page if not logged in
   header("Location: ../stages.php");
   exit;
+}
+
+include ('assets/php/check_game_status.php');
+
+if(!$started){
+  header("Location: lobby.php");
 }
 
 ?>
@@ -68,10 +73,7 @@ $_SESSION['game'] = $game;
 <div id="inventory" class="bucket">
   <h3>Inventory</h3>
   <div id="inventory_zone">
-    <table><tr>
-      <td><ul id="output_resources"></ul></td>
-      <td><ul id="output_gifts"></ul></td>
-    </tr></table>
+    <table id="inventoryTable"><tbody></tbody></table>
   </div>  
   </div>
 <table id="checkpoints">

@@ -60,6 +60,7 @@ if($teams_active){
             "name" => $row3['name'],
             "members" => [],
             "cps" => [],
+            "score" => 0,
             "params" => [
                 "snakes" => [],
                 "fruit" => 0,
@@ -147,13 +148,28 @@ $x = 0;
             "cp" => 2,
             "name" => "B",
             "type" => "dice",
-            "score" => [1,2,3],
+            "score" => [29,2,3],
             "puzzle" => false,
             "puzzle_q" => "",
             "puzzle_a" => "",
             "message" => "Checkpoint A",
             "options" => [
                 1 => "Move"
+            ],
+            "available" => false
+        ],
+        11 => [
+            
+            "cp" => 11,
+            "name" => "Apple",
+            "type" => "fruit",
+            "score" => [29,2,3],
+            "puzzle" => true,
+            "puzzle_q" => "What is up?",
+            "puzzle_a" => "sky",
+            "message" => "Checkpoint A",
+            "options" => [
+                1 => "solve"
             ],
             "available" => false
         ],
@@ -184,7 +200,7 @@ $x = 0;
             "type" => "ladder",
             "endpoint" => 45    
         ],
-        31 => [
+        55 => [
             "type" => "snake",
             "endpoint" => 29    
         ]
@@ -213,11 +229,6 @@ $x = 0;
     }
 
     $pl_finishers=  [];
-    
-
-    // chat?
-    // team name
-    
 
 //PLAYER SPECIFIC customise $players here
 
@@ -311,7 +322,9 @@ if($debug == 1){ $debug_log[] = '72';};
                 $player_details[$pl]["params"]["last_cp"] = $cp_number;
                 $comment = "you moved a few squares";
                 $new_location = min(100, $teams[$tm]['params']['location'] + $cp["score"][$timezone]);
-                if(in_array($new_location,$special_squares)){
+                if($new_location == 100) {$new_location = 0;}
+                if(array_key_exists($new_location,$special_squares)){
+                    $debug_log["eaten"] = true;
                     $this_special = $special_squares[$new_location];
                     if($this_special['type'] == "snake"){
                         if(in_array($new_location,$teams[$tm]["params"]["snakes"])){
@@ -319,6 +332,8 @@ if($debug == 1){ $debug_log[] = '72';};
                         } elseif ($teams[$tm]["params"]["fruit"]>0){
                             $teams[$tm]["params"]["fruit"] -= 1;
                             $teams[$tm]["params"]["snakes"][] = $new_location;
+                            $teams[$tm]["score"] += 20;
+                            $comment = "snake captured";
                         } else {
                             $new_location = $this_special['endpoint'];
                             $comment = "you were eaten by a snake!";
@@ -328,6 +343,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         $comment = "you climbed a ladder";
                     }
                 } 
+                $teams[$tm]['params']['location'] = $new_location;
             }
         }
 
@@ -341,6 +357,10 @@ if($debug == 1){ $debug_log[] = '72';};
                     $teams[$tm]["params"]["fruit_box"][] = $cp_number;
                     $teams[$tm]["params"]["fruit"] += 1;
                     $comment = "puzzle solved, fruit collected";
+                    if($tm == $this_team){
+                        $cp_bible[$cp_number]["message"] = "You have collected this fruit already";
+                        $cp_bible[$cp_number]["options"] = [];
+                    }
                 }
                 else {
                     $comment = "incorrect answer";
@@ -391,7 +411,7 @@ if($debug == 1){ $debug_log[] = '72';};
         
 
         //ONCE THE CP ACTION HAS BEEN TAKEN:
-        $teams[$tm]["commentary"][] = "Player ".$pl." - ".$comment;
+        $teams[$tm]["params"]["commentary"][] = "Player ".$pl." - ".$comment;
         $results_detailed[$id][] = [$t,$cp_number,$comment,"",$running_score];
     }
 
@@ -405,10 +425,13 @@ if($debug == 1){ $debug_log[] = '72';};
    
 }
 $final_results = [];
-/*$final_results = ["Lions" => 0, "Rhinos" => 0, "Hyenas" => 0];
-$final_results["Lions"] = $live_result[32];
-$final_results["Rhinos"] = $live_result[33];
-$final_results["Hyenas"] = $live_result[34];*/
+
+foreach ($teams as $team) {
+    if (isset($team['name']) && isset($team['score'])) {
+        $final_results[$team['name']] = $team['score'] + $team['params']["location"];
+    }
+}
+
 $debug_log[] = $final_results;
 
 
@@ -424,14 +447,16 @@ $response["puzzle_response"]=$puzzle_response;
 $response["comment"] = $comment;}
 $response["running_score"] = $running_score;
 $response["alert"] = $alert;
-$response["commentary"] = $teams[$this_team];
 $response["this_team"] = $this_team;
 $response["teams"] = $teams;
 $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
-$response["inventory"] = [];
+$response["inventory"] = [
+    "Position on Board" => $teams[$this_team]["params"]["location"],
+    "Fruit in basket" => $teams[$this_team]["params"]["fruit"]
+];
 }
 $response["live_scores"] = $final_results;
-
+$response["commentary"] = $teams[$this_team]["params"]["commentary"];
 $response["debug_log"] = $debug_log;
 echo json_encode($response);

@@ -19,6 +19,7 @@ function ajax_call() {
             
             //commentary
             const items = data["commentary"];
+            console.log (items);
             items.reverse();
             const itemList = document.getElementById('commentary-list');
             itemList.innerHTML = '';

@@ -55,12 +55,10 @@ function ajax_call() {
        
     var cp = $(this).attr('cp');
     cp = cp || 0;
-    console.log (cp);
 
 
     var cp_option_choice = $(this).attr('cp_option_choice');
     cp_option_choice = cp_option_choice || 0;
-    console.log (cp_option_choice);
 
     var user_input = "void";
     if($(this).hasClass('puzzle')){
@@ -72,7 +70,6 @@ function ajax_call() {
 
     var cp = $(this).attr('cp');
     cp = Number.isInteger(Number(cp)) ? Number(cp) : 0;
-    console.log (cp);
     
     if ($(this).hasClass('cp_button')){
         cp = 0;
@@ -106,16 +103,26 @@ function ajax_call() {
             var cp_bible = data["cp_bible"];
             var cp_keys = Object.keys(cp_bible);
             console.log(cp_bible);
-            console.log(cp_keys);
             var comment = data["comment"];
             var teams = data["teams"];
             var this_team   = data["this_team"];
 
-            console.log(teams);
             showTemporaryMessage(comment, 3000);
             //inventories:
             console.log(inventory);
-            document.getElementById("inventory_zone").innerHTML = "Animals held: " + inventory;
+
+            function populateTable(obj) {
+                const tableBody = document.querySelector("#inventoryTable tbody");
+                tableBody.innerHTML = ""; // Clear previous content
+    
+                Object.entries(obj).forEach(([key, value]) => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `<td>${key}</td><td>${value}</td>`;
+                    tableBody.appendChild(row);
+                });
+            }
+
+            populateTable(inventory);
 
             //puzzle response
             var puzzle_response = data["puzzle_response"];
@@ -127,7 +134,7 @@ function ajax_call() {
                 alert ("Prize collected!");
             }
 
-            
+            // checkpoint function
             function checkElementExists(id, key_id, keyname, cpx, timeout = 15000) {
                 return new Promise((resolve, reject) => {
                     const startTime = Date.now();
@@ -138,7 +145,6 @@ function ajax_call() {
                         const element = document.getElementById(id);
             
                         if (element) {
-                            console.log("Element found:", element);
                             element.innerHTML = keyname;
                             element.classList.remove("blocked");
                             element.classList.remove("puzzle");
@@ -148,22 +154,17 @@ function ajax_call() {
                               } else {
                                 rowId = "row"+key_id;
                                 document.getElementById(rowId).style.display = 'none';
-                              };
-                            if(cpx["puzzle"]){
-                                var puzzle_butt = "butt"+key_id;
-                                // document.getElementById(puzzle_butt).classList.add("puzzle"); - no thanks, not today!
-                                };     
+                              };   
                                 
                                 //ALL ** THIS ** LOGIC ** SHOULD ** BE ** IN ** THE ** BACK ** END....!
                                 //add CP options
                                 const target_space = `cp_option_space_` + this_key;
                                 var these_options = cpx["options"];   
-                                console.log(these_options); 
-                                document.getElementById(target_space).innerHTML = "";           
+                                document.getElementById(target_space).innerHTML = "";
+                                let itemDiv = document.getElementById(target_space);          
                                 Object.keys(these_options).forEach(key => {
                                     var puzzle_class = "";
                                     if(cpx["puzzle"]){
-                                        console.log("found");
                                         puzzle_class = "puzzle";
                                     }
                                     document.getElementById(target_space).innerHTML += '<button class="submit_button active ' + puzzle_class + '" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
@@ -192,7 +193,7 @@ function ajax_call() {
                     check(); // Start the checking process
                 });
             }
-
+                //iterate across checkpoitns
             for (let cp in cp_bible) {
                 var this_cp = cp_bible[cp]; // Logs each object's details
                 var cp_id = "butt" + this_cp["cp"];
@@ -207,19 +208,16 @@ function ajax_call() {
                 });
             }
 
-            const parentDiv = document.getElementById('cp_options');
             
          
             //alert feedback
             var alert_response = data["alert"];
-            console.log(alert_response);
             if (alert_response != 0) {
                 alert(alert_response);
             }
 
             //game state
             var game_state = data["game_state"];
-            console.log(game_state);
             var game_start = parseInt(game_state[1]);
             var game_end = parseInt(game_state[2]);
             var stage_time = game_state[3];
@@ -260,7 +258,7 @@ function ajax_call() {
                 }
 
             //running score
-            document.getElementById("score_zone").innerHTML = "Score: " + data["running_score"];
+            document.getElementById("score_zone").innerHTML = "Score: " + data["teams"][this_team]["score"];
              
             var button_detail = ["blurb","blib"];
 
@@ -275,8 +273,6 @@ function ajax_call() {
 function cp_explore() {
     if (this.classList.contains("active")) {
         // Proceed with the desired action
-        console.log("Button is active, proceeding...");
-        console.log ("exploring the CP");
         var cp = $(this).attr('cp');
         var cp_option_id = 'cp_option_card_' + cp;
         document.getElementById(cp_option_id).classList.add("cp-option-show");

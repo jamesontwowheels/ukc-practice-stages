@@ -11,8 +11,6 @@ if (isset($_GET['location'])) {
   exit;
 }
 
-echo "Location ".$_SESSION['location']."<br>";
-echo "Game ".$_SESSION['game'];
 
 ?>
 
@@ -26,20 +24,20 @@ echo "Game ".$_SESSION['game'];
 </head>
 <body>
 
-    <h1>Location Permission & Accuracy Checker</h1>
+    <div class="card"><h1>Location Permission & Accuracy Checker</h1>
     <p id="status">Checking permission...</p>
     <p id="accuracy"></p>
     <button id="requestBtn" style="display: none;">Request Location Access</button>
-
+    </div>
     <script src="assets/js/location-check.js"></script>
 
-    <h1>Game Registration</h1>
+    <div class="card"><h1>Game Registration</h1>
     <p id="reg-status">Checking registration...</p>
     <button id="joinBtn" style="display: none;">Join Game</button>
-
+    </div>
     <script src="assets/js/reg-check.js"></script>
 
-    <div id="game-container">
+    <div id="game-container" class="card">
         <h1>Game Status</h1>
         <div id="status-message">Waiting for the game to start...</div>
         
