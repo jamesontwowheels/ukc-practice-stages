@@ -81,15 +81,15 @@ $x = 0;
     $puzzle_cps = [31,32,33];
     
     $puzzle_questions =[
-        31 => "What is 1 + 2 + 3 + 4 + 5 + 6",
-        32 => "What is the capital of France",
-        33 => "how many eggs are there in a dozen"
+        31 => "Where follows Tirana, Sofia, Zagreb, Copenhagen, London, Paris, Berlin?",
+        32 => "The same four letters have been removed from the following words. Identify the letters and rearrange them to spell a well-known highstreet business: 1. '_ YDRO _ AR _ ON _', 2. '_ A _ KLA _ _', 3.'AR _ _ _ I _ HOP', 4.'_ WIT _ _ _ ACK'",
+        33 => "If 444 equates to 1625, and 1555 equates to 524, what does 1040 equate to?"
     ];
 
     $puzzle_answers = [
-        31 => "21",
-        32 => "paris",
-        33 => 12
+        31 => "budapest",
+        32 => "hsbc",
+        33 => 20211
     ];
     
     $lesson_cost = [
@@ -167,7 +167,7 @@ $x = 0;
     //values
     $fish = 5;
     $treasure = 10;
-    $stage_time = 75*60;
+    $stage_time = 85*60;
 //start looping the contestants:
 while($x < $count_results){
     $player = $players[$x];

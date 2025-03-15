@@ -19,7 +19,8 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
 <h2>MINDGAMES</h2>
-<a class="stage" href="deep_blue?location=6">Whitley v2</a><br>
+<a class="stage" href="deep_blue?location=7">Banstead</a><br>    <!-- Map ID: 6727beb8dd300  -->
+<a class="stage" href="deep_blue?location=6">Whitley v2</a><br>  <!-- Map ID: 67cca1e7bbb10 -->
 <a class="stage" href="deep_blue?location=5">Whitley Bay</a><br>
 <a class="stage" href="deep_blue?location=3">Court Rec</a><br>
 <a class="stage" href="deep_blue?location=4">Lightwater</a><br>
