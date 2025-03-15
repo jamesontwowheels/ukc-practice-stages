@@ -390,6 +390,7 @@ if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;}
 $response["running_score"] = $running_score;
 $response["commentary"] = $commentary;
+$response["comment"]=$comment;
 $response["debug_log"] = $debug_log;
 $response["cp_names"] = $this_cp_names;
 $response["usernames"] = $usernames;

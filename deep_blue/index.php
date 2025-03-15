@@ -72,11 +72,14 @@ if (isset($_GET['location'])) {
 </div>
 </div>
 </div>
+<div id="footer">
+<div id="footer_info">something</div>
 <div class="app-buttons">
         <a href="index.php" class="app-button" id="app1"><i class="fas fa-person-running"></i><br>Game</a>
         <a href="leaderboard.php" class="app-button" id="app2"><i class="fas fa-list-ol"></i><br>Scores</a>
         <a href="history.php" class="app-button" id="app3"><i class="fas fa-clock-rotate-left"></i><br>History</a>
         <a href="../stages.php" class="app-button" id="app4"><i class="fas fa-door-open"></i><br>Exit</a>
+</div>
 </div>
 </body>
 <script type="text/javascript" src='assets/js/test.js' defer></script>

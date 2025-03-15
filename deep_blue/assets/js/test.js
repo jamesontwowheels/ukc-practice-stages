@@ -3,6 +3,9 @@ let oxygenFunction = 0;
 var puzzle_questions = [];
 
 $(document).ready(ajax_call);
+
+console.log("version check 1");
+
 $("body").on("click", "button", ajax_call);
 
 function pause(ms) {
@@ -78,6 +81,7 @@ function ajax_call() {
             var cp_names_keys = Object.keys(cp_names);
             var available_cps = data["available_cps"];
             var puzzle_cps = data["puzzle_cps"];
+            var comment = data["comment"];
             console.log(available_cps);
             console.log(cp_names);
             let i = 0;
@@ -278,7 +282,17 @@ function ajax_call() {
 
             //running score
             document.getElementById("score_zone").innerHTML = "Stockpile: " + data["running_score"];
-                        
+            
+            //last action
+            let footer = document.getElementById("footer_info");
+            footer.innerHTML = "Last CP: " + comment;
+                // Add the animation class
+                 footer.classList.add("updated");
+
+                // Remove the class after the animation to reset
+                setTimeout(() => {
+                    footer.classList.remove("updated");
+                }, 1000); // Duration of the effect
         },
         error: function(xhr, status, error) {
             console.error("AJAX Error: ", status, error);
