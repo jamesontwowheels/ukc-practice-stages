@@ -1,4 +1,4 @@
-<?PHP 
+<h2?PHP 
 
 session_start();
 
@@ -24,21 +24,21 @@ if (isset($_GET['location'])) {
 </head>
 <body>
 
-    <div class="card"><h1>Location Permission & Accuracy Checker</h1>
+    <div class="card"><h2>Location & Accuracy</h2>
     <p id="status">Checking permission...</p>
     <p id="accuracy"></p>
     <button id="requestBtn" style="display: none;">Request Location Access</button>
     </div>
     <script src="assets/js/location-check.js"></script>
 
-    <div class="card"><h1>Game Registration</h1>
+    <div class="card"><h2>Game Registration</h2>
     <p id="reg-status">Checking registration...</p>
-    <button id="joinBtn" style="display: none;">Join Game</button>
+    <a href="teams.php" class="button" id="joinBtn" style="display: none;">Join Game</a>
     </div>
     <script src="assets/js/reg-check.js"></script>
 
     <div id="game-container" class="card">
-        <h1>Game Status</h1>
+        <h2>Game Status</h2>
         <div id="status-message">Waiting for the game to start...</div>
         
         <div class="countdown-container">

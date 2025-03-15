@@ -1,9 +1,10 @@
 <?php
+// Start session for player identification
+session_start();
+
 // db_connect.php should include your database connection setup
 include 'assets/php/db_connect.php';
 
-// Start session for player identification
-session_start();
 
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {

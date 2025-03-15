@@ -30,8 +30,7 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.card h1{
-    margin-bottom:5px;
+.card h2{
     margin-top:5px;
 }
 
@@ -65,3 +64,13 @@ button:hover {
     font-weight: bold;
     color: #333;
 }
+
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(96, 106, 255);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }

@@ -19,6 +19,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
 <h2>MINDGAMES</h2>
+<a class="stage" href="deep_blue?location=6">Whitley v2</a><br>
 <a class="stage" href="deep_blue?location=5">Whitley Bay</a><br>
 <a class="stage" href="deep_blue?location=3">Court Rec</a><br>
 <a class="stage" href="deep_blue?location=4">Lightwater</a><br>
