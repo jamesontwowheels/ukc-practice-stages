@@ -11,6 +11,7 @@ function checkGameStatus() {
         .then(data => {
             if (data.started) {
                 statusMessage.innerHTML = "The game has started! 🎉";
+                window.game_active = true;
                 countdownCircle.style.stroke = "#e74c3c"; // Change to red when game starts
                 countdownText.textContent = "GO!";
                 clearInterval(interval); // Stop polling

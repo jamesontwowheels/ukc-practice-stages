@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(data => {
                 if (data.registered) {
                     statusText.textContent = "You are already registered!";
+                    window.team_active = true;
                 } else {
                     statusText.textContent = "You are not registered!";
                     joinBtn.style.display = "inline-block";

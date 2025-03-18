@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateLocation() {
         navigator.geolocation.getCurrentPosition(
             (position) => {
+                window.location_active = true;
+                console.log(window.location_active);
                 statusText.textContent = "Permission Status: granted";
                 requestBtn.style.display = "none";
                 accuracyText.textContent = 

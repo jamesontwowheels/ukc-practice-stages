@@ -1,4 +1,4 @@
-<h2?PHP 
+<?PHP 
 
 session_start();
 
@@ -10,9 +10,7 @@ if (isset($_GET['location'])) {
   header("Location: ../stages.php");
   exit;
 }
-
-
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +21,7 @@ if (isset($_GET['location'])) {
     <link rel="stylesheet" href="assets/css/lobby-styles.css">
 </head>
 <body>
-
+    <script src="assets/js/global.js"></script>
     <div class="card"><h2>Location & Accuracy</h2>
     <p id="status">Checking permission...</p>
     <p id="accuracy"></p>
@@ -51,6 +49,6 @@ if (isset($_GET['location'])) {
     </div>
 
     <script src="assets/js/game-start-check.js"></script>
-
+    <script src="assets/js/ready.js"></script>
 </body>
 </html>

@@ -109,12 +109,36 @@ function createBarChart1(labels, data, totalLast7Days, overallTotal) {
         }
     });
 
+    function formatMinutes(overallTotal) {
+        const minutes = overallTotal % 60;
+        const totalHours = Math.floor(overallTotal / 60);
+        const hours = totalHours % 24;
+        const days = Math.floor(totalHours / 24);
+    
+        let formattedTime = [];
+    
+        if (days > 0) {
+            formattedTime.push(`${days} day${days !== 1 ? 's' : ''}`);
+        }
+        if (hours > 0) {
+            formattedTime.push(`${hours} hour${hours !== 1 ? 's' : ''}`);
+        }
+        if (minutes > 0 || overallTotal === 0) { // Always show minutes if it's zero
+            formattedTime.push(`${minutes} minute${minutes !== 1 ? 's' : ''}`);
+        }
+    
+        return formattedTime.join(", ");
+    }
+
+    
+let formattedMinutes = formatMinutes(overallTotal);
+
     // Display totals
     const totalContainer = document.createElement("div");
     totalContainer.className = "totals";
     totalContainer.innerHTML = `
         <p><strong>Total Minutes (Last 7 Days):</strong> ${totalLast7Days}</p>
-        <p><strong>Total Minutes Before 7:30 AM:</strong> ${overallTotal}</p>
+        <p><strong>Total Before 7:30 AM:</strong> ${formattedMinutes}</p>
     `;
     widgetZone.appendChild(totalContainer);
 }
