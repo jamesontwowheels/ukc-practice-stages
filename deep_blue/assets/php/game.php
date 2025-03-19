@@ -83,13 +83,13 @@ $x = 0;
     $puzzle_questions =[
         31 => "Where follows Tirana, Sofia, Zagreb, Copenhagen, London, Paris, Berlin?",
         32 => "The same four letters have been removed from the following words. Identify the letters and rearrange them to spell a well-known highstreet business: 1. '_ YDRO _ AR _ ON _', 2. '_ A _ KLA _ _', 3.'AR _ _ _ I _ HOP', 4.'_ WIT _ _ _ ACK'",
-        33 => "If 444 equates to 1625, and 1555 equates to 524, what does 1040 equate to?"
+        33 => "Amy and Chloe are sisters. Amy’s age plus the square of Chloe’s age = 58. Chloe’s age plus the square of Amy’s age = 88. How old is Amy?"//"If 444 equates to 1625, and 1555 equates to 524, what does 1040 equate to?"
     ];
 
     $puzzle_answers = [
         31 => "budapest",
         32 => "hsbc",
-        33 => 20211
+        33 =>  9 //20211
     ];
     
     $lesson_cost = [
