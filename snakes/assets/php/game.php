@@ -62,6 +62,7 @@ if($teams_active){
             "cps" => [],
             "score" => 0,
             "params" => [
+                "ghost_cps" => [],
                 "snakes" => [],
                 "fruit" => 0,
                 "fruit_box" => [],
@@ -69,9 +70,7 @@ if($teams_active){
                 "location" => 0
             ]
         ];
-    $debug_log[]  = "58. count teams";
     }
-    $debug_log[] = $teams;
 
     //get all the team_members
     $query4 = "select * from dbo.team_members where game = :game and location = :location";
@@ -92,7 +91,7 @@ if($teams_active){
        $player_details[$row4["player_ID"]] = [ 
             "team" => $row4["team"],
             "name" => $usernames[$row4["player_ID"]],
-            "params" => [ "last_cp" => 8]
+            "params" => [ "used_cps" => []]
         ];
     $debug_log[]  = "73. count team_members";
     $debug_log['player details'] = $player_details;
@@ -130,10 +129,145 @@ $x = 0;
 
     $cp_bible = [
         1 => [
+            
             "cp" => 1,
+            "name" => "Apple 1",
+            "type" => "fruit",
+            "score" => [29,2,3],
+            "puzzle" => true,
+            "puzzle_q" => "What is up?",
+            "puzzle_a" => "sky",
+            "message" => "Checkpoint A",
+            "options" => [
+                1 => "solve"
+            ],
+            "available" => false
+        ],
+        2 => [
+            
+            "cp" => 2,
+            "name" => "Apple 2",
+            "type" => "fruit",
+            "score" => [29,2,3],
+            "puzzle" => true,
+            "puzzle_q" => "What is up?",
+            "puzzle_a" => "sky",
+            "message" => "Checkpoint A",
+            "options" => [
+                1 => "solve"
+            ],
+            "available" => false
+        ],
+        3 => [
+            
+            "cp" => 3,
+            "name" => "Apple 3",
+            "type" => "fruit",
+            "score" => [29,2,3],
+            "puzzle" => true,
+            "puzzle_q" => "What is up?",
+            "puzzle_a" => "sky",
+            "message" => "Checkpoint A",
+            "options" => [
+                1 => "solve"
+            ],
+            "available" => false
+        ],
+        4 => [
+            
+            "cp" => 4,
+            "name" => "Apple 4",
+            "type" => "fruit",
+            "score" => [29,2,3],
+            "puzzle" => true,
+            "puzzle_q" => "What is up?",
+            "puzzle_a" => "sky",
+            "message" => "Checkpoint A",
+            "options" => [
+                1 => "solve"
+            ],
+            "available" => false
+        ],
+        5 => [
+            
+            "cp" => 5,
+            "name" => "Apple 5",
+            "type" => "fruit",
+            "score" => [29,2,3],
+            "puzzle" => true,
+            "puzzle_q" => "What is up?",
+            "puzzle_a" => "sky",
+            "message" => "Checkpoint A",
+            "options" => [
+                1 => "solve"
+            ],
+            "available" => false
+        ],
+        6 => [
+            
+            "cp" => 6,
+            "name" => "Apple 6",
+            "type" => "fruit",
+            "score" => [29,2,3],
+            "puzzle" => true,
+            "puzzle_q" => "What is up?",
+            "puzzle_a" => "sky",
+            "message" => "Checkpoint A",
+            "options" => [
+                1 => "solve"
+            ],
+            "available" => false
+        ],
+        7 => [
+            
+            "cp" => 7,
+            "name" => "Apple 7",
+            "type" => "fruit",
+            "score" => [29,2,3],
+            "puzzle" => true,
+            "puzzle_q" => "What is up?",
+            "puzzle_a" => "sky",
+            "message" => "Checkpoint A",
+            "options" => [
+                1 => "solve"
+            ],
+            "available" => false
+        ],
+        8 => [
+            
+            "cp" => 8,
+            "name" => "Apple 8",
+            "type" => "fruit",
+            "score" => [29,2,3],
+            "puzzle" => true,
+            "puzzle_q" => "What is up?",
+            "puzzle_a" => "sky",
+            "message" => "Checkpoint A",
+            "options" => [
+                1 => "solve"
+            ],
+            "available" => false
+        ],
+        9 => [
+            
+            "cp" => 9,
+            "name" => "Apple 9",
+            "type" => "fruit",
+            "score" => [29,2,3],
+            "puzzle" => true,
+            "puzzle_q" => "What is up?",
+            "puzzle_a" => "sky",
+            "message" => "Checkpoint A",
+            "options" => [
+                1 => "solve"
+            ],
+            "available" => false
+        ],
+        11 => [
+            "cp" => 11,
             "name" => "A",
             "type" => "dice",
-            "score" => [1,2,3],
+            "score" => [1,2,0],
             "puzzle" => false,
             "puzzle_q" => "",
             "puzzle_a" => "",
@@ -143,33 +277,123 @@ $x = 0;
             ],
             "available" => true
         ],
-        2 => [
+        12 => [
             
-            "cp" => 2,
+            "cp" => 12,
             "name" => "B",
             "type" => "dice",
-            "score" => [29,2,3],
+            "score" => [2,0,6],
             "puzzle" => false,
             "puzzle_q" => "",
             "puzzle_a" => "",
-            "message" => "Checkpoint A",
+            "message" => "Checkpoint B",
             "options" => [
                 1 => "Move"
             ],
             "available" => false
         ],
-        11 => [
+        13 => [
             
-            "cp" => 11,
-            "name" => "Apple",
-            "type" => "fruit",
-            "score" => [29,2,3],
-            "puzzle" => true,
-            "puzzle_q" => "What is up?",
-            "puzzle_a" => "sky",
-            "message" => "Checkpoint A",
+            "cp" => 13,
+            "name" => "C",
+            "type" => "dice",
+            "score" => [3,0,5],
+            "puzzle" => false,
+            "puzzle_q" => "",
+            "puzzle_a" => "",
+            "message" => "Checkpoint C",
             "options" => [
-                1 => "solve"
+                1 => "Move"
+            ],
+            "available" => false
+        ],
+        14 => [
+            
+            "cp" => 14,
+            "name" => "D",
+            "type" => "dice",
+            "score" => [4,6,0],
+            "puzzle" => false,
+            "puzzle_q" => "",
+            "puzzle_a" => "",
+            "message" => "Checkpoint D",
+            "options" => [
+                1 => "Move"
+            ],
+            "available" => false
+        ],
+        15 => [
+            
+            "cp" => 15,
+            "name" => "E",
+            "type" => "dice",
+            "score" => [5,1,0],
+            "puzzle" => false,
+            "puzzle_q" => "",
+            "puzzle_a" => "",
+            "message" => "Checkpoint E",
+            "options" => [
+                1 => "Move"
+            ],
+            "available" => false
+        ],
+        16 => [
+            
+            "cp" => 16,
+            "name" => "F",
+            "type" => "dice",
+            "score" => [6,0,3],
+            "puzzle" => false,
+            "puzzle_q" => "",
+            "puzzle_a" => "",
+            "message" => "Checkpoint F",
+            "options" => [
+                1 => "Move"
+            ],
+            "available" => false
+        ],
+        17 => [
+            
+            "cp" => 17,
+            "name" => "G",
+            "type" => "dice",
+            "score" => [0,3,4],
+            "puzzle" => false,
+            "puzzle_q" => "",
+            "puzzle_a" => "",
+            "message" => "Checkpoint G",
+            "options" => [
+                1 => "Move"
+            ],
+            "available" => false
+        ],
+        18 => [
+            
+            "cp" => 18,
+            "name" => "H",
+            "type" => "dice",
+            "score" => [0,5,2],
+            "puzzle" => false,
+            "puzzle_q" => "",
+            "puzzle_a" => "",
+            "message" => "Checkpoint H",
+            "options" => [
+                1 => "Move"
+            ],
+            "available" => false
+        ],
+        19 => [
+            
+            "cp" => 19,
+            "name" => "I",
+            "type" => "dice",
+            "score" => [0,4,1],
+            "puzzle" => false,
+            "puzzle_q" => "",
+            "puzzle_a" => "",
+            "message" => "Checkpoint I",
+            "options" => [
+                1 => "Move"
             ],
             "available" => false
         ],
@@ -187,23 +411,94 @@ $x = 0;
                 1 => "Move"
             ],
             "available" => true
+        ],
+        998 => [
+            
+            "cp" => 998,
+            "name" => "Finish",
+            "type" => "start_finish",
+            "score" => [1,2,3],
+            "puzzle" => false,
+            "puzzle_q" => "x",
+            "puzzle_a" => "x",
+            "message" => "Click here to end your game",
+            "options" => [
+                1 => "Finish"
+            ],
+            "available" => true
         ]
          //etc
     ];
 
     $special_squares = [
-        10 => [
+        12 => [
             "type" => "snake",
-            "endpoint" => 2    
+            "endpoint" => 3    
         ],
-        30 => [
+        16 => [
+            "type" => "snake",
+            "endpoint" => 7    
+        ],
+        26 => [
+            "type" => "snake",
+            "endpoint" => 24    
+        ],
+        42 => [
+            "type" => "snake",
+            "endpoint" => 18    
+        ],
+        66 => [
+            "type" => "snake",
+            "endpoint" => 27    
+        ],
+        68 => [
+            "type" => "snake",
+            "endpoint" => 35    
+        ],
+        77 => [
+            "type" => "snake",
+            "endpoint" => 56    
+        ],
+        90 => [
+            "type" => "snake",
+            "endpoint" => 50    
+        ],
+        98 => [
+            "type" => "snake",
+            "endpoint" => 58    
+        ],
+        9 => [
             "type" => "ladder",
-            "endpoint" => 45    
+            "endpoint" => 30    
         ],
-        55 => [
-            "type" => "snake",
-            "endpoint" => 29    
-        ]
+        14 => [
+            "type" => "ladder",
+            "endpoint" => 47    
+        ],
+        38 => [
+            "type" => "ladder",
+            "endpoint" => 43    
+        ],
+        25 => [
+            "type" => "ladder",
+            "endpoint" => 65    
+        ],
+        49 => [
+            "type" => "ladder",
+            "endpoint" => 51    
+        ],
+        41 => [
+            "type" => "ladder",
+            "endpoint" => 79    
+        ],
+        76 => [
+            "type" => "ladder",
+            "endpoint" => 84    
+        ],
+        75 => [
+            "type" => "ladder",
+            "endpoint" => 94    
+        ],
     ];
 
 
@@ -219,7 +514,7 @@ $x = 0;
 
     //values
     $hand_limit = 2;
-    $stage_time = 75*60;
+    $stage_time = 90*60;
     $alert = 0;
 
 //TEAM SPECIFIC catchers (customise the catchers here)
@@ -288,6 +583,7 @@ if($debug == 1){ $debug_log[] = '72';};
     $game_end = 0;
     $game_time = 0;
     $time_penalty = 0;
+    $current_timezone = 0;
 
 
     // cycle through the punch list;
@@ -312,14 +608,34 @@ if($debug == 1){ $debug_log[] = '72';};
         $game_time = $t - $game_start;
         $timezone = floor($game_time/1800);
 
+        if($timezone != $current_timezone){
+            foreach ($player_details as $player_ID => &$details) {
+                $details["params"]["used_cps"] = []; // Reset "used_cps" to an empty array
+            }
+            unset($details);
+            foreach ($teams as $team_ID => &$team) {
+                $team["params"]["ghost_cps"] = []; // Reset "ghost_cps" to an empty array
+            }
+            unset($team);
+            $current_timezone = $timezone;
+        }
+
         //Dice Rolls
         if($cp["type"] == "dice") {
-            if($cp_number == $player_details[$pl]["params"]["last_cp"]){
-                $comment = "You can't visit the same checkpoint twice in a row";
-            } else{
-                $debug_log['cp_number'] = $cp_number;
-                $debug_log['team'] = $teams[$tm];
-                $player_details[$pl]["params"]["last_cp"] = $cp_number;
+
+            if(in_array($cp_number,$player_details[$pl]["params"]["used_cps"])){
+                $comment = "You can't visit this checkpoint again in this time period";
+            } else {
+
+                if(count($teams[$tm]["members"]) < 4) {
+                    if(!in_array($cp_number,$teams[$tm]["params"]["ghost_cps"])){
+                        $teams[$tm]["params"]["ghost_cps"][] = $cp_number;
+                    } else {
+                        $player_details[$pl]["params"]["used_cps"][] = $cp_number;
+                    }
+                } else {
+                    $player_details[$pl]["params"]["used_cps"][] = $cp_number;
+                }
                 $comment = "you moved a few squares";
                 $new_location = min(100, $teams[$tm]['params']['location'] + $cp["score"][$timezone]);
                 if($new_location == 100) {$new_location = 0;}
@@ -332,8 +648,27 @@ if($debug == 1){ $debug_log[] = '72';};
                         } elseif ($teams[$tm]["params"]["fruit"]>0){
                             $teams[$tm]["params"]["fruit"] -= 1;
                             $teams[$tm]["params"]["snakes"][] = $new_location;
-                            $teams[$tm]["score"] += 20;
-                            $comment = "snake captured";
+                            
+                            $baseScore = 60;
+                            // Reduce score by 5 points for every 10 minutes elapsed
+                            $snake_down = floor($game_time / 600) * 5;
+                            $debug_log["snake_score"] = $snake_down;
+                            $adjustedScore = max(0, $baseScore - $snake_down); // Ensure score doesn't go negative
+                            // Level multiplier
+                            $multipliers = [
+                                0 => 1.0,  // Level 1 multiplier
+                                1 => 1.5,  // Level 2 multiplier
+                                2 => 2.0   // Level 3 multiplier
+                            ];
+
+                            // Ensure level exists, default to Level 1 multiplier if not found
+                            $multiplier = $multipliers[$timezone] ?? 1.0;
+
+                            // Final score calculation
+                            $score = $adjustedScore * $multiplier;
+
+                            $teams[$tm]["score"] += $score;
+                            $comment = "snake captured + $score points";
                         } else {
                             $new_location = $this_special['endpoint'];
                             $comment = "you were eaten by a snake!";
@@ -343,6 +678,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         $comment = "you climbed a ladder";
                     }
                 } 
+                if($new_location > 99) { $new_location = 0;}
                 $teams[$tm]['params']['location'] = $new_location;
             }
         }
@@ -373,6 +709,8 @@ if($debug == 1){ $debug_log[] = '72';};
             if($cp_number == 999){
             if($game_state == 0)
             {
+                require 'start_game.php';
+
                 $game_state = 1;
                 $game_start = $t;
                 $comment = "game started";
@@ -434,6 +772,7 @@ foreach ($teams as $team) {
 
 $debug_log[] = $final_results;
 
+$debug_log[] = $teams;
 
 //CHOOSE WHAT TO ISSUE BACK, BASED ON PORPOISE
 

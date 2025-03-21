@@ -20,8 +20,11 @@ if (isset($_GET['location'])) {
     <title>Location Permission & Accuracy Checker</title>
     <link rel="stylesheet" href="assets/css/lobby-styles.css">
 </head>
-<body>
+<body><script>
+    var user_ID = <?php echo json_encode($_SESSION['user_ID']); ?>;
+</script>
     <script src="assets/js/global.js"></script>
+    <div id="go-to-start"></div>
     <div class="card"><h2>Location & Accuracy</h2>
     <p id="status">Checking permission...</p>
     <p id="accuracy"></p>

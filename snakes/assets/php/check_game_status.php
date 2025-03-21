@@ -13,19 +13,16 @@ try {
     $stmt->bindParam(':location', $location, PDO::PARAM_INT);
     $stmt->execute();
 
-    // Debug: Check if any rows were found
     if ($stmt->rowCount() === 0) {
-        echo json_encode(['error' => 'No matching game found']);
-        exit;
+       // echo json_encode(['error' => 'No matching game found']);
+       // exit;
     }
 
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-    // Ensure `Started` exists and convert `BIT` to an integer
     $started = isset($row['Started']) ? intval($row['Started']) : 0;
 
-    echo json_encode(['started' => (bool) $started]);
+   // echo json_encode(['started' => (bool) $started]);
 } catch (PDOException $e) {
     echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
 }
-?>
+
