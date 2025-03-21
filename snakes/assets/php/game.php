@@ -135,9 +135,9 @@ $x = 0;
             "type" => "fruit",
             "score" => [29,2,3],
             "puzzle" => true,
-            "puzzle_q" => "What is up?",
-            "puzzle_a" => "sky",
-            "message" => "Checkpoint A",
+            "puzzle_q" => "Well done reaching the top of the hill. What is 1 + 1?",
+            "puzzle_a" => "2",
+            "message" => "",
             "options" => [
                 1 => "solve"
             ],
@@ -150,9 +150,9 @@ $x = 0;
             "type" => "fruit",
             "score" => [29,2,3],
             "puzzle" => true,
-            "puzzle_q" => "What is up?",
-            "puzzle_a" => "sky",
-            "message" => "Checkpoint A",
+            "puzzle_q" => "The sum of each two adjacent squares gives the number in the square above. What number should go at the top of the pyramid?<br><br><img class='puzzle_pic' src='assets/img/snake_puzzle_2.png'>",
+            "puzzle_a" => "288",
+            "message" => "",
             "options" => [
                 1 => "solve"
             ],
@@ -165,9 +165,9 @@ $x = 0;
             "type" => "fruit",
             "score" => [29,2,3],
             "puzzle" => true,
-            "puzzle_q" => "What is up?",
-            "puzzle_a" => "sky",
-            "message" => "Checkpoint A",
+            "puzzle_q" => "Rearrange the missing letters from this alphabet to spell a European capital<br><br>ACEFGHJKMOPQRSTVWXYZ",
+            "puzzle_a" => "dublin",
+            "message" => "",
             "options" => [
                 1 => "solve"
             ],
@@ -180,9 +180,9 @@ $x = 0;
             "type" => "fruit",
             "score" => [29,2,3],
             "puzzle" => true,
-            "puzzle_q" => "What is up?",
-            "puzzle_a" => "sky",
-            "message" => "Checkpoint A",
+            "puzzle_q" => "1/2 of 1/3 of 1/4 of a number is 5.<br><br>What is 1/5 of that number?",
+            "puzzle_a" => "24",
+            "message" => "",
             "options" => [
                 1 => "solve"
             ],
@@ -195,8 +195,8 @@ $x = 0;
             "type" => "fruit",
             "score" => [29,2,3],
             "puzzle" => true,
-            "puzzle_q" => "What is up?",
-            "puzzle_a" => "sky",
+            "puzzle_q" => "Solve the riddle<br><br>My first is in little, but not in stand<br>My second is in finger, but not in brand<br>My third is in big, but not in bite<br>My fourth is in home, but not in mite<br>My fifth in think, but not in hide<br>My whole what you need, at night, inside",
+            "puzzle_a" => "light",
             "message" => "Checkpoint A",
             "options" => [
                 1 => "solve"
@@ -210,9 +210,9 @@ $x = 0;
             "type" => "fruit",
             "score" => [29,2,3],
             "puzzle" => true,
-            "puzzle_q" => "What is up?",
-            "puzzle_a" => "sky",
-            "message" => "Checkpoint A",
+            "puzzle_q" => "What letter comes next in this sequence: O, T, T, F, F, S, S,...?",
+            "puzzle_a" => "e",
+            "message" => "",
             "options" => [
                 1 => "solve"
             ],
@@ -225,9 +225,9 @@ $x = 0;
             "type" => "fruit",
             "score" => [29,2,3],
             "puzzle" => true,
-            "puzzle_q" => "What is up?",
-            "puzzle_a" => "sky",
-            "message" => "Checkpoint A",
+            "puzzle_q" => "Amy and Chloe are sisters. Amy’s age plus the square of Chloe’s age = 58. Chloe’s age plus the square of Amy’s age = 88. How old is Chloe?",
+            "puzzle_a" => "7",
+            "message" => "",
             "options" => [
                 1 => "solve"
             ],
@@ -240,9 +240,9 @@ $x = 0;
             "type" => "fruit",
             "score" => [29,2,3],
             "puzzle" => true,
-            "puzzle_q" => "What is up?",
-            "puzzle_a" => "sky",
-            "message" => "Checkpoint A",
+            "puzzle_q" => "At a leisure centre there are three times as many people taking part in Yoga as doing Boxing. There are 10 more people Swimming than Boxing and 7 less in the Gym than Swimming in the pool. 9 people are working out in the Gym. How many are doing Yoga?",
+            "puzzle_a" => "18",
+            "message" => "",
             "options" => [
                 1 => "solve"
             ],
@@ -255,8 +255,8 @@ $x = 0;
             "type" => "fruit",
             "score" => [29,2,3],
             "puzzle" => true,
-            "puzzle_q" => "What is up?",
-            "puzzle_a" => "sky",
+            "puzzle_q" => "Which four letter word goes after the words on the left, and before the words on the right?<img class='puzzle_pic' src='assets/img/snake_puzzle_9.png'>",
+            "puzzle_a" => "tree",
             "message" => "Checkpoint A",
             "options" => [
                 1 => "solve"
@@ -694,7 +694,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     $teams[$tm]["params"]["fruit"] += 1;
                     $comment = "puzzle solved, fruit collected";
                     if($tm == $this_team){
-                        $cp_bible[$cp_number]["message"] = "You have collected this fruit already";
+                        $cp_bible[$cp_number]["message"] = "You have successfully collected this fruit";
                         $cp_bible[$cp_number]["options"] = [];
                     }
                 }
@@ -735,11 +735,14 @@ if($debug == 1){ $debug_log[] = '72';};
                 } else {
                     $pl_finishers[] = $pl;
                     $comment = "finished";
-                    if($tm == $this_team){
+                    if($pl == $user_ID){
                         foreach ($cp_bible as &$checkpoint) {
                             $checkpoint["available"] = false;
                         }
+                        $teams[$tm]["score"] += 60/(count($teams[$tm]["members"]));
                         unset($checkpoint);
+                        $comment = "Finished";
+
                         $cp_bible[999]["available"] = true;
                     }
                 }

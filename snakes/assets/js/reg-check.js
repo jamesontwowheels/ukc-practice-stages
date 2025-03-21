@@ -7,10 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response => response.json())
             .then(data => {
                 if (data.registered) {
-                    statusText.textContent = "You are already registered!";
+                    statusText.textContent = "You are part of "+ team_name +" team!";
+                    joinBtn.innerHTML = "Change team";
+                    joinBtn.style.display = "inline-block";
                     window.team_active = true;
                 } else {
-                    statusText.textContent = "You are not registered!";
+                    statusText.textContent = "You have not yet joined a team";
                     joinBtn.style.display = "inline-block";
                 }
             })
@@ -20,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
-    joinBtn.addEventListener("click", () => {
+    /*joinBtn.addEventListener("click", () => {
         fetch("assets/php/join_game.php", { method: "POST" })
             .then(response => response.json())
             .then(data => {
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 statusText.textContent = "Error joining game.";
                 console.error("Error:", error);
             });
-    });
+    });*/
 
     checkRegistration();
 });

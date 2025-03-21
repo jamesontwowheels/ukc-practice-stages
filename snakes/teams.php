@@ -87,6 +87,7 @@ foreach($this_team_members as $ttm){
     foreach($teams as $team){
         if($team["UID"]==$current_team){
             $current_team_name = $team["name"];
+            $_SESSION['team_name'] = $current_team_name;
         }
     }
 }
@@ -109,7 +110,7 @@ foreach($this_team_members as $ttm){
     <?php if (!empty($message)): ?>
         <p style="color: green;"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
-    <a href="index.php"><button>Return to Game</button></a><br><br>
+    <a href="lobby.php"><button>Return to Game</button></a><br><br>
     <h3>Create a New Team</h3>
     <form method="post">
         <label for="team_name">Team Name:</label>

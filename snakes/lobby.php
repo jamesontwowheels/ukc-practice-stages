@@ -22,6 +22,7 @@ if (isset($_GET['location'])) {
 </head>
 <body><script>
     var user_ID = <?php echo json_encode($_SESSION['user_ID']); ?>;
+    var team_name = <?php echo json_encode($_SESSION['team_name']); ?>;
 </script>
     <script src="assets/js/global.js"></script>
     <div id="go-to-start"></div>
@@ -34,7 +35,7 @@ if (isset($_GET['location'])) {
 
     <div class="card"><h2>Game Registration</h2>
     <p id="reg-status">Checking registration...</p>
-    <a href="teams.php" class="button" id="joinBtn" style="display: none;">Join Game</a>
+    <a href="teams.php" class="button" id="joinBtn" style="display: none;">Join a team</a>
     </div>
     <script src="assets/js/reg-check.js"></script>
 

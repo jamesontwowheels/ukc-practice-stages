@@ -178,6 +178,9 @@ function ajax_call() {
                                 const info_space = `cp_info_space_`+ this_key;
 
                                 document.getElementById(info_space).innerHTML = cpx["message"];
+                                if(cpx["puzzle"]){
+                                    document.getElementById(info_space).innerHTML += '<br><br>' + cpx["puzzle_q"];    
+                                }
                                 document.getElementById(cp_space).classList.add('neutral');
                             resolve(element); // Element found, resolve the promise
 

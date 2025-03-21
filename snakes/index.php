@@ -18,12 +18,6 @@ $_SESSION['game'] = $game;
   exit;
 }
 
-include ('assets/php/check_game_status.php');
-
-if(!$started && $_SESSION['user_ID'] != 29 ){
-  header("Location: lobby.php");
-}
-
 ?>
 
 <head>

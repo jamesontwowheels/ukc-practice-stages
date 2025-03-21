@@ -16,13 +16,14 @@ try {
     if ($stmt->rowCount() === 0) {
        // echo json_encode(['error' => 'No matching game found']);
        // exit;
+        $started = false;
+        echo json_encode(['started' => $started]);
+    } else {
+        $started = true;
+        echo json_encode(['started' => $started]);
     }
 
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    $started = isset($row['Started']) ? intval($row['Started']) : 0;
-
-   // echo json_encode(['started' => (bool) $started]);
 } catch (PDOException $e) {
-    echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
+   echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
 }
 
