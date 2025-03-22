@@ -25,7 +25,7 @@ if (!isset($_SESSION['username'])) {
 </div><br>
 <a class="image-container stage-card" href="snake_stages.php">
     <img src="images/snakes-cover.jpg" alt="Coming Soon">
-    <div class="overlay">Coming Soon</div>
+    <div class="stage-title">Snakes & Ladders</div>
 </a><br>
 <a class="stage-card" href="dry_january_stages.php"><img src="images/dry-january.png"><div class="stage-title">Dry January</div></a><br>
 <a class="stage-card" href="santa_stages.php"><img src="images/santa-cover.png"><div class="stage-title">Rudolph's Rounds</div></a><br>
