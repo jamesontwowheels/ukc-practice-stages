@@ -275,7 +275,7 @@ $x = 0;
             "options" => [
                 1 => "Move"
             ],
-            "available" => true
+            "available" => false
         ],
         12 => [
             
@@ -400,7 +400,7 @@ $x = 0;
         999 => [
             
             "cp" => 999,
-            "name" => "s/f",
+            "name" => "Start",
             "type" => "start_finish",
             "score" => [1,2,3],
             "puzzle" => false,
@@ -715,13 +715,12 @@ if($debug == 1){ $debug_log[] = '72';};
                 $game_state = 1;
                 $game_start = $t;
                 $comment = "game started";
-                if($tm == $this_team){
                     foreach ($cp_bible as &$checkpoint) {
                         $checkpoint["available"] = true;
                     }
                     unset($checkpoint);
                     $cp_bible[999]["available"] = false;
-                }
+                
             } 
             elseif ($game_state == 2) {
                $game_state = 0;
