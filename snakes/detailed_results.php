@@ -15,7 +15,7 @@ $_SESSION['user_ID'] = 29;
 </head>
 <body>
     <div class="container">
-        <h1>Game Scores</h1>
+        <h1>Snakes & Ladders: Final Scores</h1>
         <div class="table-wrapper">
             <table id="gameTable">
                 <thead>

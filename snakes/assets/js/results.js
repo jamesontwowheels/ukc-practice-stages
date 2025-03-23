@@ -51,6 +51,7 @@ function renderTable(gameData) {
                             <div class="snake-card-header">Snake ${snakeID}</div>
                             <div class="snake-card-body">
                                 <p>Time: ${formattedTime}</p>
+                                <p>Level: ${details.level}</p>
                                 <p>Score: ${details.score}</p>
                             </div>
                         </div>

@@ -741,6 +741,8 @@ if($debug == 1){ $debug_log[] = '72';};
             ($cp_number == 998){
                 if(in_array($pl,$pl_finishers)){
                     $comment = "already finished";
+                } elseif ($game_time >= $stage_time ) {
+                    $comment = "too late to finish";
                 } else {
                     $pl_finishers[] = $pl;
                     $finish_bonus = 60/(count($teams[$tm]["members"]));
