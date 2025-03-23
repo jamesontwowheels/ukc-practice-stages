@@ -20,7 +20,7 @@ window.onload = function() {
     
         sortedPlayers.forEach(player => {
             const name = player.name;
-            const bonusScore = player.params.score;
+            const bonusScore = player.score;
             const snakes = player.params.snakes || [];
             const snakeDetails = player.params.snake_score || {};
     
@@ -35,7 +35,7 @@ window.onload = function() {
                     const details = snakeDetails[snakeID];
                     if (details) {
                         const formattedTime = formatTime(details.time);
-                        snakeInfo += `<li>Snake ${snakeID}: Time - ${formattedTime}, Level - ${details.level}, Score - ${details.score}</li>`;
+                        snakeInfo += `<li>S.${snakeID}: @ ${formattedTime}, L:${details.level} Score: ${details.score}</li>`;
                     }
                 });
                 snakeInfo += "</ul>";
@@ -45,12 +45,12 @@ window.onload = function() {
     
             const row = `
                 <tr>
-                    <td data-label="Name">${name}</td>
+                    <td data-label="Team">${name}</td>
                     <td data-label="Snake Score">${snakeScore}</td>
-                    <td data-label="Bonus Score">${bonusScore}</td>
-                    <td data-label="Total Score">${totalScore}</td>
-                    <td data-label="Snakes Captured">${snakeCount}</td>
-                    <td data-label="Snake Details">${snakeInfo}</td>
+                    <td data-label="Bonus">${bonusScore}</td>
+                    <td data-label="Total">${totalScore}</td>
+                    <td data-label="Snakes">${snakeCount}</td>
+                    <td data-label="Details">${snakeInfo}</td>
                 </tr>
             `;
     

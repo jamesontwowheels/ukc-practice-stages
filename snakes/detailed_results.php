@@ -13,12 +13,12 @@
     <table id="gameTable">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Team</th>
                 <th>Snake Score</th>
-                <th>Bonus Score</th>
-                <th>Total Score</th>
-                <th>Snakes Captured</th>
-                <th>Snake Details</th>
+                <th>Bonus</th>
+                <th>Total</th>
+                <th>Snakes</th>
+                <th>Details</th>
             </tr>
         </thead>
         <tbody>
