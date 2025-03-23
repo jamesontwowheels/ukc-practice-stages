@@ -64,10 +64,12 @@ if($teams_active){
             "params" => [
                 "ghost_cps" => [],
                 "snakes" => [],
+                "snake_score" => [],
                 "fruit" => 0,
                 "fruit_box" => [],
                 "commentary" => [],
-                "location" => 0
+                "location" => 0,
+                "level" => 1
             ]
         ];
     }
@@ -93,7 +95,6 @@ if($teams_active){
             "name" => $usernames[$row4["player_ID"]],
             "params" => [ "used_cps" => []]
         ];
-    $debug_log[]  = "73. count team_members";
     $debug_log['player details'] = $player_details;
     }
 }
@@ -639,7 +640,11 @@ if($debug == 1){ $debug_log[] = '72';};
                 $movement = $cp["score"][$timezone];
                 $comment = "you moved a $movement squares";
                 $new_location = min(100, $teams[$tm]['params']['location'] + $cp["score"][$timezone]);
-                if($new_location == 100) {$new_location = 0;}
+                if($new_location == 100) {
+                    $new_location = 0;
+                    $teams[$tm]["params"]["level"] += 1;
+                    $comment = $comment." and levelled up!";
+                }
                 if(array_key_exists($new_location,$special_squares)){
                     $debug_log["eaten"] = true;
                     $this_special = $special_squares[$new_location];
@@ -657,18 +662,21 @@ if($debug == 1){ $debug_log[] = '72';};
                             $adjustedScore = max(0, $baseScore - $snake_down); // Ensure score doesn't go negative
                             // Level multiplier
                             $multipliers = [
-                                0 => 1.0,  // Level 1 multiplier
-                                1 => 1.5,  // Level 2 multiplier
-                                2 => 2.0   // Level 3 multiplier
+                                1 => 1.0,  // Level 1 multiplier
+                                2 => 1.5,  // Level 2 multiplier
+                                3 => 2.0   // Level 3 multiplier
                             ];
 
                             // Ensure level exists, default to Level 1 multiplier if not found
-                            $multiplier = $multipliers[$timezone] ?? 1.0;
+                            $multiplier = $multipliers[$teams[$tm]["params"]["level"]] ?? 1.0;
 
                             // Final score calculation
                             $score = $adjustedScore * $multiplier;
 
-                            $teams[$tm]["score"] += $score;
+                            $teams[$tm]["params"]["score"] += $score;
+                            $teams[$tm]["params"]["snake_score"][$new_location]["time"] = $game_time;
+                            $teams[$tm]["params"]["snake_score"][$new_location]["level"] = $teams[$tm]["params"]["level"];
+                            $teams[$tm]["params"]["snake_score"][$new_location]["score"] = $score;
                             $comment = "snake captured + $score points";
                         } else {
                             $new_location = $this_special['endpoint'];
@@ -681,6 +689,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 } 
                 if($new_location > 99) { $new_location = 0;}
                 $teams[$tm]['params']['location'] = $new_location;
+                $comment = $comment." Now at: $new_location";
             }
         }
 
@@ -734,14 +743,15 @@ if($debug == 1){ $debug_log[] = '72';};
                     $comment = "already finished";
                 } else {
                     $pl_finishers[] = $pl;
-                    $comment = "finished";
+                    $finish_bonus = 60/(count($teams[$tm]["members"]));
+                        $teams[$tm]["score"] += $finish_bonus;
+                        unset($checkpoint);
+                        $comment = "Finished. Bonus: $finish_bonus";
                     if($pl == $user_ID){
                         foreach ($cp_bible as &$checkpoint) {
                             $checkpoint["available"] = false;
                         }
-                        $teams[$tm]["score"] += 60/(count($teams[$tm]["members"]));
-                        unset($checkpoint);
-                        $comment = "Finished";
+                        
 
                         $cp_bible[999]["available"] = true;
                     }
@@ -774,7 +784,6 @@ foreach ($teams as $team) {
 }
 
 $debug_log[] = $final_results;
-
 $debug_log[] = $teams;
 
 //CHOOSE WHAT TO ISSUE BACK, BASED ON PORPOISE
@@ -790,7 +799,6 @@ $response["comment"] = $comment;}
 $response["running_score"] = $running_score;
 $response["alert"] = $alert;
 $response["this_team"] = $this_team;
-$response["teams"] = $teams;
 $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
 $response["inventory"] = [
@@ -798,6 +806,7 @@ $response["inventory"] = [
     "Fruit in basket" => $teams[$this_team]["params"]["fruit"]
 ];
 }
+$response["teams"] = $teams;
 $response["live_scores"] = $final_results;
 $response["commentary"] = $teams[$this_team]["params"]["commentary"];
 $response["debug_log"] = $debug_log;
