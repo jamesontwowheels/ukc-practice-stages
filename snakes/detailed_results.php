@@ -22,6 +22,7 @@ $_SESSION['user_ID'] = 29;
                 <th>Team</th>
                 <th>Snake Score</th>
                 <th>Bonus</th>
+                <th>End Point</th>
                 <th>Total</th>
                 <th>Snakes</th>
                 <th>Details</th>

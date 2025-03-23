@@ -6,56 +6,94 @@ window.onload = function() {
         return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
     }
     
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
+    }
+    
     function renderTable(gameData) {
         const tableBody = document.querySelector("#gameTable tbody");
         tableBody.innerHTML = "";
     
-        const validPlayers = Object.values(gameData).filter(player => player.params && player.params.score !== undefined);
+        const validPlayers = Object.values(gameData).filter(player => player.score !== undefined);
     
         const sortedPlayers = validPlayers.sort((a, b) => {
-            const totalA = a.params.score + Object.values(a.params.snake_score || {}).reduce((sum, s) => sum + s.score, 0);
-            const totalB = b.params.score + Object.values(b.params.snake_score || {}).reduce((sum, s) => sum + s.score, 0);
+            const totalA = (
+                Object.values(a.params.snake_score || {}).reduce((sum, s) => sum + s.score, 0) +
+                a.score +
+                (a.params.location || 0)
+            );
+            const totalB = (
+                Object.values(b.params.snake_score || {}).reduce((sum, s) => sum + s.score, 0) +
+                b.score +
+                (b.params.location || 0)
+            );
             return totalB - totalA;
         });
     
         sortedPlayers.forEach(player => {
-            const name = player.name;
-            const bonusScore = player.score;
+            const team = player.name;
+            const bonus = player.score;  // Bonus = score
+            const endPoint = player.params.location || 0;
             const snakes = player.params.snakes || [];
             const snakeDetails = player.params.snake_score || {};
     
             const snakeScore = Object.values(snakeDetails).reduce((sum, snake) => sum + snake.score, 0);
-            const totalScore = bonusScore + snakeScore;
+            const totalScore = snakeScore + bonus + endPoint;
             const snakeCount = snakes.length;
             let snakeInfo = "";
     
             if (snakeCount > 0) {
-                snakeInfo = "<ul>";
+                snakeInfo = "<div class='snake-details'>";
                 snakes.forEach(snakeID => {
                     const details = snakeDetails[snakeID];
                     if (details) {
                         const formattedTime = formatTime(details.time);
-                        snakeInfo += `<li>S.${snakeID}: @ ${formattedTime}, L:${details.level} Score: ${details.score}</li>`;
+                        snakeInfo += `
+                            <div class="snake-card">
+                                <div class="snake-card-header">Snake ${snakeID}</div>
+                                <div class="snake-card-body">
+                                    <p>Time: ${formattedTime}</p>
+                                    <p>Score: ${details.score}</p>
+                                </div>
+                            </div>
+                        `;
                     }
                 });
-                snakeInfo += "</ul>";
+                snakeInfo += "</div>";
             } else {
                 snakeInfo = "No snakes captured";
             }
     
             const row = `
                 <tr>
-                    <td data-label="Team">${name}</td>
+                    <td data-label="Team">${team}</td>
                     <td data-label="Snake Score">${snakeScore}</td>
-                    <td data-label="Bonus">${bonusScore}</td>
-                    <td data-label="Total">${totalScore}</td>
+                    <td data-label="Bonus">${bonus}</td>
+                    <td data-label="End Point">${endPoint}</td>
+                    <td data-label="Total">${totalScore}</td> 
                     <td data-label="Snakes">${snakeCount}</td>
-                    <td data-label="Details">${snakeInfo}</td>
+                    <td data-label="Details" class="toggle-details" onclick="toggleDetails(this)">${snakeInfo}</td>
                 </tr>
             `;
     
             tableBody.innerHTML += row;
         });
+    }
+    
+    function toggleDetails(cell) {
+        const details = cell.querySelector('.snake-details');
+        if (details) {
+            details.style.display = details.style.display === 'none' || details.style.display === '' ? 'block' : 'none';
+        }
+    }
+    
+    function toggleDetails(cell) {
+        const details = cell.querySelector('.snake-details');
+        if (details) {
+            details.style.display = details.style.display === 'none' || details.style.display === '' ? 'block' : 'none';
+        }
     }
     
     
