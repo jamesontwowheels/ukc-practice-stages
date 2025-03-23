@@ -10,10 +10,8 @@ window.onload = function() {
         const tableBody = document.querySelector("#gameTable tbody");
         tableBody.innerHTML = "";
     
-        // Convert gameData object to an array and filter out rows with undefined scores
         const validPlayers = Object.values(gameData).filter(player => player.params && player.params.score !== undefined);
     
-        // Sort players by total score (bonus + snake score) descending
         const sortedPlayers = validPlayers.sort((a, b) => {
             const totalA = a.params.score + Object.values(a.params.snake_score || {}).reduce((sum, s) => sum + s.score, 0);
             const totalB = b.params.score + Object.values(b.params.snake_score || {}).reduce((sum, s) => sum + s.score, 0);
@@ -22,13 +20,12 @@ window.onload = function() {
     
         sortedPlayers.forEach(player => {
             const name = player.name;
-            const bonusScore = player.score;
+            const bonusScore = player.params.score;
             const snakes = player.params.snakes || [];
             const snakeDetails = player.params.snake_score || {};
     
             const snakeScore = Object.values(snakeDetails).reduce((sum, snake) => sum + snake.score, 0);
             const totalScore = bonusScore + snakeScore;
-    
             const snakeCount = snakes.length;
             let snakeInfo = "";
     
@@ -48,18 +45,19 @@ window.onload = function() {
     
             const row = `
                 <tr>
-                    <td>${name}</td>
-                    <td>${snakeScore}</td>
-                    <td>${bonusScore}</td>
-                    <td>${totalScore}</td>
-                    <td>${snakeCount}</td>
-                    <td>${snakeInfo}</td>
+                    <td data-label="Name">${name}</td>
+                    <td data-label="Snake Score">${snakeScore}</td>
+                    <td data-label="Bonus Score">${bonusScore}</td>
+                    <td data-label="Total Score">${totalScore}</td>
+                    <td data-label="Snakes Captured">${snakeCount}</td>
+                    <td data-label="Snake Details">${snakeInfo}</td>
                 </tr>
             `;
     
             tableBody.innerHTML += row;
         });
     }
+    
     
     
 

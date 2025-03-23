@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Results</title>
+    <title>Game Leaderboard</title>
     <link rel="stylesheet" href="assets/css/results_styles.css">
 </head>
 <body>
 
-    <h2>Game Results</h2>
+    <h1>Game Leaderboard</h1>
+
     <table id="gameTable">
         <thead>
             <tr>
@@ -20,7 +21,9 @@
                 <th>Snake Details</th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+            <!-- Table data will be inserted here by script.js -->
+        </tbody>
     </table>
 
     <script src="assets/js/results.js"></script>
