@@ -1,74 +1,148 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 0;
-    background-color: #f8f9fa;
-    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    font-size: 24px;
-    margin-bottom: 15px;
+    text-align: center;
 }
 
-/* Responsive Table */
+.table-wrapper {
+    overflow-x: auto;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
     background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
 }
 
 th, td {
+    border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
-    border: 1px solid #ddd;
 }
 
 th {
-    background: #007bff;
+    background-color: #007bff;
     color: white;
 }
 
-tr:nth-child(even) {
-    background: #f2f2f2;
+td {
+    background-color: #f9f9f9;
 }
 
-/* Mobile Optimization */
-@media screen and (max-width: 768px) {
-    table {
+tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+/* Mobile-friendly styles */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
         display: block;
-        overflow-x: auto;
-        white-space: nowrap;
     }
 
     thead {
         display: none;
     }
 
-    tbody tr {
-        display: flex;
-        flex-direction: column;
+    tr {
         margin-bottom: 10px;
-        border: 1px solid #ddd;
-        background: white;
-        padding: 10px;
-        border-radius: 8px;
+        border: 1px solid #ccc;
     }
 
-    tbody td {
-        border: none;
+    td {
         display: flex;
         justify-content: space-between;
-        padding: 5px 0;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
     }
 
-    tbody td:before {
-        content: attr(data-label);
-        font-weight: bold;
-        margin-right: 10px;
-        color: #007bff;
+    td:last-child {
+        border-bottom: none;
     }
+
+    td:before {
+        font-weight: bold;
+        content: attr(data-label);
+    }
+}
+
+/* Styling for snake details */
+.snake-details {
+    display: none;
+    background-color: #eef;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.snake-card {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.snake-card-header {
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.snake-card-body p {
+    margin: 5px 0;
+}
+
+.toggle-details {
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+}
+
+
+/* Button Style */
+button {
+    background-color: #007bff; /* Blue background */
+    color: white;              /* White text */
+    border: none;              /* Remove default border */
+    border-radius: 4px;        /* Slightly rounded corners */
+    padding: 8px 16px;         /* Some padding around the text */
+    font-size: 14px;           /* Font size */
+    cursor: pointer;          /* Cursor turns into a pointer when hovering */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #0056b3; /* Darker blue background */
+    transform: scale(1.05);     /* Slightly scale the button on hover */
+}
+
+/* Button Focus Effect */
+button:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.7); /* Add custom focus shadow */
+}
+
+/* Button Active Effect (when clicked) */
+button:active {
+    background-color: #004085; /* Even darker blue when pressed */
+    transform: scale(0.98);    /* Shrink slightly to indicate a click */
 }
