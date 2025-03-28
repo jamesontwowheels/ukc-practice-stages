@@ -24,6 +24,7 @@ $_SESSION['game'] = 995;
 <body>
 <h2>MINDGAMES</h2>
 <a class="stage" href="snakes/lobby.php?location=0">Regent's Park</a>
+<a class="stage" href="snakes/index.php?location=1">Newcastle</a>
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
 </form>
