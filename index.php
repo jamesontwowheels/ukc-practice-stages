@@ -33,7 +33,7 @@ if (isset($_SESSION['username'])) {
                 if (xhr.status == 200) {
                     var response = JSON.parse(xhr.responseText);
                     if (response.success) {
-                        alert("Login successful!");
+                        //alert("Login successful!");
                         window.location.href = "stages.php"; // Redirect to a protected page
                     } else {
                         alert("Login failed: " + response.message + " email: " + response.email + " query: " +response.query);

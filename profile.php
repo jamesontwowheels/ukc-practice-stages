@@ -15,21 +15,13 @@ if (!isset($_SESSION['username'])) {
 <link rel="stylesheet" href="assets/css/app-buttons.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <link rel="manifest" href="/manifest.json">
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 <body>
 <h2>MINDGAMES</h2>
-<a class="stage" href="deep_blue?location=7">Banstead</a><br>    <!-- Map ID: 6727beb8dd300  -->
-<a class="stage" href="deep_blue?location=6">Whitley v2</a><br>  <!-- Map ID: 67cca1e7bbb10 -->
-<a class="stage" href="deep_blue?location=5">Whitley Bay</a><br>
-<a class="stage" href="deep_blue?location=3">Court Rec</a><br>
-<a class="stage" href="deep_blue?location=4">Lightwater</a><br>
-<a class="stage" href="deep_blue?location=2">Focus Group</a><br>
-<a class="stage" href="deep_blue?location=0">Fenchurch St - 22.10.24</a><br>
-<a class="stage" href="deep_blue?location=1">Rising Sun</a><br>
-
+<br>
+<h3>Profile Page (coming soon)</h3>
 <div id="footer-back"></div>
 <div id="footer">
 <div class="app-buttons">

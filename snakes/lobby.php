@@ -19,6 +19,9 @@ if (isset($_GET['location'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Location Permission & Accuracy Checker</title>
     <link rel="stylesheet" href="assets/css/lobby-styles.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/app-buttons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body><script>
     var user_ID = <?php echo json_encode($_SESSION['user_ID']); ?>;
@@ -26,21 +29,21 @@ if (isset($_GET['location'])) {
 </script>
     <script src="assets/js/global.js"></script>
     <div id="go-to-start"></div>
-    <div class="card"><h2>Location & Accuracy</h2>
+    <div class="card"><h3>Location & Accuracy</h3>
     <p id="status">Checking permission...</p>
     <p id="accuracy"></p>
     <button id="requestBtn" style="display: none;">Request Location Access</button>
     </div>
     <script src="assets/js/location-check.js"></script>
 
-    <div class="card"><h2>Game Registration</h2>
+    <div class="card"><h3>Game Registration</h3>
     <p id="reg-status">Checking registration...</p>
     <a href="teams.php" class="button" id="joinBtn" style="display: none;">Join a team</a>
     </div>
     <script src="assets/js/reg-check.js"></script>
 
     <div id="game-container" class="card">
-        <h2>Game Status</h2>
+        <h3>Game Status</h3>
         <div id="status-message">Waiting for the game to start...</div>
         
         <div class="countdown-container">
@@ -51,6 +54,14 @@ if (isset($_GET['location'])) {
             <div id="countdown-text">10</div>
         </div>
     </div>
+    <div id="footer-back"></div>
+<div id="footer">
+<div class="app-buttons">
+        <a href="index.php" class="app-button" id="app1"><i class="fas fa-house"></i><br></a>
+        <a href="profile.php" class="app-button" id="app2"><i class="fas fa-address-card"></i><br></a>
+        <a href="faq.php" class="app-button" id="app3"><i class="fas fa-circle-question"></i><br></a>
+</div>
+</div>
 
     <script src="assets/js/game-start-check.js"></script>
     <script src="assets/js/ready.js"></script>

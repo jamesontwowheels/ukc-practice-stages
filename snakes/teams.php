@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Fetch existing teams
-$query = "SELECT * FROM teams where game = $game";
+$query = "SELECT * FROM teams where game = $game and location = $location";
 $teams = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
 
 $query = "SELECT * FROM team_members where player_ID = $player_id";

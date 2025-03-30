@@ -407,9 +407,9 @@ $x = 0;
             "puzzle" => false,
             "puzzle_q" => "x",
             "puzzle_a" => "x",
-            "message" => "Checkpoint A",
+            "message" => "Start the game for all players",
             "options" => [
-                1 => "Move"
+                1 => "Go!"
             ],
             "available" => true
         ],
