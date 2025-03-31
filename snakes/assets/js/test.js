@@ -261,7 +261,7 @@ function ajax_call() {
                 }
 
             //running score
-            document.getElementById("score_zone").innerHTML = "Score: " + data["teams"][this_team]["score"];
+            document.getElementById("score_zone").innerHTML = "Score: " + data["teams"][this_team]["params"]["score"];
              
             var button_detail = ["blurb","blib"];
 
