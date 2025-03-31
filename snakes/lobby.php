@@ -54,16 +54,17 @@ if (isset($_GET['location'])) {
             <div id="countdown-text">10</div>
         </div>
     </div>
-    <div id="footer-back"></div>
-<div id="footer">
-<div class="app-buttons">
-        <a href="index.php" class="app-button" id="app1"><i class="fas fa-house"></i><br></a>
-        <a href="profile.php" class="app-button" id="app2"><i class="fas fa-address-card"></i><br></a>
-        <a href="faq.php" class="app-button" id="app3"><i class="fas fa-circle-question"></i><br></a>
-</div>
-</div>
+
 
     <script src="assets/js/game-start-check.js"></script>
     <script src="assets/js/ready.js"></script>
 </body>
+<div id="footer-back"></div>
+<div id="footer">
+<div class="app-buttons">
+        <a href="../index.php" class="app-button" id="app1"><i class="fas fa-house"></i><br></a>
+        <a href="../profile.php" class="app-button" id="app2"><i class="fas fa-address-card"></i><br></a>
+        <a href="../faq.php" class="app-button" id="app3"><i class="fas fa-circle-question"></i><br></a>
+</div>
+</div>
 </html>

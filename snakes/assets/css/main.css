@@ -9,6 +9,7 @@ html, body {
     color: #131110;
     font-size: 1.5em;
     background-image: linear-gradient(45deg, #a100ff, #b455aa);
+    margin: 0px;
 }
 
 h1 {

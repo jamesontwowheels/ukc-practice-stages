@@ -151,6 +151,12 @@ button {
     z-index: 1000;
   }
 
+  .stage-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between items */
+    justify-content: center; /* Align items in center */
+  }
 
   .stage-card {
     width: 300px;

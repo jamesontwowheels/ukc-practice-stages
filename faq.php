@@ -19,9 +19,9 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<h2>MINDGAMES</h2>
+<h2>FAQs</h2>
 <br>
-<h3>FAQs (coming soon)</h3>
+<h3>(coming soon)</h3>
 
 <div id="footer-back"></div>
 <div id="footer">

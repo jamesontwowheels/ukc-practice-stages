@@ -11,7 +11,7 @@ if (!isset($_SESSION['username'])) {
 }?>
 <head>
 
-<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="main.css?v=0.1">
 <link rel="stylesheet" href="assets/css/app-buttons.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <link rel="manifest" href="/manifest.json">
@@ -19,8 +19,9 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<h2>MINDGAMES</h2>
+<h2>GAME LIBRARY</h2>
 <br>
+<div class="stage-grid">
 <div class="image-container stage-card">
     <img src="images/goldrush-cover.jpeg" alt="Coming Soon">
     <div class="overlay">Coming Soon</div>
@@ -34,7 +35,7 @@ if (!isset($_SESSION['username'])) {
 <a class="stage-card" href="scrabble_stages.php"><img src="images/scrabble-cover.jpeg"><div class="stage-title">Scrabble +</div></a><br>
 <a class="stage-card" href="deep_blue_stages.php"><img src="images/deep-blue-cover.jpeg"><div class="stage-title">Deep Blue</div></a><br>
 <a class="stage-card" href="gps_stages.php"><img src="images/gps-test-cover.jpeg"><div class="stage-title">GPS Test</div></a><br>
-
+</div>
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
 </form>
