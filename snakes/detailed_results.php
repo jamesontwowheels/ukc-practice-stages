@@ -1,7 +1,7 @@
 <?PHP
 session_start();
 $_SESSION['user_ID'] = 29;
- $_SESSION['location'] = 0;
+ $_SESSION['location'] = 1;
  $_SESSION['game'] = 995;
 
 ?>

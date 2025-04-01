@@ -746,7 +746,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 } else {
                     $pl_finishers[] = $pl;
                     $finish_bonus = 60/(count($teams[$tm]["members"]));
-                        $teams[$tm]["params"]["score"] += $finish_bonus;
+                        $teams[$tm]["score"] += $finish_bonus;
                         unset($checkpoint);
                         $comment = "Finished. Bonus: $finish_bonus";
                     if($pl == $user_ID){
