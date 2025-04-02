@@ -16,6 +16,7 @@ function showTemporaryMessage(message, duration) {
     
     // Set the message
     tempMessage.textContent = message;
+    console.log('message');
     
     // Display the message
     tempMessage.style.display = 'block';
@@ -107,7 +108,8 @@ function ajax_call() {
             var teams = data["teams"];
             var this_team   = data["this_team"];
 
-            showTemporaryMessage(comment, 3000);
+            // showTemporaryMessage(comment, 3000);
+
             //inventories:
             console.log(inventory);
 
@@ -158,6 +160,18 @@ function ajax_call() {
                                 
                                 //ALL ** THIS ** LOGIC ** SHOULD ** BE ** IN ** THE ** BACK ** END....!
                                 //add CP options
+                                var comment_space = `cp_comment_space_`+ this_key;
+
+                                
+                                if (typeof comment === "string" && comment.length > 0) {
+                                    console.log("String is not empty!");
+                                    document.getElementById(comment_space).innerHTML = comment;
+                                    document.getElementById(comment_space).classList.add('cp_comment_filled');
+                                } else {
+                                    document.getElementById(comment_space).innerHTML = "";
+                                    document.getElementById(comment_space).classList.remove('cp_comment_filled');
+                                }
+
                                 const target_space = `cp_option_space_` + this_key;
                                 var these_options = cpx["options"];   
                                 document.getElementById(target_space).innerHTML = "";
@@ -176,6 +190,8 @@ function ajax_call() {
                                 
                                 var cp_space = `cp_option_card_`+this_key;
                                 const info_space = `cp_info_space_`+ this_key;
+                                
+
 
                                 document.getElementById(info_space).innerHTML = cpx["message"];
                                 if(cpx["puzzle"]){
@@ -278,6 +294,9 @@ function cp_explore() {
         // Proceed with the desired action
         var cp = $(this).attr('cp');
         var cp_option_id = 'cp_option_card_' + cp;
+        var comment_space = 'cp_comment_space_' + cp;
+        document.getElementById(comment_space).innerHTML = "";
+        document.getElementById(comment_space).classList.remove("cp_comment_filled");
         document.getElementById(cp_option_id).classList.add("cp-option-show");
         document.getElementById(cp_option_id).classList.remove("cp-option");
       } else {

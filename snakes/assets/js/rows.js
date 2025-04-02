@@ -19,7 +19,7 @@ for (let i = 0; i < targets.length; i++) {
                 
                 const newDiv = document.createElement('div');
                 newDiv.id = `cp_option_card_${target.properties.name}`;
-                newDiv.innerHTML = `<div id="cp-header-${target.properties.name}" class="cp-header">${target.properties.name}</div><span class="close-btn">&times;</span><div id="cp_info_space_${target.properties.name}"></div><div id="cp_option_space_${target.properties.name}"></div>`;
+                newDiv.innerHTML = `<div id="cp-header-${target.properties.name}" class="cp-header">${target.properties.name}</div><span class="close-btn">&times;</span><div id="cp_comment_space_${target.properties.name}" class="cp_comment"></div><div id="cp_info_space_${target.properties.name}"></div><div id="cp_option_space_${target.properties.name}"></div>`;
                 newDiv.classList.add('cp-option');
                 cp_options.appendChild(newDiv);
             }

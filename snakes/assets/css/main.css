@@ -261,6 +261,16 @@ button {
     transition: opacity 0.5s ease-in-out;
   }
 
+.cp_comment {
+    min-height: 60px;
+    width: 100%;
+    padding:25px;
+}
+
+.cp_comment_filled {
+    background-color: #ff95f6;
+}
+
   .cp-option {
     display: none;
   }
