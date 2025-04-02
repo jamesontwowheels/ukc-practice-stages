@@ -98,5 +98,5 @@ $_SESSION['game'] = $game;
 <div id="exit"><a href="../stages.php" class="" id="app4"><i class="fas fa-arrow-left"></i></a></div>
 </body>
 <script type="text/javascript" src='assets/js/test.js?v0.01' defer></script>
-<script type="text/javascript" src='assets/js/rows.js'></script>
+<script type="text/javascript" src='assets/js/rows.js?v0.01'></script>
 <script type="text/javascript" src='assets/js/app-buttons.js'></script>
