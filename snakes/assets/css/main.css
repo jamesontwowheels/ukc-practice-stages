@@ -5,60 +5,70 @@
 
 html, body {
     background: #131110;
-    font-family: 'CustomFont', sans-serif;
-    color: #131110;
+    font-family: helvetica, sans-serif;
+    color: #ffffff;
     font-size: 1.5em;
-    background-image: linear-gradient(45deg, #a100ff, #b455aa);
     margin: 0px;
 }
 
 h1 {
     width: 100%;
     text-align: center;
-    font-size: 3em;
-    margin-top: 1em;
+    font-size: 2em;
+    margin: 0px;
 }
 
 #main {
-    padding: 1em;
-    margin: 1em;
     background: #131110;
     color:#e6e6dc;
     font-size: inherit;
 }
 
 button.active {
-    background: #dcafff;
-    border-radius: 25px;
-    font-size: 1em;
-    min-width: 200px;
-    min-height: 100px;
+    background: #ff07d6;
+    border-radius: 45px;
+    width: 90%;
+    min-width: 400px;
+    min-height: 140px;
+    color: white;
     transition: min-height 0.5s ease;
     z-index: 2;
     position: relative;
+    font-size: 1.5em;
+    font-weight:600;
 }
 
 button.inactive {
-    border: 1px #96968c dashed;
     background: #131110;
-    color: #96968c;
+    color: #ffffff;
+    border: 1px black solid;
     border-radius: 25px;
-    font-size: 1em;
-    min-width: 150px;
+    font-size: 1.5em;
+    font-weight:600;
+    min-width: 400px;
     min-height: 50px;
     transition: min-height 0.5s ease;
+    
 }
 
 button.blocked {
     background: #b82e45 !important ;
 }
 
+td.right_column{
+    text-align: right;
+    padding-right: 25px;
+    font-size: 1.5em;
+}
+
 table, tr {
     font-size: inherit;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+    width: 100%;
     color:#e6e6dc;
+}
+
+tr { 
+    display: table-row !important;
 }
 
 td {
@@ -69,7 +79,10 @@ td {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     padding-left: 0.5em;
-    border-bottom: #9e895d 1px solid;
+}
+
+#checkpoints td{
+    width:50%;
 }
 
 .check_in {
@@ -88,7 +101,8 @@ td {
             margin-top: 20px;
             margin: auto;
             text-align: center;
-            color:#2e2e2e;
+            font-weight: 600;
+            color:#ffffff;
         }
 
 #timer.complete {
@@ -97,9 +111,35 @@ td {
 
 #score_zone {
     font-size: 1.5em;
-    color:#2e2e2e;
+    color:#ffffff;
     margin: auto;
     text-align: center;
+}
+
+#exit {
+  position: absolute;
+  color: white;
+  top: 25px;
+  left: 25px;
+  z-index: 500;
+  font-size: 1.8em;
+}
+
+#exit a{
+    color: white;
+}
+
+#inventory {
+    background: #7500c0;
+}
+
+#inventory h3 {
+    font-size: 1.5em;
+    font-weight:600;
+}
+
+#inventoryTable {
+    font-size: 1.2em;
 }
 
 .stage {
@@ -229,13 +269,14 @@ button {
 .cp-option-show {
     position: fixed;
     z-index: 1000;
-    width: 90%; /* Set width to 90% of the screen */
-    border-radius: 12px;
-    min-height: 40%;
+    width: 95%; /* Set width to 90% of the screen */
+    border-radius: 50px;
+    min-height: 60%;
     color: #333;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: helvetica, sans-serif;
+    font-size:1.4em;
     transform: translate(-50%, -50%);
     cursor: pointer;
     top: 50%;
@@ -252,7 +293,7 @@ button {
 }
 
 .neutral {
-    background: rgb(250, 249, 192)
+    background: rgb(255, 255, 255)
 }
 
 .viewpoint td {
@@ -277,12 +318,12 @@ button {
 
 /* Header styling for mobile */
 .cp-header {
-    background-color: #007bff; /* Blue header background */
-    color: #fff; /* White text for contrast */
+    color: #000000; /* White text for contrast */
     font-weight: bold;
     text-align: center;
-    padding: 10px 0;
+    padding: 35px 0;
     width: 100%;
+    font-size: 1.8em;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     box-sizing: border-box; /* Ensures padding doesn't affect width */
@@ -299,14 +340,12 @@ button {
 .close-btn {
     position: absolute;
     top: 10px;
-    right: 10px;
-    color: red;
+    right: 25px;
+    color: rgb(0, 0, 0);
     font-weight: bold;
     cursor: pointer;
     z-index: 1001;
-    background-color: white;
-    border-radius: 23px;
-    width: 46px;
+    font-size:2.5em;
 }
 
 .close-btn:hover {

@@ -3,7 +3,7 @@
     bottom: 0; /* Stick to the bottom */
     width: 100%; /* Full width */
     z-index: 1000; /* Ensure it stays on top of other content */
-    background-color: #cfcfcf; /* Button container background */
+    background-color: #7500c0; /* Button container background */
 }
 
 #footer_info{
@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-around; /* Evenly space the buttons */
     align-items: center;
-    background-color: #cfcfcf; /* Button container background */
+    background-color: #ececec; /* Button container background */
     padding: 10px; /* Padding around the buttons */
    /* position: fixed; /* Fix position */
     bottom: 0; /* Stick to the bottom */
@@ -25,16 +25,14 @@
 }
 
 .app-button {
-    background-color: #ffffff; /* Button background */
     color: #333333; /* Text color */
     text-decoration: none; /* Remove underline from links */
     border: none; /* No border */
-    border-radius: 20px; /* Rounded corners */
     padding: 15px 20px; /* Padding for buttons */
-    font-size: 0.7em; /* Font size */
+    font-size: 1.4em; /* Font size */
+    font-weight: 600;
     cursor: pointer; /* Pointer on hover */
     transition: background-color 0.3s, box-shadow 0.3s; /* Smooth background and shadow transition */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
 .app-button:hover {
@@ -43,9 +41,8 @@
 }
 
 .app-button.active {
-    background-color: #0056b3; /* Darker blue for active button */
-    color: white; /* Change text color for active button */
     box-shadow: none; /* Remove shadow for active button */
+    border-bottom: 10px solid #ff07d6;
 }
 
 

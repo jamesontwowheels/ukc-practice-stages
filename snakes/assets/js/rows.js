@@ -12,7 +12,7 @@ for (let i = 0; i < targets.length; i++) {
                 row.id = "row"+target.properties.name;
                 row.innerHTML = `
                     <td id="button${target.properties.name}"><button id="butt${target.properties.name}" class="inactive cp_button submit_button" cp="${target.properties.name}" class='check_in'>${target.properties.name}</button></td>
-                    <td id="cp${target.properties.name}">${target.properties.name}</td>
+                    <td id="cp${target.properties.name}" class="right_column">${target.properties.name}</td>
                 `;
                 tableBody.appendChild(row);
 
