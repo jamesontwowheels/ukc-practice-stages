@@ -63,6 +63,7 @@ if($teams_active){
             "score" => 0,
             "params" => [
                 "ghost_cps" => [],
+                "score" => 0,
                 "snakes" => [],
                 "snake_score" => [],
                 "fruit" => 0,

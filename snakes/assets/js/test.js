@@ -278,6 +278,7 @@ function ajax_call() {
                 }
 
             //running score
+            console.log(data["teams"][this_team]["params"]["score"]);
             document.getElementById("score_zone").innerHTML = "<b>Score</b>: " + data["teams"][this_team]["params"]["score"];
              
             var button_detail = ["blurb","blib"];
