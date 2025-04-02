@@ -10,11 +10,8 @@ function checkGameReady() {
 
             // Set button text
             button.textContent = "Go to Game";
+            button.classList.add("launch_button");
 
-            // Style the button (optional)
-            button.style.padding = "10px 20px";
-            button.style.fontSize = "16px";
-            button.style.cursor = "pointer";
 
             // Add a click event to redirect to index.php
             button.addEventListener("click", function () {

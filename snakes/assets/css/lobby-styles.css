@@ -9,22 +9,35 @@ button {
     margin-top: 10px;
     cursor: pointer;
     border: none;
-    background-color: #007BFF;
+    background-color: #ff07d6;
     color: white;
     border-radius: 5px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #ff07d6;
+}
+
+.launch_button {
+    font-size: 1em;
+    max-width: 80%;
+    border-radius:35px;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  
 }
 
 .card {
     max-width: 400px;
+    color: black;
     margin: auto;
     margin-bottom:15px;
     background: white;
     padding: 20px;
     border-radius: 10px;
+    font-size: 0.6em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -67,7 +80,7 @@ button:hover {
 .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: rgb(96, 106, 255);
+    background-color: #ff07d6;
     color: white;
     text-decoration: none;
     border-radius: 5px;

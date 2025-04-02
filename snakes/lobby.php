@@ -18,9 +18,9 @@ if (isset($_GET['location'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Location Permission & Accuracy Checker</title>
-    <link rel="stylesheet" href="assets/css/lobby-styles.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/app-buttons.css">
+    <link rel="stylesheet" href="assets/css/main.css?v0.1">
+    <link rel="stylesheet" href="assets/css/lobby-styles.css?v0.1">
+    <link rel="stylesheet" href="../assets/css/app-buttons.css?v0.1">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body><script>
