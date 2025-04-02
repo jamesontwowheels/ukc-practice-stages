@@ -14,8 +14,8 @@ function ajax_call() {
             var debug_log = data["debug_log"];
             console.log(debug_log);
 
-            //running score
-            document.getElementById("score_zone").innerHTML = data["running_score"];
+            // running score
+            // document.getElementById("score_zone").innerHTML = data["running_score"];
             
             //commentary
             const items = data["commentary"];
@@ -30,7 +30,8 @@ function ajax_call() {
                     const listItem = document.createElement('li');
         
                     // Set the text content of the element to the array item
-                    listItem.textContent = item;
+                    listItem.innerHTML = item;
+                    listItem.addClass = "history_list";
         
                     // Append the new element to the target DOM element
                     itemList.appendChild(listItem);

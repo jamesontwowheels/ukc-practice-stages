@@ -23,21 +23,18 @@ if (isset($_SESSION['location'])) {
 <head>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="assets/css/main.css?v0.1">
+<link rel="stylesheet" href="assets/css/main.css?v0.11">
 <link rel="stylesheet" href="assets/css/app-buttons.css?v0.1">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 </head>
 <body>
-  <h1>MINDGAMES</h1>
+  <h1>History</h1>
 <div id="main">
 <div id="score" class="bucket">
-  <h3>Stockpile</h3>
   <div id="score_zone"></div>
 </div>
 <div id="history" class="bucket">
-  <h3>History</h3>
-  <button id="toggleButton">show/hide</button>
   <ul id="commentary-list">
             <!-- Array items will be appended here -->
   </ul>
@@ -55,5 +52,5 @@ if (isset($_SESSION['location'])) {
 </div>
 <div id="exit"><a href="index.php" class="" id="app4"><i class="fas fa-arrow-left"></i></a></div>
 </body>
-<script type="text/javascript" src='assets/js/history.js' defer></script>
+<script type="text/javascript" src='assets/js/history.js?v0.1' defer></script>
 <script type="text/javascript" src='assets/js/app-buttons.js'></script>

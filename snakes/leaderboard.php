@@ -29,11 +29,10 @@ if (isset($_SESSION['location'])) {
 
 </head>
 <body>
-  <h1>MINDGAMES</h1>
+  <h1>leaderboard</h1>
 <div id="main">
 
   <div id="leaderboard" class="bucket">
-  <h3>Leaderboard</h3>
   <div id="leaderboard_zone">
   <table id="leaderBoard_table" border="1">
         <thead>

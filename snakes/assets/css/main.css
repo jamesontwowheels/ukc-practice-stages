@@ -362,6 +362,15 @@ button {
     color: darkred;
 }
 
+#commentary-list li{
+    display: block;
+    padding: 15px;
+    border-bottom: 4px dotted white;
+}
+#commentary-list {
+    width:99%;
+}
+
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
     .cp-option-show {

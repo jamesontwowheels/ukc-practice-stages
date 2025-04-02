@@ -637,7 +637,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 } else {
                     $player_details[$pl]["params"]["used_cps"][] = $cp_number;
                 }
-                $movement = $cp["score"][$timezone];
+                $movement = (int) $cp["score"][$timezone];
                 $comment = "you moved $movement squares";
                 $new_location = min(100, $teams[$tm]['params']['location'] + $cp["score"][$timezone]);
                 if($new_location == 100) {
