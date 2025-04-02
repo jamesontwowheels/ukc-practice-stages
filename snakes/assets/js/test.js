@@ -156,6 +156,7 @@ function ajax_call() {
                               } else {
                                 rowId = "row"+key_id;
                                 document.getElementById(rowId).style.display = 'none';
+                                console.log('hidden'+key_id);
                               };   
                                 
                                 //ALL ** THIS ** LOGIC ** SHOULD ** BE ** IN ** THE ** BACK ** END....!

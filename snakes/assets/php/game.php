@@ -723,12 +723,12 @@ if($debug == 1){ $debug_log[] = '72';};
 
                 $game_state = 1;
                 $game_start = $t;
-                $comment = "game started";
                     foreach ($cp_bible as &$checkpoint) {
                         $checkpoint["available"] = true;
                     }
                     unset($checkpoint);
                     $cp_bible[999]["available"] = false;
+                    $comment = "game started.";
                 
             } 
             elseif ($game_state == 2) {

@@ -30,7 +30,7 @@ $_SESSION['game'] = $game;
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src='targets.js'></script>
 <script type="text/javascript" src='assets/js/distance.js'></script>
-<link rel="stylesheet" href="assets/css/main.css?v0.11">
+<link rel="stylesheet" href="assets/css/main.css?v0.12">
 <link rel="stylesheet" href="assets/css/underwater.css">
 <link rel="stylesheet" href="assets/css/polar.css">
 <link rel="stylesheet" href="assets/css/app-buttons.css?v0.11">

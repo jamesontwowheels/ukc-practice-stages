@@ -67,10 +67,6 @@ table, tr {
     color:#e6e6dc;
 }
 
-tr { 
-    display: table-row !important;
-}
-
 td {
     font-size: inherit;
     margin-left: 10%;
