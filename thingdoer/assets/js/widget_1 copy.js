@@ -5,28 +5,9 @@ console.log('URL Params:', params);
 var widgetID_1 = 1; 
 console.log('Widget ID:', widgetID_1);
 
-// Function to determine if a date is in BST
-function isBST(date) {
-    const year = date.getFullYear();
-
-    // Last Sunday in March
-    let lastSundayMarch = new Date(year, 2, 31); // March 31st
-    while (lastSundayMarch.getDay() !== 0) {
-        lastSundayMarch.setDate(lastSundayMarch.getDate() - 1);
-    }
-
-    // Last Sunday in October
-    let lastSundayOctober = new Date(year, 9, 31); // October 31st
-    while (lastSundayOctober.getDay() !== 0) {
-        lastSundayOctober.setDate(lastSundayOctober.getDate() - 1);
-    }
-
-    return date >= lastSundayMarch && date < lastSundayOctober;
-}
-
 // Function to fetch data and process it for the chart
 function fetchWidgetData() {
-    fetch(`assets/php/get_data.php?purpose=${widgetID_1}`)
+    fetch(`assets/php/get_data.php?purpose=${widgetID_1}`) // Adjust API endpoint as needed
         .then(response => response.json())
         .then(data => {
             console.log('Fetched Data:', data);
@@ -56,13 +37,7 @@ function fetchWidgetData() {
 
             // Process each input entry
             filteredData.forEach(item => {
-                let createdAt = new Date(item.CreatedAt);
-
-                // Adjust for BST if necessary
-                if (isBST(createdAt)) {
-                    createdAt.setHours(createdAt.getHours() + 1);
-                }
-
+                const createdAt = new Date(item.CreatedAt);
                 const entryDate = createdAt.toISOString().split("T")[0]; // Extract YYYY-MM-DD
 
                 const hours = createdAt.getHours();
@@ -114,7 +89,7 @@ function createBarChart1(labels, data, totalLast7Days, overallTotal) {
         data: {
             labels: labels,
             datasets: [{
-                label: "Minutes Before 7:30 AM BST/GMT",
+                label: "Minutes Before 7:30 AM",
                 data: data,
                 backgroundColor: "rgba(75, 192, 192, 0.6)",
                 borderColor: "rgba(75, 192, 192, 1)",
@@ -156,14 +131,14 @@ function createBarChart1(labels, data, totalLast7Days, overallTotal) {
     }
 
     
-    let formattedMinutes = formatMinutes(overallTotal);
+let formattedMinutes = formatMinutes(overallTotal);
 
     // Display totals
     const totalContainer = document.createElement("div");
     totalContainer.className = "totals";
     totalContainer.innerHTML = `
         <p><strong>Total Minutes (Last 7 Days):</strong> ${totalLast7Days}</p>
-        <p><strong>Total Before 7:30 AM BST/GMT:</strong> ${formattedMinutes}</p>
+        <p><strong>Total Before 7:30 AM:</strong> ${formattedMinutes}</p>
     `;
     widgetZone.appendChild(totalContainer);
 }
