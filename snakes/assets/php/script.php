@@ -16,7 +16,7 @@ $safe_input = htmlspecialchars($sanitized_input, ENT_QUOTES, 'UTF-8');
 
 
 $db_response[] = "You hit CP $cp";
-include 'db_connect.php';
+// include 'db_connect.php';
 $user_ID = $_SESSION['user_ID'];
 $location = $_SESSION['location'];
 $game = $_SESSION['game'];
