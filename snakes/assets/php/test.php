@@ -8,10 +8,11 @@ if($_REQUEST["load"] == 1){
 }
 session_write_close();  // Unlock session, allowing parallel requests
 $cp = $_REQUEST["cp"];
-
+if($_REQUEST["load"] == 1){
+    echo "request landed";
+} else {
 if($cp > 0) {
 include 'script.php';
 };
-if($_REQUEST["load"] == 1){
-} else {
+
 include 'game.php';}
