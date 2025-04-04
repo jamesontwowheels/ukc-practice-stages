@@ -6,7 +6,7 @@ if($_REQUEST["load"] == 1){
     $_SESSION['location'] = 999;
     $_SESSION['game'] = 999;
 }
-
+session_write_close();  // Unlock session, allowing parallel requests
 $cp = $_REQUEST["cp"];
 
 if($cp > 0) {
