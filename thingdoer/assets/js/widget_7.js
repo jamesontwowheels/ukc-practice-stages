@@ -9,6 +9,7 @@ function fetchWidgetData7() {
             console.log(filteredData);
 
             const startDate = new Date("2025-04-03");
+            const todayDate = new Date();
             const daysArray = Array.from({ length: 30 }, (_, i) => i + 1);
             
             const dailyEntries = filteredData.reduce((acc, item) => {
@@ -43,6 +44,7 @@ function renderGrid(daysArray, dailyEntries, startDate) {
     
     daysArray.forEach((dayNumber, index) => {
         const date = new Date(startDate);
+        const todayDate = new Date();
         date.setDate(date.getDate() + index);
         const dateString = date.toISOString().split("T")[0];
         
@@ -62,7 +64,7 @@ function renderGrid(daysArray, dailyEntries, startDate) {
             if (dailyEntries[dateString].hasValue2) {
                 dayElement.style.backgroundColor = "darkgreen";
                 console.log('complete');
-            } else if (dateString === startDate.toISOString().split("T")[0] && dailyEntries[dateString].hasValue1) {
+            } else if (dateString === todayDate.toISOString().split("T")[0] && dailyEntries[dateString].hasValue1) {
                 dayElement.style.backgroundColor = "lightgreen";
                 dayElement.style.color = "black";
             } else {
