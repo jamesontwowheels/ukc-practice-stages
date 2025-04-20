@@ -1,0 +1,384 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('made_evolve.otf') format('opentype');
+}
+
+html, body {
+    background: #131110;
+    font-family: helvetica, sans-serif;
+    color: #ffffff;
+    font-size: 1.5em;
+    margin: 0px;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    margin: 0px;
+}
+
+#main {
+    background: #131110;
+    color:#e6e6dc;
+    font-size: inherit;
+}
+
+button.active {
+    background: #ff07d6;
+    border-radius: 45px;
+    width: 90%;
+    min-width: 400px;
+    min-height: 140px;
+    color: white;
+    transition: min-height 0.5s ease;
+    z-index: 2;
+    position: relative;
+    font-size: 1.5em;
+    font-weight:600;
+}
+
+button.inactive {
+    background: #131110;
+    color: #ffffff;
+    border: 1px black solid;
+    border-radius: 25px;
+    font-size: 1.5em;
+    font-weight:600;
+    min-width: 400px;
+    min-height: 50px;
+    transition: min-height 0.5s ease;
+    
+}
+
+button.blocked {
+    background: #b82e45 !important ;
+}
+
+td.right_column{
+    text-align: right;
+    padding-right: 25px;
+    font-size: 1.5em;
+}
+
+table, tr {
+    font-size: inherit;
+    width: 100%;
+    color:#e6e6dc;
+}
+
+td {
+    font-size: inherit;
+    margin-left: 10%;
+    margin-right: 10%;
+    color:#e6e6dc;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+}
+
+#checkpoints td{
+    width:50%;
+}
+
+.check_in {
+    font-size: inherit;
+    width: 2em;
+    border-radius: 15px;
+}
+
+.bucket {
+    border-bottom: #96968c 1px dashed;
+}
+
+
+ #timer {
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin: auto;
+            text-align: center;
+            font-weight: 600;
+            color:#ffffff;
+        }
+
+#timer.complete {
+            color: #64ff50;
+}
+
+#score_zone {
+    font-size: 1.5em;
+    color:#ffffff;
+    margin: auto;
+    text-align: center;
+}
+
+#exit {
+  position: absolute;
+  color: white;
+  top: 25px;
+  left: 25px;
+  z-index: 500;
+  font-size: 1.8em;
+}
+
+#exit a{
+    color: white;
+}
+
+#inventory {
+    background: #7500c0;
+}
+
+#inventory h3 {
+    font-size: 1.5em;
+    font-weight:600;
+}
+
+#inventoryTable {
+    font-size: 1.2em;
+}
+
+.stage {
+    padding: 0.5em;
+    display:block;
+    font-size: 2em;
+    border-radius: 0.5em;
+    background: #7500c0;
+    color:#e6e6dc;
+    border: 1px dashed #586557;
+}
+
+a.stage {
+    color: #e6e6dc;
+    text-decoration: none;
+    display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.clicked {
+    background: #00ffff;
+    transition: 1.5s ease-in-out;
+}
+
+.content {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s ease;
+}
+
+/* Expanded state */
+.content.expand {
+    height: auto; /* Change to the desired height or let it adjust based on the content */
+    transition: height 0.5s ease;
+}
+
+button {
+    border-radius: 25px;
+    background-color: #96968c;
+    color: black;
+    font-size: 0.8em;
+    min-width: 150px;
+    min-height: 50px;
+    transition: min-height 0.5s ease;
+}
+  /* Button bar at the bottom */
+  .button-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+
+  .stage-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.stage-card img {
+    width: 100%;
+    height: auto;
+}
+
+.stage-card .stage-title {
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #f8f8f8;
+}
+
+.stage-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#base-padding {
+    height: 300px; 
+}
+
+.team-button {
+    display: block;
+    margin: auto;
+    width: 60%;
+    text-align: center;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+#tempMessage {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 2em;
+    display: none; /* Hidden initially */
+    z-index: 1000;
+    opacity: 0; /* Fully transparent initially */
+    transition: opacity 0.5s ease-in-out;
+  }
+
+.cp_comment {
+    min-height: 60px;
+    width: 100%;
+    padding:25px;
+}
+
+.cp_comment_filled {
+    background-color: #ff95f6;
+}
+
+  .cp-option {
+    display: none;
+  }
+
+/* General card styling for mobile */
+.cp-option-show {
+    position: fixed;
+    z-index: 1000;
+    width: 95%; /* Set width to 90% of the screen */
+    border-radius: 50px;
+    min-height: 60%;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: helvetica, sans-serif;
+    font-size:1.4em;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    overflow: hidden; /* Ensures content doesn't spill out */
+}
+
+.hole_owned {
+    background: rgb(129, 255, 156)
+}
+
+.hole_not_owned {
+    background: rgb(255, 129, 129)
+}
+
+.neutral {
+    background: rgb(255, 255, 255)
+}
+
+.viewpoint td {
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    color: black;
+    text-align: center;
+}
+
+.viewpoint th {
+    color: black;
+}
+
+.puzzle_pic {
+    width: 70%;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.submit_button {
+    margin: 5%;
+}
+
+/* Header styling for mobile */
+.cp-header {
+    color: #000000; /* White text for contrast */
+    font-weight: bold;
+    text-align: center;
+    padding: 35px 0;
+    width: 100%;
+    font-size: 1.8em;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+/* Content inside the card */
+.cp-content {
+    padding: 15px; /* Adjust padding for mobile */
+    font-size: 14px; /* Slightly smaller font size */
+    color: #555;
+}
+
+/* Close button styling for mobile */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    font-size:2.5em;
+}
+
+.close-btn:hover {
+    color: darkred;
+}
+
+#commentary-list li{
+    display: block;
+    padding: 15px;
+    border-bottom: 4px dotted white;
+}
+#commentary-list {
+    width:99%;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .cp-option-show {
+        width: 95%; /* Make the card almost full width on smaller screens */
+        font-size: 14px; /* Further reduce font size */
+    }
+
+    .cp-header {
+        font-size: 16px; /* Adjust header font size */
+    }
+
+    .close-btn {
+        font-size: 14px; /* Adjust close button size */
+    }
+}
