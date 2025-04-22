@@ -99,6 +99,8 @@ function ajax_call() {
         success: function(data) {
             console.log("ajax return");
             var debug_log = data["debug_log"];
+            var db_response = data["db_response"];
+            console.log(db_response);
             console.log(debug_log);
             var inventory = data["inventory"];
             var cp_bible = data["cp_bible"];

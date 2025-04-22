@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 if (isset($_GET['location'])) {
     // Set session variables
     $_SESSION['location'] = $_GET['location'];
-    $game = 995;
+    $game = 6;
 $_SESSION['game'] = $game;
 } elseif (isset(($_SESSION['location']))){} else {
   // Redirect to login page if not logged in
@@ -39,7 +39,7 @@ $_SESSION['game'] = $game;
 </head>
 <body>
 <div id="main">
-<h1>Snakes & Ladders</h1>
+<h1>Gold Rush</h1>
 <div id="tempMessage">This is a temporary message!</div>
   <div id="teams">
   <a href="teams.php" class="team-button"><br>Team Set-up</a>

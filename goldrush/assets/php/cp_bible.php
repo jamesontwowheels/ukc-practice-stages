@@ -48,7 +48,7 @@ $cp_bible = [
     4 => [
         
         "cp" => 4,
-        "name" => "4",
+        "name" => "D4",
         "type" => "drone",
         "score" => [29,2,3],
         "puzzle" => true,
@@ -126,7 +126,7 @@ $cp_bible = [
         "name" => "horse",
         "type" => "horse",
         "score" => [29,2,3],
-        "puzzle" => true,
+        "puzzle" => false,
         "puzzle_q" => "Well done reaching the top of the hill. What is 1 + 1?",
         "puzzle_a" => "2",
         "message" => "",
@@ -273,7 +273,7 @@ $cp_bible = [
             
             "cp" => 23,
             "name" => "Station",
-            "type" => "dice",
+            "type" => "station",
             "score" => [3,0,5],
             "puzzle" => false,
             "puzzle_q" => "",

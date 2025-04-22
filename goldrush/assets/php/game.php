@@ -23,6 +23,14 @@ $drone_routes = [
     6 => [[2,5,7],[0,0,0]]
 ];
 
+$train_params = [
+    "engine" => [1200,900,720],
+    "carriages" => [100,200,300],
+    "science" => [0.1,0.3]
+];
+
+include 'cp_bible.php';
+
 include 'db_connect.php';
 
 //include custom php
@@ -77,19 +85,18 @@ if($teams_active){
                 "score" => 0,
                 "commentary" => [],
                 "level" => 0,
+                "cp_bible" => $cp_bible,
                 "drones" => [],
+                "drone_times" => [],
+                "drone_routes" => $drone_routes,
                 "next_horse_ready" => 0,
                 "ranch_horses" => [],
-                "train" => ["engine" => 1,
-                            "carriages" => 2,
-                            "science" => 1]
-                
-                //"ghost_cps" => [],
-                //"snakes" => [],
-                //"snake_score" => [],
-                //"fruit" => 0,
-                //"fruit_box" => [],
-                //"location" => 0,
+                "train" => ["engine" => 0,
+                            "carriages" => 0,
+                            "science" => 0,
+                            "route" => [
+                                "arrival" => 0,
+                                "gold" => 0]]
             ]
         ];
     }
@@ -145,7 +152,6 @@ $x = 0;
      //special CPS;
      $cp_start_finish = [998,999];
 
-    include('cert_bible.php');
 
      //results catchers (don't change this, it's solid)
     $results_detailed = [];
@@ -215,6 +221,7 @@ if($debug == 1){ $debug_log[] = '72';};
         // $available_cps[$team_member] = [999]; CPs are per team in this game
         $team_player_count += 1;
     }
+}
     
 //GENERIC player specific starting values
     $id = $x;
@@ -285,19 +292,16 @@ if($debug == 1){ $debug_log[] = '72';};
                 $players[$pl]["inventory"]["Wild horses"] = 0;
                 $players[$pl]["inventory"]["Gold"] = 0;
                 $comment = "Stand and deliver!";
-                if($tm == $this_team){
-                    $cp_bible[$cp_number]["message"] = "Oh no! You have tried to steal the bandit's horse and ended up losing your gold and wild horses";
-                    $cp_bible[$cp_number]["options"] = [];
-                    $cp_bible[$cp_number]["available"] = false;
-                }
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Oh no! You have tried to steal the bandit's horse and ended up losing your gold and wild horses";
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [];
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["available"] = false;
+        
             } else {
                 $players[$pl]["inventory"]["Wild horses"] += 1;
                 $comment = "Horse lassoed!";
-                if($tm == $this_team){
-                    $cp_bible[$cp_number]["message"] = "You have successfully collected this horse";
-                    $cp_bible[$cp_number]["options"] = [];
-                    $cp_bible[$cp_number]["available"] = false;
-                }
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "You have successfully collected this horse";
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [];
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["available"] = false;
             }
         }
 
@@ -310,7 +314,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 for ($i = 0; $i < $whs; $i++) {
                     $horse_ready = max($next_horse_ready + 120, $t + 120);
                     $next_horse_ready = $horse_ready;
-                    $teams[$tm]["params"]["ranch_horses"] = [$horse_ready,0];
+                    $teams[$tm]["params"]["ranch_horses"][] = [$horse_ready,0];
                 }
                 $comment = "$whs wild horses left at the ranch";
                 $players[$pl]["inventory"]["Wild horses"] = 0;
@@ -324,59 +328,208 @@ if($debug == 1){ $debug_log[] = '72';};
                     if ($time[0] < $t && $time[1] == 0) {
                         $new_horses++;
                         $time[1] = 1;
-                    } elseif ($time[0] >= 1 && $time[1] == 1){
-                        $horses_in_training[] = $time - $t;
-                        ///THIS ISNT FINISHED!!!!
+                    } elseif ($time[0] >= $t && $time[1] == 0){
+                        $horses_in_training[] = $time[0] - $t; 
                     }
                 }
                 unset($time);
+                if($new_horses > 0){
                 $players[$pl]["inventory"]["Tame horses"] += $new_horses;
-                $comment = "$new_horses trained horses collected";
+                $comment = "$new_horses trained horses collected.";
+                }
+                if(count($horses_in_training) > 0){
+                    $count_horses_in_training = count($horses_in_training);
+                    $comment .= " $count_horses_in_training horses still in training";
+                }
             }
         }
 
         //Drones
         if($cp['type'] == "drone"){
             if($puzzle_answer == $cp["puzzle_a"]){
-            $teams[$tm]["params"]["drones"][] = $cp;
+            $current_level = $teams[$tm]["params"]["level"];
+            $teams[$tm]["params"]["drones"][] = $cp_number;
+            $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Drone point activated at Level $current_level";
+            $teams[$tm]["params"]["cp_bible"][$cp_number]["puzzle"] = false;
+            $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [];
+
+            //WE ARE MOVI@NG THE CP_BIBLE INTO PARAMS!!! ALL TEAM SPECIFIC REFERENCES NEED TO BE UPDATED, KAPICHE?
+
+            //check on routes
+            
+            foreach ($teams[$tm]["params"]["drone_routes"] as &$entry) {
+                if($entry[1][$current_level] == 0){
+                    $route = $entry[0];
+                    $isValid = true; 
+                    foreach ($route as $node) {
+                        if (!in_array($node, $teams[$tm]["params"]["drones"])) {
+                            $isValid = false;
+                            break;
+                        }
+                    }
+                if ($isValid) {
+                    $entry[1][$current_level] = 1;
+                    $teams[$tm]["params"]["drone_times"][] = $t;
+                }
+                }
+            }
+            unset($entry);
+
             //check on level-up
             if(count($teams[$tm]["params"]["drones"]) == 7) {
                 $teams[$tm]["params"]["level"] += 1;
-                if($teams[$tm]["params"]["level"] < 4){
+                $new_level = $teams[$tm]["params"]["drones"];
+                if($teams[$tm]["params"]["level"] < 3){
                     //level-up
-                    
+                    foreach ($cp_bible as $key => $cp) {
+                        if (isset($cp['type']) && $cp['type'] === 'drone') {
+                            $teams[$tm]["params"]["cp_bible"][$key]['puzzle_q'] = $question_bible[$key][$new_level][0];
+                            $teams[$tm]["params"]["cp_bible"][$key]['puzzle_a'] = $question_bible[$key][$new_level][1];
+                            $teams[$tm]["params"]["cp_bible"][$key]['puzzle'] = true;
+                        }
+                    }
                     
                 }
             }
-            $comment = "puzzle solved, drone point activated";
-            if($tm == $this_team){
-                $cp_bible[$cp_number]["message"] = "You have successfully collected this fruit";
-                $cp_bible[$cp_number]["options"] = [];
+        } else {
+            $comment = "Incorrect";
+        };
+    }
+        //Drone station
+
+        if($cp["type"] == "drone_base"){
+            //calculate gold earned
+            $drone_gold = 0;
+            foreach($teams[$tm]["params"]["drone_times"] as $times){
+                $add_gold = floor(($t - $times)/120); // if it's every 2 minutes
+                $drone_gold += $add_gold;
+            }
+            //subtract gold already collected
+                $drone_gold_collected = $teams[$tm]["params"]["drone_gold"];
+                $delta_drone_gold = $drone_gold - $drone_gold_collected; 
+
+            //collect remaining gold
+            $players[$pl]["inventory"]["Gold"] += $delta_drone_gold;
+            $teams[$tm]["params"]["drone_gold"] += $delta_drone_gold;
+            $comment = "You picked up ".$delta_drone_gold."kg of gold";
+        }
+
+        //Mine
+        if($cp["type"] == "mine") {
+            $gold_capacity  = 2 + $players[$pl]["inventory"]["Tame horses"] * 3;
+            if($players[$pl]["inventory"]["Gold"] < $gold_capacity){
+                $mine_gold_collected = $gold_capacity - $players[$pl]["inventory"]["Gold"];
+                $players[$pl]["inventory"]["Gold"] = $gold_capacity;
+                $comment = $mine_gold_collected."kg gold collected";
+            } else {
+                $comment = "You can't carry any more gold";
             }
         }
 
-        //Fruit stops
-
-        if($cp['type'] == 'fruit'){
-            if(in_array($cp_number,$teams[$tm]["params"]['fruit_box'])){
-                $comment = "Fruit already collected";
+        //Bank
+        if($cp["type"] == "bank"){
+            if($players[$pl]["inventory"]["Gold"]>0){
+                $gold_deposit = $players[$pl]["inventory"]["Gold"];
+                $teams[$tm]["params"]["score"] += $gold_depost;
+                $players[$pl]["inventory"]["Gold"] = 0;
+                $comment = $gold_deposit."kg of gold deposited";
             } else {
-                if($puzzle_answer == $cp["puzzle_a"]){
-                    $teams[$tm]["params"]["fruit_box"][] = $cp_number;
-                    $teams[$tm]["params"]["fruit"] += 1;
-                    $comment = "puzzle solved, fruit collected";
-                    if($tm == $this_team){
-                        $cp_bible[$cp_number]["message"] = "You have successfully collected this fruit";
-                        $cp_bible[$cp_number]["options"] = [];
+                $comment = "No gold available to deposit";
+            }
+        }
+
+        //Train station
+        if($cp["type"] == "station"){
+            
+            //check train is in the station
+            if($teams[$tm]["params"]["train"]["routes"]["arrival"] < $t){
+                //unload
+                if($cp_option == 1){
+                    if($teams[$tm]["params"]["train"]["routes"]["gold"] > 0){
+                        $platform_time = $t - $teams[$tm]["params"]["train"]["routes"]["arrival"];
+                        $platform_loss = min(floor($platform_time/60),10);
+                        $bandit_tax = 1 - $platform_loss/10;
+                        $gold_recovered = $teams[$tm]["params"]["train"]["routes"]["gold"] * $bandit_tax;
+
+                        $teams[$tm]["params"]["train"]["routes"]["gold"] = 0;
+                        $teams[$tm]["params"]["score"] += $gold_recovered;
+                        $comment = $gold_recovered."kg gold banked";
+                    } else {
+                        $comment = "There's no gold left on the train.";
+                    }
+                    //set-off
+                    if($cp_option == 2){
+                        $next_train = $t + $train_params["engine"][$teams[$tm]["params"]["train"]["engine"]];
+                        $gold_weight = $train_params["carriages"][$teams[$tm]["params"]["train"]["carriages"]];
+                        $gold_purity = $train_params["science"][$teams[$tm]["params"]["train"]["science"]];
+                        $arrival_gold = $gold_weight * $gold_purity;
+                        $teams[$tm]["params"]["train"]["routes"]["gold"] = $arrival_gold;
+                        $teams[$tm]["params"]["train"]["routes"]["arrival"] = $next_train;
+                        $minutes = floor($next_train / 60);
+                        $seconds = $next_train % 60;
+                        $next_train_pretty = sprintf("%dm %02ds", $minutes, $seconds);
+                        $comment = "Train has departed for the mine, returning in $next_train_pretty";
                     }
                 }
-                else {
-                    $comment = "incorrect answer";
+            } else {
+                $next_train = $teams[$tm]["params"]["train"]["routes"]["arrival"] - $t;
+                $minutes = floor($next_train / 60);
+                $seconds = $next_train % 60;
+                $next_train_pretty = sprintf("%dm %02ds", $minutes, $seconds);
+                $comment = "Next train due: $next_train_pretty";
+            }
+        }
+
+        //Depot
+        if($cp['type'] == 'depot'){
+            if($cp_option == 1){
+                if($teams[$tm]["params"]["train"]["engine"]< 2) {       
+                    if($teams[$tm]["params"]["score"] > 25){
+                        $teams[$tm]["params"]["score"] -= 25;
+                        $teams[$tm]["params"]["train"]["engine"] += 1;
+                        $engine_level = $teams[$tm]["params"]["train"]["engine"] + 1;
+                        $comment = "Train engine upgraded to Level $engine_level";
+                    } else {
+                        $comment = "You don't have enough gold for this upgrade";
+                    }
+                } else {
+                    $comment = "The engine is already fully upgraded";
+                }
+            }
+            
+            if($cp_option == 2){
+                if($teams[$tm]["params"]["train"]["carriages"]< 2) {       
+                    if($teams[$tm]["params"]["score"] > 25){
+                        $teams[$tm]["params"]["score"] -= 25;
+                        $teams[$tm]["params"]["train"]["carriages"] += 1;
+                        $engine_level = $teams[$tm]["params"]["train"]["carriages"] + 1;
+                        $comment = "You now have $engine_level carriages";
+                    } else {
+                        $comment = "You don't have enough gold for this upgrade";
+                    }
+                } else {
+                    $comment = "You cannot pull any more carriages";
+                }
+            }
+            
+            if($cp_option == 3){
+                if($teams[$tm]["params"]["train"]["science"]< 1) {       
+                    if($teams[$tm]["params"]["score"] > 75){
+                        $teams[$tm]["params"]["score"] -= 75;
+                        $teams[$tm]["params"]["train"]["science"] += 1;
+                        $engine_level = $teams[$tm]["params"]["train"]["science"] + 1;
+                        $comment = "You have hired a scientist!";
+                    } else {
+                        $comment = "You don't have enough gold to hire a scientist";
+                    }
+                } else {
+                    $comment = "You already have a scientist";
                 }
             }
         }
 
         //start_finish
+        $debug_log[]  = "cp_type = ".$cp['type'];
         if($cp['type'] == "start_finish"){
             if($cp_number == 999){
             if($game_state == 0)
@@ -385,7 +538,8 @@ if($debug == 1){ $debug_log[] = '72';};
 
                 $game_state = 1;
                 $game_start = $t;
-                    foreach ($cp_bible as &$checkpoint) {
+                $debug_log[]  = "game state = $game_state";
+                    foreach ($teams[$tm]["params"]["cp_bible"] as &$checkpoint) {
                         $checkpoint["available"] = true;
                     }
                     unset($checkpoint);
@@ -438,7 +592,7 @@ if($debug == 1){ $debug_log[] = '72';};
         //$live_result[$name]=$final_score;
         //$results_summary[$id][] = [$name,$surname,$time,$running_score,-$time_penalty,$final_score,$id];
    
-}
+
 $final_results = [];
 
 foreach ($teams as $team) {
@@ -455,7 +609,7 @@ $debug_log[] = $teams;
 if($_REQUEST["purpose"] !== 2){
     //GAME SPECIFIC
     //UNIVERSAL
-$response["cp_bible"]= $cp_bible; //available_cps[$user_ID]; THIS NEEDS TO BE UPDATED!!!
+$response["cp_bible"]= $teams[$this_team]["params"]["cp_bible"]; //available_cps[$user_ID]; THIS NEEDS TO BE UPDATED!!!
 //don't send back a puzzle response if nothing has been submitted.
 if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;
@@ -474,4 +628,5 @@ $response["teams"] = $teams;
 $response["live_scores"] = $final_results;
 $response["commentary"] = $teams[$this_team]["params"]["commentary"];
 $response["debug_log"] = $debug_log;
+$response["db_response"] = $db_response;
 echo json_encode($response);
