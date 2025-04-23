@@ -1,6 +1,4 @@
 
-const widgetID_2 = 2; // Replace with dynamic widget_ID if needed
-console.log('ping 2');
 // Function to fetch data and process it for the count per day
 function fetchWidgetData2() {
     fetch(`assets/php/get_data.php?purpose=${widgetID_2}`) // Adjust API endpoint as needed

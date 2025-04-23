@@ -108,6 +108,7 @@ function ajax_call() {
             console.log(cp_bible);
             var comment = data["comment"];
             var teams = data["teams"];
+            console.log(teams);
             var this_team   = data["this_team"];
 
             // showTemporaryMessage(comment, 3000);

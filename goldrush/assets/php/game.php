@@ -30,6 +30,7 @@ $train_params = [
 ];
 
 include 'cp_bible.php';
+include 'puzzle_bible.php';
 
 include 'db_connect.php';
 
@@ -336,7 +337,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 if($new_horses > 0){
                 $players[$pl]["inventory"]["Tame horses"] += $new_horses;
                 $comment = "$new_horses trained horses collected.";
-                }
+                } else { $comment = "No horses to collect.";}
                 if(count($horses_in_training) > 0){
                     $count_horses_in_training = count($horses_in_training);
                     $comment .= " $count_horses_in_training horses still in training";
@@ -352,6 +353,7 @@ if($debug == 1){ $debug_log[] = '72';};
             $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Drone point activated at Level $current_level";
             $teams[$tm]["params"]["cp_bible"][$cp_number]["puzzle"] = false;
             $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [];
+            $comment = "Correct! Drone point activated at Level $current_level";
 
             //WE ARE MOVI@NG THE CP_BIBLE INTO PARAMS!!! ALL TEAM SPECIFIC REFERENCES NEED TO BE UPDATED, KAPICHE?
 
@@ -378,13 +380,16 @@ if($debug == 1){ $debug_log[] = '72';};
             //check on level-up
             if(count($teams[$tm]["params"]["drones"]) == 7) {
                 $teams[$tm]["params"]["level"] += 1;
-                $new_level = $teams[$tm]["params"]["drones"];
+                $new_level = $teams[$tm]["params"]["level"];
+                $old_level = $new_level - 1;
+                $comment .= "<br> Level $old_level complete";
                 if($teams[$tm]["params"]["level"] < 3){
                     //level-up
+                    $comment .= ", Level $new_level unlocked";
                     foreach ($cp_bible as $key => $cp) {
                         if (isset($cp['type']) && $cp['type'] === 'drone') {
-                            $teams[$tm]["params"]["cp_bible"][$key]['puzzle_q'] = $question_bible[$key][$new_level][0];
-                            $teams[$tm]["params"]["cp_bible"][$key]['puzzle_a'] = $question_bible[$key][$new_level][1];
+                            $teams[$tm]["params"]["cp_bible"][$key]['puzzle_q'] = $puzzle_bible[$key][$new_level][0];
+                            $teams[$tm]["params"]["cp_bible"][$key]['puzzle_a'] = $puzzle_bible[$key][$new_level][1];
                             $teams[$tm]["params"]["cp_bible"][$key]['puzzle'] = true;
                         }
                     }
@@ -430,7 +435,7 @@ if($debug == 1){ $debug_log[] = '72';};
         if($cp["type"] == "bank"){
             if($players[$pl]["inventory"]["Gold"]>0){
                 $gold_deposit = $players[$pl]["inventory"]["Gold"];
-                $teams[$tm]["params"]["score"] += $gold_depost;
+                $teams[$tm]["params"]["score"] += $gold_deposit;
                 $players[$pl]["inventory"]["Gold"] = 0;
                 $comment = $gold_deposit."kg of gold deposited";
             } else {
@@ -444,7 +449,6 @@ if($debug == 1){ $debug_log[] = '72';};
             //check train is in the station
             if($teams[$tm]["params"]["train"]["routes"]["arrival"] < $t){
                 //unload
-                if($cp_option == 1){
                     if($teams[$tm]["params"]["train"]["routes"]["gold"] > 0){
                         $platform_time = $t - $teams[$tm]["params"]["train"]["routes"]["arrival"];
                         $platform_loss = min(floor($platform_time/60),10);
@@ -465,12 +469,12 @@ if($debug == 1){ $debug_log[] = '72';};
                         $arrival_gold = $gold_weight * $gold_purity;
                         $teams[$tm]["params"]["train"]["routes"]["gold"] = $arrival_gold;
                         $teams[$tm]["params"]["train"]["routes"]["arrival"] = $next_train;
-                        $minutes = floor($next_train / 60);
-                        $seconds = $next_train % 60;
+                        $next_train_due = $train_params["engine"][$teams[$tm]["params"]["train"]["engine"]];
+                        $minutes = floor($next_train_due / 60);
+                        $seconds = $next_train_due % 60;
                         $next_train_pretty = sprintf("%dm %02ds", $minutes, $seconds);
                         $comment = "Train has departed for the mine, returning in $next_train_pretty";
                     }
-                }
             } else {
                 $next_train = $teams[$tm]["params"]["train"]["routes"]["arrival"] - $t;
                 $minutes = floor($next_train / 60);
@@ -619,10 +623,7 @@ $response["alert"] = $alert;
 $response["this_team"] = $this_team;
 $response["usernames"] = $usernames;
 $response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
-$response["inventory"] = [
-    "Position on Board" => $teams[$this_team]["params"]["location"],
-    "Fruit in basket" => $teams[$this_team]["params"]["fruit"]
-];
+$response["inventory"] = $players[$user_ID]["inventory"];
 }
 $response["teams"] = $teams;
 $response["live_scores"] = $final_results;
