@@ -35,4 +35,8 @@ if ($conn->query($sql) == TRUE)
     $db_response[] = "The last inserted ID is: " . $last_id . "<br>";
 }
 
+if($cp == 999){
+    include('start_game.php');
+}
+
 //include game rules + return something to the player

@@ -259,6 +259,8 @@ function ajax_call() {
                     // Time calculations for minutes and seconds
                     var minutes = Math.floor((distance) / (60));
                     var seconds = Math.floor(distance % (60));
+                    
+                    console.log('timer update');
 
                     // Display the result in the element with id="timer"
                     document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";

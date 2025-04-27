@@ -329,7 +329,7 @@ $cp_bible = [
             "puzzle_a" => "",
             "message" => "Checkpoint F",
             "options" => [
-                1 => "Pick-up Gold"
+                1 => "Bank gold"
             ],
             "available" => false
         ],

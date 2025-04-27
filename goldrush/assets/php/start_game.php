@@ -30,4 +30,3 @@ try {
 } catch (PDOException $e) {
   //  echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
 }
-?>
