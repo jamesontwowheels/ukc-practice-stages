@@ -27,16 +27,40 @@ if (!isset($_SESSION['username'])) {
 
 <section class="carousel">
   <div class="slide active">
-    <img src="images/mindgames_faq_1.png" alt="Screenshot 1">
-    <p>Step 1: Sign up and create your profile in just a few seconds!</p>
+    <img src="images/faq/FAQ 1.jpeg" alt="Screenshot 1">
+    <br><br>
+    <p>A player's personal inventory is shown at the top of the screen</p>
   </div>
   <div class="slide">
-    <img src="screenshot2.png" alt="Screenshot 2">
-    <p>Step 2: Organize your projects and invite your team members.</p>
+    <img src="images/faq/FAQ 1.jpeg" alt="Screenshot 1">
+    <br><br>
+    <p>Available checkpoints and the distance away are shown in the middle of the screen</p>
   </div>
   <div class="slide">
-    <img src="screenshot3.png" alt="Screenshot 3">
-    <p>Step 3: Track progress with real-time updates and notifications.</p>
+    <img src="images/faq/FAQ 1.jpeg" alt="Screenshot 1">
+    <br><br>
+    <p>Current score and time remaining are shown at the bottom</p>
+  </div>
+  <div class="slide">
+    <img src="images/faq/FAQ 1.jpeg" alt="Screenshot 1">
+    <br><br>
+    <p>The Scores tab in the footer shows the current leaderboard, the History tab shows all the checkpoint actions taken by your team</p>
+  </div>
+  <div class="slide">
+    <img src="images/faq/FAQ 1.jpeg" alt="Screenshot 1">
+    <br><br><p>Checkpoints are inactive when you are not close</p>
+  </div>
+  <div class="slide">
+    <img src="images/faq/FAQ 3.jpeg" alt="Screenshot 2">
+    <br><br><p>Checkpoints activate when you are in range</p>
+  </div>
+  <div class="slide">
+    <img src="images/faq/FAQ 4.jpeg" alt="Screenshot 3">
+    <br><br><p>Tapping into a checkpoint shows the details and available actions</p>
+  </div>
+  <div class="slide">
+    <img src="images/faq/FAQ 2.jpeg" alt="Screenshot 3">
+    <br><br><p>Tapping an action button within a checkpoint performs the action</p>
   </div>
 
   <div class="controls">
