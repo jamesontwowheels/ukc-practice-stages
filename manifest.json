@@ -3,6 +3,7 @@
     "short_name": "mindgames",
     "start_url": "/stages.php",
     "display": "standalone",
+    "orientation": "portrait",
     "background_color": "#ffffff",
     "theme_color": "#0000fe",
     "icons": [
