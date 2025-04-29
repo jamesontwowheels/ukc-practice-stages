@@ -83,6 +83,11 @@ if($teams_active){
             "cps" => [],
             "score" => 0,
             "params" => [
+                "game" => [
+                    "game_start" => 0,
+                    "game_state" => 0,
+                    "game_end" => 0
+                ],
                 "score" => 0,
                 "commentary" => [],
                 "level" => 0,
@@ -232,9 +237,9 @@ if($debug == 1){ $debug_log[] = '72';};
     $count_cps = count($all_punches);
     $y = 0;
     $running_score = 0;
-    $game_state = 0;
-    $game_start = 0;
-    $game_end = 0;
+    //$game_state = 0;
+    //$game_start = 0;
+    //$game_end = 0;
     $game_time = 0;
     $time_penalty = 0;
     $current_timezone = 0;
@@ -260,7 +265,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $z += 1;
         $puzzle_response = 0;
         $alert = 0;
-        $game_time = $t - $game_start;
+        $game_time = $t - $teams[$tm]["params"]["game"]["game_start"];
 
         if($game_time > $stage_time && $cp_number != 999 ){
             foreach ($cp_bible as $key => $cp) {
@@ -539,13 +544,13 @@ if($debug == 1){ $debug_log[] = '72';};
         $debug_log[]  = "cp_type = ".$cp['type'];
         if($cp['type'] == "start_finish"){
             if($cp_number == 999){
-            if($game_state == 0)
+            if($teams[$tm]["params"]["game"]["game_state"] == 0)
             {
                 //require 'start_game.php';
 
-                $game_state = 1;
-                $game_start = $t;
-                $debug_log[]  = "game state = $game_state";
+                $teams[$tm]["params"]["game"]["game_state"] = 1;
+                $teams[$tm]["params"]["game"]["game_start"] = $t;
+                $debug_log[]  = "game state =" . $teams[$tm]["params"]["game"]["game_state"];
                     foreach ($teams[$tm]["params"]["cp_bible"] as &$checkpoint) {
                         $checkpoint["available"] = true;
                     }
@@ -554,10 +559,13 @@ if($debug == 1){ $debug_log[] = '72';};
                     $comment = "game started.";
                 
             } 
-            elseif ($game_state == 2) {
-               $game_state = 0;
-               $game_start = 0;
-               $game_end = 0;
+            elseif ($teams[$tm]["params"]["game"]["game_state"] == 2) {
+               //$game_state = 0;
+               //$game_start = 0;
+               //$game_end = 0;
+               $teams[$tm]["params"]["game"]["game_state"] = 0;
+               $teams[$tm]["params"]["game"]["game_start"] = 0;
+               $teams[$tm]["params"]["game"]["game_end"] = 0;
                $comment = "game reset";
            } }
             elseif
@@ -622,7 +630,7 @@ $response["running_score"] = $running_score;
 $response["alert"] = $alert;
 $response["this_team"] = $this_team;
 $response["usernames"] = $usernames;
-$response["game_state"] = [$game_state,$game_start,$game_end,$stage_time];
+$response["game_state"] = [$teams[$tm]["params"]["game"]["game_state"],$teams[$tm]["params"]["game"]["game_start"],$teams[$tm]["params"]["game"]["game_end"],$stage_time];
 $response["inventory"] = $players[$user_ID]["inventory"];
 }
 $response["teams"] = $teams;

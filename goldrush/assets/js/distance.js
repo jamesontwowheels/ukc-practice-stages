@@ -7,9 +7,9 @@ if (user_ID == 29) {
   var d_base = 30000000;
   console.log("GOD MODE ACTIVE");} 
   else if (user_ID == 8) {
-  var d_base = 25;
+  var d_base = 250000;
   console.log("demi-god mode active");    
-  } else { var d_base = 25;} // god mode
+  } else { var d_base = 250000;} // god mode
 
 fetch('assets/php/location.php')
         .then(response => response.json())
@@ -82,7 +82,7 @@ function success(pos) {
   var d = Math.round(R * c * 1000); // Distance in m
   var cp = "cp" + id;
   var option_element = $("#cp_option_card_" + id);
-  document.getElementById(cp).innerHTML = d + "m ";// + direction;
+  document.getElementById(cp).innerHTML = d + "m " + direction;
   var button = "butt"+id;
   var button_element = $("#"+button);
 
