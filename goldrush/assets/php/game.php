@@ -88,6 +88,7 @@ if($teams_active){
                 "level" => 0,
                 "cp_bible" => $cp_bible,
                 "drones" => [],
+                "horses" => [],
                 "drone_times" => [],
                 "drone_gold" => 0,
                 "drone_routes" => $drone_routes,
@@ -248,12 +249,12 @@ if($debug == 1){ $debug_log[] = '72';};
         // add to summary results = $results_summary[$id][] = [_your code_];
 
         $cp_number = intval($all_punches[$z][0]);
-        $cp = $teams[$tm]["params"]["cp_bible"][$cp_number];// $cps[$z];
-        $t = $all_punches[$z][1]; //times[$z];
-        $puzzle_answer = strtolower($all_punches[$z][2]);
         $pl = intval($all_punches[$z][3]);
         $tm = intval($all_punches[$z][4]);
         $cp_option = intval($all_punches[$z][5]);
+        $cp = $teams[$tm]["params"]["cp_bible"][$cp_number];// $cps[$z];
+        $t = $all_punches[$z][1]; //times[$z];
+        $puzzle_answer = strtolower($all_punches[$z][2]);
         $purp = $all_punches[$z][5];
         $debug_log['297'] = $all_punches[$z];
         $z += 1;
@@ -261,7 +262,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $alert = 0;
         $game_time = $t - $game_start;
 
-        if($game_time > $stage_time){
+        if($game_time > $stage_time && $cp_number != 999 ){
             foreach ($cp_bible as $key => $cp) {
                     $teams[$tm]["params"]["cp_bible"][$key]['available'] = false;
                     $comment = "The game has ended.";
@@ -271,6 +272,10 @@ if($debug == 1){ $debug_log[] = '72';};
 
         //Wild Horses
         if($cp["type"] == "horse") {
+            if(in_array( $cp_number,$teams[$tm]["params"]["horses"])){
+                $comment = "Horse already collected";
+            } else {
+            $teams[$tm]["params"]["horses"][] = $cp_number;
             if($cp["cp"] == 13) {
                 $players[$pl]["inventory"]["Wild horses"] = 0;
                 $players[$pl]["inventory"]["Gold"] = 0;
@@ -286,6 +291,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [];
                 $teams[$tm]["params"]["cp_bible"][$cp_number]["available"] = false;
             }
+        }
         }
 
         //Ranch
@@ -333,6 +339,9 @@ if($debug == 1){ $debug_log[] = '72';};
 
         //Drones
         if($cp['type'] == "drone"){
+            if(in_array($cp_number,$teams[$tm]["params"]["drones"])) {
+                $comment = "Drone point already activated";
+            } else {
             if($puzzle_answer == $cp["puzzle_a"]){
             $current_level = $teams[$tm]["params"]["level"];
             $teams[$tm]["params"]["drones"][] = $cp_number;
@@ -372,7 +381,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $teams[$tm]["params"]["level"] += 1;
                 $new_level = $teams[$tm]["params"]["level"];
                 $old_level = $new_level - 1;
-                $comment .= "<br> Level $old_level complete";
+                $comment = "<br> Level $old_level complete";
                 if($teams[$tm]["params"]["level"] < 3){
                     //level-up
                     $comment .= ", Level $new_level unlocked";
@@ -381,6 +390,7 @@ if($debug == 1){ $debug_log[] = '72';};
                             $teams[$tm]["params"]["cp_bible"][$key]['puzzle_q'] = $puzzle_bible[$key][$new_level][0];
                             $teams[$tm]["params"]["cp_bible"][$key]['puzzle_a'] = $puzzle_bible[$key][$new_level][1];
                             $teams[$tm]["params"]["cp_bible"][$key]['puzzle'] = true;
+                            $teams[$tm]["params"]["cp_bible"][$key]['message'] = "";
                             $teams[$tm]["params"]["cp_bible"][$key]['available'] = true;
                             $teams[$tm]["params"]["cp_bible"][$key]["options"][1] = "solve";
                         }
@@ -391,7 +401,7 @@ if($debug == 1){ $debug_log[] = '72';};
         } else {
             $comment = "Incorrect";
         };
-    }
+    }}
         //Drone station
 
         if($cp["type"] == "drone_base"){

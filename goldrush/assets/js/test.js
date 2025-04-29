@@ -241,6 +241,7 @@ function ajax_call() {
 
             //game state
             var game_state = data["game_state"];
+            console.log(game_state);
             var game_start = parseInt(game_state[1]);
             var game_end = parseInt(game_state[2]);
             var stage_time = game_state[3];
@@ -283,7 +284,7 @@ function ajax_call() {
                 }
 
             //running score
-            console.log(data["teams"][this_team]["params"]["score"]);
+            console.log(data["teams"][this_team]["params"]);
             document.getElementById("score_zone").innerHTML = "<b>Score</b>: " + data["teams"][this_team]["params"]["score"];
              
             var button_detail = ["blurb","blib"];

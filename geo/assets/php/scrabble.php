@@ -147,7 +147,7 @@ $x = 0;
     $live_result = [];
     $time_penalty = 0;
     //values
-    $stage_time = 25*60;
+    $stage_time = 90*60;
 //start looping the contestants:
 while($x < $count_results){
     $player = $players[$x];
@@ -302,7 +302,7 @@ if($debug == 1){ $debug_log[] = '72';};
             }
             if($valid){
                 if(in_array($current_word,$used_words)){
-                    
+                $valid_words_array[] = $current_word;
                 $comment = "$current_word played, already used.";
                 $commentary[] = $comment;
                 $results_detailed[$id][] = [$t,$cp,$comment,"",$running_score];
@@ -314,6 +314,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $results_detailed[$id][] = [$t,$cp,"$current_word successfully played!","+ $value",$running_score];
                 }
             } else {
+                $invalid_words_array[] = $current_word;
                 $commentary[] = "$current_word played, but not a known word";
                 $results_detailed[$id][] = [$t,$cp,"$current_word played, but not a known word","",$running_score];
             }

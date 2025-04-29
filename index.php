@@ -60,7 +60,8 @@ if (isset($_SESSION['username'])) {
         
         <button type="submit">Login</button>
         
-    <a href="register.html">Register</a><br>
+        <a href="register.html">Register</a><br><br>
+        <a href="forgotten_password.php">Forgot password</a><br>
     </form>
     </div>
     </div>

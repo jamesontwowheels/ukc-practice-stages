@@ -22,14 +22,13 @@ if (!isset($_SESSION['username'])) {
 <h2>GAME LIBRARY</h2>
 <br>
 <div class="stage-grid">
-<div class="image-container stage-card">
+<!--<div class="image-container stage-card">
     <img src="images/goldrush-cover.jpeg" alt="Coming Soon">
     <div class="overlay">Coming Soon</div>
-</div><br>
-<a class="image-container stage-card" href="snake_stages.php">
-    <img src="images/snakes-cover.jpg" alt="Coming Soon">
-    <div class="stage-title">Snakes & Ladders</div>
-</a><br>
+</div>
+-->
+<a class="stage-card" href="goldrush_stages.php"><img src="images/goldrush-cover.jpeg"><div class="stage-title">Goldrush</div></a><br>
+<a class="stage-card" href="snake_stages.php"><img src="images/snakes-cover.jpg"><div class="stage-title">Snakes & Ladders</div></a><br>
 <a class="stage-card" href="dry_january_stages.php"><img src="images/dry-january.png"><div class="stage-title">Dry January</div></a><br>
 <a class="stage-card" href="santa_stages.php"><img src="images/santa-cover.png"><div class="stage-title">Rudolph's Rounds</div></a><br>
 <a class="stage-card" href="scrabble_stages.php"><img src="images/scrabble-cover.jpeg"><div class="stage-title">Scrabble +</div></a><br>

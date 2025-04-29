@@ -23,52 +23,58 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Create a new team
         $team_name = $_POST['team_name'];
         if (!empty($team_name)) {
-            // Check if team name already exists for the same game and location
-            $query = "SELECT COUNT(*) FROM teams WHERE name = :name AND game = :game AND location = :location";
+            $query = "INSERT INTO teams (name, game, location) VALUES (:name, :game, :location)";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':name', $team_name);
             $stmt->bindParam(':game', $game);
             $stmt->bindParam(':location', $location);
-            $stmt->execute();
-            $team_exists = $stmt->fetchColumn();
-
-            if ($team_exists) {
-                $message = "A team with that name already exists for this game and location.";
-            } else {
-                // Insert new team
-                $query = "INSERT INTO teams (name, game, location) VALUES (:name, :game, :location)";
+            if ($stmt->execute()) {
+                $team_id = $conn->lastInsertId();
+                //remove from any existing teams
+                $query = "DELETE from team_members  where player_ID = :player_id AND location = :location AND game = :game";
                 $stmt = $conn->prepare($query);
-                $stmt->bindParam(':name', $team_name);
-                $stmt->bindParam(':game', $game);
+                $stmt->bindParam(':player_id', $player_id);
                 $stmt->bindParam(':location', $location);
-                if ($stmt->execute()) {
-                    $team_id = $conn->lastInsertId();
-                    // Remove from any existing teams
-                    $query = "DELETE FROM team_members WHERE player_ID = :player_id AND location = :location AND game = :game";
-                    $stmt = $conn->prepare($query);
-                    $stmt->bindParam(':player_id', $player_id);
-                    $stmt->bindParam(':location', $location);
-                    $stmt->bindParam(':game', $game);
-                    $stmt->execute();
-                    // Add player to the newly created team
-                    $query = "INSERT INTO team_members (team, player_ID, location, game) VALUES (:team_id, :player_id, :location, :game)";
-                    $stmt = $conn->prepare($query);
-                    $stmt->bindParam(':team_id', $team_id);
-                    $stmt->bindParam(':player_id', $player_id);
-                    $stmt->bindParam(':location', $location);
-                    $stmt->bindParam(':game', $game);
-                    $stmt->execute();
-                    $message = "Team '$team_name' created successfully!";
-                } else {
-                    $message = "Failed to create team.";
-                }
+                $stmt->bindParam(':game', $game);
+                $stmt->execute();
+                // Add player to the newly created team
+                $query = "INSERT INTO team_members (team, player_ID, location, game) VALUES (:team_id, :player_id, :location, :game)";
+                $stmt = $conn->prepare($query);
+                $stmt->bindParam(':team_id', $team_id);
+                $stmt->bindParam(':player_id', $player_id);
+                $stmt->bindParam(':location', $location);
+                $stmt->bindParam(':game', $game);
+                $stmt->execute();
+                $message = "Team '$team_name' created successfully!";
+            } else {
+                $message = "Failed to create team.";
             }
         } else {
             $message = "Team name cannot be empty.";
         }
+    } elseif (isset($_POST['join_team'])) {
+        // Join an existing team
+        $team_id = $_POST['team_id'];
+        $query = "DELETE from team_members  where player_ID = :player_id AND location = :location AND game = :game";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':player_id', $player_id);
+        $stmt->bindParam(':location', $location);
+        $stmt->bindParam(':game', $game);
+        $stmt->execute();
+
+        $query = "INSERT INTO team_members (team, player_ID,location, game) VALUES (:team_id, :player_id, :location, :game)";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':team_id', $team_id);
+        $stmt->bindParam(':player_id', $player_id);
+        $stmt->bindParam(':location', $location);
+        $stmt->bindParam(':game', $game);
+        if ($stmt->execute()) {
+            $message = "Successfully joined the team.";
+        } else {
+            $message = "Failed to join the team.";
+        }
     }
 }
-
 
 // Fetch existing teams
 $query = "SELECT * FROM teams where game = $game and location = $location";
