@@ -84,7 +84,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "type" => "drone",
         "score" => [29,2,3],
         "puzzle" => true,
-        "puzzle_q" => "The square has a perimeter of 48cm. The square is cut in half. The two halves are put together to make the second shape. What is the perimeter of the second shape in cms <img class='puzzle_pic' src='assets/img/perimeter.png'>",
+        "puzzle_q" => "The square has a perimeter of 48cm. The square is cut in half. The two halves are put together to make the second shape. What is the perimeter of the second shape in cms<br> <img class='puzzle_pic' src='assets/img/perimeter.png'>",
         "puzzle_a" => "60",
         "message" => "",
         "options" => [
@@ -250,7 +250,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
             "puzzle" => false,
             "puzzle_q" => "",
             "puzzle_a" => "",
-            "message" => "Checkpoint A",
+            "message" => "",
             "options" => [
                 1 => "Pick-up gold"
             ],
@@ -265,7 +265,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
             "puzzle" => false,
             "puzzle_q" => "",
             "puzzle_a" => "",
-            "message" => "Checkpoint B",
+            "message" => "",
             "options" => [
                 1 => "Deposit gold"
             ],
@@ -280,7 +280,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
             "puzzle" => false,
             "puzzle_q" => "",
             "puzzle_a" => "",
-            "message" => "Checkpoint C",
+            "message" => "",
             "options" => [
                 1 => "Unload train",
                 2 => "Set train to depart"
@@ -296,7 +296,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
             "puzzle" => false,
             "puzzle_q" => "",
             "puzzle_a" => "",
-            "message" => "Checkpoint D",
+            "message" => "",
             "options" => [
                 1 => "Drop wild horses",
                 2 => "Collect tame horses"
@@ -312,7 +312,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
             "puzzle" => false,
             "puzzle_q" => "",
             "puzzle_a" => "",
-            "message" => "Checkpoint E",
+            "message" => "",
             "options" => [
                 1 => "Upgrade engine power",
                 2 => "Buy additional carriage",
@@ -329,7 +329,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
             "puzzle" => false,
             "puzzle_q" => "",
             "puzzle_a" => "",
-            "message" => "Checkpoint F",
+            "message" => "",
             "options" => [
                 1 => "Bank gold"
             ],
@@ -344,7 +344,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
             "puzzle" => false,
             "puzzle_q" => "x",
             "puzzle_a" => "x",
-            "message" => "Start the game for all players",
+            "message" => "Start the game for your team",
             "options" => [
                 1 => "Go!"
             ],

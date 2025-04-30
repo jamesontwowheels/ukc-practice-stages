@@ -278,6 +278,7 @@ button {
     width: 95%; /* Set width to 90% of the screen */
     border-radius: 50px;
     min-height: 60%;
+    max-height:99%;
     color: #333;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -288,6 +289,7 @@ button {
     top: 50%;
     left: 50%;
     overflow: hidden; /* Ensures content doesn't spill out */
+    overflow-y:auto;
 }
 
 .hole_owned {
