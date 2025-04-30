@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'])) {
 
     // Send email using Logic App
     $data = [
-        "to" => "james.ontwowheels@gmail.com", //$email,
+        "to" => "$email", //$email,
         "subject" => "Your MindGames Password",
         "message" => "<p>Hello $name,</p><p>Your password is: <strong>$password</strong></p>"
     ];

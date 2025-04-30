@@ -110,7 +110,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
     11 => [
         
         "cp" => 11,
-        "name" => "Horse",
+        "name" => "horse",
         "type" => "horse",
         "score" => [29,2,3],
         "puzzle" => false,

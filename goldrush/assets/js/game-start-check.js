@@ -10,7 +10,7 @@ function checkGameStatus() {
         .then(response => response.json())
         .then(data => {
             if (data.started) {
-                statusMessage.innerHTML = "The game has started! 🎉";
+                statusMessage.innerHTML = "The game is unlocked! 🎉";
                 window.game_active = true;
                 countdownCircle.style.stroke = "#e74c3c"; // Change to red when game starts
                 countdownText.textContent = "GO!";

@@ -270,8 +270,8 @@ if($debug == 1){ $debug_log[] = '72';};
         if($game_time > $stage_time && $cp_number != 999 ){
             foreach ($cp_bible as $key => $cp) {
                     $teams[$tm]["params"]["cp_bible"][$key]['available'] = false;
-                    $comment = "The game has ended.";
                     }
+                    $comment = "The game has ended.";
                 }
                 else {
 
@@ -584,7 +584,8 @@ if($debug == 1){ $debug_log[] = '72';};
                     if($pl == $user_ID){
                         foreach ($teams[$tm]["params"]["cp_bible"] as &$checkpoint) {
                             $checkpoint["available"] = false;
-                        }
+                        } 
+                        unset($checkpoint);
                     }
                 }
             }
