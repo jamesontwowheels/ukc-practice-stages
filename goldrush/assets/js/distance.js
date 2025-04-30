@@ -10,7 +10,7 @@ if (user_ID == 29) {
   var d_base = 250000;
   
   console.log("demi-god mode active");    
-  } else { var d_base = 250000;} // god mode
+  } else { var d_base = 25;} // god mode
 
 fetch('assets/php/location.php')
         .then(response => response.json())
@@ -61,7 +61,7 @@ function success(pos) {
   var id = target.properties.name;
 
   const crd = pos.coords;
-  var accuracy = Math.round(crd.accuracy);
+  var accuracy = Math.min(20, Math.round(crd.accuracy));
   
   d_need = d_base + accuracy; //generous range
   // document.getElementById("accuracy_zone").innerHTML = accuracy + "m radius:" + d_need;
