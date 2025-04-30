@@ -249,7 +249,8 @@ function ajax_call() {
                 document.getElementById("teams").style.display = "none";
                     // Set the date and time we're counting down to
                 const countdownDate = game_start + stage_time; // 5 minutes from now
-                // Update the countdown every second
+                // Update the countdown every second            
+                    clearInterval(countdownFunction);
                     countdownFunction = setInterval(function() {
                     // Get the current date and time
                     const now = new Date().getTime();

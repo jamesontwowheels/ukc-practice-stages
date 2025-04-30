@@ -25,7 +25,7 @@ $_SESSION['game'] = 6;
 </head>
 <body>
 <h2>MINDGAMES</h2>
-<a class="stage" href="goldrush/lobby.php?location=0">Test</a>
+<a class="stage" href="goldrush/lobby.php?location=0">London</a>
 <div id="footer-back"></div>
 <div id="footer">
 <div class="app-buttons">
