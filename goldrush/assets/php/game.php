@@ -416,7 +416,7 @@ if($debug == 1){ $debug_log[] = '72';};
             foreach($teams[$tm]["params"]["drone_times"] as $times){
                 $add_gold = floor(($t - $times)/300); // if it's every 2 minutes
                 $next_due = ($t - $times) % 300;
-                $drones_due[] = $next_due;
+                $drones_due[] = 300 - $next_due;
                 $drone_gold += $add_gold;
             }
             //subtract gold already collected
@@ -429,8 +429,12 @@ if($debug == 1){ $debug_log[] = '72';};
             $teams[$tm]["params"]["score"] += $delta_drone_gold;
             $comment = "You banked ".$delta_drone_gold."kg of gold";
             if($delta_drone_gold == 0){
+                if (!empty($drones_due)) {
             $lowest = min($drones_due);
             $comment = "No gold available. Next drone due in ".$lowest."s";
+                } else {
+                    "No drones are flying";
+                }
             }
         }
 
