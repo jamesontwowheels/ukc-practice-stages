@@ -556,6 +556,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     }
                     unset($checkpoint);
                     $teams[$tm]["params"]["cp_bible"][999]["available"] = false;
+                    $teams[$tm]["params"]["cp_bible"][999]["options"] = [];
                     $comment = "game started.";
                 
             } 
@@ -630,7 +631,7 @@ $response["running_score"] = $running_score;
 $response["alert"] = $alert;
 $response["this_team"] = $this_team;
 $response["usernames"] = $usernames;
-$response["game_state"] = [$teams[$tm]["params"]["game"]["game_state"],$teams[$tm]["params"]["game"]["game_start"],$teams[$tm]["params"]["game"]["game_end"],$stage_time];
+$response["game_state"] = [$teams[$this_team]["params"]["game"]["game_state"],$teams[$this_team]["params"]["game"]["game_start"],$teams[$this_team]["params"]["game"]["game_end"],$stage_time];
 $response["inventory"] = $players[$user_ID]["inventory"];
 }
 $response["teams"] = $teams;
