@@ -307,7 +307,8 @@ if($debug == 1){ $debug_log[] = '72';};
                 // Extract all the first elements
                 $horse_readies = array_column($teams[$tm]["params"]["ranch_horses"], 0);
                 // Get the maximum
-                $next_horse_ready = max($horse_readies);
+                if (!empty($horse_readies)){
+                $next_horse_ready = max($horse_readies);} else {$next_horse_ready = 0;}
                 if($whs>0){
                 for ($i = 0; $i < $whs; $i++) {
                     $horse_ready = max($next_horse_ready + 120, $t + 120);
