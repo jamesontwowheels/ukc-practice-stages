@@ -6,8 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch("assets/php/check_user.php")
             .then(response => response.json())
             .then(data => {
+                console.log(data);
                 if (data.registered) {
-                    statusText.textContent = "You are part of "+ team_name +" team!";
+                    statusText.textContent = "You are part of "+ data.team_name +" team!";
                     joinBtn.innerHTML = "Change team";
                     joinBtn.style.display = "inline-block";
                     window.team_active = true;

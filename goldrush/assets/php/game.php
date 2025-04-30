@@ -560,7 +560,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     $comment = "game started.";
                 
             } 
-            elseif ($teams[$tm]["params"]["game"]["game_state"] == 2) {
+            elseif ($teams[$tm]["params"]["game"]["game_state"] == 4) { //taking this out of operation
                //$game_state = 0;
                //$game_start = 0;
                //$game_end = 0;

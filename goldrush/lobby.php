@@ -55,6 +55,8 @@ if (isset($_GET['location'])) {
         </div>
     </div>
 
+    <div id="unlock-button" class ="card"></div>
+
 
     <script src="assets/js/game-start-check.js"></script>
     <script src="assets/js/ready.js"></script>
