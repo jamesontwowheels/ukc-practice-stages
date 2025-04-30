@@ -470,12 +470,12 @@ if($debug == 1){ $debug_log[] = '72';};
             if($teams[$tm]["params"]["train"]["route"]["arrival"] < $t){
                 //unload
                     if($teams[$tm]["params"]["train"]["route"]["gold"] > 0){
-                        $platform_time = $t - $teams[$tm]["params"]["train"]["routes"]["arrival"];
+                        $platform_time = $t - $teams[$tm]["params"]["train"]["route"]["arrival"];
                         $platform_loss = min(floor($platform_time/60),10);
                         $bandit_tax = 1 - $platform_loss/10;
-                        $gold_recovered = $teams[$tm]["params"]["train"]["routes"]["gold"] * $bandit_tax;
+                        $gold_recovered = $teams[$tm]["params"]["train"]["route"]["gold"] * $bandit_tax;
 
-                        $teams[$tm]["params"]["train"]["routes"]["gold"] = 0;
+                        $teams[$tm]["params"]["train"]["route"]["gold"] = 0;
                         $teams[$tm]["params"]["score"] += $gold_recovered;
                         $comment = $gold_recovered."kg gold banked";
                     } else {
@@ -487,8 +487,8 @@ if($debug == 1){ $debug_log[] = '72';};
                         $gold_weight = $train_params["carriages"][$teams[$tm]["params"]["train"]["carriages"]];
                         $gold_purity = $train_params["science"][$teams[$tm]["params"]["train"]["science"]];
                         $arrival_gold = $gold_weight * $gold_purity;
-                        $teams[$tm]["params"]["train"]["routes"]["gold"] = $arrival_gold;
-                        $teams[$tm]["params"]["train"]["routes"]["arrival"] = $next_train;
+                        $teams[$tm]["params"]["train"]["route"]["gold"] = $arrival_gold;
+                        $teams[$tm]["params"]["train"]["route"]["arrival"] = $next_train;
                         $next_train_due = $train_params["engine"][$teams[$tm]["params"]["train"]["engine"]];
                         $minutes = floor($next_train_due / 60);
                         $seconds = $next_train_due % 60;
@@ -496,7 +496,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         $comment = "Train has departed for the mine, returning in $next_train_pretty";
                     }
             } else {
-                $next_train = $teams[$tm]["params"]["train"]["routes"]["arrival"] - $t;
+                $next_train = $teams[$tm]["params"]["train"]["route"]["arrival"] - $t;
                 $minutes = floor($next_train / 60);
                 $seconds = $next_train % 60;
                 $next_train_pretty = sprintf("%dm %02ds", $minutes, $seconds);
