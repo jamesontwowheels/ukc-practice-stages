@@ -39,7 +39,7 @@ $_SESSION['game'] = $game;
 </head>
 <body>
 <div id="main">
-<h1>Gold Rush</h1>
+<h1>Memory Lane</h1>
 <div id="tempMessage">This is a temporary message!</div>
   <div id="teams">
   <a href="teams.php" class="team-button"><br>Team Set-up</a>

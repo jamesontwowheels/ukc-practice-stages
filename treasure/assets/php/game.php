@@ -102,7 +102,9 @@ if($teams_active){
             "hand" => 0,
             "history" => [],
             "inventory" => [
-                "Gold" => 0
+                "Kids" => 2,
+                "Cats" => 1,
+                "Years" => 10
             ]
         ];
     $debug_log['player details'] = $players;
@@ -246,11 +248,20 @@ if($debug == 1){ $debug_log[] = '72';};
         //Treasure points
         if($cp['type'] == "target"){
             $next_cp_number = $cp_number + 1;
+            $previous_cp_number = $cp_number - 1;
+            if($cp_number > 1){
+            $teams[$tm]["params"]["cp_bible"][$previous_cp_number]['available'] = false;
+            }
             $teams[$tm]["params"]["cp_bible"][$next_cp_number]['available'] = true;
-            $teams[$tm]["params"]["cp_bible"][$cp_number]['available'] = false;
             $teams[$tm]["params"]["cp_bible"][$cp_number]['options'] = [];
-            
+            $comment = "Memory collected";
             $teams[$tm]["params"]["score"] += 1;
+
+            
+            if($cp_number == 11){
+                $teams[$tm]["params"]["cp_bible"][998]['available'] = true;
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Well done on completing the trip down memory lane. <h3>Happy 10th Anniversary</h3><br><br><img class='puzzle_pic' src='assets/img/w11.jpeg'>";
+            }
     }
 
         //start_finish
@@ -265,7 +276,8 @@ if($debug == 1){ $debug_log[] = '72';};
                 $debug_log[]  = "game state =" . $teams[$tm]["params"]["game"]["game_state"];
                 $teams[$tm]["params"]["cp_bible"][999]["available"] = false;
                 $teams[$tm]["params"]["cp_bible"][1]["available"] = true;
-                    $teams[$tm]["params"]["cp_bible"][999]["options"] = [];
+                $teams[$tm]["params"]["cp_bible"][999]["options"] = [];
+                $teams[$tm]["params"]["cp_bible"][999]["message"] = "";
                     $comment = "Have fun!";
                 
             } 

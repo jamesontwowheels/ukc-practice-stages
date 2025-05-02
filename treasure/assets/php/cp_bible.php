@@ -11,7 +11,7 @@ $cp_bible = [
         "puzzle_a" => "d",
         "message" => "You made it to (Blair) Atholl. Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w2.jpeg'>",
         "options" => [
-            1 => "Let's go!"
+            1 => "Collect memory"
         ],
         "available" => false
     ],
@@ -26,16 +26,16 @@ $cp_bible = [
 To the nearest mile, how far are the two trains from each other at 3:00 pm
 ?",
         "puzzle_a" => "420",
-        "message" => "You found Magdalen. Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w3a.jpeg'>",
+        "message" => "You found Magdalen (College). Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w3a.jpeg'><br>",
         "options" => [
-            1 => "Let's go"
+            1 => "Collect memory"
         ],
         "available" => false
     ],
     3 => [
             
         "cp" => 3,
-        "name" => "Three a",
+        "name" => "Three A",
         "type" => "target",
         "score" => [29,2,3],
         "puzzle" => false,
@@ -43,14 +43,14 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle_a" => "trending",
         "message" => "34 Audley St - a lovely meal. Not far to the next stop:<br><br> <img class='puzzle_pic' src='assets/img/w3b.jpeg'>",
         "options" => [
-            1 => "Let's go"
+            1 => "Collect memory"
         ],
         "available" => false
     ], 
     4 => [
         
         "cp" => 4,
-        "name" => "Three b",
+        "name" => "Three B",
         "type" => "target",
         "score" => [29,2,3],
         "puzzle" => false,
@@ -58,7 +58,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle_a" => "40",
         "message" => "You found it! Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w4.jpeg'> ",
         "options" => [
-            1 => "Let's go"
+            1 => "Collect memory"
         ],
         "available" => false
     ],
@@ -73,7 +73,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle_a" => "8",
         "message" => "Another one in the bag! Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w5.jpeg'>",
         "options" => [
-            1 => "Let's go"
+            1 => "Collect memory"
         ],
         "available" => false
     ],
@@ -88,7 +88,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle_a" => "60",
         "message" => "Amazing party. Next stop: <br><br> <img class='puzzle_pic' src='assets/img/w6.jpeg'>",
         "options" => [
-            1 => "Let's go"
+            1 => "Collect memory"
         ],
         "available" => false
     ],
@@ -103,7 +103,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle_a" => "22",
         "message" => "Welcome to Harris. Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w7.jpeg'>",
         "options" => [
-            1 => "Let's go"
+            1 => "Collect memory"
         ],
         "available" => false
     ],
@@ -118,7 +118,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle_a" => "22",
         "message" => "Not many more to go now...<br> Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w8.png'>",
         "options" => [
-            1 => "Let's go"
+            1 => "Collect memory"
         ],
         "available" => false
     ],
@@ -133,7 +133,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle_a" => "22",
         "message" => "Cheers!<br> Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w9.jpg'>",
         "options" => [
-            1 => "Let's go"
+            1 => "Collect memory"
         ],
         "available" => false
     ],
@@ -148,7 +148,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle_a" => "22",
         "message" => "One more stop to go...<br> Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w10.jpg'>",
         "options" => [
-            1 => "Let's go"
+            1 => "Collect memory"
         ],
         "available" => false
     ],
@@ -161,9 +161,9 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle" => false,
         "puzzle_q" => "What is the greatest number of doughnuts you can buy with £10 <img class='puzzle_pic' src='assets/img/donuts.png'>",
         "puzzle_a" => "22",
-        "message" => "You made it to the finish!'>",
+        "message" => "You made it to the finish!",
         "options" => [
-            1 => "Let's go"
+            1 => "Collect memory"
         ],
         "available" => false
     ],
@@ -176,7 +176,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
             "puzzle" => false,
             "puzzle_q" => "x",
             "puzzle_a" => "x",
-            "message" => "Start the game for your team",
+            "message" => "James & Stephanie, welcome to Memory Lane. <br>Spread out across London are ten locations linked to important moments and places from your time together. Have fun finding them and reminscing!",
             "options" => [
                 1 => "Go!"
             ],
