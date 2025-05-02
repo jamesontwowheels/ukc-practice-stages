@@ -27,6 +27,7 @@ if (!isset($_SESSION['username'])) {
     <div class="overlay">Coming Soon</div>
 </div>
 -->
+<a class="stage-card" href="treasure_stages.php"><img src="images/wedding-cover.png"><div class="stage-title">Memory Lane</div></a><br>
 <a class="stage-card" href="goldrush_stages.php"><img src="images/goldrush-cover.jpeg"><div class="stage-title">Goldrush</div></a><br>
 <a class="stage-card" href="snake_stages.php"><img src="images/snakes-cover.jpg"><div class="stage-title">Snakes & Ladders</div></a><br>
 <a class="stage-card" href="dry_january_stages.php"><img src="images/dry-january.png"><div class="stage-title">Dry January</div></a><br>
