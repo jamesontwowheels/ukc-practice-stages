@@ -255,8 +255,12 @@ if($debug == 1){ $debug_log[] = '72';};
             $teams[$tm]["params"]["cp_bible"][$next_cp_number]['available'] = true;
             $teams[$tm]["params"]["cp_bible"][$cp_number]['options'] = [];
             $comment = "Memory collected";
+            if($cp_number == 3 || $cp_number == 4){
+                
+            $teams[$tm]["params"]["score"] += 0.5;
+            } else {
             $teams[$tm]["params"]["score"] += 1;
-
+            }
             
             if($cp_number == 11){
                 $teams[$tm]["params"]["cp_bible"][998]['available'] = true;
