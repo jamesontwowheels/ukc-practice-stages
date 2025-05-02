@@ -7,7 +7,7 @@ if (user_ID == 29) {
   var d_base = 30000000;
   console.log("GOD MODE ACTIVE");} 
   else if (user_ID == 8) {
-  var d_base = 250000;
+  var d_base = 25;
   
   console.log("demi-god mode active");    
   } else { var d_base = 250000;} // god mode
