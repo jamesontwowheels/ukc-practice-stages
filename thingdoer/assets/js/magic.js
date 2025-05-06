@@ -54,7 +54,7 @@ function createWidgetCard(widget) {
     const button = document.createElement("button");
     button.classList.add("widget-button");
     button.textContent = "Interact";
-    footer.appendChild(button);
+    //footer.appendChild(button);
 
     card.appendChild(footer);
 

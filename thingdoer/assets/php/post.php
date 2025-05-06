@@ -6,19 +6,26 @@ include 'db_connect.php';
 //get the inputs
 $inputValue = $_GET["InputValue"];
 $userName = $_GET['user'];
-$purpose = $_GET['purpose'];
+$purpose = (int) $_GET['purpose'];
 
-$query = "SELECT widget FROM dbo.thingdoer_buttons WHERE button = ? LIMIT 1";
-$stmt = $conn->prepare($query);
-$stmt->bind_param("s", $purpose);
+echo $purpose + 1;
+
+$sql = "SELECT Widget FROM dbo.thingdoer_buttons WHERE Button = :purpose";
+$stmt = $conn->prepare($sql);
+echo $sql;
+$stmt->bindValue(':purpose', $purpose, PDO::PARAM_INT);
+
 $stmt->execute();
-$stmt->bind_result($widget);
-if ($stmt->fetch()) {
-    $widget_ID = $widget;
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+var_dump($row);
+
+if ($row) {
+    // Access the value with the correct key 'Widget' (capitalized)
+    $widget_ID = $row['Widget'];  // Use 'Widget' instead of 'widget'
+    echo "Widget ID: " . $widget_ID;
 } else {
-    echo "No result found.";
+    echo "No result found.".$purpose;
 }
-$stmt->close();
 
 
 //create a date
