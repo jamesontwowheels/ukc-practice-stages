@@ -4,7 +4,7 @@ try {
     // Connect to Azure SQL
     include 'db_connect.php';
     // Get `purpose` parameter from request
-    $purpose = isset($_GET['purpose']) ? intval($_GET['purpose']) : 0;
+    $widget_ID = isset($_GET['widget_ID']) ? intval($_GET['widget_ID']) : 0;
 
     // Prepare and execute SQL query
     $stmt = $conn->prepare("SELECT * FROM thingdoer_inputs");

@@ -26,13 +26,13 @@ function isBST(date) {
 
 // Function to fetch data and process it for the chart
 function fetchWidgetData() {
-    fetch(`assets/php/get_data.php?purpose=${widgetID_1}`)
+    fetch(`assets/php/get_data.php?widget_ID=${widgetID_1}`)
         .then(response => response.json())
         .then(data => {
             console.log('Fetched Data:', data);
             
             // Filter data where Purpose matches widgetID
-            const filteredData = data.filter(item => item.Purpose == widgetID_1);
+            const filteredData = data.filter(item => item.widget_ID == widgetID_1);
             console.log(filteredData);
             if (filteredData.length === 0) {
                 console.log('No data found for widgetID:', widgetID_1);

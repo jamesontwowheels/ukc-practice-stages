@@ -4,7 +4,7 @@ window.onload = function () {
 };
 
 function fetchWidgets() {
-    // Make AJAX call to get_widgets.php
+    // Make AJAX call to get_widgets.php - this returns all the widgets
     fetch('./assets/php/get_widgets.php')
         .then(response => response.json()) // Assuming JSON response
         .then(widgets => {
@@ -16,6 +16,7 @@ function fetchWidgets() {
 
                 // Optionally, run the relevant widget script (e.g., widget_1.js)
                 runWidgetScript(widget);
+                console.log("running widget script for widget id: "+widget.widget_ID);
             });
         })
         .catch(error => {
@@ -64,7 +65,7 @@ function runWidgetScript(widget) {
     const script = document.createElement("script");
     console.log(widget.widget_ID);
     
-    script.src = `assets/js/widget_${widget.widget_ID}.js?widget_ID=${widget.widget_ID}&t=${new Date().getTime()}`;  // Assuming the script is named widget_X.js
+    script.src = `assets/js/widget_${widget.Type}.js?widget_ID=${widget.widget_ID}&start_date=${widget.start_date}&t=${new Date().getTime()}`;  // Assuming the script is named widget_X.js
     console.log(`Loading script: ${script.src}`);
     document.body.appendChild(script);
 }

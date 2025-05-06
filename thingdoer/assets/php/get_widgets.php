@@ -4,7 +4,7 @@ include "db_connect.php";
 // Assuming you already have a PDO connection in $conn
 try {
     // Prepare the SQL query to fetch widgets from the database
-    $sql = "SELECT UID, Type, Name, Description, Goal, User, widget_ID FROM thingdoer_widgets";
+    $sql = "SELECT UID, Type, Name, Description, Goal, User, widget_ID, start_date FROM thingdoer_widgets";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 

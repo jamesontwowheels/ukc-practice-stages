@@ -2,10 +2,10 @@
 const widgetID_8 = 8; // Replace with dynamic widget_ID if needed
 console.log('ping 8');
 function fetchWidgetData8() {
-    fetch(`assets/php/get_data.php?purpose=${widgetID_8}`)
+    fetch(`assets/php/get_data.php?widget_ID=${widgetID_8}`)
         .then(response => response.json())
         .then(data => {
-            const filteredData = data.filter(item => item.Purpose == widgetID_8);
+            const filteredData = data.filter(item => item.widget_ID == widgetID_8);
             console.log(filteredData);
 
             const lastSevenDays = [...Array(7)].map((_, i) => {
