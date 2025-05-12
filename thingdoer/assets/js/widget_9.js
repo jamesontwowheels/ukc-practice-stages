@@ -9,92 +9,117 @@
             .then(data => {
                 const filteredData = data.filter(item => item.widget_ID == widgetID);
                 const startDate = new Date(start_date);
-                renderCalendarView(filteredData, startDate, widgetID);
+                const dailyMap = {};
+
+                filteredData.forEach(item => {
+                    const createdAt = new Date(item.CreatedAt);
+                    const dateKey = createdAt.toISOString().split("T")[0];
+                    const hour = createdAt.getHours();
+
+                    if (!dailyMap[dateKey]) {
+                        dailyMap[dateKey] = { pledged: false, completed: false };
+                    }
+
+                    if (hour < 12) {
+                        dailyMap[dateKey].pledged = true;
+                    } else {
+                        dailyMap[dateKey].completed = true;
+                    }
+                });
+
+                renderCalendar(startDate, dailyMap, widgetID);
             })
-            .catch(error => console.error("Error fetching data:", error));
+            .catch(console.error);
     }
 
-    function renderCalendarView(filteredData, startDate, widgetID) {
-        const widgetZone = document.getElementById("widget_zone_" + widgetID);
-        if (!widgetZone) return;
+    function renderCalendar(startDate, dailyMap, widgetID) {
+        const zone = document.getElementById("widget_zone_" + widgetID);
+        if (!zone) return;
 
-        widgetZone.innerHTML = "";
+        zone.innerHTML = "";
+        const container = document.createElement("div");
+        container.className = "calendar-container";
 
-        const calendarContainer = document.createElement("div");
-        calendarContainer.className = "widget-calendar";
+        const now = new Date();
+        const todayDate = now.toISOString().split("T")[0];
+        const totalWeeks = 5;
+        const targetPerWeek = 5;
+        let weeklyData = [];
 
-        const progressBarContainer = document.createElement("div");
-        progressBarContainer.className = "progress-container";
+        for (let w = 0; w < totalWeeks; w++) {
+            const week = [];
+            let total = 0;
+
+            for (let d = 0; d < 7; d++) {
+                const date = new Date(startDate);
+                date.setDate(date.getDate() + w * 7 + d);
+                const dateStr = date.toISOString().split("T")[0];
+                const status = dailyMap[dateStr] || { pledged: false, completed: false };
+
+                const day = document.createElement("div");
+                day.className = "calendar-day";
+                day.textContent = date.getDate();
+
+                const isPast = dateStr < todayDate;
+                const isToday = dateStr === todayDate;
+
+                if (isPast) {
+                    if (status.completed) {
+                        day.classList.add("alcohol-free");
+                        total += 1;
+                    } else {
+                        day.classList.add("missed-day");
+                    }
+                } else if (isToday) {
+                    if (status.completed) {
+                        day.classList.add("alcohol-free");
+                        total += 1;
+                    } else if (status.pledged) {
+                        day.classList.add("pledged");
+                    } // else stay neutral
+                } else {
+                    day.classList.add("future-day");
+                }
+
+                week.push(day);
+            }
+
+            const weekRow = document.createElement("div");
+            weekRow.className = "calendar-week";
+
+            week.forEach(el => weekRow.appendChild(el));
+
+            const startOfWeek = new Date(startDate);
+            startOfWeek.setDate(startOfWeek.getDate() + w * 7);
+            const startKey = startOfWeek.toISOString().split("T")[0];
+
+            if (startKey < todayDate) {
+                const status = document.createElement("div");
+                status.className = "week-status";
+                status.textContent = `✔️ ${total}/${targetPerWeek}`;
+                status.classList.add(total >= targetPerWeek ? "success" : "fail");
+                weekRow.appendChild(status);
+            }
+
+            container.appendChild(weekRow);
+            weeklyData.push(total);
+        }
+
+        const totalTarget = targetPerWeek * totalWeeks;
+        const totalAchieved = weeklyData.reduce((a, b) => a + b, 0);
+        const percent = Math.min(100, Math.round((totalAchieved / totalTarget) * 100));
+
+        const progressWrap = document.createElement("div");
+        progressWrap.className = "progress-wrapper";
 
         const progressBar = document.createElement("div");
         progressBar.className = "progress-bar";
+        progressBar.style.width = percent + "%";
+        progressBar.textContent = percent + "%";
 
-        const progressFill = document.createElement("div");
-        progressFill.className = "progress-fill";
-
-        progressBar.appendChild(progressFill);
-        progressBarContainer.appendChild(progressBar);
-        calendarContainer.appendChild(progressBarContainer);
-
-        const dailyStatus = {};
-        filteredData.forEach(item => {
-            const dateStr = new Date(item.CreatedAt).toISOString().split("T")[0];
-            if (!dailyStatus[dateStr]) dailyStatus[dateStr] = false;
-            if (item.InputValue == 1) dailyStatus[dateStr] = true;
-        });
-
-        const weeks = [];
-        const calendarStart = new Date(startDate);
-        calendarStart.setHours(0, 0, 0, 0);
-
-        let totalAlcoholFreeDays = 0;
-
-        for (let w = 0; w < 5; w++) {
-            const weekRow = [];
-            for (let d = 0; d < 7; d++) {
-                const date = new Date(calendarStart);
-                date.setDate(calendarStart.getDate() + w * 7 + d);
-                weekRow.push(date);
-            }
-            weeks.push(weekRow);
-        }
-
-        weeks.forEach((week) => {
-            const row = document.createElement("div");
-            row.className = "calendar-week";
-
-            let weeklyCount = 0;
-
-            week.forEach(date => {
-                const dateStr = date.toISOString().split("T")[0];
-                const isAlcoholFree = dailyStatus[dateStr] === true;
-
-                const dayBox = document.createElement("div");
-                dayBox.className = "calendar-day " + (isAlcoholFree ? "alcohol-free" : "not-free");
-                dayBox.textContent = date.getDate();
-                if (isAlcoholFree) {
-                    weeklyCount++;
-                    totalAlcoholFreeDays++;
-                }
-
-                row.appendChild(dayBox);
-            });
-
-            const weekStatus = document.createElement("span");
-            weekStatus.className = "week-check";
-            weekStatus.textContent = weeklyCount >= 5 ? "✅" : "⚠️";
-            weekStatus.title = `Alcohol-Free Days: ${weeklyCount}`;
-            row.appendChild(weekStatus);
-
-            calendarContainer.appendChild(row);
-        });
-
-        // Progress bar update
-        const percent = Math.min((totalAlcoholFreeDays / 20) * 100, 100);
-        progressFill.style.width = percent + "%";
-        progressFill.textContent = `${Math.round(percent)}% Goal`;
-
-        widgetZone.appendChild(calendarContainer);
+        progressWrap.appendChild(progressBar);
+        zone.appendChild(progressWrap);
+        zone.appendChild(container);
     }
 
     fetchWidgetData();
