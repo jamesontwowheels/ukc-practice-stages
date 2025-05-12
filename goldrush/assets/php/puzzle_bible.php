@@ -12,7 +12,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
     3 => [  0 => ["Rearrange the letters of the following two words to give one word: RING + DENT =","trending"], 
             1 => ["Rearrange the missing letters from this alphabet to spell a UK city: ACDEFGHJKMNPQUVWXYZ","bristol"], 
             2  => ["<img class='puzzle_pic' src='assets/img/snooker.png'>","9"]],
-    4 => [  0 => ["If the mass of the shapes in the first image is 56g and the mass of the shapes in the second image is 76g what is the mass of the cube in grams<img class='puzzle_pic' src='assets/img/cones.png'>","40"], 
+    4 => [  0 => ["If the mass of the shapes in the first image is 56g and the mass of the shapes in the second image is 72g what is the mass of the cube in grams<img class='puzzle_pic' src='assets/img/cones.png'>","40"], 
             1 => ["Freya receives some pocket money. She spends 20% of her money on a book. She spends three-quarters of what's left on a board game. She has £3.80 left. How much pocket money did she start with? £ __ ","19"], 
             2 => ["The width of this rectangle is 8m, the height is 4m. How many square meters are unshaded <img class='puzzle_pic' src='assets/img/shade.png'>","20"]],
     5 => [  0 => ["What number should replace the question mark <img class='puzzle_pic' src='assets/img/spider.png'> ","8"], 
