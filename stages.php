@@ -27,12 +27,11 @@ if (!isset($_SESSION['username'])) {
     <div class="overlay">Coming Soon</div>
 </div>
 -->
-<a class="stage-card" href="treasure_stages.php"><img src="images/wedding-cover.png"><div class="stage-title">Memory Lane</div></a><br>
+<a class="stage-card" href="scrabble_7_stages.php"><img src="images/scrabble+_cover.jpg"><div class="stage-title">Scrabble+</div></a><br>
 <a class="stage-card" href="goldrush_stages.php"><img src="images/goldrush-cover.jpeg"><div class="stage-title">Goldrush</div></a><br>
 <a class="stage-card" href="snake_stages.php"><img src="images/snakes-cover.jpg"><div class="stage-title">Snakes & Ladders</div></a><br>
 <a class="stage-card" href="dry_january_stages.php"><img src="images/dry-january.png"><div class="stage-title">Dry January</div></a><br>
 <a class="stage-card" href="santa_stages.php"><img src="images/santa-cover.png"><div class="stage-title">Rudolph's Rounds</div></a><br>
-<a class="stage-card" href="scrabble_stages.php"><img src="images/scrabble-cover.jpeg"><div class="stage-title">Scrabble +</div></a><br>
 <a class="stage-card" href="deep_blue_stages.php"><img src="images/deep-blue-cover.jpeg"><div class="stage-title">Deep Blue</div></a><br>
 <a class="stage-card" href="gps_stages.php"><img src="images/gps-test-cover.jpeg"><div class="stage-title">GPS Test</div></a><br>
 </div>

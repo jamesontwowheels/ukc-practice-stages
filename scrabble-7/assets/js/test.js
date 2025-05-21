@@ -5,7 +5,15 @@ var puzzle_questions = [];
 $(document).ready(ajax_call);
 $("body").on("click", ".submit_button", ajax_call);
 $("body").on("click", ".cp_button", cp_explore);
-
+let ajaxRunning = false;
+function safeAjaxCall() {
+    if (ajaxRunning) return; // Prevent overlapping calls
+    ajaxRunning = true;
+    ajax_call().finally(() => {
+        ajaxRunning = false;
+    });
+}
+setInterval(safeAjaxCall, 10000); // every 10 seconds
 
 function pause(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -55,7 +63,9 @@ function ajax_call() {
     } else {console.log("button clicked / name update");
        
     var cp = $(this).attr('cp');
+    var last_hit = $(this).attr('id');
     cp = cp || 0;
+    last_hit = last_hit || "no id";
 
 
     var cp_option_choice = $(this).attr('cp_option_choice');
@@ -82,7 +92,7 @@ function ajax_call() {
     }
 
     //bit of jazz
-    $(this).addClass('blocked');
+    $(this).addClass('inactive');
     var temp_highlight = $("#cp"+cp);
     temp_highlight.addClass('clicked');
     
@@ -92,7 +102,7 @@ function ajax_call() {
 
    
     console.log('ajax fire');
-    $.ajax({
+    return $.ajax({
         type: 'POST',
         dataType: 'json',
         url: 'assets/php/test.php?cp_option_choice='+cp_option_choice+'&purpose=1&cp='+cp+'&user_input='+user_input,
@@ -110,6 +120,9 @@ function ajax_call() {
             var teams = data["teams"];
             console.log(teams);
             var this_team   = data["this_team"];
+            var stats = data ["stats"];
+            sessionStorage.setItem('userStats', JSON.stringify(stats));
+            console.log(stats);
 
             // showTemporaryMessage(comment, 3000);
 
@@ -185,8 +198,17 @@ function ajax_call() {
                                     if(cpx["puzzle"]){
                                         puzzle_class = "puzzle";
                                     }
-                                    document.getElementById(target_space).innerHTML += '<button class="submit_button active ' + puzzle_class + '" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
+                                    var this_option_id = 'cp'+this_key+'option'+key;
+                                    if(last_hit == this_option_id){
+                                        blocked = "inactive";
+                                        console.log(blocked);
+                                    } else {blocked = "active";}
+                                    document.getElementById(target_space).innerHTML += '<button id="'+this_option_id+'" class="submit_button ' + puzzle_class + ' '+blocked+'" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
                                     });
+                                    setTimeout(() => {
+                                    document.getElementById(last_hit).classList.remove("inactive");
+                                    document.getElementById(last_hit).classList.add("active");
+                                     }, 3000);
                                 
                                 var cp_header_id = "cp-header-"+this_key;
                                 document.getElementById(cp_header_id).innerHTML = cpx["name"];
@@ -208,7 +230,7 @@ function ajax_call() {
                             console.log("Timeout reached, stopping checks.");
                             reject(new Error("Element not found within timeout"));
                         } else {
-                            console.log("Element not found, waiting 3 seconds...");
+                            console.log("Element "+cp_id+" not found, waiting 3 seconds...");
                             setTimeout(check, 250); // Wait for 3 seconds and recheck //THIS ISNT THE TIME TO FIX IT,,, but this is BAD! IT SETS ADDITONALY CHECK like CRZY!!
                         }
                     }
@@ -217,6 +239,7 @@ function ajax_call() {
                 });
             }
                 //iterate across checkpoitns
+                console.log(cp_bible);
             for (let cp in cp_bible) {
                 var this_cp = cp_bible[cp]; // Logs each object's details
                 var cp_id = "butt" + this_cp["cp"];

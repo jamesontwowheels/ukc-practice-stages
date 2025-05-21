@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  background: #121212;
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.swiper {
+  width: 320px;
+  height: 480px;
+  margin: 40px auto;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #ff07d6aa;
+  background: #1e1e1e url('../../../images/scrabble+_cover.jpg') no-repeat center center/cover;
+  overflow: hidden;
+  position: relative;
+}
+
+.card {
+  background: rgba(18, 18, 18, 0.85);
+  border-radius: 16px;
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin: 0 0 16px 0;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.card-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table td {
+  border-bottom: 1px solid #333;
+  padding: 8px 10px;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+table td:first-child {
+  font-weight: 600;
+  color: #ff07d6;
+}
+
+.swiper-pagination-bullet {
+  background: #ff07d6;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  box-shadow: 0 0 8px #ff07d6;
+}
+
+canvas {
+  max-width: 100%;
+  max-height: 250px;
+  margin: auto;
+  display: block;
+}

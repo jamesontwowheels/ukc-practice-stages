@@ -18,6 +18,10 @@ include 'cp_bible.php';
 include 'puzzle_bible.php';
 
 include 'db_connect.php';
+include 'word_check.php';
+include 'game_letters.php';
+include 'valid_words.php';
+include 'invalid_words.php';
 
     $scrabble_values = [
         'A' => 1,
@@ -48,6 +52,20 @@ include 'db_connect.php';
         'Z' => 10,
         ' ' => 0,  // Blank tile has 0 points
     ];
+    $word_length_value = [0,0,0,0,3,7,12,18];
+
+$query_words = "select * from dbo.words";
+$valid_words_array = [];
+$invalid_words_array = [];
+$stmt_words = $conn->prepare($query_words);
+    $stmt_words->execute();
+while ($db_word = $stmt_words->fetch(PDO::FETCH_ASSOC)) {
+    if($db_word['valid']){
+        $valid_words_array[] = $db_word['word'];
+    } else {
+        $invalid_words_array[] = $db_word['word'];
+    }
+}
 
 //include custom php
     // e.g. include 'word_check.php';
@@ -108,9 +126,17 @@ if($teams_active){
                 "level" => 0,
                 "cp_bible" => $cp_bible,
                 "current_word" => "",
+                "current_word_score" => 0,
                 "letter_bonus" => 1,
+                "next_letter" => 0,
                 "word_bonus" => 1,
-                "used_bonus" => ["letter" == false, "word" == false]
+                "used_bonus" => ["letter" == false, "word" == false],
+                "used_words"=> []
+            ],
+            "stats" => [
+                "words_played" => [],
+                "puzzles" => ["attempts" => [], "solved"=>[]],
+                "letters_played" => 0
             ]
         ];
     }
@@ -134,11 +160,19 @@ if($teams_active){
        $players[$row4["player_ID"]] = [ 
             "team" => $row4["team"],
             "name" => $usernames[$row4["player_ID"]],
-            "params" => [ "used_cps" => []],
+            "params" => [ 
+                "used_cps" => [],
+                "puzzle_cooldown" => 0,
+                "bonus" => [
+                    "letter bonus" => 1,
+                    "word bonus" => 1,
+                ]
+            ],
             "history" => [],
             "inventory" => [
-                "Letters" => [],
-                "Bonus" => []
+                "letter bonus" => "-",
+                "word bonus" => "-",
+                "Current Word" => "-"
             ]
         ];
     $debug_log['player details'] = $players;
@@ -178,7 +212,7 @@ $x = 0;
 
     //values
     $hand_limit = 2;
-    $stage_time = 90*60;
+    $stage_time = 900*60;
     $alert = 0;
 
 //TEAM SPECIFIC catchers (customise the catchers here)
@@ -282,23 +316,31 @@ if($debug == 1){ $debug_log[] = '72';};
         //Letter
         if($cp["type"] == "letter") {
             if($cp_option == 1){
-                $play_letter = $teams[$tm]["params"]["cp_bible"][$cp]["value"];
-                $next_letter = $letters[$teams[$tm]["params"]["next_letter"]];
-                $letters[$teams[$tm]["params"]["next_letter"]] += 1;
+                $play_letter = $teams[$tm]["params"]["cp_bible"][$cp_number]["name"];
+                $next_letter = $game_letters[$teams[$tm]["params"]["next_letter"]];
+                $teams[$tm]["params"]["next_letter"] += 1;
                 $teams[$tm]["params"]["current_word"] .= $play_letter;
-                $teams[$tm]["params"]["cp_bible"][$cp]["value"] = $next_letter;
-                $word_score = $scrabble_values[$next_letter] * $teams[$tm]["params"]["letter_bonus"];
+                $teams[$tm]["params"]["cp_bible"][21]["message"] = "Play <h1>".$teams[$tm]["params"]["current_word"]."</h1>";
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["name"] = $next_letter;
+                $teams[$tm]["params"]["current_word_score"] += $scrabble_values[$play_letter] * $teams[$tm]["params"]["letter_bonus"];
+                $comment = "<em>".$play_letter."</em> played";
+                $teams[$tm]["stats"]["letters_played"] += 1;
+
+                if($teams[$tm]["params"]["letter_bonus"] > 1) {
+                    $comment .= " with a ".$teams[$tm]["params"]["letter_bonus"]."x bonus";
+                }
                 $teams[$tm]["params"]["letter_bonus"] = 1;
             }
             //use a bonus
             if($cp_option == 2){
                 if($teams[$tm]["params"]["used_bonus"]["letter"] == false){
-                $played_letter_bonus = $players[$pl]["inventory"]["letter_bonus"];
+                $played_letter_bonus = $players[$pl]["inventory"]["letter bonus"];
                 if($played_letter_bonus > 1){
                     $teams[$tm]["params"]["letter_bonus"] = $played_letter_bonus;
                     $teams[$tm]["params"]["used_bonus"]["letter"] = true;
                     $comment = $played_letter_bonus."x letter bonus played";
-                    $players[$pl]["inventory"]["letter_bonus"] = 1;
+                    $players[$pl]["params"]["bonus"]["letter bonus"] = 1;
+                    $players[$pl]["inventory"]["letter bonus"] = "-";
                 } else {
                     $comment = "no letter bonus held";
                 }
@@ -309,12 +351,13 @@ if($debug == 1){ $debug_log[] = '72';};
             //play a word bonus
             if($cp_option == 3){
                 if($teams[$tm]["params"]["used_bonus"]["word"] == false){
-                $played_word_bonus = $players[$pl]["inventory"]["word_bonus"];
+                $played_word_bonus = $players[$pl]["params"]["bonus"]["word bonus"];
                 if($played_word_bonus > 1){
                     $teams[$tm]["params"]["word_bonus"] = $played_word_bonus;
-                    $teams[$tm]["params"]["used_bonus"]["letter"] = true;
+                    $teams[$tm]["params"]["used_bonus"]["word"] = true;
                     $comment = $played_word_bonus."x word bonus played";
-                    $players[$pl]["inventory"]["word_bonus"] = 1;
+                    $players[$pl]["params"]["bonus"]["word bonus"] = 1;
+                    $players[$pl]["inventory"]["word bonus"] = "-";
                 } else {
                     $comment = "no word bonus held";
                 }
@@ -328,29 +371,42 @@ if($debug == 1){ $debug_log[] = '72';};
         if($cp["type"] == "puzzle point"){
             //solve puzzle to pick-up the bonus
             if($cp["available"]){
+                if($players[$pl]["params"]["puzzle_cooldown"] + 30 > $t){
+                    // wait for the cool down bro...
+                    $wait_left = $players[$pl]["params"]["puzzle_cooldown"] + 30 - $t + 5;
+                    $players[$pl]["params"]["puzzle_cooldown"] += 5;
+                    $comment = "Puzzle locked for $wait_left seconds<br>(5s added)";
+                } else {
+
+            $teams[$tm]["stats"]["puzzles"]["attempts"][] = $cp["name"];
+
             if($puzzle_answer == $cp["puzzle_a"]){
+            $teams[$tm]["stats"]["puzzles"]["solved"][] = $cp["name"];
                 //word puzzle
                 if($cp["bonus"]["type"] == "word"){
-                    if($players[$pl]["inventory"]["word_bonus"] == 1) {
-                        $players[$pl]["inventory"]["word_bonus"] = $cp["bonus"]["value"];
+                    if($players[$pl]["params"]["bonus"]["word bonus"] == 1) {
+                        $players[$pl]["inventory"]["word bonus"] = $cp["bonus"]["value"]."x";
+                        $players[$pl]["params"]["bonus"]["word bonus"] = $cp["bonus"]["value"];
                         $comment = $cp["bonus"]["value"]."x ".$cp["bonus"]["type"]." bonus collected";
-                        $teams[$tm]["params"]["cp_bible"]["available"] = false;
+                        //$teams[$tm]["params"]["cp_bible"][$cp_number]["available"] = false; - commented out for testing
                     } else {
                         $comment = $cp["bonus"]["type"]." bonus already held";
                     }
                 } elseif ($cp["bonus"]["type"] == "letter") {
 
-                    if($players[$pl]["inventory"]["letter_bonus"] == 1) {
-                        $players[$pl]["inventory"]["letter_bonus"] = $cp["bonus"]["value"];
+                    if($players[$pl]["params"]["bonus"]["letter bonus"] == 1) {
+                        $players[$pl]["inventory"]["letter bonus"] = $cp["bonus"]["value"]."x";
+                        $players[$pl]["params"]["bonus"]["letter bonus"] = $cp["bonus"]["value"]."x";
                         $comment = $cp["bonus"]["value"]."x ".$cp["bonus"]["type"]." bonus collected";
-                        $teams[$tm]["params"]["cp_bible"]["available"] = false;
+                        //$teams[$tm]["params"]["cp_bible"][$cp_number]["available"] = false; -- commented out for testing
                     } else {
                         $comment = $cp["bonus"]["type"]." bonus already held";
                     }
                 }
             } else {
-                $comment = "incorrect";
-            }}
+                $comment = "Incorrect.<br>Puzzle locked for 30s";
+                $players[$pl]["params"]["puzzle_cooldown"] = $t;
+            }}}
             else {
                 $comment = "puzzle already solved";
             }
@@ -359,9 +415,44 @@ if($debug == 1){ $debug_log[] = '72';};
         //Play point
         if($cp["type"] == "wsf"){
             //enter word
-            $played_word = $teams[$tm]["params"]["current_word"];
+            $current_word = $teams[$tm]["params"]["current_word"];
+            $comment = "got here";
+            $valid = false;
+            if(in_array($current_word,$valid_words_array)){
+                $valid = true;
+            } elseif (in_array($current_word,$invalid_words_array)){
+                $valid = false;
+            } else {
+                $valid = isValidEnglishWord($current_word);
+                $debug_log["word check"] = $current_word." checked on the api";
+                $stmt = $conn->prepare("INSERT INTO words (word, valid) VALUES (:word, :valid)");
+                $stmt->bindParam(':word', $current_word);
+                $stmt->bindParam(':valid', $valid);
+                $stmt->execute();
+            }
+            if($valid){
+                if(in_array($current_word,$teams[$this_team]["params"]["used_words"])){
+                $valid_words_array[] = $current_word;
+                $comment = "$current_word played, already used.";
+                } else {
+                $value = $word_length_value[strlen($current_word)] + ($teams[$tm]["params"]["current_word_score"] * $teams[$tm]["params"]["word_bonus"]);
+               $teams[$tm]["params"]["score"] += $value;
+                $used_words[] = $current_word;
+                $comment = "$current_word successfully played! for $value points";
+                $teams[$tm]["stats"]["words_played"][] = ["word" => $current_word, "score" => $value];
+                }
+            } else {
+                $invalid_words_array[] = $current_word;
+                $comment = "$current_word played, but not a known word";
+            }
+            $teams[$tm]["params"]["word_bonus"] = 1;
+            $teams[$tm]["params"]["used_bonus"]["letter"] = false;
+            $teams[$tm]["params"]["used_bonus"]["word"] = false;
             $teams[$tm]["params"]["current_word"] = "";
-
+            $teams[$tm]["params"]["current_word_score"] = 0;
+            $value = 0;
+            $teams[$tm]["params"]["cp_bible"][21]["message"] = "Current word empty";
+        
         }
 
         //start_finish
@@ -457,9 +548,11 @@ $response["alert"] = $alert;
 $response["this_team"] = $this_team;
 $response["usernames"] = $usernames;
 $response["game_state"] = [$teams[$this_team]["params"]["game"]["game_state"],$teams[$this_team]["params"]["game"]["game_start"],$teams[$this_team]["params"]["game"]["game_end"],$stage_time];
+$players[$user_ID]["inventory"]["Current Word"] = $teams[$this_team]["params"]["current_word"];
 $response["inventory"] = $players[$user_ID]["inventory"];
 }
 $response["teams"] = $teams;
+$response["stats"] = $teams[$this_team]["stats"];
 $response["live_scores"] = $final_results;
 $response["commentary"] = $teams[$this_team]["params"]["commentary"];
 $response["debug_log"] = $debug_log;

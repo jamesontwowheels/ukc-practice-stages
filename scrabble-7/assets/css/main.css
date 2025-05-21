@@ -52,7 +52,14 @@ button.inactive {
 }
 
 button.blocked {
-    background: #b82e45 !important ;
+    background: #4e010e !important ;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none; /* Optional: prevent clicks while blocked */
+}
+
+.unblocking {
+  opacity: 0;
 }
 
 td.right_column{
