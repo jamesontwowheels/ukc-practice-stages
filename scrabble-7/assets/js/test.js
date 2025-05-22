@@ -207,8 +207,13 @@ function ajax_call() {
                                     document.getElementById(target_space).innerHTML += '<button id="'+this_option_id+'" class="submit_button ' + puzzle_class + ' '+blocked+'" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
                                     });
                                     setTimeout(() => {
-                                    document.getElementById(last_hit).classList.remove("inactive");
-                                    document.getElementById(last_hit).classList.add("active");
+                                        const el_last_hit = document.getElementById(last_hit);
+                                            if (el_last_hit) {
+                                                el_last_hit.classList.remove("inactive");
+                                                el_last_hit.classList.add("active");
+                                            } else {
+                                                console.warn(`Element with ID '${last_hit}' not found.`);
+                                            }
                                      }, 3000);
                                 
                                 var cp_header_id = "cp-header-"+this_key;
