@@ -2,7 +2,11 @@
 $cp_bible = [
     1 => [
         "cp" => 1,
-        "name" => "H",
+        "name" => '1 <div class="scrabble-tile letter-tile">
+                    <span class="letter">H</span>
+                    <span class="points">4</span>
+                    </div>',
+        "value" => "H",
         "type" => "letter",
         "puzzle" => false,
         "message" => "",
@@ -15,7 +19,11 @@ $cp_bible = [
     ],
     2 => [
         "cp" => 2,
-        "name" => "E",
+        "name" => '2 <div class="scrabble-tile letter-tile">
+                    <span class="letter">E</span>
+                    <span class="points">1</span>
+                    </div>',
+        "value" => "E",
         "type" => "letter",
         "puzzle" => false,
         "message" => "",
@@ -29,7 +37,11 @@ $cp_bible = [
     3 => [
             
         "cp" => 3,
-        "name" => "L",
+        "name" => '3 <div class="scrabble-tile letter-tile">
+                    <span class="letter">L</span>
+                    <span class="points">1</span>
+                    </div>',
+        "value" => "L",
         "type" => "letter",
         "puzzle" => false,
         "message" => "",
@@ -43,7 +55,11 @@ $cp_bible = [
     4 => [
         
         "cp" => 4,
-        "name" => "L",
+        "name" => '4 <div class="scrabble-tile letter-tile">
+                    <span class="letter">L</span>
+                    <span class="points">1</span>
+                    </div>',
+        "value" => "L",
         "type" => "letter",
         "puzzle" => false,
         "message" => "",
@@ -57,7 +73,11 @@ $cp_bible = [
     5 => [
         
         "cp" => 5,
-        "name" => "O",
+        "name" => '5 <div class="scrabble-tile letter-tile">
+                    <span class="letter">O</span>
+                    <span class="points">1</span>
+                    </div>',
+        "value" => "O",
         "type" => "letter",
         "puzzle" => false,
         "message" => "",
@@ -71,7 +91,11 @@ $cp_bible = [
     6 => [
             
         "cp" => 6,
-        "name" => "G",
+        "name" => '6 <div class="scrabble-tile letter-tile">
+                    <span class="letter">G</span>
+                    <span class="points">2</span>
+                    </div>',
+        "value" => "G",
         "type" => "letter",
         "puzzle" => false,
         "message" => "",
@@ -85,7 +109,11 @@ $cp_bible = [
     7 => [
         
         "cp" => 7,
-        "name" => "X",
+        "name" => '7 <div class="scrabble-tile letter-tile">
+                    <span class="letter">X</span>
+                    <span class="points">8</span>
+                    </div>',
+        "value" => "X",
         "type" => "letter",
         "puzzle" => false,
         "message" => "",
@@ -99,7 +127,7 @@ $cp_bible = [
     11 => [
         
         "cp" => 11,
-        "name" => "2x Letter",
+        "name" => '<div class="scrabble-tile bonus dl">DL</div>',
         "type" => "puzzle point",
         "bonus" => ["type" => "letter", "value" => 2],
         "puzzle" => true,
@@ -114,7 +142,7 @@ $cp_bible = [
     12 => [
         
         "cp" => 12,
-        "name" => "3x Letter",
+        "name" => '<div class="scrabble-tile bonus tl">TL</div>',
         "type" => "puzzle point",
         "bonus" => ["type" => "letter", "value" => 3],
         "puzzle" => true,
@@ -129,7 +157,7 @@ $cp_bible = [
     13 => [
             
         "cp" => 13,
-        "name" => "2x Word",
+        "name" => '<div class="scrabble-tile bonus dw">DW</div>',
         "type" => "puzzle point",
         "bonus" => ["type" => "word", "value" => 2],
         "puzzle" => true,
@@ -144,7 +172,7 @@ $cp_bible = [
     14 => [
         
         "cp" => 14,
-        "name" => "3x Word",
+        "name" => '<div class="scrabble-tile bonus tw">TW</div>',
         "type" => "puzzle point",
         "bonus" => ["type" => "word", "value" => 3],
         "puzzle" => true,

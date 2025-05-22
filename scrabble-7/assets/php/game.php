@@ -316,12 +316,16 @@ if($debug == 1){ $debug_log[] = '72';};
         //Letter
         if($cp["type"] == "letter") {
             if($cp_option == 1){
-                $play_letter = $teams[$tm]["params"]["cp_bible"][$cp_number]["name"];
+                $play_letter = $teams[$tm]["params"]["cp_bible"][$cp_number]["value"];
                 $next_letter = $game_letters[$teams[$tm]["params"]["next_letter"]];
                 $teams[$tm]["params"]["next_letter"] += 1;
                 $teams[$tm]["params"]["current_word"] .= $play_letter;
                 $teams[$tm]["params"]["cp_bible"][21]["message"] = "Play <h1>".$teams[$tm]["params"]["current_word"]."</h1>";
-                $teams[$tm]["params"]["cp_bible"][$cp_number]["name"] = $next_letter;
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["name"] = $cp_number.' - <div class="scrabble-tile letter-tile">
+                                                                        <span class="letter">'.$next_letter.'</span>
+                                                                        <span class="points">'.$scrabble_values[$next_letter].'</span>
+                                                                        </div>';
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["value"] = $next_letter;
                 $teams[$tm]["params"]["current_word_score"] += $scrabble_values[$play_letter] * $teams[$tm]["params"]["letter_bonus"];
                 $comment = "<em>".$play_letter."</em> played";
                 $teams[$tm]["stats"]["letters_played"] += 1;
@@ -388,7 +392,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         $players[$pl]["inventory"]["word bonus"] = $cp["bonus"]["value"]."x";
                         $players[$pl]["params"]["bonus"]["word bonus"] = $cp["bonus"]["value"];
                         $comment = $cp["bonus"]["value"]."x ".$cp["bonus"]["type"]." bonus collected";
-                        //$teams[$tm]["params"]["cp_bible"][$cp_number]["available"] = false; - commented out for testing
+                        $teams[$tm]["params"]["cp_bible"][$cp_number]["available"] = false; 
                     } else {
                         $comment = $cp["bonus"]["type"]." bonus already held";
                     }
@@ -398,7 +402,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         $players[$pl]["inventory"]["letter bonus"] = $cp["bonus"]["value"]."x";
                         $players[$pl]["params"]["bonus"]["letter bonus"] = $cp["bonus"]["value"]."x";
                         $comment = $cp["bonus"]["value"]."x ".$cp["bonus"]["type"]." bonus collected";
-                        //$teams[$tm]["params"]["cp_bible"][$cp_number]["available"] = false; -- commented out for testing
+                        $teams[$tm]["params"]["cp_bible"][$cp_number]["available"] = false; 
                     } else {
                         $comment = $cp["bonus"]["type"]." bonus already held";
                     }

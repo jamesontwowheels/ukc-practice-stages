@@ -33,13 +33,14 @@ $_SESSION['game'] = $game;
 <link rel="stylesheet" href="assets/css/main.css?v0.12">
 <link rel="stylesheet" href="assets/css/underwater.css">
 <link rel="stylesheet" href="assets/css/polar.css">
+<link rel="stylesheet" href="assets/css/scrabble-tiles.css">
 <link rel="stylesheet" href="assets/css/app-buttons.css?v0.11">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 </head>
 <body>
 <div id="main">
-<h1>Gold Rush</h1>
+<h1>Scrabble+</h1>
 <div id="tempMessage">This is a temporary message!</div>
   <div id="teams">
   <a href="teams.php" class="team-button"><br>Team Set-up</a>

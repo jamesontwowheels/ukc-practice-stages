@@ -9,9 +9,7 @@ let ajaxRunning = false;
 function safeAjaxCall() {
     if (ajaxRunning) return; // Prevent overlapping calls
     ajaxRunning = true;
-    ajax_call().finally(() => {
-        ajaxRunning = false;
-    });
+    ajax_call();
 }
 setInterval(safeAjaxCall, 10000); // every 10 seconds
 
@@ -58,6 +56,7 @@ $(document).ready(function() {
 });
 
 function ajax_call() {
+    ajaxRunning = true;
     if ($(this).hasClass('inactive') || $(this).hasClass('blocked')){
         console.log('inactive clicked');
     } else {console.log("button clicked / name update");
@@ -312,13 +311,16 @@ function ajax_call() {
             document.getElementById("score_zone").innerHTML = "<b>Score</b>: " + data["teams"][this_team]["params"]["score"];
              
             var button_detail = ["blurb","blib"];
-
+           ajaxRunning = false;     
         },
         error: function(xhr, status, error) {
             console.error("AJAX Error: ", status, error);
+            ajaxRunning = false;
         }
         
     });
+    
+    
 }}
 
 function cp_explore() {
