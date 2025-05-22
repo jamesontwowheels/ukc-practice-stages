@@ -9,7 +9,9 @@ let ajaxRunning = false;
 function safeAjaxCall() {
     if (ajaxRunning) return; // Prevent overlapping calls
     ajaxRunning = true;
-    ajax_call();
+    ajax_call().always(() => {
+        ajaxRunning = false;
+    });;
 }
 setInterval(safeAjaxCall, 10000); // every 10 seconds
 
