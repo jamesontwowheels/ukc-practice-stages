@@ -28,6 +28,7 @@ $_SESSION['game'] = 6;
 <a class="stage" href="goldrush/lobby.php?location=0">London</a>
 <a class="stage" href="goldrush/lobby.php?location=1">Newcastle</a>
 <a class="stage" href="goldrush/lobby.php?location=2">MH Demo</a>
+<a class="stage" href="goldrush/lobby.php?location=3">Bristol</a>
 <div id="footer-back"></div>
 <div id="footer">
 <div class="app-buttons">

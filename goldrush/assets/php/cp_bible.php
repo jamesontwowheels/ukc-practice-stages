@@ -54,7 +54,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "type" => "drone",
         "score" => [29,2,3],
         "puzzle" => true,
-        "puzzle_q" => "If the mass of the shapes in the first image is 56g and the mass of the shapes in the second image is 76g what is the mass of the cube in grams<img class='puzzle_pic' src='assets/img/cones.png'>",
+        "puzzle_q" => "If the mass of the shapes in the first image is 56g and the mass of the shapes in the second image is 72g what is the mass of the cube in grams<img class='puzzle_pic' src='assets/img/cones.png'>",
         "puzzle_a" => "40",
         "message" => "",
         "options" => [
