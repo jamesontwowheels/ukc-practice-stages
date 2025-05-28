@@ -34,6 +34,7 @@ $_SESSION['game'] = $game;
 <link rel="stylesheet" href="assets/css/underwater.css">
 <link rel="stylesheet" href="assets/css/polar.css">
 <link rel="stylesheet" href="assets/css/scrabble-tiles.css">
+<link rel="stylesheet" href="assets/css/celebrate.css">
 <link rel="stylesheet" href="assets/css/app-buttons.css?v0.11">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
@@ -101,3 +102,4 @@ $_SESSION['game'] = $game;
 <script type="text/javascript" src='assets/js/test.js?v0.02' defer></script>
 <script type="text/javascript" src='assets/js/rows.js?v0.01'></script>
 <script type="text/javascript" src='assets/js/app-buttons.js'></script>
+<script type="text/javascript" src='assets/js/celebrate.js'></script>

@@ -2,7 +2,7 @@
 $cp_bible = [
     1 => [
         "cp" => 1,
-        "name" => '1 <div class="scrabble-tile letter-tile">
+        "name" => '1 - <div class="scrabble-tile letter-tile">
                     <span class="letter">H</span>
                     <span class="points">4</span>
                     </div>',
@@ -19,7 +19,7 @@ $cp_bible = [
     ],
     2 => [
         "cp" => 2,
-        "name" => '2 <div class="scrabble-tile letter-tile">
+        "name" => '2 - <div class="scrabble-tile letter-tile">
                     <span class="letter">E</span>
                     <span class="points">1</span>
                     </div>',
@@ -37,7 +37,7 @@ $cp_bible = [
     3 => [
             
         "cp" => 3,
-        "name" => '3 <div class="scrabble-tile letter-tile">
+        "name" => '3 - <div class="scrabble-tile letter-tile">
                     <span class="letter">L</span>
                     <span class="points">1</span>
                     </div>',
@@ -55,7 +55,7 @@ $cp_bible = [
     4 => [
         
         "cp" => 4,
-        "name" => '4 <div class="scrabble-tile letter-tile">
+        "name" => '4 - <div class="scrabble-tile letter-tile">
                     <span class="letter">L</span>
                     <span class="points">1</span>
                     </div>',
@@ -73,7 +73,7 @@ $cp_bible = [
     5 => [
         
         "cp" => 5,
-        "name" => '5 <div class="scrabble-tile letter-tile">
+        "name" => '5 - <div class="scrabble-tile letter-tile">
                     <span class="letter">O</span>
                     <span class="points">1</span>
                     </div>',
@@ -91,7 +91,7 @@ $cp_bible = [
     6 => [
             
         "cp" => 6,
-        "name" => '6 <div class="scrabble-tile letter-tile">
+        "name" => '6 - <div class="scrabble-tile letter-tile">
                     <span class="letter">G</span>
                     <span class="points">2</span>
                     </div>',
@@ -109,7 +109,7 @@ $cp_bible = [
     7 => [
         
         "cp" => 7,
-        "name" => '7 <div class="scrabble-tile letter-tile">
+        "name" => '7 - <div class="scrabble-tile letter-tile">
                     <span class="letter">X</span>
                     <span class="points">8</span>
                     </div>',
@@ -131,8 +131,8 @@ $cp_bible = [
         "type" => "puzzle point",
         "bonus" => ["type" => "letter", "value" => 2],
         "puzzle" => true,
-        "puzzle_q" => "Well done reaching the top of the hill. What is 1 + 1?",
-        "puzzle_a" => "2",
+        "puzzle_q" => "Find the solution to the equation.<br><br><img class='puzzle_pic' src='assets/img/puzzle-1.png'>",
+        "puzzle_a" => "55",
         "message" => "",
         "options" => [
             1 => "Solve Puzzle"
@@ -146,8 +146,8 @@ $cp_bible = [
         "type" => "puzzle point",
         "bonus" => ["type" => "letter", "value" => 3],
         "puzzle" => true,
-        "puzzle_q" => "Well done reaching the top of the hill. What is 1 + 1?",
-        "puzzle_a" => "2",
+        "puzzle_q" => "Fill in the blank.<br><br><img class='puzzle_pic' src='assets/img/puzzle-2.png'>",
+        "puzzle_a" => "cdo",
         "message" => "",
         "options" => [
             1 => "Solve Puzzle"
@@ -161,8 +161,8 @@ $cp_bible = [
         "type" => "puzzle point",
         "bonus" => ["type" => "word", "value" => 2],
         "puzzle" => true,
-        "puzzle_q" => "Well done reaching the top of the hill. What is 1 + 1?",
-        "puzzle_a" => "2",
+        "puzzle_q" => "What is the sum of the next two numbers in the sequence?<br><br><img class='puzzle_pic' src='assets/img/puzzle-3.png'>",
+        "puzzle_a" => "38",
         "message" => "",
         "options" => [
             1 => "Solve Puzzle"
@@ -176,8 +176,8 @@ $cp_bible = [
         "type" => "puzzle point",
         "bonus" => ["type" => "word", "value" => 3],
         "puzzle" => true,
-        "puzzle_q" => "Well done reaching the top of the hill. What is 1 + 1?",
-        "puzzle_a" => "2",
+        "puzzle_q" => "Unscramble this anagram into a single word to unlock the bonus.<br><br><img class='puzzle_pic' src='assets/img/puzzle-4.png'>",
+        "puzzle_a" => "encryption",
         "message" => "",
         "options" => [
             1 => "Solve Puzzle"

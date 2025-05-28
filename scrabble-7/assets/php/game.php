@@ -130,7 +130,7 @@ if($teams_active){
                 "letter_bonus" => 1,
                 "next_letter" => 0,
                 "word_bonus" => 1,
-                "used_bonus" => ["letter" == false, "word" == false],
+                "used_bonus" => false,
                 "used_words"=> []
             ],
             "stats" => [
@@ -337,28 +337,28 @@ if($debug == 1){ $debug_log[] = '72';};
             }
             //use a bonus
             if($cp_option == 2){
-                if($teams[$tm]["params"]["used_bonus"]["letter"] == false){
+                if($teams[$tm]["params"]["used_bonus"] == false){
                 $played_letter_bonus = $players[$pl]["inventory"]["letter bonus"];
                 if($played_letter_bonus > 1){
                     $teams[$tm]["params"]["letter_bonus"] = $played_letter_bonus;
-                    $teams[$tm]["params"]["used_bonus"]["letter"] = true;
-                    $comment = $played_letter_bonus."x letter bonus played";
+                    $teams[$tm]["params"]["used_bonus"] = true;
+                    $comment = $played_letter_bonus." letter bonus played";
                     $players[$pl]["params"]["bonus"]["letter bonus"] = 1;
                     $players[$pl]["inventory"]["letter bonus"] = "-";
                 } else {
                     $comment = "no letter bonus held";
                 }
            } else {
-            $comment = "Letter bonus already used in this word";
+            $comment = "This word already has a bonus applied";
            }
         }
             //play a word bonus
             if($cp_option == 3){
-                if($teams[$tm]["params"]["used_bonus"]["word"] == false){
+                if($teams[$tm]["params"]["used_bonus"] == false){
                 $played_word_bonus = $players[$pl]["params"]["bonus"]["word bonus"];
                 if($played_word_bonus > 1){
                     $teams[$tm]["params"]["word_bonus"] = $played_word_bonus;
-                    $teams[$tm]["params"]["used_bonus"]["word"] = true;
+                    $teams[$tm]["params"]["used_bonus"] = true;
                     $comment = $played_word_bonus."x word bonus played";
                     $players[$pl]["params"]["bonus"]["word bonus"] = 1;
                     $players[$pl]["inventory"]["word bonus"] = "-";
@@ -366,7 +366,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     $comment = "no word bonus held";
                 }
             } else {
-                $comment = "Word bonus already in use";
+                $comment = "This word already has a bonus applied";
             } 
         }
     }
@@ -457,8 +457,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $comment = "$current_word played, but not a known word";
             }
             $teams[$tm]["params"]["word_bonus"] = 1;
-            $teams[$tm]["params"]["used_bonus"]["letter"] = false;
-            $teams[$tm]["params"]["used_bonus"]["word"] = false;
+            $teams[$tm]["params"]["used_bonus"] = false;
             $teams[$tm]["params"]["current_word"] = "";
             $teams[$tm]["params"]["current_word_score"] = 0;
             $value = 0;

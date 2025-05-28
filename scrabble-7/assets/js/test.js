@@ -1,6 +1,7 @@
 let countdownFunction = 0;
 let oxygenFunction = 0;
 var puzzle_questions = [];
+let refreshcall = false;
 
 $(document).ready(ajax_call);
 $("body").on("click", ".submit_button", ajax_call);
@@ -9,8 +10,10 @@ let ajaxRunning = false;
 function safeAjaxCall() {
     if (ajaxRunning) return; // Prevent overlapping calls
     ajaxRunning = true;
+    refreshcall = true;
     ajax_call().always(() => {
         ajaxRunning = false;
+        refreshcall = false;
     });;
 }
 setInterval(safeAjaxCall, 2000); // every 10 seconds
@@ -68,9 +71,14 @@ function ajax_call() {
     cp = cp || 0;
     last_hit = last_hit || "no id";
 
+    
 
     var cp_option_choice = $(this).attr('cp_option_choice');
     cp_option_choice = cp_option_choice || 0;
+
+    if(cp == 998 && cp_option_choice > 0){
+        launchCelebration();
+    }
 
     var user_input = "void";
     if($(this).hasClass('puzzle')){
@@ -87,10 +95,10 @@ function ajax_call() {
         cp = 0;
     }
    
-    if (cp == 999){
-        const userConfirmed = confirm("Are you sure you're ready to start/stop?")
-        if(!userConfirmed) { return;};
-    }
+    // if (cp == 999){
+    //     const userConfirmed = confirm("Are you sure you're ready to start/stop?")
+    //     if(!userConfirmed) { return;};
+    // }
 
     //bit of jazz
     $(this).addClass('inactive');
@@ -176,30 +184,37 @@ function ajax_call() {
                                 console.log('hidden'+key_id);
                               };   
                                 
-                                //ALL ** THIS ** LOGIC ** SHOULD ** BE ** IN ** THE ** BACK ** END....!
+                                
                                 //add CP options
                                 var comment_space = `cp_comment_space_`+ this_key;
-
                                 
-                                if (typeof comment === "string" && comment.length > 0) {
-                                    console.log("String is not empty!");
-                                    document.getElementById(comment_space).innerHTML = comment;
-                                    document.getElementById(comment_space).classList.add('cp_comment_filled');
+                                if(cp == 0){
+                                    console.log("skipping comment bit for auto-update");
                                 } else {
-                                    document.getElementById(comment_space).innerHTML = "";
-                                    document.getElementById(comment_space).classList.remove('cp_comment_filled');
+                                    if (typeof comment === "string" && comment.length > 0) {
+                                        console.log("String is not empty!");
+                                        document.getElementById(comment_space).innerHTML = comment;
+                                        document.getElementById(comment_space).classList.add('cp_comment_filled');
+                                    } else {
+                                        document.getElementById(comment_space).innerHTML = "";
+                                        document.getElementById(comment_space).classList.remove('cp_comment_filled');
+                                    }
                                 }
-
+                                if(!refreshcall){
                                 const target_space = `cp_option_space_` + this_key;
                                 var these_options = cpx["options"];   
                                 document.getElementById(target_space).innerHTML = "";
                                 let itemDiv = document.getElementById(target_space);          
+                                
+                                
+                                
                                 Object.keys(these_options).forEach(key => {
                                     var puzzle_class = "";
                                     if(cpx["puzzle"]){
                                         puzzle_class = "puzzle";
                                     }
                                     var this_option_id = 'cp'+this_key+'option'+key;
+                                    
                                     if(last_hit == this_option_id){
                                         blocked = "inactive";
                                         console.log(blocked);
@@ -215,7 +230,7 @@ function ajax_call() {
                                                 console.warn(`Element with ID '${last_hit}' not found.`);
                                             }
                                      }, 3000);
-                                
+                                    }
                                 var cp_header_id = "cp-header-"+this_key;
                                 document.getElementById(cp_header_id).innerHTML = cpx["name"];
 
