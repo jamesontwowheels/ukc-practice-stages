@@ -285,10 +285,12 @@ function ajax_call() {
             }
 
             //show stats
+            if(!refreshcall){
             if(show_stats){
                 document.getElementById("stats-bucket").style.display = "block";
                 renderStatsCarousel();
             }
+        }
 
             //game state
             var game_state = data["game_state"];

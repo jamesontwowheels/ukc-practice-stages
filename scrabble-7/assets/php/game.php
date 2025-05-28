@@ -332,7 +332,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $teams[$tm]["stats"]["letters_played"] += 1;
 
                 if($teams[$tm]["params"]["letter_bonus"] > 1) {
-                    $comment .= " with a ".$teams[$tm]["params"]["letter_bonus"]."x bonus";
+                    $comment .= " with a ".$teams[$tm]["params"]["letter_bonus"]." bonus";
                 }
                 $teams[$tm]["params"]["letter_bonus"] = 1;
             }
@@ -513,7 +513,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         } 
                         unset($checkpoint);
                         $teams[$tm]["params"]["cp_bible"][998]["options"] = [];
-                        $teams[$tm]["params"]["cp_bible"][998]["message"] = "Congratulations, you completed the game, now take a look at your game stats, here: <br><br><a href='stats.html'><button class='active'>See your game stats</button></a>";
+                        $teams[$tm]["params"]["cp_bible"][998]["message"] = "Congratulations, you completed the game! Close this message to take a look at your game stats";
                         $show_stats = true;
                     }
                 }
