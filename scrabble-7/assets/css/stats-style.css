@@ -5,9 +5,14 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#stats-bucket {
+  display:none;
+}
+
 .swiper {
-  width: 320px;
-  height: 480px;
+  display: hidden;
+  width: 80%;
+  height: 60%;
   margin: 40px auto;
   border-radius: 20px;
   box-shadow: 0 0 20px #ff07d6aa;
@@ -26,53 +31,58 @@ body {
   flex-direction: column;
 }
 
-h2 {
+.swiper h2 {
   margin: 0 0 16px 0;
   color: #ffffff;
   font-weight: 700;
-  font-size: 1.8rem;
   text-align: center;
 }
 
-.card-content {
+.swiper .card-content {
   flex-grow: 1;
   overflow-y: auto;
   color: #ccc;
   font-size: 1.1rem;
 }
 
-table {
+.swiper table {
   width: 100%;
   border-collapse: collapse;
+  font-size:2em;
 }
 
-table td {
+.swiper table td {
   border-bottom: 1px solid #333;
   padding: 8px 10px;
 }
 
-table tr:last-child td {
+.swiper table tr:last-child td {
   border-bottom: none;
 }
 
-table td:first-child {
+.swiper table td:first-child {
   font-weight: 600;
   color: #ff07d6;
 }
 
 .swiper-pagination-bullet {
-  background: #ff07d6;
-  opacity: 0.7;
+  width: 20px !important;
+  height: 20px !important;
+  background: #ff07d6 !important;
+  opacity: 0.7 !important;
+  border-radius: 50% !important;
+  margin: 0 6px !important;
+  transition: transform 0.2s ease;
 }
-
 .swiper-pagination-bullet-active {
-  opacity: 1;
-  box-shadow: 0 0 8px #ff07d6;
+  opacity: 1 !important;
+  box-shadow: 0 0 8px #ff07d6 !important;
+  transform: scale(1.3) !important;
 }
-
-canvas {
-  max-width: 100%;
-  max-height: 250px;
+.swiper canvas {
+  width: 600px;
+  height: 600px;
+  font-size: 3em;
   margin: auto;
   display: block;
 }

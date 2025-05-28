@@ -214,6 +214,7 @@ $x = 0;
     $hand_limit = 2;
     $stage_time = 900*60;
     $alert = 0;
+    $show_stats = false;
 
 //TEAM SPECIFIC catchers (customise the catchers here)
 
@@ -502,7 +503,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     $comment = "too late to finish";
                 } else {
                     $pl_finishers[] = $pl;
-                    $finish_bonus = 50/(count($teams[$tm]["members"]));
+                    $finish_bonus = 30/(count($teams[$tm]["members"]));
                         $teams[$tm]["params"]["score"] += $finish_bonus;
                         unset($checkpoint);
                         $comment = "Finished. Bonus: $finish_bonus";
@@ -511,6 +512,9 @@ if($debug == 1){ $debug_log[] = '72';};
                             $checkpoint["available"] = false;
                         } 
                         unset($checkpoint);
+                        $teams[$tm]["params"]["cp_bible"][998]["options"] = [];
+                        $teams[$tm]["params"]["cp_bible"][998]["message"] = "Congratulations, you completed the game, now take a look at your game stats, here: <br><br><a href='stats.html'><button class='active'>See your game stats</button></a>";
+                        $show_stats = true;
                     }
                 }
             }
@@ -567,4 +571,5 @@ $response["live_scores"] = $final_results;
 $response["commentary"] = $teams[$this_team]["params"]["commentary"];
 $response["debug_log"] = $debug_log;
 $response["db_response"] = $db_response;
+$response["show_stats"] = $show_stats;
 echo json_encode($response);

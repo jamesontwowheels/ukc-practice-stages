@@ -128,8 +128,9 @@ function ajax_call() {
             var comment = data["comment"];
             var teams = data["teams"];
             console.log(teams);
-            var this_team   = data["this_team"];
+            var this_team = data["this_team"];
             var stats = data ["stats"];
+            var show_stats = data["show_stats"];
             sessionStorage.setItem('userStats', JSON.stringify(stats));
             console.log(stats);
 
@@ -281,6 +282,12 @@ function ajax_call() {
             var alert_response = data["alert"];
             if (alert_response != 0) {
                 alert(alert_response);
+            }
+
+            //show stats
+            if(show_stats){
+                document.getElementById("stats-bucket").style.display = "block";
+                renderStatsCarousel();
             }
 
             //game state

@@ -38,6 +38,11 @@ $_SESSION['game'] = $game;
 <link rel="stylesheet" href="assets/css/app-buttons.css?v0.11">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
+<link rel="stylesheet" href="assets/css/stats-style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </head>
 <body>
 <div id="main">
@@ -77,6 +82,12 @@ $_SESSION['game'] = $game;
    
     </tbody>
   </table>
+  <div id="stats-bucket">
+  <div  class="swiper">
+    <div class="swiper-wrapper" id="carousel"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+  </div>
 <div id="base-padding" class="bucket">
 </div>
 </div>
@@ -103,3 +114,4 @@ $_SESSION['game'] = $game;
 <script type="text/javascript" src='assets/js/rows.js?v0.01'></script>
 <script type="text/javascript" src='assets/js/app-buttons.js'></script>
 <script type="text/javascript" src='assets/js/celebrate.js'></script>
+<script src="assets/js/stats.js"></script>
