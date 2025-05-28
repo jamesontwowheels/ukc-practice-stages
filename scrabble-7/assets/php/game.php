@@ -435,15 +435,22 @@ if($debug == 1){ $debug_log[] = '72';};
                 $stmt->execute();
             }
             if($valid){
+                $word_length = strlen($current_word);
+                if($word_length > 7){ $word_length = 7;}
+                if($word_length > 2){
                 if(in_array($current_word,$teams[$this_team]["params"]["used_words"])){
                 $valid_words_array[] = $current_word;
                 $comment = "$current_word played, already used.";
                 } else {
-                $value = $word_length_value[strlen($current_word)] + ($teams[$tm]["params"]["current_word_score"] * $teams[$tm]["params"]["word_bonus"]);
+
+                $value = $word_length_value[$word_length] + ($teams[$tm]["params"]["current_word_score"] * $teams[$tm]["params"]["word_bonus"]);
                $teams[$tm]["params"]["score"] += $value;
                 $used_words[] = $current_word;
                 $comment = "$current_word successfully played! for $value points";
                 $teams[$tm]["stats"]["words_played"][] = ["word" => $current_word, "score" => $value];
+                }}
+                else {
+                    $comment = "word too short";
                 }
             } else {
                 $invalid_words_array[] = $current_word;

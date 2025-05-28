@@ -1157,8 +1157,23 @@
           "styleHash": "5c951ac3"
         }
       }
-    ] ,
-    [
+    ] ,[
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.594683134975642,
+          51.45070523657202,
+          0
+        ]
+      },
+      "properties": {
+        "name": "999",
+        "styleUrl": "#startfinish",
+        "styleHash": "6e1ac58c"
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -1509,6 +1524,22 @@
         "name": "26",
         "styleUrl": "#control",
         "styleHash": "5c951ac3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.594683134975642,
+          51.45070523657202,
+          0
+        ]
+      },
+      "properties": {
+        "name": "998",
+        "styleUrl": "#startfinish",
+        "styleHash": "6e1ac58c"
       }
     }
   ]
