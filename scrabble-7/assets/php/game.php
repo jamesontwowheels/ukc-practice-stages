@@ -212,7 +212,7 @@ $x = 0;
 
     //values
     $hand_limit = 2;
-    $stage_time = 1*60;
+    $stage_time = 90*60;
     $alert = 0;
     $show_stats = false;
 
@@ -320,7 +320,7 @@ if($debug == 1){ $debug_log[] = '72';};
             if($cp_option == 1){
                 $play_letter = $teams[$tm]["params"]["cp_bible"][$cp_number]["value"];
                 $next_letter = $game_letters[$teams[$tm]["params"]["next_letter"]];
-                if($next_letter == 73){$teams[$tm]["params"]["next_letter"] = -1; }
+                if($teams[$tm]["params"]["next_letter"] == 73){$teams[$tm]["params"]["next_letter"] = -1; }
                 $teams[$tm]["params"]["next_letter"] += 1;
                 $teams[$tm]["params"]["current_word"] .= $play_letter;
                 $teams[$tm]["params"]["cp_bible"][21]["message"] = "Play <h1>".$teams[$tm]["params"]["current_word"]."</h1>";
