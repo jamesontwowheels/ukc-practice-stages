@@ -26,6 +26,7 @@ $_SESSION['game'] = 77;
 <body>
 <h2>MINDGAMES</h2>
 <a class="stage" href="scrabble-7/lobby.php?location=0">London</a>
+<a class="stage" href="scrabble-7/lobby.php?location=1">Court Rec</a>
 <div id="footer-back"></div>
 <div id="footer">
 <div class="app-buttons">

@@ -7,8 +7,8 @@ $cp_bible = [
         "type" => "drone",
         "score" => [29,2,3],
         "puzzle" => true,
-        "puzzle_q" => "What is the next letter in this sequence: J, A, S, O, N...",
-        "puzzle_a" => "d",
+        "puzzle_q" => $puzzle_bible[1][0][0],
+        "puzzle_a" => $puzzle_bible[1][0][1],
         "message" => "",
         "options" => [
             1 => "solve"
@@ -22,10 +22,8 @@ $cp_bible = [
         "type" => "drone",
         "score" => [29,2,3],
         "puzzle" => true,
-        "puzzle_q" => "A train leaves Brussels at 11:00 am, averaging 60 mph. Another train headed in the opposite direction leaves Brussels at 1:00 pm, averaging 90 mph.
-To the nearest mile, how far are the two trains from each other at 3:00 pm
-?",
-        "puzzle_a" => "420",
+        "puzzle_q" => $puzzle_bible[2][0][0],
+        "puzzle_a" => $puzzle_bible[2][0][1],
         "message" => "",
         "options" => [
             1 => "solve"
@@ -39,8 +37,8 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "type" => "drone",
         "score" => [29,2,3],
         "puzzle" => true,
-        "puzzle_q" => "Rearrange the letters of the following two words to give one word: RING + DENT =",
-        "puzzle_a" => "trending",
+        "puzzle_q" => $puzzle_bible[3][0][0],
+        "puzzle_a" => $puzzle_bible[3][0][1],
         "message" => "",
         "options" => [
             1 => "solve"
@@ -54,8 +52,8 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "type" => "drone",
         "score" => [29,2,3],
         "puzzle" => true,
-        "puzzle_q" => "If the mass of the shapes in the first image is 56g and the mass of the shapes in the second image is 72g what is the mass of the cube in grams<img class='puzzle_pic' src='assets/img/cones.png'>",
-        "puzzle_a" => "40",
+        "puzzle_q" => $puzzle_bible[4][0][0],
+        "puzzle_a" => $puzzle_bible[4][0][1],
         "message" => "",
         "options" => [
             1 => "solve"
@@ -69,8 +67,8 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "type" => "drone",
         "score" => [29,2,3],
         "puzzle" => true,
-        "puzzle_q" => "What number should replace the question mark <img class='puzzle_pic' src='assets/img/spider.png'>",
-        "puzzle_a" => "8",
+        "puzzle_q" => $puzzle_bible[5][0][0],
+        "puzzle_a" => $puzzle_bible[5][0][1],
         "message" => "",
         "options" => [
             1 => "solve"
@@ -84,8 +82,8 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "type" => "drone",
         "score" => [29,2,3],
         "puzzle" => true,
-        "puzzle_q" => "The square has a perimeter of 48cm. The square is cut in half. The two halves are put together to make the second shape. What is the perimeter of the second shape in cms<br> <img class='puzzle_pic' src='assets/img/perimeter.png'>",
-        "puzzle_a" => "60",
+        "puzzle_q" => $puzzle_bible[6][0][0],
+        "puzzle_a" => $puzzle_bible[6][0][1],
         "message" => "",
         "options" => [
             1 => "solve"
@@ -99,8 +97,8 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "type" => "drone",
         "score" => [29,2,3],
         "puzzle" => true,
-        "puzzle_q" => "What is the greatest number of doughnuts you can buy with £10 <img class='puzzle_pic' src='assets/img/donuts.png'>",
-        "puzzle_a" => "22",
+        "puzzle_q" => $puzzle_bible[7][0][0],
+        "puzzle_a" => $puzzle_bible[7][0][1],
         "message" => "",
         "options" => [
             1 => "solve"

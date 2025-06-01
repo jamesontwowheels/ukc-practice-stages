@@ -1,6 +1,45 @@
 <?PHP 
 
 $puzzle_bible = [
+    1 => [
+        0 => ["What is 5 + 3?", "8"],
+        1 => ["If you have 12 apples and eat 4, then get 3 more, how many do you have?", "11"],
+        2 => ["You see 3 spiders. Each spider has 8 legs. How many legs in total?", "24"],
+    ],
+    2 => [
+        0 => ["What is 9 - 5?", "4"],
+        1 => ["Tom has 6 packs of crayons with 2 crayons in each. He gives 3 away. How many does he have left?", "9"],
+        2 => ["A train has 4 carriages. Each carriage has 5 people. How many people in total?", "20"],
+    ],
+    3 => [
+        0 => ["What is 3 x 4?", "12"],
+        1 => ["Sally reads 5 pages a day. How many pages does she read in 3 days?", "15"],
+        2 => ["You find 3 treasure chests. Each has 7 coins. You give away 5 coins. How many do you keep?", "16"],
+    ],
+    4 => [
+        0 => ["What is 18 ÷ 3?", "6"],
+        1 => ["You baked 3 trays of cookies with 4 cookies each. You eat 2. How many are left?", "10"],
+        2 => ["Liam has 2 boxes with 6 toy cars each. He gets 3 more cars. How many in total?", "15"],
+    ],
+    5 => [
+        0 => ["What is 12 - 6?", "6"],
+        1 => ["A rabbit eats 3 carrots a day. How many does it eat in 5 days?", "15"],
+        2 => ["You have 10 pencils. You lose 3 and buy 6 more. How many now?", "13"],
+    ],
+    6 => [
+        0 => ["What is 10 x 1?", "10"],
+        1 => ["A box has 7 red balls and 5 blue balls. How many balls total?", "12"],
+        2 => ["You walk 4 steps forward and 3 steps back, then 6 more forward. How many steps forward in total?", "7"],
+    ],
+    7 => [
+        0 => ["What is 8 + 2?", "10"],
+        1 => ["A pizza is cut into 8 slices. You eat 3 and your friend eats 2. How many are left?", "3"],
+        2 => ["You build 4 towers with 6 blocks each. One tower falls and loses 2 blocks. How many blocks are still standing?", "22"],
+    ],
+];
+
+
+$puzzle_bible_old = [
     1 => [  0 => ["What is the next letter in this sequence: J, A, S, O, N...","d"], 
             1 => ["If you take, 3/7 chicken, 2/3 cat and 2/4 goat, where are you going?","chicago"], 
             2  => ["Which word doesn't belong in the following sequence: PUN, GLUE, MATE, POOR, LIV, TICKS, HEAVEN","mate"]],

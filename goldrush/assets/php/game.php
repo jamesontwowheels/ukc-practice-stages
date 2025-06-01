@@ -24,13 +24,13 @@ $drone_routes = [
 ];
 
 $train_params = [
-    "engine" => [900,720,600],
+    "engine" => [600,480,360],
     "carriages" => [100,150,200],
     "science" => [0.1,0.3]
 ];
 
-include 'cp_bible.php';
 include 'puzzle_bible.php';
+include 'cp_bible.php';
 
 include 'db_connect.php';
 
@@ -174,7 +174,7 @@ $x = 0;
 
     //values
     $hand_limit = 2;
-    $stage_time = 90*60;
+    $stage_time = 40*60;
     $alert = 0;
 
 //TEAM SPECIFIC catchers (customise the catchers here)
@@ -414,10 +414,11 @@ if($debug == 1){ $debug_log[] = '72';};
             //calculate gold earned
             $drone_gold = 0;
             $drones_due = [];
+            $drone_length = 180;
             foreach($teams[$tm]["params"]["drone_times"] as $times){
-                $add_gold = floor(($t - $times)/300); // if it's every 2 minutes
-                $next_due = ($t - $times) % 300;
-                $drones_due[] = 300 - $next_due;
+                $add_gold = floor(($t - $times)/$drone_length); // if it's every 2 minutes
+                $next_due = ($t - $times) % $drone_length;
+                $drones_due[] = $drone_length - $next_due;
                 $drone_gold += $add_gold;
             }
             //subtract gold already collected
