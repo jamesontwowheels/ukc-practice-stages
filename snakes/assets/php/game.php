@@ -609,6 +609,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $alert = 0;
         $game_time = $t - $game_start;
         $timezone = floor($game_time/1800);
+        
 
         if($timezone != $current_timezone){
             foreach ($player_details as $player_ID => &$details) {
@@ -717,9 +718,11 @@ if($debug == 1){ $debug_log[] = '72';};
 
         //start_finish
         if($cp['type'] == "start_finish"){
+            $debug_log["game_state"] = $game_state;
             if($cp_number == 999){
             if($game_state == 0)
             {
+                $debug_log["999check"] = "running this here";
                 require 'start_game.php';
 
                 $game_state = 1;
@@ -813,4 +816,5 @@ $response["teams"] = $teams;
 $response["live_scores"] = $final_results;
 $response["commentary"] = $teams[$this_team]["params"]["commentary"];
 $response["debug_log"] = $debug_log;
+$response["db_response"] = $db_response;
 echo json_encode($response);

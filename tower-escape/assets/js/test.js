@@ -99,15 +99,16 @@ function ajax_call() {
         success: function(data) {
             console.log("ajax return");
             var debug_log = data["debug_log"];
-            console.log(debug_log);
             var db_response = data["db_response"];
             console.log(db_response);
+            console.log(debug_log);
             var inventory = data["inventory"];
             var cp_bible = data["cp_bible"];
             var cp_keys = Object.keys(cp_bible);
             console.log(cp_bible);
             var comment = data["comment"];
             var teams = data["teams"];
+            console.log(teams);
             var this_team   = data["this_team"];
 
             // showTemporaryMessage(comment, 3000);
@@ -240,6 +241,7 @@ function ajax_call() {
 
             //game state
             var game_state = data["game_state"];
+            console.log(game_state);
             var game_start = parseInt(game_state[1]);
             var game_end = parseInt(game_state[2]);
             var stage_time = game_state[3];
@@ -247,7 +249,8 @@ function ajax_call() {
                 document.getElementById("teams").style.display = "none";
                     // Set the date and time we're counting down to
                 const countdownDate = game_start + stage_time; // 5 minutes from now
-                // Update the countdown every second
+                // Update the countdown every second            
+                    clearInterval(countdownFunction);
                     countdownFunction = setInterval(function() {
                     // Get the current date and time
                     const now = new Date().getTime();
@@ -258,6 +261,8 @@ function ajax_call() {
                     // Time calculations for minutes and seconds
                     var minutes = Math.floor((distance) / (60));
                     var seconds = Math.floor(distance % (60));
+                    
+                    console.log('timer update');
 
                     // Display the result in the element with id="timer"
                     document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
@@ -280,7 +285,7 @@ function ajax_call() {
                 }
 
             //running score
-            console.log(data["teams"][this_team]["params"]["score"]);
+            console.log(data["teams"][this_team]["params"]);
             document.getElementById("score_zone").innerHTML = "<b>Score</b>: " + data["teams"][this_team]["params"]["score"];
              
             var button_detail = ["blurb","blib"];
