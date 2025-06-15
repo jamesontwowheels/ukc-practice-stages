@@ -2,24 +2,7 @@
 
 $puzzle_bible = [
     1 => [
-        0 => ["What is 5 + 3?", "8"],
-        1 => ["If you have 12 apples and eat 4, then get 3 more, how many do you have?", "11"],
-        2 => ["You see 3 spiders. Each spider has 8 legs. How many legs in total?", "24"],
-    ],
-    2 => [
-        0 => ["What is 9 - 5?", "4"],
-        1 => ["Tom has 6 packs of crayons with 2 crayons in each. He gives 3 away. How many does he have left?", "9"],
-        2 => ["A train has 4 carriages. Each carriage has 5 people. How many people in total?", "20"],
-    ],
-    3 => [
-        0 => ["What is 3 x 4?", "12"],
-        1 => ["Sally reads 5 pages a day. How many pages does she read in 3 days?", "15"],
-        2 => ["You find 3 treasure chests. Each has 7 coins. You give away 5 coins. How many do you keep?", "16"],
-    ],
-    4 => [
-        0 => ["What is 18 ÷ 3?", "6"],
-        1 => ["You baked 3 trays of cookies with 4 cookies each. You eat 2. How many are left?", "10"],
-        2 => ["Liam has 2 boxes with 6 toy cars each. He gets 3 more cars. How many in total?", "15"],
+        0 => ["Enter the code for the padlock", "trapdoor"],
     ],
     5 => [
         0 => ["What is 12 - 6?", "6"],

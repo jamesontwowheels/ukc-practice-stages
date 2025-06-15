@@ -1,338 +1,297 @@
 <?PHP
 $cp_bible = [
-    1 => [
-        
-        "cp" => 1,
-        "name" => "D1",
-        "type" => "drone",
-        "score" => [29,2,3],
-        "puzzle" => true,
+    11 => [  
+        "cp" => 11,
+        "name" => "Lobby",
+        "type" => "info",
+        "puzzle" => false,
+        "message" => "The entrance hall, above the door reads an inscription, 'Welcome to MINDGAMES Tower - est. <b>1518</b>'",
+        "options" => [],
+        "image" => [0,0],
+        "available" => false,
+        "level" => 1,
+    ],
+    12 => [  
+        "cp" => 12,
+        "name" => "Lounge",
+        "type" => "info",
+        "puzzle" => false,
+        "message" => "A softly decorated room with a cat sleeping on a chair, taking a closer look you see the cat is wearing a collar reading 'Mittens - born <b>2018</b>'",
+        "options" => [],
+        "image" => [0,0],
+        "available" => false,
+        "level" => 1,
+    ],
+    13 => [  
+        "cp" => 13,
+        "name" => "Office",
+        "type" => "info",
+        "puzzle" => false,
+        "message" => "A small office, on the desk is an American format calendar, with the date <b>January 16th</b> highlighted.",
+        "options" => [],
+        "image" => [0,0],
+        "available" => false,
+        "level" => 1,
+    ],
+    14 => [  
+        "cp" => 14,
+        "name" => "Kitchen",
+        "type" => "info",
+        "puzzle" => false,
+        "message" => "A kitchen, there is a broken clock on the wall showing the time <b>quarter past four</b> in the morning.",
+        "options" => [],
+        "image" => [0,0],
+        "available" => false,
+        "level" => 1,
+    ],
+    15 => [  
+        "cp" => 15,
+        "name" => "Up",
+        "type" => "trapdoor",
+        "puzzle" => True,
         "puzzle_q" => $puzzle_bible[1][0][0],
         "puzzle_a" => $puzzle_bible[1][0][1],
-        "message" => "",
-        "options" => [
-            1 => "solve"
-        ],
-        "available" => false
+        "message" => "A small room, there is a hole in the ceiling and a ladder locked to the wall with a combination padlock, the padlock is set to the code 'MINDGAME'",
+        "options" => [1 => "enter code", 101 => "Buy hint (5 gold)"],
+        "image" => [0,0],
+        "available" => false,
+        "level" => 1,
     ],
-    2 => [
+    21 => [
         
-        "cp" => 2,
-        "name" => "D2",
-        "type" => "drone",
-        "score" => [29,2,3],
-        "puzzle" => true,
-        "puzzle_q" => $puzzle_bible[2][0][0],
-        "puzzle_a" => $puzzle_bible[2][0][1],
-        "message" => "",
+        "cp" => 21,
+        "name" => "Note",
+        "type" => "pair",
+        "pair" => 1,
+        "puzzle" => false,
+        "message" => "A big button on the wall with the word <b>'NOTE'</b> on it",
         "options" => [
-            1 => "solve"
+            1 => "Press the button"
         ],
+        "image" => [0,0],
         "available" => false
     ],
-    3 => [
-            
-        "cp" => 3,
-        "name" => "D3",
-        "type" => "drone",
-        "score" => [29,2,3],
-        "puzzle" => true,
-        "puzzle_q" => $puzzle_bible[3][0][0],
-        "puzzle_a" => $puzzle_bible[3][0][1],
-        "message" => "",
+    22 => [
+        
+        "cp" => 22,
+        "name" => "Table",
+        "type" => "pair",
+        "pair" => 2,
+        "puzzle" => false,
+        "message" => "A big button on the wall with the word <b>'Table'</b> on it",
         "options" => [
-            1 => "solve"
+            1 => "Press the button"
         ],
+        "image" => [0,0],
+        "available" => false
+    ],
+    23 => [
+        
+        "cp" => 23,
+        "name" => "Top",
+        "type" => "pair",
+        "pair" => 3,
+        "puzzle" => false,
+        "message" => "A big button on the wall with the word <b>'Top'</b> on it",
+        "options" => [
+            1 => "Press the button"
+        ],
+        "image" => [0,0],
+        "available" => false
+    ],
+    24 => [
+        
+        "cp" => 24,
+        "name" => "Book",
+        "type" => "pair",
+        "pair" => 1,
+        "puzzle" => false,
+        "message" => "A big button on the wall with the word <b>'Book'</b> on it",
+        "options" => [
+            1 => "Press the button"
+        ],
+        "image" => [0,0],
+        "available" => false
+    ],
+    25 => [
+        
+        "cp" => 25,
+        "name" => "Lap",
+        "type" => "pair",
+        "pair" => 3,
+        "puzzle" => false,
+        "message" => "A big button on the wall with the word <b>'Lap'</b> on it",
+        "options" => [
+            1 => "Press the button"
+        ],
+        "image" => [0,0],
+        "available" => false
+    ],
+    26 => [
+        
+        "cp" => 26,
+        "name" => "Turn",
+        "type" => "pair",
+        "pair" => 2,
+        "puzzle" => false,
+        "message" => "A big button on the wall with the word <b>'Turn'</b> on it",
+        "options" => [
+            1 => "Press the button"
+        ],
+        "image" => [0,0],
+        "available" => false
+    ],
+    27 => [  
+        "cp" => 27,
+        "name" => "Up",
+        "type" => "ladder",
+        "puzzle" => false,
+        "message" => "The door to the staircase is locked, next to the door there are three lights, each light has two wires that lead off to different rooms. The instructions read 'to activate the light press the both buttons within 60s of each other. You cannot press the same button twice in a row'",
+        "options" => [],
+        "image" => [0,0],
+        "available" => false,
+        "level" => 1,
+    ],
+    31 => [
+            
+        "cp" => 31,
+        "name" => "quest",
+        "type" => "info",
+        "puzzle" => false,
+        "message" => "You enter the room and immediately a huge dogs pins you against the door, behind it is a pile of gold... if only you could reach it",
+        "options" => [
+            1 => "grab the gold"
+        ],
+        "image" => [0,0],
         "available" => false
     ], 
-    4 => [
+    41 => [
         
-        "cp" => 4,
-        "name" => "D4",
-        "type" => "drone",
-        "score" => [29,2,3],
-        "puzzle" => true,
-        "puzzle_q" => $puzzle_bible[4][0][0],
-        "puzzle_a" => $puzzle_bible[4][0][1],
-        "message" => "",
+        "cp" => 41,
+        "name" => "Room 4.1",
+        "type" => "nim",
+        "puzzle" => false,
+        "message" => "An empty room with a hole in the ceiling to the next level, there's a rope-ladder tangled in the hole, but it's too high reach and there's nothing to climb on",
+        "options" => [ 1 => "Pick block up",2 => "Put block down"],
+        "image" => [0,0],
+        "available" => false
+    ],
+    42 => [
+        
+        "cp" => 42,
+        "name" => "Room 4.2",
+        "type" => "nim",
+        "puzzle" => false,
+        "message" => "There are a pile of five blocks stacked in size order, you can climb up them and touch the ceiling, they don't look strong though, you can definitely only carry one at a time and it wouldn't be safe to put a larger one down on top of a smaller one...",
+        "options" => [ 1 => "Pick block up",2 => "Put block down"],
+        "image" => [1,"nim_54321.png"],
+        "available" => false
+    ],
+    43 => [
+        
+        "cp" => 43,
+        "name" => "Room 4.3",
+        "type" => "nim",
+        "puzzle" => false,
+        "message" => "Aside from a bookcase the room is empty, it looks like a good place to put a block down. Actually, is there something catching the light on top of the bookcase...?",
+        "options" => [ 1 => "Pick block up",2 => "Put block down"],
+        "image" => [0,0],
+        "available" => false
+    ],
+    51 => [
+        
+        "cp" => 51,
+        "name" => "Princess",
+        "type" => "quest",
+        "puzzle" => false,
+        "message" => "'What are you doing here? I said I didn't want to see anyone until my cat was returned to me, didn't you see the poster?'",
+        "options" => [1 => "offer to help"],
+        "image" => [1,"mittens.png"],
+        "available" => false
+    ],
+    52 => [
+            
+        "cp" => 52,
+        "name" => "Jester",
+        "type" => "quest",
+        "15-puzzle" => true,
+        "puzzle" => false,
+        "message" => "I've mixed up this portrait - 25 gold coins says you can't fix it",
         "options" => [
             1 => "solve"
         ],
+        "image" => [0,0],
         "available" => false
     ],
-    5 => [
+    53 => [
+            
+        "cp" => 53,
+        "name" => "Chef",
+        "type" => "quest",
+        "puzzle" => false,
+        "message" => '"I made too much food again, do you want some sausages?"',
+        "options" => [
+            1 => "Pick-up sausages"
+        ],
+        "image" => [0,0],
+        "available" => false
+    ],
+    54 => [
+            
+        "cp" => 54,
+        "name" => "Dragon",
+        "type" => "quest",
+        "puzzle" => false,
+        "message" => "A large dragon rests her hand on 25 gold pieces, every ten seconds she blinks, but only for 10ms",
+        "options" => [
+            1 => "Snatch gold"
+        ],
+        "image" => [0,0],
+        "available" => false
+    ],
+    55 => [
         
-        "cp" => 5,
-        "name" => "D5",
-        "type" => "drone",
-        "score" => [29,2,3],
+        "cp" => 55,
+        "name" => "King",
+        "type" => "quest",
         "puzzle" => true,
         "puzzle_q" => $puzzle_bible[5][0][0],
         "puzzle_a" => $puzzle_bible[5][0][1],
-        "message" => "",
+        "message" => "I'm stuck on this puzzle, help me out and I'll give you 20 gold coins",
         "options" => [
             1 => "solve"
         ],
+        "image" => [0,0],
         "available" => false
     ],
-    6 => [
-            
-        "cp" => 6,
-        "name" => "D6",
-        "type" => "drone",
-        "score" => [29,2,3],
+    56 => [
+        
+        "cp" => 55,
+        "name" => "Queen",
+        "type" => "quest",
         "puzzle" => true,
-        "puzzle_q" => $puzzle_bible[6][0][0],
-        "puzzle_a" => $puzzle_bible[6][0][1],
-        "message" => "",
+        "puzzle_q" => $puzzle_bible[5][0][0],
+        "puzzle_a" => $puzzle_bible[5][0][1],
+        "message" => "I'm stuck on this puzzle, help me out and I'll give you 20 gold coins",
         "options" => [
             1 => "solve"
         ],
+        "image" => [0,0],
         "available" => false
     ],
-    7 => [
+    57 => [
         
-        "cp" => 7,
-        "name" => "D7",
-        "type" => "drone",
-        "score" => [29,2,3],
-        "puzzle" => true,
-        "puzzle_q" => $puzzle_bible[7][0][0],
-        "puzzle_a" => $puzzle_bible[7][0][1],
-        "message" => "",
+        "cp" => 57,
+        "name" => "Up",
+        "type" => "ladder",
+        "puzzle" => false,
+        "message" => "Finally, daylight above, you can see the roof, and rescue",
         "options" => [
-            1 => "solve"
+            1 => "Go up"
         ],
+        "image" => [0,0],
         "available" => false
     ],
-    11 => [
-        
-        "cp" => 11,
-        "name" => "horse",
-        "type" => "horse",
-        "score" => [29,2,3],
-        "puzzle" => false,
-        "puzzle_q" => "Well done reaching the top of the hill. What is 1 + 1?",
-        "puzzle_a" => "2",
-        "message" => "",
-        "options" => [
-            1 => "Lasso the horse"
-        ],
-        "available" => false
-    ],
-    12 => [
-        
-        "cp" => 12,
-        "name" => "horse",
-        "type" => "horse",
-        "score" => [29,2,3],
-        "puzzle" => false,
-        "puzzle_q" => "Well done reaching the top of the hill. What is 1 + 1?",
-        "puzzle_a" => "2",
-        "message" => "",
-        "options" => [
-            1 => "Lasso the horse"
-        ],
-        "available" => false
-    ],
-    13 => [
-            
-        "cp" => 13,
-        "name" => "horse",
-        "type" => "horse",
-        "score" => [29,2,3],
-        "puzzle" => false,
-        "puzzle_q" => ["Well done reaching the top of the hill. What is 1 + 1?"],
-        "puzzle_a" => ["2"],
-        "message" => "",
-        "options" => [
-            1 => "Lasso the horse"
-        ],
-        "available" => false
-    ], 
-    14 => [
-        
-        "cp" => 14,
-        "name" => "horse",
-        "type" => "horse",
-        "score" => [29,2,3],
-        "puzzle" => false,
-        "puzzle_q" => "Well done reaching the top of the hill. What is 1 + 1?",
-        "puzzle_a" => "2",
-        "message" => "",
-        "options" => [
-            1 => "Lasso the horse"
-        ],
-        "available" => false
-    ],
-    15 => [
-        
-        "cp" => 15,
-        "name" => "horse",
-        "type" => "horse",
-        "score" => [29,2,3],
-        "puzzle" => false,
-        "puzzle_q" => "Well done reaching the top of the hill. What is 1 + 1?",
-        "puzzle_a" => "2",
-        "message" => "",
-        "options" => [
-            1 => "Lasso the horse"
-        ],
-        "available" => false
-    ],
-    16 => [
-            
-        "cp" => 16,
-        "name" => "horse",
-        "type" => "horse",
-        "score" => [29,2,3],
-        "puzzle" => false,
-        "puzzle_q" => ["Well done reaching the top of the hill. What is 1 + 1?"],
-        "puzzle_a" => ["2"],
-        "message" => "",
-        "options" => [
-            1 => "Lasso the horse"
-        ],
-        "available" => false
-    ],
-    17 => [
-        
-        "cp" => 17,
-        "name" => "horse",
-        "type" => "horse",
-        "score" => [29,2,3],
-        "puzzle" => false,
-        "puzzle_q" => "Well done reaching the top of the hill. What is 1 + 1?",
-        "puzzle_a" => "2",
-        "message" => "",
-        "options" => [
-            1 => "Lasso the horse"
-        ],
-        "available" => false
-    ],
-    18 => [
-        
-        "cp" => 18,
-        "name" => "horse",
-        "type" => "horse",
-        "score" => [29,2,3],
-        "puzzle" => false,
-        "puzzle_q" => "Well done reaching the top of the hill. What is 1 + 1?",
-        "puzzle_a" => "2",
-        "message" => "",
-        "options" => [
-            1 => "Lasso the horse"
-        ],
-        "available" => false
-    ],
-    19 => [
-            
-        "cp" => 19,
-        "name" => "horse",
-        "type" => "horse",
-        "score" => [29,2,3],
-        "puzzle" => false,
-        "puzzle_q" => ["Well done reaching the top of the hill. What is 1 + 1?"],
-        "puzzle_a" => ["2"],
-        "message" => "",
-        "options" => [
-            1 => "Lasso the horse"
-        ],
-        "available" => false
-    ],
-        21 => [
-            "cp" => 21,
-            "name" => "mine",
-            "type" => "mine",
-            "score" => [1,2,0],
-            "puzzle" => false,
-            "puzzle_q" => "",
-            "puzzle_a" => "",
-            "message" => "",
-            "options" => [
-                1 => "Pick-up gold"
-            ],
-            "available" => false
-        ],
-        22 => [
-            
-            "cp" => 22,
-            "name" => "Bank",
-            "type" => "bank",
-            "score" => [2,0,6],
-            "puzzle" => false,
-            "puzzle_q" => "",
-            "puzzle_a" => "",
-            "message" => "",
-            "options" => [
-                1 => "Deposit gold"
-            ],
-            "available" => false
-        ],
-        23 => [
-            
-            "cp" => 23,
-            "name" => "Station",
-            "type" => "station",
-            "score" => [3,0,5],
-            "puzzle" => false,
-            "puzzle_q" => "",
-            "puzzle_a" => "",
-            "message" => "",
-            "options" => [
-                1 => "Unload train",
-                2 => "Set train to depart"
-            ],
-            "available" => false
-        ],
-        24 => [
-            
-            "cp" => 24,
-            "name" => "Ranch",
-            "type" => "ranch",
-            "score" => [4,6,0],
-            "puzzle" => false,
-            "puzzle_q" => "",
-            "puzzle_a" => "",
-            "message" => "",
-            "options" => [
-                1 => "Drop wild horses",
-                2 => "Collect tame horses"
-            ],
-            "available" => false
-        ],
-        25 => [
-            
-            "cp" => 25,
-            "name" => "Depot",
-            "type" => "depot",
-            "score" => [5,1,0],
-            "puzzle" => false,
-            "puzzle_q" => "",
-            "puzzle_a" => "",
-            "message" => "",
-            "options" => [
-                1 => "Upgrade engine power",
-                2 => "Buy additional carriage",
-                3 => "Scientific testing kit"
-            ],
-            "available" => false
-        ],
-        26 => [
-            
-            "cp" => 26,
-            "name" => "Drone base",
-            "type" => "drone_base",
-            "score" => [6,0,3],
-            "puzzle" => false,
-            "puzzle_q" => "",
-            "puzzle_a" => "",
-            "message" => "",
-            "options" => [
-                1 => "Bank gold"
-            ],
-            "available" => false
-        ],
         999 => [
             
             "cp" => 999,
@@ -346,6 +305,7 @@ $cp_bible = [
             "options" => [
                 1 => "Go!"
             ],
+        "image" => [0,0],
             "available" => true
         ],
         998 => [
@@ -361,6 +321,7 @@ $cp_bible = [
             "options" => [
                 1 => "Finish"
             ],
+        "image" => [0,0],
             "available" => false
         ]
          //etc

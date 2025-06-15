@@ -185,7 +185,7 @@ function ajax_call() {
                                     if(cpx["puzzle"]){
                                         puzzle_class = "puzzle";
                                     }
-                                    document.getElementById(target_space).innerHTML += '<button class="submit_button active ' + puzzle_class + '" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
+                                    document.getElementById(target_space).innerHTML += '<button id="optionbutton'+this_key+key+'" class="submit_button active ' + puzzle_class + '" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
                                     });
                                 
                                 var cp_header_id = "cp-header-"+this_key;
@@ -201,6 +201,24 @@ function ajax_call() {
                                 if(cpx["puzzle"]){
                                     document.getElementById(info_space).innerHTML += '<br><br>' + cpx["puzzle_q"];    
                                 }
+
+                                //add an image:
+                                if(cpx["image"][0] == 1){
+                                    console.log(cpx["image"][1]);
+                                    document.getElementById(info_space).innerHTML += '<br><br><img class="puzzle_pic" src="assets/img/' + cpx["image"][1] + '">';
+                                }
+
+                                //add a 15-puzzle:
+                                if(cpx["15-puzzle"] == true){
+                                    console.log(cpx["image"][1]);
+                                    const puzzle_space = `15_puzzle`+this_key;
+                                    const puzzle_button_id = "optionbutton"+this_key+"1";
+                                    document.getElementById(puzzle_button_id).classList.add('blocked');
+                                    document.getElementById(info_space).innerHTML += "<div id='"+puzzle_space+"'></div>";
+                                    var container15 = document.getElementById(puzzle_space);
+                                    initImagePuzzle(container15, 'assets/img/jester.png',puzzle_button_id)
+                                }
+
                                 document.getElementById(cp_space).classList.add('neutral');
                             resolve(element); // Element found, resolve the promise
 
