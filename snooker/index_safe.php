@@ -40,13 +40,8 @@ function findSnookerScore($punches, $timeTakenSecs) {
     $finalColourIndex = 0;
     $postRedColourGiven = false;
 
-    $lastControlId = null;
-
     foreach ($punches as $punch) {
         $id = extractControlId($punch);
-        if ($id === $lastControlId) continue; // skip if same as previous control
-        $lastControlId = $id;
-
         $sequence[] = $id;
 
         if ($state === "main") {
@@ -114,22 +109,12 @@ function findSnookerScore($punches, $timeTakenSecs) {
     ];
 }
 
-$manualOverride = [
-    'Tim Scarbrough' => [13, 60,12, 60, 11, 50, 10, 50, 8, 40, 9 , 40, 1, 30, 2, 70, 14, 70, 15, 70, 7, 70,3,70, 6, 70, 4, 5, 20, 30, 40, 50, 60, 70]
-];
-
 $results = [];
 foreach ($data['results'] as $participant) {
     $name = $participant['Firstname'] . " " . $participant['Surname'];
     $punches = $participant['Punches'] ?? [];
     $timeTakenSecs = $participant['TotalTimeSecs'] ?? 0;
-
-    if (isset($manualOverride[$name])) {
-        $manualPunches = array_map(fn($id, $i) => ["ControlId" => (string)$id, "TimeAfterStartSecs" => $i], $manualOverride[$name], array_keys($manualOverride[$name]));
-        $res = findSnookerScore($manualPunches, $timeTakenSecs);
-    } else {
-        $res = findSnookerScore($punches, $timeTakenSecs);
-    }
+    $res = findSnookerScore($punches, $timeTakenSecs);
 
     $results[] = [
         'name' => $name,
