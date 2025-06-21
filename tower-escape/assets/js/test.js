@@ -154,9 +154,11 @@ function ajax_call() {
                             element.classList.remove("blocked");
                             element.classList.remove("puzzle");
                             var opt_card = "cp_option_card_"+key_id;
+                            document.getElementById(opt_card).classList.add("show_first");
                             var rowId = "row"+key_id;
                             if (cpx["available"]) {
                                 document.getElementById(opt_card).classList.add("available");
+                            document.getElementById(opt_card).classList.remove("show_first");
                                document.getElementById(rowId).style.display = 'block';
                               } else {
                                 document.getElementById(opt_card).classList.remove("available");

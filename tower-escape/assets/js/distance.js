@@ -92,11 +92,13 @@ function success(pos) {
   if (d < d_need) {
     button_element.addClass('active');
     button_element.removeClass('inactive');
-    if (option_element.hasClass('available')) {
+    if (option_element.hasClass('available') && option_element.hasClass('show_first')) {
       option_element.removeClass('cp-option');
+      option_element.removeClass('show_first');
       option_element.addClass('cp-option-show');}
   } else {
     button_element.addClass('inactive');
+    button_element.addClass('show_first');
     button_element.removeClass('active');
     //this is where we need to add the 'hide the options'
     option_element.addClass('cp-option');
