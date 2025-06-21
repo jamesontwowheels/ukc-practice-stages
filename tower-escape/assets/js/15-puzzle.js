@@ -86,7 +86,7 @@ function initImagePuzzle(containerElement, imagePath = 'your-image.jpg', buttonI
         const button = document.getElementById(buttonIdToActivate);
         console.log("Activate buttone"+buttonIdToActivate);
         if (button) {
-          button.classList.remove("blocked");
+          button.classList.remove("inactive");
           button.classList.add("active");
           button.disabled = false;
         }

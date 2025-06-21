@@ -218,7 +218,7 @@ $cp_bible = [
         "puzzle" => false,
         "message" => "I've mixed up this portrait - 25 gold coins says you can't fix it",
         "options" => [
-            1 => "solve"
+            1 => "Claim Gold"
         ],
         "image" => [0,0],
         "available" => false
@@ -240,6 +240,7 @@ $cp_bible = [
             
         "cp" => 54,
         "name" => "Dragon",
+        "blink-game" => true,
         "type" => "quest",
         "puzzle" => false,
         "message" => "A large dragon rests her hand on 25 gold pieces, every ten seconds she blinks, but only for 10ms",
@@ -266,7 +267,7 @@ $cp_bible = [
     ],
     56 => [
         
-        "cp" => 55,
+        "cp" => 56,
         "name" => "Queen",
         "type" => "quest",
         "puzzle" => true,
@@ -287,7 +288,7 @@ $cp_bible = [
         "puzzle" => false,
         "message" => "Finally, daylight above, you can see the roof, and rescue",
         "options" => [
-            1 => "Go up"
+            6 => "Go up"
         ],
         "image" => [0,0],
         "available" => false

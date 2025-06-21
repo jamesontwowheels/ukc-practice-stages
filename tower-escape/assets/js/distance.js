@@ -10,7 +10,7 @@ if (user_ID == 29) {
   var d_base = 250000;
   
   console.log("demi-god mode active");    
-  } else { var d_base = 25;} // god mode
+  } else { var d_base = 15;} // god mode
 
 fetch('assets/php/location.php')
         .then(response => response.json())
@@ -91,11 +91,13 @@ function success(pos) {
 
   if (d < d_need) {
     button_element.addClass('active');
-    button_element.removeClass('inactive')
-
+    button_element.removeClass('inactive');
+    if (option_element.hasClass('available')) {
+      option_element.removeClass('cp-option');
+      option_element.addClass('cp-option-show');}
   } else {
     button_element.addClass('inactive');
-    button_element.removeClass('active')
+    button_element.removeClass('active');
     //this is where we need to add the 'hide the options'
     option_element.addClass('cp-option');
     option_element.removeClass('cp-option-show');

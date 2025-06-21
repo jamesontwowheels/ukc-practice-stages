@@ -258,6 +258,8 @@ if($debug == 1){ $debug_log[] = '72';};
             if($pl == $user_ID){
                 //update this CP's options
                 $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = $level_options[$cp_number][$cp_option];
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["name"] = $level_names[$cp_number][$cp_option];
+                
                 //update all CP's availability
                 foreach ($teams[$tm]["params"]["cp_bible"] as &$checkpoint) {
                         if(in_array($checkpoint["cp"],$level_bible[$cp_option])){
@@ -395,7 +397,8 @@ if($debug == 1){ $debug_log[] = '72';};
                     $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = 'Mittens!" cries the princess, and she hands you <b>75 gold coins</b>.';
                     $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = []; 
                     $teams[$tm]["params"]["cp_bible"][$cp_number]["image"] = [1,"mittens-found.png"];
-                    $teams[$tm]["params"]["score"] += 75;    
+                    $teams[$tm]["params"]["score"] += 75;
+                    unset($players[$pl]["inventory"]["cats"]);    
                     $comment = "Quest complete: Mittens returned";
                     } else {
                         $comment = "You are not carrying mittens";
@@ -412,12 +415,13 @@ if($debug == 1){ $debug_log[] = '72';};
                 $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [];  
                 $teams[$tm]["params"]["cp_bible"][51]["options"] =  [2 => "Return mittens"];
                 $comment = "mittens collected!";
+                unset($players[$pl]["inventory"]["catbox"]);    
                 } else {
                     $comment = "you need a box to put Mittens in";
                 }
-            }
+                }
 
-        //chef
+            //chef
             if($cp_number == 53){
                 if($cp_option == 1){
                     $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = '"Get out of my kitchen!" Screams the chef';
@@ -437,6 +441,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = 'The dog eats the sausages and falls asleep - the bag of gold is now within reach';
                 $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [1 => "grab the gold"];
                 $teams[$tm]["params"]["dog"] = true;
+                unset($players[$pl]["inventory"]["sausages"]);    
                 $comment = "Sausages thrown";
                     } else {
                         $comment = "You don't have any sausages...";
@@ -453,6 +458,16 @@ if($debug == 1){ $debug_log[] = '72';};
                         $comment = "<b>No chance - not with that hungry dog there!</b>";
                     }
                 }
+            }
+            if($cp_number == 52){
+               if($cp_option == 1){
+                $comment = "You have earned 25 gold coins";
+                $teams[$tm]["params"]["score"] += 25;
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = 'You put my picture back together already!';
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [];
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["15-puzzle"] = false;
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["image"] = [1,"jester.png"];
+               } 
             }
         }
 
@@ -496,8 +511,9 @@ if($debug == 1){ $debug_log[] = '72';};
                 } elseif ($game_time >= $stage_time ) {
                     $comment = "too late to finish";
                 } else {
+                    $remaining_mins = floor(($stage_time - $game_time)/60);
                     $pl_finishers[] = $pl;
-                    $finish_bonus = 50/(count($teams[$tm]["members"]));
+                    $finish_bonus = $remaining_mins;
                         $teams[$tm]["params"]["score"] += $finish_bonus;
                         unset($checkpoint);
                         $comment = "Finished. Bonus: $finish_bonus";

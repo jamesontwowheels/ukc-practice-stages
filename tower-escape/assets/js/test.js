@@ -153,11 +153,13 @@ function ajax_call() {
                             element.innerHTML = keyname;
                             element.classList.remove("blocked");
                             element.classList.remove("puzzle");
+                            var opt_card = "cp_option_card_"+key_id;
+                            var rowId = "row"+key_id;
                             if (cpx["available"]) {
-                                rowId = "row"+key_id;
+                                document.getElementById(opt_card).classList.add("available");
                                document.getElementById(rowId).style.display = 'block';
                               } else {
-                                rowId = "row"+key_id;
+                                document.getElementById(opt_card).classList.remove("available");
                                 document.getElementById(rowId).style.display = 'none';
                                 console.log('hidden'+key_id);
                               };   
@@ -213,10 +215,19 @@ function ajax_call() {
                                     console.log(cpx["image"][1]);
                                     const puzzle_space = `15_puzzle`+this_key;
                                     const puzzle_button_id = "optionbutton"+this_key+"1";
-                                    document.getElementById(puzzle_button_id).classList.add('blocked');
+                                    document.getElementById(puzzle_button_id).classList.add('inactive');
                                     document.getElementById(info_space).innerHTML += "<div id='"+puzzle_space+"'></div>";
                                     var container15 = document.getElementById(puzzle_space);
                                     initImagePuzzle(container15, 'assets/img/jester.png',puzzle_button_id)
+                                }
+
+                                //add a dragon-game:
+                                if(cpx["blink-game"] == true){
+                                    const blink_space = `blink_puzzle`+this_key;
+                                    const blink_button_id = "optionbutton"+this_key+"1";
+                                    document.getElementById(blink_button_id).classList.add('inactive');
+                                    document.getElementById(info_space).innerHTML += "<div id='"+blink_space+"'></div>";
+                                    startDragonGame(blink_space,blink_button_id);
                                 }
 
                                 document.getElementById(cp_space).classList.add('neutral');

@@ -31,6 +31,7 @@ $_SESSION['game'] = $game;
 <script type="text/javascript" src='targets.js'></script>
 <script type="text/javascript" src='assets/js/distance.js'></script>
 <script type="text/javascript" src='assets/js/15-puzzle.js'></script>
+<script type="text/javascript" src='assets/js/dragon-game.js'></script>
 <link rel="stylesheet" href="assets/css/main.css?v0.12">
 <link rel="stylesheet" href="assets/css/underwater.css">
 <link rel="stylesheet" href="assets/css/polar.css">
