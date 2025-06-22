@@ -92,9 +92,10 @@ function success(pos) {
   if (d < d_need) {
     button_element.addClass('active');
     button_element.removeClass('inactive');
-    if (option_element.hasClass('available') && option_element.hasClass('show_first') && user_ID != 29) {
+    if (option_element.hasClass('available') && option_element.hasClass('show_first') && user_ID !== 29) {
       option_element.removeClass('cp-option');
       option_element.removeClass('show_first');
+      console.log('removing show first');
       option_element.addClass('cp-option-show');}
   } else {
     button_element.addClass('inactive');

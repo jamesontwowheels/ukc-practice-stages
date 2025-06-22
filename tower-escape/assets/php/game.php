@@ -568,9 +568,9 @@ $response["running_score"] = $running_score;
 $response["alert"] = $alert;
 $response["this_team"] = $this_team;
 $response["usernames"] = $usernames;
+}
 $response["game_state"] = [$teams[$this_team]["params"]["game"]["game_state"],$teams[$this_team]["params"]["game"]["game_start"],$teams[$this_team]["params"]["game"]["game_end"],$stage_time];
 $response["inventory"] = $players[$user_ID]["inventory"];
-}
 $response["teams"] = $teams;
 $response["live_scores"] = $final_results;
 $response["commentary"] = $teams[$this_team]["params"]["commentary"];

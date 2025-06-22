@@ -22,9 +22,11 @@ if (isset($_GET['location'])) {
     <link rel="stylesheet" href="../assets/css/app-buttons.css?v0.1">
   <script defer src="assets/js/lobby.js"></script>
 </head>
-<body>
+<body><script>
+    var user_ID = <?php echo json_encode($_SESSION['user_ID']); ?>;
+    </script>
   <div class="container">
-    <h1>Game Lobby</h1>
+    <h3>Game Lobby</h3>
 
     <!-- Progress Bar -->
     <div class="progress-bar">
@@ -86,12 +88,14 @@ if (isset($_GET['location'])) {
       <button id="change-team-btn">Change Team</button>
       <button id="go-to-start" disabled>Go to Start</button>
     </section>
+  <div id="unlock-button" class ="card"></div>
+  <div id="footer-back"></div>
   </div>
-
+  
+    <script src="assets/js/ready.js"></script>
   <!-- FontAwesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer></script>
 </body>
-<div id="footer-back"></div>
 <div id="footer">
 <div class="app-buttons">
         <a href="../index.php" class="app-button" id="app1"><i class="fas fa-house"></i><br></a>

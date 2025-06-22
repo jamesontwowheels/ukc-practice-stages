@@ -188,7 +188,7 @@ startBtn.onclick = () => {
     showStep(1);
     return;
   }
-  window.location.href = `game_start.php?team=${encodeURIComponent(selected.name)}`;
+  window.location.href = `index.php?team=${encodeURIComponent(selected.name)}`;
 };
 
 // Initialize

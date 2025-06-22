@@ -158,7 +158,6 @@ function ajax_call() {
                             var rowId = "row"+key_id;
                             if (cpx["available"]) {
                                 document.getElementById(opt_card).classList.add("available");
-                            document.getElementById(opt_card).classList.remove("show_first");
                                document.getElementById(rowId).style.display = 'block';
                               } else {
                                 document.getElementById(opt_card).classList.remove("available");
@@ -349,6 +348,7 @@ $(document).on('click', '.close-btn', function () {
     const $parentCard = $(this).parent(); // Get the parent card
     $parentCard.removeClass('cp-option-show'); // Remove the "show" class
     $parentCard.addClass('cp-option'); // Add the "cp-options" class
+    $parentCard.removeClass("show_first");
 });
 
 
