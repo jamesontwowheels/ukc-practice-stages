@@ -254,7 +254,7 @@ $cp_bible = [
         
         "cp" => 55,
         "name" => "King",
-        "type" => "quest",
+        "type" => "puzzle point",
         "puzzle" => true,
         "puzzle_q" => $puzzle_bible[5][0][0],
         "puzzle_a" => $puzzle_bible[5][0][1],
@@ -269,10 +269,10 @@ $cp_bible = [
         
         "cp" => 56,
         "name" => "Queen",
-        "type" => "quest",
+        "type" => "puzzle point",
         "puzzle" => true,
-        "puzzle_q" => $puzzle_bible[5][0][0],
-        "puzzle_a" => $puzzle_bible[5][0][1],
+        "puzzle_q" => $puzzle_bible[5][1][0],
+        "puzzle_a" => $puzzle_bible[5][1][1],
         "message" => "I'm stuck on this puzzle, help me out and I'll give you 20 gold coins",
         "options" => [
             1 => "solve"

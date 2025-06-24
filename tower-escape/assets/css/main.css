@@ -124,7 +124,18 @@ td {
 #exit a{
     color: white;
 }
+#refresh {
+  position: absolute;
+  color: white;
+  top: 25px;
+  right: 25px;
+  z-index: 500;
+  font-size: 1.8em;
+}
 
+#refresh a{
+    color: white;
+}
 #inventory {
     background: #7500c0;
 }

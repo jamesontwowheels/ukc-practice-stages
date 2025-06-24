@@ -5,8 +5,8 @@ $puzzle_bible = [
         0 => ["Enter the code for the padlock", "trapdoor"],
     ],
     5 => [
-        0 => ["What is 12 - 6?", "6"],
-        1 => ["A rabbit eats 3 carrots a day. How many does it eat in 5 days?", "15"],
+        0 => ["What is the missing letter: <br><br><img class='puzzle_pic' src='assets/img/lancaster_puzzle.png'>", "t"],
+        1 => ["What is the next number in the sequence?<br><br><img class='puzzle_pic' src='assets/img/squares_puzzle.png'>", "15"],
         2 => ["You have 10 pencils. You lose 3 and buy 6 more. How many now?", "13"],
     ],
     6 => [

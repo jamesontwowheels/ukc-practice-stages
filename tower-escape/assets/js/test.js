@@ -62,7 +62,7 @@ function ajax_call() {
     cp_option_choice = cp_option_choice || 0;
 
     var user_input = "void";
-    if($(this).hasClass('puzzle')){
+    if($(this).hasClass('puzzle') && cp_option_choice == 1){
         user_input = prompt("submit your answer");
         if (user_input === null || user_input == "") { 
             console.log("nothing input");
@@ -154,7 +154,6 @@ function ajax_call() {
                             element.classList.remove("blocked");
                             element.classList.remove("puzzle");
                             var opt_card = "cp_option_card_"+key_id;
-                            document.getElementById(opt_card).classList.add("show_first");
                             var rowId = "row"+key_id;
                             if (cpx["available"]) {
                                 document.getElementById(opt_card).classList.add("available");
@@ -276,7 +275,7 @@ function ajax_call() {
             var game_end = parseInt(game_state[2]);
             var stage_time = game_state[3];
             if(game_state[0] == 1){
-                document.getElementById("teams").style.display = "none";
+                // document.getElementById("teams").style.display = "none";
                     // Set the date and time we're counting down to
                 const countdownDate = game_start + stage_time; // 5 minutes from now
                 // Update the countdown every second            

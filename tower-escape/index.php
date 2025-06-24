@@ -38,15 +38,10 @@ $_SESSION['game'] = $game;
 <link rel="stylesheet" href="assets/css/15-puzzle.css">
 <link rel="stylesheet" href="assets/css/app-buttons.css?v0.11">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
 </head>
 <body>
 <div id="main">
-<h1>Gold Rush</h1>
-<div id="tempMessage">This is a temporary message!</div>
-  <div id="teams">
-  <a href="teams.php" class="team-button"><br>Team Set-up</a>
-  </div>
+<h1>Tower Escape</h1>
   <div id="cp_options">
 
   </div>
@@ -98,7 +93,8 @@ $_SESSION['game'] = $game;
         <!-- <a href="../stages.php" class="app-button" id="app4"><br>Exit</a> -->
 </div>
 </div>
-<div id="exit"><a href="../stages.php" class="" id="app4"><i class="fas fa-arrow-left"></i></a></div>
+<div id="exit"><a href="lobby.php" class="" id="app4"><i class="fas fa-arrow-left"></i></a></div>
+<div id="refresh"><a href="index.php" class="" id="app4"><i class="fas fa-refresh"></i></a></div>
 </body>
 <script type="text/javascript" src='assets/js/test.js?v0.01' defer></script>
 <script type="text/javascript" src='assets/js/rows.js?v0.01'></script>

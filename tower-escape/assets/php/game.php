@@ -65,6 +65,7 @@ if($teams_active){
             "cps" => [],
             "score" => 0,
             "params" => [
+                "finishers" => 0,
                 "game" => [
                     "game_start" => 0,
                     "game_state" => 0,
@@ -105,7 +106,9 @@ if($teams_active){
        $players[$row4["player_ID"]] = [ 
             "team" => $row4["team"],
             "name" => $usernames[$row4["player_ID"]],
-            "params" => [ "last_pair" => 0],
+            "params" => [   "last_pair" => 0,
+                            "puzzle_cooldown" => 0
+            ],
             "history" => [],
             "inventory" => [ "level" => 1]
         ];
@@ -339,10 +342,11 @@ if($debug == 1){ $debug_log[] = '72';};
                         $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Aside from a bookcase the room is empty, it looks like a good place to put a block down.";
                         $teams[$tm]["params"]["nim"]["gold"] = 0;
                     }
-                    if (count($teams[$tm]["params"]["nim"][$cp_number]) > 4 && $cp_number == 41){
+                    if (count($teams[$tm]["params"]["nim"][$cp_number]) > 0 && $cp_number == 41){
                              $teams[$tm]["params"]["cp_bible"][$cp_number]["type"] = "ladder";
                             $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "You're in a room with a ladder, only one thing to do";
-                            $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = $level_options[$cp_number][$players[$pl]["inventory"]["level"]];        
+                            $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = $level_options[$cp_number][$players[$pl]["inventory"]["level"]]; 
+                            $teams[$tm]["params"]["cp_bible"][$cp_number]["name"] = $level_names[$cp_number][$players[$pl]["inventory"]["level"]];          
                             $comment .= ". You scramble up the blocks and untie the ladder!";
                         
                     }
@@ -492,6 +496,48 @@ if($debug == 1){ $debug_log[] = '72';};
             }
         }
 
+        //dragon
+                if($cp_number == 54){
+                    $comment = "You snatch 25 gold coins";
+                    $teams[$tm]["params"]["score"] += 25;
+                    $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = 'You stole my gold!';
+                    $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [];
+                    $teams[$tm]["params"]["cp_bible"][$cp_number]["type"] = "info";
+                    $teams[$tm]["params"]["cp_bible"][$cp_number]["blink-game"] = false;
+                    $teams[$tm]["params"]["cp_bible"][$cp_number]["image"] = [1,"dragon_sad.png"];
+                }
+
+
+                //puzzle point
+        if($cp["type"] == "puzzle point"){
+            //solve puzzle to pick-up the bonus
+            if($cp["available"]){
+                if($players[$pl]["params"]["puzzle_cooldown"] + 30 > $t){
+                    // wait for the cool down bro...
+                    $wait_left = $players[$pl]["params"]["puzzle_cooldown"] + 30 - $t + 5;
+                    $players[$pl]["params"]["puzzle_cooldown"] += 5;
+                    $comment = "Puzzle locked for $wait_left seconds<br>(10s added)";
+                } else {
+
+            $teams[$tm]["stats"]["puzzles"]["attempts"][] = $cp["name"];
+
+            if($puzzle_answer == $cp["puzzle_a"]){
+                $teams[$tm]["stats"]["puzzles"]["solved"][] = $cp["name"];
+                //word puzzle
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["type"] = "info"; 
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Thank you, you solved my puzzle!";
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["puzzle"] = false;
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [];
+                $teams[$tm]["params"]["score"] += 20;
+                $comment = "Puzzle solved, 20 gold earned";
+            } else {
+                $comment = "Incorrect.<br>Puzzle locked for 30s";
+                $players[$pl]["params"]["puzzle_cooldown"] = $t;
+            }}}
+            else {
+                $comment = "puzzle already solved";
+            }
+        }
 
         //start_finish
         if($cp['type'] == "start_finish"){
@@ -532,17 +578,24 @@ if($debug == 1){ $debug_log[] = '72';};
                 } elseif ($game_time >= $stage_time ) {
                     $comment = "too late to finish";
                 } else {
-                    $remaining_mins = floor(($stage_time - $game_time)/60);
+                    $teams[$tm]["params"]["finishers"] += 1;
                     $pl_finishers[] = $pl;
-                    $finish_bonus = $remaining_mins;
-                        $teams[$tm]["params"]["score"] += $finish_bonus;
-                        unset($checkpoint);
-                        $comment = "Finished. Bonus: $finish_bonus";
                     if($pl == $user_ID){
                         foreach ($teams[$tm]["params"]["cp_bible"] as &$checkpoint) {
                             $checkpoint["available"] = false;
                         } 
                         unset($checkpoint);
+                        $teams[$tm]["params"]["cp_bible"][998]["available"] = true;
+                        $teams[$tm]["params"]["cp_bible"][998]["options"] = [];
+                        $teams[$tm]["params"]["cp_bible"][998]["message"] = "You have finished";
+                    }
+
+                    if($teams[$tm]["members"] == $teams[$tm]["params"]["finishers"] =+ 1){
+                        $remaining_mins = floor(($stage_time - $game_time)/60);
+                        $finish_bonus = $remaining_mins;
+                        $teams[$tm]["params"]["score"] += $finish_bonus;
+                        $comment = "Finished. Bonus: $finish_bonus";
+                        $teams[$tm]["params"]["cp_bible"][998]["message"] = "Your whole team have finished, and earned $finish_bonus gold";
                     }
                 }
             }
