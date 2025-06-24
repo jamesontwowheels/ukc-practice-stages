@@ -76,11 +76,6 @@ function ajax_call() {
         cp = 0;
     }
    
-    if (cp == 999){
-        const userConfirmed = confirm("Are you sure you're ready to start/stop?")
-        if(!userConfirmed) { return;};
-    }
-
     //bit of jazz
     $(this).addClass('blocked');
     var temp_highlight = $("#cp"+cp);

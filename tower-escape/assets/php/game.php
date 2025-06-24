@@ -287,7 +287,7 @@ if($debug == 1){ $debug_log[] = '72';};
             $comment = "The padlock rattles but doesn't budge, that's not the answer";
              };}
              if($cp_option == 101){
-                $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Convert the clues from the other rooms into letters (1=A, 2=B...) and arrange them to spell a word";
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Convert the clues from the other rooms into letters (01=A, 02=B...) and arrange them to spell a word";
                 $comment = "clue bought";
                 $teams[$tm]["params"]["score"] -= 5;
                 unset( $teams[$tm]["params"]["cp_bible"][$cp_number]["options"][101]);
@@ -347,6 +347,12 @@ if($debug == 1){ $debug_log[] = '72';};
                             $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "You're in a room with a ladder, only one thing to do";
                             $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = $level_options[$cp_number][$players[$pl]["inventory"]["level"]]; 
                             $teams[$tm]["params"]["cp_bible"][$cp_number]["name"] = $level_names[$cp_number][$players[$pl]["inventory"]["level"]];          
+                            $teams[$tm]["params"]["cp_bible"][42]["options"] = [];
+                            $teams[$tm]["params"]["cp_bible"][43]["options"] = [];
+                            $teams[$tm]["params"]["cp_bible"][42]["message"] = "Just an empty room";
+                            $teams[$tm]["params"]["cp_bible"][43]["message"] = "Just an empty room";
+                            $teams[$tm]["params"]["cp_bible"][42]["image"] = [0,0];
+                            $teams[$tm]["params"]["cp_bible"][43]["image"] = [0,0];
                             $comment .= ". You scramble up the blocks and untie the ladder!";
                         
                     }
@@ -374,9 +380,10 @@ if($debug == 1){ $debug_log[] = '72';};
                 unset( $teams[$tm]["params"]["cp_bible"][$cp_number]["options"][101]);
             } else {
             if($cp_number == $players[$pl]["params"]["last_pair"]) {
-                $comment = "You can't press the same button twice";
+                $comment = "You can't press the same button twice in a row";
             } else {
                 $played_word = strtolower($teams[$tm]["params"]["cp_bible"][$cp_number]["name"]);
+                $players[$pl]["params"]["last_pair"] = $cp_number;
                 if($teams[$tm]["params"]["pairs"]["word"] == "") {
                     $teams[$tm]["params"]["pairs"]["word"] = $played_word;
                     $comment = " Current word: $played_word";
