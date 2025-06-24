@@ -7,7 +7,7 @@ if (user_ID == 29) {
   var d_base = 30000000;
   console.log("GOD MODE ACTIVE");} 
   else if (user_ID == 8) {
-  var d_base = 250000;
+  var d_base = 250000000;
   
   console.log("demi-god mode active");    
   } else { var d_base = 15;} // god mode
@@ -84,6 +84,7 @@ function success(pos) {
   var cp = "cp" + id;
   var option_element = $("#cp_option_card_" + id);
   document.getElementById(cp).innerHTML = d + "m " + direction;
+  console.log(cp);
   var button = "butt"+id;
   var button_element = $("#"+button);
 

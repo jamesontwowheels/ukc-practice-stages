@@ -273,6 +273,7 @@ if($debug == 1){ $debug_log[] = '72';};
         }
         //trapdoor
         if($cp['type'] == 'trapdoor'){ 
+            if($cp_option == 1){
             if($puzzle_answer == $cp["puzzle_a"]){
             $teams[$tm]["params"]["cp_bible"][$cp_number]["type"] = "ladder";
             $teams[$tm]["params"]["cp_bible"][$cp_number]["puzzle"] = false;
@@ -281,8 +282,25 @@ if($debug == 1){ $debug_log[] = '72';};
             $comment = "You solved the riddle, the padlock comes off and the ladder gives you a way up";                 
         } else {
             $comment = "The padlock rattles but doesn't budge, that's not the answer";
-             };
+             };}
+             if($cp_option == 101){
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Convert the clues from the other rooms into letters (1=A, 2=B...) and arrange them to spell a word";
+                $comment = "clue bought";
+                $teams[$tm]["params"]["score"] -= 5;
+                unset( $teams[$tm]["params"]["cp_bible"][$cp_number]["options"][101]);
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["options"][102] = "buy solution (10 Gold)";
+             }
+             if ($cp_option == 102){
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "The padlock code is TRAPDOOR (20-18,01-16,04-15,15-18)";
+                $comment = "solution bought";
+                $teams[$tm]["params"]["score"] -= 10;
+                unset( $teams[$tm]["params"]["cp_bible"][$cp_number]["options"][102]);
+
+             }
          }
+
+
+
         //nim
         if($cp['type'] == 'nim'){
             
@@ -321,7 +339,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Aside from a bookcase the room is empty, it looks like a good place to put a block down.";
                         $teams[$tm]["params"]["nim"]["gold"] = 0;
                     }
-                    if (count($teams[$tm]["params"]["nim"][$cp_number]) > 0 && $cp_number == 41){
+                    if (count($teams[$tm]["params"]["nim"][$cp_number]) > 4 && $cp_number == 41){
                              $teams[$tm]["params"]["cp_bible"][$cp_number]["type"] = "ladder";
                             $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "You're in a room with a ladder, only one thing to do";
                             $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = $level_options[$cp_number][$players[$pl]["inventory"]["level"]];        
@@ -345,15 +363,19 @@ if($debug == 1){ $debug_log[] = '72';};
 
         //pairs
         if($cp['type'] == 'pair'){ 
+            if($cp_option == 101){
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Spell the words turn-table, note-book and lap-top to unlock the door";
+                $comment = "clue bought (-5 gold)";
+                $teams[$tm]["params"]["score"] -= 5;
+                unset( $teams[$tm]["params"]["cp_bible"][$cp_number]["options"][101]);
+            } else {
             if($cp_number == $players[$pl]["params"]["last_pair"]) {
                 $comment = "You can't press the same button twice";
             } else {
                 $played_word = strtolower($teams[$tm]["params"]["cp_bible"][$cp_number]["name"]);
-                if($teams[$tm]["params"]["pairs"]["time"] + 10 < $t) {
-                    $comment = "you have 60s to complete the word.";
-                    $teams[$tm]["params"]["pairs"]["time"] = $t;
+                if($teams[$tm]["params"]["pairs"]["word"] == "") {
                     $teams[$tm]["params"]["pairs"]["word"] = $played_word;
-                    $comment .= " Current word: $played_word";
+                    $comment = " Current word: $played_word";
                 } else {
                     $compound_word = $teams[$tm]["params"]["pairs"]["word"].$played_word;
                     if(in_array($compound_word,$teams[$tm]["params"]["pairs_codes_used"])){
@@ -362,7 +384,6 @@ if($debug == 1){ $debug_log[] = '72';};
                         $teams[$tm]["params"]["pairs"]["word"] = "";
                     } elseif (in_array($compound_word,$teams[$tm]["params"]["pairs_codes"])) {
                         $comment = "Passcode found: $compound_word";
-                        $teams[$tm]["params"]["pairs"]["time"] = $t;
                         $teams[$tm]["params"]["pairs"]["word"] = "";
                         $teams[$tm]["params"]["pairs_found"] += 1;
                         if($teams[$tm]["params"]["pairs_found"] == 3) {
@@ -373,11 +394,11 @@ if($debug == 1){ $debug_log[] = '72';};
                             $debug_log["staircase_drama"] = $level_options[27][$players[$pl]["inventory"]["level"]];
                         }} else {
                             $comment = "$compound_word isn't a passcode. Current word: $played_word";
-                            $teams[$tm]["params"]["pairs"]["time"] = $t;
                             $teams[$tm]["params"]["pairs"]["word"] = $played_word;
                         }
                     }
                 }
+            }
             }
 
         //quest

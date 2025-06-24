@@ -143,11 +143,11 @@ $cp_bible = [
     ],
     27 => [  
         "cp" => 27,
-        "name" => "Up",
+        "name" => "Stairs",
         "type" => "ladder",
         "puzzle" => false,
-        "message" => "The door to the staircase is locked, next to the door there are three lights, each light has two wires that lead off to different rooms. The instructions read 'to activate the light press the both buttons within 60s of each other. You cannot press the same button twice in a row'",
-        "options" => [],
+        "message" => "The door to the staircase is locked, next to the door there are three lights, each light has two wires that lead off to different rooms. The instructions read 'Spell the correct word to activate the light. You cannot press the same button twice in a row'",
+        "options" => [101 => "Buy Solution (10 Gold)"],
         "image" => [0,0],
         "available" => false,
         "level" => 1,
@@ -155,7 +155,7 @@ $cp_bible = [
     31 => [
             
         "cp" => 31,
-        "name" => "quest",
+        "name" => "Room",
         "type" => "info",
         "puzzle" => false,
         "message" => "You enter the room and immediately a huge dogs pins you against the door, behind it is a pile of gold... if only you could reach it",
