@@ -95,5 +95,5 @@ function initImagePuzzle(containerElement, imagePath = 'your-image.jpg', buttonI
   }
 
   // Initialize puzzle and pre-shuffle
-  shuffleTiles(10);
+  shuffleTiles(500);
 }

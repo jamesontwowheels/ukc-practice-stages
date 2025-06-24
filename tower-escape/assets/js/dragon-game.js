@@ -27,7 +27,7 @@ function startDragonGame(containerId, buttonIdToActivate) {
   let gameLoop = null;
   let blinkActive = false;
   let blinkInterval = 10000;
-  let blinkDuration = 200;
+  let blinkDuration = 150;
   let nextBlinkTime = null;
   let resetTimeout = null;
   let blinkTimeout = null;

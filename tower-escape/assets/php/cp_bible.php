@@ -162,7 +162,7 @@ $cp_bible = [
         "options" => [
             1 => "grab the gold"
         ],
-        "image" => [0,0],
+        "image" => [1,"dog_1.png"],
         "available" => false
     ], 
     41 => [
@@ -171,7 +171,7 @@ $cp_bible = [
         "name" => "Room 4.1",
         "type" => "nim",
         "puzzle" => false,
-        "message" => "An empty room with a hole in the ceiling to the next level, there's a rope-ladder tangled in the hole, but it's too high reach and there's nothing to climb on",
+        "message" => "An empty room with a hole in the ceiling to the next level, there's a rope-ladder tangled in the hole, but it's too high to reach and there's nothing to climb on. You would need about 5 blocks...",
         "options" => [ 1 => "Pick block up",2 => "Put block down"],
         "image" => [0,0],
         "available" => false
@@ -193,7 +193,7 @@ $cp_bible = [
         "name" => "Room 4.3",
         "type" => "nim",
         "puzzle" => false,
-        "message" => "Aside from a bookcase the room is empty, it looks like a good place to put a block down. Actually, is there something catching the light on top of the bookcase...?",
+        "message" => "Aside from a bookcase four blocks high, the room is empty, it looks like a good place to put a block down. Actually, is there something catching the light on top of the bookcase...?",
         "options" => [ 1 => "Pick block up",2 => "Put block down"],
         "image" => [0,0],
         "available" => false
@@ -233,7 +233,7 @@ $cp_bible = [
         "options" => [
             1 => "Pick-up sausages"
         ],
-        "image" => [0,0],
+        "image" => [1,"chef_1.png"],
         "available" => false
     ],
     54 => [
@@ -243,7 +243,7 @@ $cp_bible = [
         "blink-game" => true,
         "type" => "quest",
         "puzzle" => false,
-        "message" => "A large dragon rests her hand on 25 gold pieces, every ten seconds she blinks, but only for 10ms",
+        "message" => "A large dragon rests her hand on 25 gold pieces, every ten seconds she blinks, but only for a fraction of a second",
         "options" => [
             1 => "Snatch gold"
         ],

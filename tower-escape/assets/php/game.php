@@ -149,7 +149,7 @@ $x = 0;
 
     //values
     $hand_limit = 2;
-    $stage_time = 400000*60;
+    $stage_time = 90*60;
     $alert = 0;
 
 //TEAM SPECIFIC catchers (customise the catchers here)
@@ -342,7 +342,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Aside from a bookcase the room is empty, it looks like a good place to put a block down.";
                         $teams[$tm]["params"]["nim"]["gold"] = 0;
                     }
-                    if (count($teams[$tm]["params"]["nim"][$cp_number]) > 0 && $cp_number == 41){
+                    if (count($teams[$tm]["params"]["nim"][$cp_number]) > 4 && $cp_number == 41){
                              $teams[$tm]["params"]["cp_bible"][$cp_number]["type"] = "ladder";
                             $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "You're in a room with a ladder, only one thing to do";
                             $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = $level_options[$cp_number][$players[$pl]["inventory"]["level"]]; 
@@ -350,10 +350,11 @@ if($debug == 1){ $debug_log[] = '72';};
                             $teams[$tm]["params"]["cp_bible"][42]["options"] = [];
                             $teams[$tm]["params"]["cp_bible"][43]["options"] = [];
                             $teams[$tm]["params"]["cp_bible"][42]["message"] = "Just an empty room";
-                            $teams[$tm]["params"]["cp_bible"][43]["message"] = "Just an empty room";
+                            $teams[$tm]["params"]["cp_bible"][43]["message"] = "Just an empty room, the book case has disappeared forever.";
                             $teams[$tm]["params"]["cp_bible"][42]["image"] = [0,0];
                             $teams[$tm]["params"]["cp_bible"][43]["image"] = [0,0];
-                            $comment .= ". You scramble up the blocks and untie the ladder!";
+                            $teams[$tm]["params"]["cp_bible"][41]["image"] = [0,0];
+                            $comment .= ". The blocked magically fuse together, you scramble up and untie the ladder!";
                         
                     }
                 }
@@ -458,6 +459,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 if($cp_option == 1){
                     $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = '"Get out of my kitchen!" Screams the chef';
                     $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [];        
+                     $teams[$tm]["params"]["cp_bible"][$cp_number]["image"] = [1,"chef_2.png"];        
                     $teams[$tm]["params"]["cp_bible"][31]["options"][2] =  "Throw the sausages";
                     $teams[$tm]["params"]["cp_bible"][31]["type"] = "quest";
                     $players[$pl]["inventory"]["sausages"] = 3;
@@ -471,6 +473,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 if ($sausages > 1) {
                 $players[$pl]["inventory"]["sausages"] = 0;
                 $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = 'The dog eats the sausages and falls asleep - the bag of gold is now within reach';
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["image"] = [1,"dog_2.png"];
                 $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [1 => "grab the gold"];
                 $teams[$tm]["params"]["dog"] = true;
                 unset($players[$pl]["inventory"]["sausages"]);    
@@ -486,6 +489,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         $teams[$tm]["params"]["score"] += 50;
                         $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = 'There is nothing here now except a hungry looking dog';
                         $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [];
+                        $teams[$tm]["params"]["cp_bible"][$cp_number]["image"] = [1,"dog_3.png"];
                     } else {
                         $comment = "<b>No chance - not with that hungry dog there!</b>";
                     }

@@ -86,7 +86,7 @@ if (isset($_GET['location'])) {
         <div id="countdown-text">10</div>
       </div>
       <button id="change-team-btn">Change Team</button>
-      <button id="go-to-start" disabled>Go to Start</button>
+      <button id="go-to-start" disabled>Go to Game</button>
     </section>
   <div id="unlock-button" class ="card"></div>
   <div id="footer-back"></div>
