@@ -212,7 +212,7 @@ $x = 0;
 
     //values
     $hand_limit = 2;
-    $stage_time = 25*60;
+    $stage_time = 90*60;
     $alert = 0;
     $show_stats = false;
 
