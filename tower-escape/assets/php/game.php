@@ -107,7 +107,8 @@ if($teams_active){
             "team" => $row4["team"],
             "name" => $usernames[$row4["player_ID"]],
             "params" => [   "last_pair" => 0,
-                            "puzzle_cooldown" => 0
+                            "puzzle_cooldown" => 0,
+                            "block" => ""
             ],
             "history" => [],
             "inventory" => [ "level" => 1]
@@ -149,7 +150,7 @@ $x = 0;
 
     //values
     $hand_limit = 2;
-    $stage_time = 90*60;
+    $stage_time = 115*60;
     $alert = 0;
 
 //TEAM SPECIFIC catchers (customise the catchers here)

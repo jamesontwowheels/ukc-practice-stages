@@ -144,10 +144,10 @@ $cp_bible = [
     27 => [  
         "cp" => 27,
         "name" => "Stairs",
-        "type" => "ladder",
+        "type" => "false",
         "puzzle" => false,
         "message" => "The door to the staircase is locked, next to the door there are three lights, each light has two wires that lead off to different rooms. The instructions read 'Spell the correct words to activate the lights. You cannot press the same button twice in a row'",
-        "options" => [101 => "Buy Solution (10 Gold)"],
+        "options" => [],
         "image" => [0,0],
         "available" => false,
         "level" => 1,
