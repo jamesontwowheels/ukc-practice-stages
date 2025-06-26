@@ -1,7 +1,7 @@
 <?PHP
 
 
-$cp_bible = [
+$cp_bible_kids = [
     1 => [
         "cp" => 1,
         "name" => '1 - <div class="scrabble-tile letter-tile">
@@ -232,7 +232,7 @@ $cp_bible = [
          //etc
     ];
 
-$cp_bible_old = [
+$cp_bible = [
     1 => [
         "cp" => 1,
         "name" => '1 - <div class="scrabble-tile letter-tile">
