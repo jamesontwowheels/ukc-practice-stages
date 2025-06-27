@@ -24,7 +24,7 @@ $drone_routes = [
 ];
 
 $train_params = [
-    "engine" => [600,480,360],
+    "engine" => [960,720,540],
     "carriages" => [100,150,200],
     "science" => [0.1,0.3]
 ];
