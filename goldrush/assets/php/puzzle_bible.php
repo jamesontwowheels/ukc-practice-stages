@@ -1,6 +1,6 @@
 <?PHP 
 
-$puzzle_bible = [
+$puzzle_bible_kids = [
     1 => [
         0 => ["What is 5 + 3?", "8"],
         1 => ["If you have 12 apples and eat 4, then get 3 more, how many do you have?", "11"],
@@ -39,7 +39,7 @@ $puzzle_bible = [
 ];
 
 
-$puzzle_bible_old = [
+$puzzle_bible = [
     1 => [  0 => ["What is the next letter in this sequence: J, A, S, O, N...","d"], 
             1 => ["If you take, 3/7 chicken, 2/3 cat and 2/4 goat, where are you going?","chicago"], 
             2  => ["Which word doesn't belong in the following sequence: PUN, GLUE, MATE, POOR, LIV, TICKS, HEAVEN","mate"]],

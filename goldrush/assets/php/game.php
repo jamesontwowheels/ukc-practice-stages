@@ -174,7 +174,7 @@ $x = 0;
 
     //values
     $hand_limit = 2;
-    $stage_time = 40*60;
+    $stage_time = 90*60;
     $alert = 0;
 
 //TEAM SPECIFIC catchers (customise the catchers here)

@@ -25,6 +25,7 @@ $_SESSION['game'] = 77;
 </head>
 <body>
 <h2>MINDGAMES</h2>
+<a class="stage" href="scrabble-7/lobby.php?location=3">Swinley</a>
 <a class="stage" href="scrabble-7/lobby.php?location=0">London</a>
 <a class="stage" href="scrabble-7/lobby.php?location=2">Bristol</a>
 <a class="stage" href="scrabble-7/lobby.php?location=1">Court Rec</a>
