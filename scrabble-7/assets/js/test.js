@@ -16,7 +16,7 @@ function safeAjaxCall() {
         refreshcall = false;
     });;
 }
-setInterval(safeAjaxCall, 2000); // every 10 seconds
+setInterval(safeAjaxCall, 5000); // every 10 seconds
 
 function pause(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

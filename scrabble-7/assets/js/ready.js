@@ -1,6 +1,6 @@
 console.log (user_ID);
 function checkGameReady() {
-    if (user_ID == 29 || user_ID == 50 || window.location_active && window.game_active && window.team_active) {
+    if (user_ID == 29 || user_ID == 50 || user_ID == 57 || window.location_active && window.game_active && window.team_active) {
         console.log("The game is ready to go!");
         // Select the existing div by its ID
             const div = document.getElementById("go-to-start");
@@ -36,7 +36,7 @@ function checkGameReady() {
 // Start the check
 checkGameReady();
 
-if (user_ID == 29 || user_ID == 50) {
+if (user_ID == 29 || user_ID == 50 ||  user_ID == 57 ) {
     console.log("The game is ready to go!");
     // Select the existing div by its ID
         const div2 = document.getElementById("unlock-button");
