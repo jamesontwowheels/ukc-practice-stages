@@ -47,7 +47,7 @@ if (isset($_SESSION['username'])) {
 </head>
 <body>
     
-  <h2>MINDGAMES</h2>
+  <h2>MINDGAMES.</h2>
   <div id="main">
     <div class="login-container">
     <form class="login-form" onsubmit="login(event)">
