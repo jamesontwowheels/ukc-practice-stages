@@ -652,5 +652,5 @@ $response["teams"] = $teams;
 $response["live_scores"] = $final_results;
 $response["commentary"] = $teams[$this_team]["params"]["commentary"];
 $response["debug_log"] = $debug_log;
-$response["db_response"] = $db_response;
+//$response["db_response"] = $db_response;
 echo json_encode($response);
