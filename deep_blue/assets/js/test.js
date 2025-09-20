@@ -1,4 +1,4 @@
-let countdownFunction = 0;
+let countdownFunction;
 let oxygenFunction = 0;
 var puzzle_questions = [];
 
@@ -248,7 +248,33 @@ function ajax_call() {
             if(game_state[0] == 1){
                     // Set the date and time we're counting down to
                 const countdownDate = game_start + stage_time; // 5 minutes from now
-                // Update the countdown every second
+                function startCountdown(countdownDate) {
+                // Clear any existing interval before starting a new one
+                if (countdownFunction) {
+                    clearInterval(countdownFunction);
+                }
+
+                countdownFunction = setInterval(function() {
+                    const now = Math.floor(Date.now() / 1000);
+                    const distance = countdownDate - now;
+
+                    if (distance <= 0) {
+                        clearInterval(countdownFunction);
+                        document.getElementById("timer").innerHTML = "EXPIRED";
+                        return;
+                    }
+
+                    const minutes = Math.floor(distance / 60);
+                    const seconds = Math.floor(distance % 60);
+
+                    document.getElementById("timer").innerHTML =
+                        minutes + "m " + seconds + "s ";
+                }, 250);
+            }
+
+            startCountdown(countdownDate);
+
+                /** // Update the countdown every second
                     countdownFunction = setInterval(function() {
                     // Get the current date and time
                     const now = new Date().getTime();
@@ -262,7 +288,9 @@ function ajax_call() {
 
                     // Display the result in the element with id="timer"
                     document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
-                },1000)} else if (game_state[0] == 2){
+                },1000); **/
+                console.log("Interval = " + countdownFunction);
+            } else if (game_state[0] == 2){
 
                 console.log ("timer cancelled! Interval = " + countdownFunction);
                     clearInterval(countdownFunction);

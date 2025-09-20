@@ -70,7 +70,6 @@ $x = 0;
      $cps_seals = [31,32,33];
      $cps_oxygen = [102,202,302];
      //special CPS;
-     $cp_trident = 333;
      $cp_start_finish = [998,999];
      $cp_walrus = 34;
      $cp_snow_bank = 777;
@@ -127,7 +126,6 @@ $x = 0;
         32 => "Seal 2",
         33 => "Seal 3",
         34 => "Walrus",
-        333 => "Trident",
         777 => "Snow Bank",
         102 => "Ice Hole 1",
         202 => "Ice Hole 2",

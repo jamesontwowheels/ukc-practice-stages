@@ -25,7 +25,6 @@ try {
                 // Password is correct
                 $_SESSION['user_ID'] = $result['id'];
                 $_SESSION['username'] = $result['name'];
-
                
                 echo json_encode(['success' => true]);
                 // Redirect to a protected page or dashboard

@@ -21,14 +21,16 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
 <h2>MINDGAMES</h2>
+<a class="stage" href="deep_blue?location=8">Newcastle</a><br>    <!-- Map ID: 68ca90ab06213  -->
 <a class="stage" href="deep_blue?location=7">Banstead</a><br>    <!-- Map ID: 6727beb8dd300  -->
 <a class="stage" href="deep_blue?location=6">Whitley v2</a><br>  <!-- Map ID: 67cca1e7bbb10 -->
+<!-- 
 <a class="stage" href="deep_blue?location=5">Whitley Bay</a><br>
 <a class="stage" href="deep_blue?location=3">Court Rec</a><br>
 <a class="stage" href="deep_blue?location=4">Lightwater</a><br>
 <a class="stage" href="deep_blue?location=2">Focus Group</a><br>
 <a class="stage" href="deep_blue?location=0">Fenchurch St - 22.10.24</a><br>
-<a class="stage" href="deep_blue?location=1">Rising Sun</a><br>
+<a class="stage" href="deep_blue?location=1">Rising Sun</a><br> -->
 
 <div id="footer-back"></div>
 <div id="footer">
