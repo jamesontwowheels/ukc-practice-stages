@@ -27,7 +27,7 @@ $_SESSION['game'] = 6;
 <h2>MINDGAMES</h2>
 <a class="stage" href="goldrush/lobby.php?location=0">London</a>
 <a class="stage" href="goldrush/lobby.php?location=5">Swinley</a>
-<a class="stage" href="goldrush/lobby.php?location=1">Newcastle</a>
+<a class="stage" href="goldrush/lobby.php?location=6">Newcastle</a>
 <a class="stage" href="goldrush/lobby.php?location=2">MH Demo</a>
 <a class="stage" href="goldrush/lobby.php?location=3">Bristol</a>
 <a class="stage" href="goldrush/lobby.php?location=4">Court Rec</a>

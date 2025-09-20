@@ -10,7 +10,9 @@ $user_input = isset($_REQUEST['user_input']) ? $_REQUEST['user_input'] : '';
 //trim whitespace
 $input = trim($user_input);
 // Sanitize using filter_var
-$sanitized_input = filter_var($input, FILTER_SANITIZE_STRING); // Note: FILTER_SANITIZE_STRING is deprecated as of PHP 8.1
+//$sanitized_input = filter_var($input, FILTER_SANITIZE_STRING); // Note: FILTER_SANITIZE_STRING is deprecated as of PHP 8.1
+$sanitized_input = htmlspecialchars($input, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+
 // Safely escape for HTML output to prevent XSS
 $safe_input = htmlspecialchars($sanitized_input, ENT_QUOTES, 'UTF-8');
 

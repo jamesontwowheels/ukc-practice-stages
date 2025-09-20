@@ -281,7 +281,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 $comment = "Horse already collected";
             } else {
             $teams[$tm]["params"]["horses"][] = $cp_number;
-            if($cp["cp"] == 13) {
+            if($cp["cp"] == 16) {
                 $players[$pl]["inventory"]["Wild horses"] = 0;
                 $players[$pl]["inventory"]["Gold"] = 0;
                 $comment = "Stand and deliver!";
@@ -652,5 +652,5 @@ $response["teams"] = $teams;
 $response["live_scores"] = $final_results;
 $response["commentary"] = $teams[$this_team]["params"]["commentary"];
 $response["debug_log"] = $debug_log;
-$response["db_response"] = $db_response;
+//$response["db_response"] = $db_response;
 echo json_encode($response);
