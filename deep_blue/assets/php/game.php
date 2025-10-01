@@ -80,15 +80,15 @@ $x = 0;
     $puzzle_cps = [31,32,33];
     
     $puzzle_questions =[
-        31 => "Where follows Tirana, Sofia, Zagreb, Copenhagen, London, Paris, Berlin?",
-        32 => "The same four letters have been removed from the following words. Identify the letters and rearrange them to spell a well-known highstreet business: 1. '_ YDRO _ AR _ ON _', 2. '_ A _ KLA _ _', 3.'AR _ _ _ I _ HOP', 4.'_ WIT _ _ _ ACK'",
-        33 => "If 444 equates to 1625, and 1555 equates to 524, what does 1040 equate to?"
+        31 => "Three of these words are related. Which word is not related to the rest? CURRENT - RAPIDS - WHIRLPOOL - CANYON",
+        32 => "Keith and Connor are working on square jigsaw puzzles. Keith's  has more than twice as many pieces than Connor's. Together, their two puzzles contain a total of 520 pieces. How many pieces does Connor's have?",
+        33 => "Patrycja has misplaced her debit card and can't remember the last two digits of her card number. The first 14 digits of her long card number are 4816 3264 1282 56. Can you help her remember the last two digits?"
     ];
 
     $puzzle_answers = [
-        31 => "budapest",
-        32 => "hsbc",
-        33 =>  20211
+        31 => "canyon",
+        32 => "36",
+        33 =>  "51"
     ];
     
     $lesson_cost = [

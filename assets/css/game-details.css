@@ -1,0 +1,99 @@
+html, body {
+    background: #131110;
+    font-family: 'CustomFont', sans-serif;
+    color: #131110;
+    font-size: 1.5em;
+    background-image: linear-gradient(45deg, #a100ff, #b455aa);
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
+    margin-top: 1em;
+}
+
+#main {
+    padding: 1em;
+    margin: 1em;
+    background: #131110;
+    color:#e6e6dc;
+    font-size: inherit;
+}
+
+.game_description {
+    
+    font-family: sans-serif;
+    font-size: .8em;
+    padding: 5%;
+}
+
+.game_rules {    padding: 0.5em;
+    border-radius: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    margin: auto;
+    margin-bottom: 15px;
+    display: block;
+    background: #7500c0;
+    color: #e6e6dc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stage {
+    padding: 0.5em;
+    display:block;
+    font-size: 2em;
+    border-radius: 0.5em;
+    background: #7500c0;
+    color:#e6e6dc;
+    border: 1px dashed #586557;
+}
+
+a.stage {
+    color: #e6e6dc;
+    text-decoration: none;
+    display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.clicked {
+    background: #00ffff;
+    transition: 1.5s ease-in-out;
+}
+
+.content {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s ease;
+}
+
+/* Expanded state */
+.content.expand {
+    height: auto; /* Change to the desired height or let it adjust based on the content */
+    transition: height 0.5s ease;
+}
+
+button {
+    border-radius: 25px;
+    background-color: #96968c;
+    color: black;
+    font-size: 0.8em;
+    min-width: 150px;
+    min-height: 50px;
+    transition: min-height 0.5s ease;
+}
+  /* Button bar at the bottom */
+  .button-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    z-index: 1000;
+  }

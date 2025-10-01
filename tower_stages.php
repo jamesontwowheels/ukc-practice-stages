@@ -24,7 +24,7 @@ $_SESSION['game'] = 8;
 
 </head>
 <body>
-<h2>MINDGAMES</h2>
+<h2>Tower Escape</h2>
 <a class="stage" href="tower-escape/lobby.php?location=1">FCS</a>
 <div id="footer-back"></div>
 <div id="footer">
