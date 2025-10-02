@@ -25,21 +25,27 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
 
+<h2><?= htmlspecialchars($_SESSION['game_name']); ?></h2>
+<br>
 <?php
 
 require 'db_connect.php'; // provides $conn (PDO instance)
 
 try {
-    $sql = "SELECT Id, game_name, game_description, game_rules 
-            FROM game_reference_data 
+    $sql = "SELECT Id, location_name, location_number, game_rules 
+            FROM games 
             WHERE game_number = :game_number";
     
     $stmt = $conn->prepare($sql);
     $stmt->execute([':game_number' => $_SESSION['game']]);
-    $game = $stmt->fetch(PDO::FETCH_ASSOC);
+    $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($game) {
-        $rulesFile = "game-admin/game-rules/" . $game['game_rules'];
+    if ($games) {
+        foreach ($games as $game) {
+            echo '<a href="'.$_SESSION['game_src'].'/lobby.php?location=' . htmlspecialchars($game['location_number']) . '">';
+            echo '<button class="game_rules">' . htmlspecialchars($game['location_name']) . '</button>';
+            echo '</a><br>';
+        }
     } else {
         die("❌ No game found");
     }
@@ -48,19 +54,6 @@ try {
     die("❌ Database Error: " . $e->getMessage());
 }
 ?>
-
-<!-- Output HTML -->
-<h2><?= htmlspecialchars($game['game_name']); ?></h2>
-<p class="game_description"><?= nl2br(htmlspecialchars($game['game_description'])); ?></p>
-
-<?php if (!empty($game['game_rules'])): ?>
-    <a href="<?= htmlspecialchars($rulesFile); ?>" download>
-        <button class="game_rules" type="button">Download Rules   <i class="fas fa-download"></i></button>
-    </a>
-
-    <br>
-<a href="tower_stages.php"><button class="game_rules" type="button">Select Game   <i class="fas fa-forward"></i></button></a>
-<?php endif; ?>
 
 <div id="footer-back"></div>
 <div id="footer">

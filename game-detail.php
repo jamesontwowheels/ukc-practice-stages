@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-$_SESSION['game'] = 8;
+$_SESSION['game'] = $_GET['game_number'];
 
 ?>
 
@@ -32,7 +32,7 @@ $_SESSION['game'] = 8;
 require 'db_connect.php'; // provides $conn (PDO instance)
 
 try {
-    $sql = "SELECT Id, game_name, game_description, game_rules 
+    $sql = "SELECT Id, game_name, game_description, game_rules, game_src
             FROM game_reference_data 
             WHERE game_number = :game_number";
     
@@ -42,6 +42,8 @@ try {
 
     if ($game) {
         $rulesFile = "game-admin/game-rules/" . $game['game_rules'];
+        $_SESSION['game_src'] = $game['game_src'];
+        $_SESSION['game_name'] = $game['game_name'];
     } else {
         die("❌ No game found");
     }
@@ -61,7 +63,7 @@ try {
     </a>
 
     <br>
-<a href="tower_stages.php"><button class="game_rules" type="button">Select Game   <i class="fas fa-forward"></i></button></a>
+<a href="game-location.php"><button class="game_rules" type="button">Select Game   <i class="fas fa-forward"></i></button></a>
 <?php endif; ?>
 
 <div id="footer-back"></div>
