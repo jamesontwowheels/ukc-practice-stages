@@ -40,6 +40,19 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+#exit {
+    position: absolute;
+    color: white;
+    top: 25px;
+    left: 25px;
+    z-index: 500;
+    font-size: 1.8em;
+}
+#exit a {
+    color: black;
+}
+
+
 .stage {
     padding: 0.5em;
     display:block;

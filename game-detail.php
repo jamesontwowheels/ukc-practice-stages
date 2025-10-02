@@ -26,7 +26,7 @@ $_SESSION['game'] = $_GET['game_number'];
 
 </head>
 <body>
-
+<div id="exit"><a href="stages.php" class="" id="app4"><i class="fas fa-arrow-left"></i></a></div>
 <?php
 
 require 'db_connect.php'; // provides $conn (PDO instance)

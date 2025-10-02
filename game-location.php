@@ -25,6 +25,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
 
+<div id="exit"><a href="game-detail.php?game_number=<?= $_SESSION['game'];?>" class="" id="app4"><i class="fas fa-arrow-left"></i></a></div>
 <h2><?= htmlspecialchars($_SESSION['game_name']); ?></h2>
 <br>
 <?php
