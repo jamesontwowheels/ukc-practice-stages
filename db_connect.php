@@ -12,7 +12,6 @@ try {
     $conn = new PDO("sqlsrv:Server=$serverName;Database=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    echo "✅ Database connection successful!";
 }
 catch (Exception $e) {
     echo "❌ Error connecting to SQL Server: " . htmlspecialchars($e->getMessage());
