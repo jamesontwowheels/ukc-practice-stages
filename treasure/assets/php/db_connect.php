@@ -4,7 +4,7 @@ try {
     static $conn = null;
     if ($conn === null) {
     $conn = new PDO("sqlsrv:server = tcp:aarc-server.database.windows.net,1433; Database = aarc_db",
-        "aarc_admin", "aZ158Ja^tR9g6PA6LBj", 
+        "aarc_admin", getenv('DB_PASSWORD'), 
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
 }
