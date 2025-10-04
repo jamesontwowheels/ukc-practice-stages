@@ -3,14 +3,17 @@ require_once '../db_connect.php';
 
 // Fetch game names and numbers from the reference table
 $games = [];
-$sql = "SELECT game_name, game_number FROM games_reference_data ORDER BY game_name";
-$stmt = $conn->prepare($sql);
+
+$stmt = $conn->prepare("SELECT game_name, game_number FROM games_reference_data ORDER BY game_name");
 $stmt->execute();
-$result = $stmt->get_result();
-while ($row = $result->fetch_assoc()) {
+
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $games[] = $row;
 }
-$stmt->close();
+
+// Close statement (optional in PDO)
+$stmt = null;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
