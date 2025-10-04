@@ -2,12 +2,15 @@
 require '../db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $game_number     = $_POST['game_number'] ?? null;
-    $location_number = $_POST['location_number'] ?? null;
-    $location_name   = $_POST['location_name'] ?? null;
-    $game_date       = $_POST['game_date'] ?? null;
-    $game_rules      = $_POST['game_rules'] ?? 1;
-    $action          = $_POST['action'] ?? 'dryrun';
+    $game_number   = $_POST['game_number'] ?? null;
+    $location_name = $_POST['location_name'] ?? null;
+    $game_date     = $_POST['game_date'] ?? null;
+    $game_rules    = $_POST['game_rules'] ?? 1;
+    $action        = $_POST['action'] ?? 'dryrun';
+
+    if (!$game_number || !$location_name) {
+        die("❌ Missing required fields.");
+    }
 
     // --- 1. Handle KML Upload ---
     if (!isset($_FILES['kml_file']) || $_FILES['kml_file']['error'] !== UPLOAD_ERR_OK) {
@@ -51,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // --- 2. Validation ---
     try {
-        $stmt = $conn->prepare("SELECT mandatory_points FROM game_reference_data WHERE game_number = :gn");
+        $stmt = $conn->prepare("SELECT mandatory_points FROM games_reference_data WHERE game_number = :gn");
         $stmt->bindParam(':gn', $game_number, PDO::PARAM_INT);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -68,12 +71,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $missing = array_diff($mandatory, $present);
 
     } catch (PDOException $e) {
-        die("❌ DB Error: " . $e->getMessage());
+        die("❌ DB Error (validation): " . $e->getMessage());
     }
 
-    // --- 3. Dry-run or Insert ---
+    // --- 3. Auto-generate next available location_number ---
+    try {
+        $stmt = $conn->prepare("SELECT MAX(location_number) AS max_loc FROM games WHERE game_number = :gn");
+        $stmt->bindParam(':gn', $game_number, PDO::PARAM_INT);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $location_number = ($row && $row['max_loc']) ? $row['max_loc'] + 1 : 1;
+    } catch (PDOException $e) {
+        die("❌ DB Error (location number): " . $e->getMessage());
+    }
+
+    // --- 4. Dry-run or Insert ---
     if ($action === 'dryrun') {
         echo "<h2>Dry-Run Results</h2>";
+
+        echo "Proposed Location Number: <b>{$location_number}</b><br><br>";
 
         if (!empty($missing)) {
             echo "❌ Missing mandatory features: <b>" . implode(', ', $missing) . "</b><br><br>";
@@ -83,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         echo "<h3>Extracted Features JSON:</h3>";
         echo "<pre>" . htmlspecialchars($featuresJson) . "</pre>";
-        echo "<br><a href='add_game.html'>Back to Add Game</a>";
+        echo "<br><a href='add_game_form.php'>Back to Add Game</a>";
 
     } elseif ($action === 'add') {
         if (!empty($missing)) {
@@ -102,10 +118,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':features', $featuresJson, PDO::PARAM_STR);
             $stmt->execute();
 
-            echo "✅ Game added successfully with features JSON.<br>";
+            echo "✅ Game added successfully.<br>";
+            echo "Game Number: <b>{$game_number}</b><br>";
+            echo "Location Number: <b>{$location_number}</b><br><br>";
             echo "<a href='view_games.php'>View Games</a>";
+
         } catch (PDOException $e) {
             die("❌ Insert Error: " . $e->getMessage());
         }
     }
 }
+?>
