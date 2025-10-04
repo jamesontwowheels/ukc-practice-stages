@@ -49,9 +49,6 @@ $stmt = null;
     <label for="game_number">Game Number:</label>
     <input type="number" id="game_number" name="game_number" readonly required><br><br>
 
-    <label for="location_number">Location Number:</label>
-    <input type="number" id="location_number" name="location_number" required><br><br>
-
     <label for="location_name">Location Name:</label>
     <input type="text" id="location_name" name="location_name" required><br><br>
 

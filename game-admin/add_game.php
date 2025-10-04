@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // --- 2. Validation ---
     try {
-        $stmt = $conn->prepare("SELECT mandatory_points FROM games_reference_data WHERE game_number = :gn");
+        $stmt = $conn->prepare("SELECT mandatory_points FROM game_reference_data WHERE game_number = :gn");
         $stmt->bindParam(':gn', $game_number, PDO::PARAM_INT);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
