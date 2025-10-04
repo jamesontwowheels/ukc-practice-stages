@@ -4,7 +4,7 @@ require_once '../db_connect.php';
 // Fetch game names and numbers from the reference table
 $games = [];
 
-$stmt = $conn->prepare("SELECT game_name, game_number FROM games_reference_data ORDER BY game_name");
+$stmt = $conn->prepare("SELECT game_name, game_number FROM game_reference_data ORDER BY game_name");
 $stmt->execute();
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
