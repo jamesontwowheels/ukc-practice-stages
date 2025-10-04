@@ -1,12 +1,23 @@
 <?php
-// PHP Data Objects(PDO) Sample Code:
 try {
-    $conn = new PDO("sqlsrv:server = tcp:aarc-server.database.windows.net,1433;Database=aarc_db","aarc_admin",getenv('DB_PASSWORD'));
+    $serverName = "tcp:aarc-server.database.windows.net,1433";
+    $database   = "aarc_db";
+    $username   = "aarc_admin";
+    $password   = getenv('DB_PASSWORD');
+
+    if (!$password) {
+        throw new Exception("Environment variable DB_PASSWORD not set or empty.");
+    }
+
+    $conn = new PDO("sqlsrv:Server=$serverName;Database=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $debug_log[] = "db-connected ";
+
+    echo "✅ Database connection successful!";
+}
+catch (Exception $e) {
+    echo "❌ Error connecting to SQL Server: " . htmlspecialchars($e->getMessage());
 }
 catch (PDOException $e) {
-    $debug_log[] = 'broken';
-    // print("Error connecting to SQL Server.");
-    die(print_r($e));
+    echo "❌ PDO Error: " . htmlspecialchars($e->getMessage());
 }
+?>
