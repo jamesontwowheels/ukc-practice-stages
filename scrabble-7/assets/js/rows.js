@@ -1,8 +1,11 @@
-fetch('assets/php/location.php')
+//fetch('assets/php/location.php')
+fetch('assets/php/features.php')
         .then(response => response.json())
         .then(data => {
-            var location = data.location;
-            var targets = games[location];
+            //var location = data.location;
+            //var targets = games[location];
+            console.log (data);
+            var targets = data.features
             console.log (targets);
 const tableBody = document.querySelector('#checkpoints tbody');
 const cp_options = document.querySelector('#cp_options');

@@ -24,7 +24,9 @@ $_SESSION['game'] = $game;
 <script type="text/javascript">
     // Assign the PHP session variable to a JavaScript variable
     var user_ID = '<?php echo $_SESSION['user_ID']; ?>';
-    console.log("userID = " + user_ID); // Outputs: cybersecurity_influencer
+    var location_check = '<?php echo $_SESSION['location']; ?>';
+    var game_check = '<?php echo $_SESSION['game']; ?>';
+    console.log("userID = " + user_ID + ". location = " + location_check + ". Game = " + game_check); // Outputs: cybersecurity_influencer
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

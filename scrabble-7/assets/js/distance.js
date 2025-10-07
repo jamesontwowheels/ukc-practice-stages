@@ -12,12 +12,20 @@ if (user_ID == 29) {
   console.log("demi-god mode active");    
   } else { var d_base = 25;} // god mode
 
-fetch('assets/php/location.php')
+fetch('assets/php/features.php')
+        .then(response => response.json())
+        .then(data => {
+            //var location = data.location;
+            //var targets = games[location];
+            console.log (data);
+            var targets = data.features
+
+/** fetch('assets/php/location.php')
         .then(response => response.json())
         .then(data => {
             var location = data.location;
             console.log (location);
-            var targets = games[location];
+            var targets = games[location]; **/
             console.log (targets);
 
 function deg2rad(degrees) {
