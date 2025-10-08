@@ -58,7 +58,7 @@ try {
 <p class="game_description"><?= nl2br(htmlspecialchars($game['game_description'])); ?></p>
 
 <?php if (!empty($game['game_rules'])): ?>
-    <a href="download.php?file=<?= htmlspecialchars($rulesFile); ?>" download>
+    <a href="download.php?file=<?= urlencode($game['game_rules']); ?>" download>
         <button class="game_rules" type="button">Download Rules   <i class="fas fa-download"></i></button>
     </a>
 
