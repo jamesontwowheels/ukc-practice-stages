@@ -2,7 +2,7 @@
 session_start();
 
 $location = intval($_SESSION['location']);//$_SESSION('location');
-$game = 6;   // Hardcoded game
+$game = 7;   // Hardcoded game
 
 require 'db_connect.php'; // Ensure this file sets up a PDO connection
 
