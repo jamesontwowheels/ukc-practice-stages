@@ -1,0 +1,203 @@
+<html>
+<head>
+  <title>AR Pumpkin Collect</title>
+
+  <!-- A-Frame and AR.js -->
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.7/three.js/build/ar-threex-location-only.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.7/aframe/build/aframe-ar.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #000;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* Container for AR scene */
+    #ar-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #ar-container a-scene {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Overlay buttons */
+    #collect-btn {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 16px 28px;
+      font-size: 20px;
+      background: orange;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    #close-btn {
+      position: absolute;
+      top: 5%;
+      right: 5%;
+      padding: 10px 14px;
+      font-size: 16px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: 1px solid white;
+      border-radius: 8px;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    /* Distance display */
+    #distance-indicator {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      font-size: 18px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 8px 12px;
+      border-radius: 8px;
+      z-index: 10;
+      color: #0ff;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="ar-container">
+    <a-scene
+      embedded
+      vr-mode-ui="enabled: false"
+      renderer="antialias: true; alpha: true"
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
+    >
+      <!-- Camera -->
+      <a-camera gps-new-camera="gpsMinDistance: 5"></a-camera>
+
+      <!-- Pumpkin entity -->
+      <a-entity
+        id="pumpkin"
+        gps-new-entity-place="latitude: 51.336291; longitude: -0.271021"
+        rotation="0 180 0"
+        scale="1 1 1"
+      >
+        <a-entity
+          gltf-model="./models/spooky_pumpkin.glb"
+          position="0 0 0"
+          scale="1 1 1"
+        ></a-entity>
+
+        <!-- “G” label -->
+        <a-entity
+          geometry="primitive: plane; height: 0.6; width: 0.6"
+          material="color: #ff6600; shader: flat; transparent: true; opacity: 0.8"
+          text="value: G; color: white; align: center; width: 4; anchor: center"
+          position="0 1.2 1"
+          rotation="0 0 0"
+          scale="1 1 1"
+        ></a-entity>
+      </a-entity>
+    </a-scene>
+  </div>
+
+  <!-- Overlay UI -->
+  <div id="distance-indicator">Distance: calculating...</div>
+  <button id="collect-btn">Collect 🎃</button>
+  <button id="close-btn" onclick="window.location.href='index.html'">Close ✖</button>
+
+  <script>
+    const pumpkin = document.querySelector('#pumpkin');
+    const collectBtn = document.querySelector('#collect-btn');
+    const distanceIndicator = document.querySelector('#distance-indicator');
+
+    const pumpkinLat = 51.336261;
+    const pumpkinLon = -0.271021;
+
+    // Haversine formula to calculate distance (metres)
+    function getDistanceFromLatLonInM(lat1, lon1, lat2, lon2) {
+      const R = 6371e3; // Earth radius in metres
+      const φ1 = lat1 * Math.PI / 180;
+      const φ2 = lat2 * Math.PI / 180;
+      const Δφ = (lat2 - lat1) * Math.PI / 180;
+      const Δλ = (lon2 - lon1) * Math.PI / 180;
+      const a =
+        Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+        Math.cos(φ1) * Math.cos(φ2) *
+        Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    // Watch GPS and update distance
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(
+        (pos) => {
+          const userLat = pos.coords.latitude;
+          const userLon = pos.coords.longitude;
+          const dist = getDistanceFromLatLonInM(userLat, userLon, pumpkinLat, pumpkinLon);
+          const metres = Math.round(dist);
+          distanceIndicator.textContent = `Distance: ${metres} m`;
+
+          // Enable collect only when close (e.g. within 10m)
+          collectBtn.disabled = metres > 10;
+          collectBtn.style.opacity = collectBtn.disabled ? 0.5 : 1;
+        },
+        (err) => {
+          distanceIndicator.textContent = "Distance: GPS error";
+          console.error(err);
+        },
+        { enableHighAccuracy: true, maximumAge: 0, timeout: 10000 }
+      );
+    } else {
+      distanceIndicator.textContent = "GPS not supported";
+    }
+
+    // Collect button logic
+    collectBtn.addEventListener('click', () => {
+      if (!pumpkin) return;
+
+      // Animate shrink
+      pumpkin.setAttribute('animation', {
+        property: 'scale',
+        to: '0 0 0',
+        dur: 800,
+        easing: 'easeInOutCubic'
+      });
+
+      // Hide pumpkin after animation
+      setTimeout(() => {
+        pumpkin.setAttribute('visible', 'false');
+        collectBtn.disabled = true;
+        collectBtn.innerText = "Collected ✅";
+        collectBtn.style.background = "gray";
+      }, 800);
+
+      // Example: record collection in backend
+      fetch('record_collection.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          user_id: 123, // replace dynamically
+          pumpkin_id: 'G',
+          latitude: null,
+          longitude: null
+        })
+      }).catch(err => console.error('Failed to record:', err));
+    });
+  </script>
+</body>
+</html>

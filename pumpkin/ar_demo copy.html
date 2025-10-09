@@ -1,0 +1,93 @@
+<html>
+<head>
+  <title>AR.js Collect Pumpkin</title>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.7/three.js/build/ar-threex-location-only.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.7/aframe/build/aframe-ar.js"></script>
+  <style>
+    body { margin: 0; background: #000; overflow: hidden; }
+    /* Position the button in front of the AR scene */
+    #collectButton {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: orange;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="collectButton">Collect</button>
+
+  <a-scene
+    vr-mode-ui="enabled: false"
+    arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
+    renderer="antialias: true; alpha: true"
+  >
+    <!-- GPS Camera -->
+    <a-camera gps-new-camera="gpsMinDistance: 5"></a-camera>
+
+    <!-- Pumpkin entity -->
+    <a-entity
+      id="pumpkin"
+      gps-new-entity-place="latitude: 51.336261; longitude: -0.271021"
+      rotation="0 180 0"
+      scale="0.1 0.1 0.1"
+    >
+      <a-entity
+        gltf-model="./models/pumpkin.glb"
+        position="0 0 0"
+        scale="1 1 1"
+      ></a-entity>
+
+      <!-- "G" decal -->
+      <a-entity
+        geometry="primitive: plane; height: 0.6; width: 0.6"
+        material="color: #ff6600; shader: flat; transparent: true; opacity: 0.8"
+        text="value: G; color: white; align: center; width: 4; anchor: center"
+        position="0 1.2 1"
+        rotation="0 0 0"
+        scale="1 1 1"
+      ></a-entity>
+    </a-entity>
+
+    <!-- Optional red box for reference -->
+    <a-entity
+      material="color: red"
+      geometry="primitive: box"
+      gps-new-entity-place="latitude: 51.336261; longitude: -0.271021"
+      scale="10 10 10"
+    ></a-entity>
+  </a-scene>
+
+  <script>
+    const pumpkin = document.querySelector('#pumpkin');
+    const button = document.getElementById('collectButton');
+
+    button.addEventListener('click', () => {
+      // Animate pumpkin shrinking
+      pumpkin.setAttribute('animation', {
+        property: 'scale',
+        to: '0 0 0',
+        dur: 500,
+        easing: 'easeInOutQuad'
+      });
+
+      // Hide after animation
+      setTimeout(() => {
+        pumpkin.setAttribute('visible', 'false');
+      }, 500);
+
+      console.log('Pumpkin collected!');
+    });
+  </script>
+</body>
+</html>

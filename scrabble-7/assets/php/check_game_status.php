@@ -28,3 +28,4 @@ try {
 }
 */
 $started = true;
+echo json_encode(['started' => $started]);
