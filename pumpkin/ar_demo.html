@@ -96,7 +96,7 @@
         scale="1 1 1"
       >
         <a-entity
-          gltf-model="./models/spooky_pumpkin.glb"
+          gltf-model="./models/pumpkin.glb"
           position="0 0 0"
           scale="1 1 1"
         ></a-entity>
@@ -123,9 +123,9 @@
     const pumpkin = document.querySelector('#pumpkin');
     const collectBtn = document.querySelector('#collect-btn');
     const distanceIndicator = document.querySelector('#distance-indicator');
-
-    const pumpkinLat = 51.336261;
-    const pumpkinLon = -0.271021;
+    // 51.289883, -0.335184
+    const pumpkinLat = 51.289883;
+    const pumpkinLon = -0.335184;
 
     // Haversine formula to calculate distance (metres)
     function getDistanceFromLatLonInM(lat1, lon1, lat2, lon2) {

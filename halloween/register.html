@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="assets/css/outside.css"> <!-- where is this CSS!!!-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPPA Halloween Trail</title>
+    <script>
+        function validateForm() {
+            let name = document.forms["registrationForm"]["name"].value;
+            let email = document.forms["registrationForm"]["email"].value;
+
+            if (name == "" || email == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>EPPA Halloween Trail</h2>
+    <div class="login-container">
+    <form class="login-form" name="registrationForm" action="register.php" method="POST" onsubmit="return validateForm()">    
+    <h3>Register</h3>
+    <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+        
+        <input type="submit" value="Register">
+        <a href="outside.php">login</a>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+#footer {
+    position:fixed;
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+    z-index: 999; /* Ensure it stays on top of other content */
+    background-color: #7500c0; /* Button container background */
+}
+
+#footer_info{
+    color:#2e2e2e;
+}
+
+
+
+.app-buttons {
+    display: flex;
+    justify-content: space-around; /* Evenly space the buttons */
+    align-items: center;
+    background-color: #ececec; /* Button container background */
+    padding: 10px; /* Padding around the buttons */
+   /* position: fixed; /* Fix position */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+    z-index: 999; /* Ensure it stays on top of other content */
+}
+
+.app-button {
+    color: #333333; /* Text color */
+    text-decoration: none; /* Remove underline from links */
+    border: none; /* No border */
+    padding: 15px 20px; /* Padding for buttons */
+    font-size: 1.4em; /* Font size */
+    font-weight: 600;
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth background and shadow transition */
+}
+
+.app-button:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+.app-button.active {
+    box-shadow: none; /* Remove shadow for active button */
+    border-bottom: 10px solid #ff6027;
+}
+
+
+.app-button i {
+    font-size: 3em;
+  }

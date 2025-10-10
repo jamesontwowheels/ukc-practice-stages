@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logging Out...</title>
+    <script>
+        // Clear localStorage and redirect
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
+        // Optionally clear everything: localStorage.clear();
+
+        // Redirect after clearing
+        window.location.href = "index.php";
+    </script>
+</head>
+<body>
+    <p>Logging out...</p>
+</body>
+</html>
