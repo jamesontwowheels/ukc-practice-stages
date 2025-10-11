@@ -82,7 +82,7 @@ $_SESSION['game'] = $game;
   </div> -->
 <div class="app-buttons">
         <a href="index.php" class="app-button" id="app1">Game</a>
-        <a href="leaderboard.php" class="app-button" id="app2">Scores</a>
+        <a href="leaderboard.php" class="app-button" id="app2">Critters</a>
         <a href="history.php" class="app-button" id="app3">History</a>
         <!-- <a href="../stages.php" class="app-button" id="app4"><br>Exit</a> -->
 </div>

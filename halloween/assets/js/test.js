@@ -76,7 +76,7 @@ function ajax_call() {
         cp = 0;
     }
    
-    if (cp == 999){
+    if (cp == 9999){
         const userConfirmed = confirm("Are you sure you're ready to start/stop?")
         if(!userConfirmed) { return;};
     }
