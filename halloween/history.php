@@ -1,20 +1,13 @@
 <?php
 session_start();
 
-// Check if the user is logged in
-if (!isset($_SESSION['username'])) {
-    // Redirect to login page if not logged in
-    header("Location: ../index.php");
-    exit;
-}
-
 // Check if 'word' and 'score' parameters are present in the GET request
 if (isset($_SESSION['location'])) {
     // Set session variables
    
 } else {
   // Redirect to login page if not logged in
-  header("Location: ../stages.php");
+  header("Location: index.php");
   exit;
 }
 

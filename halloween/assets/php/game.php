@@ -202,6 +202,7 @@ foreach($teams as $team_UID => $team){
     }
 
     $debug_log[] = "playing with $team_UID";
+    $debug_log[] = "User ID is $user_ID";
         //while($x < $count_results){
     /// not needed $team_UID = key($team);
     $name = $team["name"];

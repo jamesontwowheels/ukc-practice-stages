@@ -1,5 +1,11 @@
 <?php
 session_start();
+// Check if the user is logged in
+if (!isset($_SESSION['username'])) {
+    // Redirect to login page if not logged in
+    header("Location: outside.php");
+    exit;
+}
 
 if (true || isset($_GET['location'])) {
     // Set session variables
@@ -15,7 +21,6 @@ $_SESSION['game'] = $game;
 ?>
 
 <head>
-<script src="assets/js/id_check_create.js"></script>
 <script type="text/javascript">
     // Assign the PHP session variable to a JavaScript variable
     var user_ID = '<?php echo $_SESSION['user_ID']; ?>';
