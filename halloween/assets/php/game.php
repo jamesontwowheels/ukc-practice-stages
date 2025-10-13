@@ -171,7 +171,7 @@ $x = 0;
 
     //values
     $hand_limit = 2;
-    $stage_time = 150*60;
+    $stage_time = 150*60*60*24;
     $alert = 0;
 
 //TEAM SPECIFIC catchers (customise the catchers here)
@@ -290,9 +290,9 @@ if($debug == 1){ $debug_log[] = '72';};
             $teams[$tm]["params"]["score"] += 1;
             }
             $players[$pl]["inventory"]["Critters"] += 1;
-            if($players[$pl]["inventory"]["Critters"] == 6){
+            if($players[$pl]["inventory"]["Critters"] == 9){
                 $teams[$tm]["params"]["cp_bible"][998]['available'] = true;
-                $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Well done on collecting all the halloween demons. Now return them to school to claim your prize!<br><br><h3>Happy Halloween</h3><br><br><img class='puzzle_pic' src='assets/img/w10.png'>";
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["message"] = "Well done on collecting all the halloween demons. Now return them to school to finish!";
             }
     }
 
@@ -313,6 +313,9 @@ if($debug == 1){ $debug_log[] = '72';};
                 $teams[$tm]["params"]["cp_bible"][4]["available"] = true;
                 $teams[$tm]["params"]["cp_bible"][5]["available"] = true;
                 $teams[$tm]["params"]["cp_bible"][6]["available"] = true;
+                $teams[$tm]["params"]["cp_bible"][7]["available"] = true;
+                $teams[$tm]["params"]["cp_bible"][8]["available"] = true;
+                $teams[$tm]["params"]["cp_bible"][9]["available"] = true;
                 $teams[$tm]["params"]["cp_bible"][999]["options"] = [];
                 $teams[$tm]["params"]["cp_bible"][999]["message"] = "";
                     $comment = "Have fun!";
@@ -343,8 +346,8 @@ if($debug == 1){ $debug_log[] = '72';};
                         foreach ($teams[$tm]["params"]["cp_bible"] as &$checkpoint) {
                             $checkpoint["available"] = false;
                         } 
-                        $teams[$tm]["params"]["cp_bible"][998]["available"] = True;
-                        $teams[$tm]["params"]["cp_bible"][998]["message"] = "Well done on returning on of the criters. You can collect your prize from Longhurst Funeral Directors by telling them that you have collected all the critters";
+                        $teams[$tm]["params"]["cp_bible"][998]["available"] = False;
+                        $teams[$tm]["params"]["cp_bible"][998]["message"] = "You have entered the prize draw - you can also claim a spooky treat from the EPPA team in the playground on the first day back, happy Halloween!";
                         $teams[$tm]["params"]["cp_bible"][998]["options"] = [];
                         unset($checkpoint);
                     }

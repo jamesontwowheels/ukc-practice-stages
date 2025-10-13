@@ -69,6 +69,16 @@ function ajax_call() {
             return;}
     } else{ console.log("no puzzle"); }
 
+    if($(this).hasClass('form')){
+            const name = document.getElementById('name').value.trim();
+            const classname = document.getElementById('classname').value.trim();
+            if (!name || !classname) {
+                alert('Please fill in both fields before submitting!');
+                return;
+            }
+            user_input = "Name: "+name+" - Class: "+classname;
+    } else{ console.log("no form"); }
+
     var cp = $(this).attr('cp');
     cp = Number.isInteger(Number(cp)) ? Number(cp) : 0;
     
@@ -113,6 +123,7 @@ function ajax_call() {
             var this_team   = data["this_team"];
 
             // showTemporaryMessage(comment, 3000);
+
 
             //inventories:
             console.log(inventory);
@@ -183,10 +194,14 @@ function ajax_call() {
                                 let itemDiv = document.getElementById(target_space);          
                                 Object.keys(these_options).forEach(key => {
                                     var puzzle_class = "";
+                                    var form_class = "";
                                     if(cpx["puzzle"]){
                                         puzzle_class = "puzzle";
+                                    } 
+                                    if(cpx["form"]){
+                                        form_class = "form";
                                     }
-                                    document.getElementById(target_space).innerHTML += '<button class="submit_button active ' + puzzle_class + '" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
+                                    document.getElementById(target_space).innerHTML += '<button class="submit_button active ' + form_class + '" cp="' + this_key + '" cp_option_choice="'+ key +'">' + these_options[key] + '</button>';                
                                     });
                                 
                                 var cp_header_id = "cp-header-"+this_key;

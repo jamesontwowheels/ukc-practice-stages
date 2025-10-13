@@ -384,3 +384,34 @@ button {
         font-size: 14px; /* Adjust close button size */
     }
 }
+
+#cp_info_space_998 input[type="text"] {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0.6rem 0;
+  padding: 0.9rem 1rem;
+  font-size: 1.2em;
+  border: 2px solid #ccc;
+  border-radius: 0.6rem;
+  background-color: #fff;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus and touch-friendly */
+#cp_info_space_998 input[type="text"]:focus {
+  border-color: #ff6600;
+  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.25);
+  outline: none;
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+  #cp_info_space_998 input[type="text"] {
+    font-size: 1.05rem;
+    padding: 1rem;
+  }
+}

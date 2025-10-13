@@ -3,7 +3,7 @@ session_start();
 
 if (true || isset($_GET['location'])) {
     // Set session variables
-    $_SESSION['location'] = 1; //$_GET['location'];
+    $_SESSION['location'] = 2; //$_GET['location'];
     $game = 666; // TBC!!!
 $_SESSION['game'] = $game;
 } elseif (isset(($_SESSION['location']))){} else {
@@ -39,6 +39,7 @@ $_SESSION['game'] = $game;
   <div id="cp_options">
 
   </div>
+  <div id="debug-zone"></div>
   <div id="water">
         <div class="bubble1"></div>
         <div class="bubble1"></div>
@@ -62,6 +63,7 @@ $_SESSION['game'] = $game;
   </div> </td></tr></table>
    
   </div>
+  
 <table id="checkpoints">
   <tbody>
    
@@ -73,13 +75,14 @@ $_SESSION['game'] = $game;
 </div>
 </div>
 <div id="footer">
- <!--  <div id="footer_info">
-    <table><tr>
+  <div id="footer-sponsor">Kindly Sponsored by<br><b>LONGHURST OF EPSOM</b><br>Funeral Directors</div>
+ <div id="footer_info">
+ <!--   <table><tr>
       <td><div id="score_zone"></div></td>
       <td><div id="timer"></div></td>
   </tr></table>
-  
-  </div> -->
+-->
+  </div> 
 <div class="app-buttons">
         <a href="index.php" class="app-button" id="app1">Game</a>
         <a href="leaderboard.php" class="app-button" id="app2">Critters</a>

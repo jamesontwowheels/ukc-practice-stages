@@ -49,3 +49,10 @@
 .app-button i {
     font-size: 3em;
   }
+
+  #footer-sponsor {
+    color: white;
+    padding:15px;
+    text-align: center;
+    background-color: #923702;
+  }

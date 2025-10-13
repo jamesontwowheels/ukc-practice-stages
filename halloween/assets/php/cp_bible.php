@@ -38,7 +38,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "name" => "Three",
         "type" => "target",
         "score" => [29,2,3],
-        "puzzle" => false,
+        "puzzle" => False,
         "puzzle_q" => "Rearrange the letters of the following two words to give one word: RING + DENT =",
         "puzzle_a" => "trending",
         "message" => "You found Glimmer the Friendly Fright<br><br> <img class='puzzle_pic' src='assets/img/w3.png'>",
@@ -56,7 +56,8 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle" => false,
         "puzzle_q" => "If the mass of the shapes in the first image is 56g and the mass of the shapes in the second image is 76g what is the mass of the cube in grams<img class='puzzle_pic' src='assets/img/cones.png'>",
         "puzzle_a" => "40",
-        "message" => "You found Midnight Whiskers<br><br> <img class='puzzle_pic' src='assets/img/w4.png'> ",
+        "message" => "You found Midnight Whiskers<br><br> <div class='foggy-container'><img class='puzzle_pic' src='assets/img/w4.png'><div class='fog-layer'></div>
+  <div class='fog-layer fog-layer2'></div></div> ",
         "options" => [
             1 => "Collect critter"
         ],
@@ -95,73 +96,43 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
     7 => [
         
         "cp" => 7,
-        "name" => "Six",
-        "type" => "target",
-        "score" => [29,2,3],
-        "puzzle" => false,
-        "puzzle_q" => "What is the greatest number of doughnuts you can buy with £10 <img class='puzzle_pic' src='assets/img/donuts.png'>",
-        "puzzle_a" => "22",
-        "message" => "Welcome to Harris. Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w7.jpeg'>",
-        "options" => [
-            1 => "Collect memory"
-        ],
-        "available" => true
-    ],
-    8 => [
-        
-        "cp" => 8,
         "name" => "Seven",
         "type" => "target",
         "score" => [29,2,3],
         "puzzle" => false,
         "puzzle_q" => "What is the greatest number of doughnuts you can buy with £10 <img class='puzzle_pic' src='assets/img/donuts.png'>",
         "puzzle_a" => "22",
-        "message" => "Not many more to go now...<br> Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w8.png'>",
+        "message" => "You found Hedgewitch<br><br> <img class='puzzle_pic' src='assets/img/w7.png'>",
         "options" => [
             1 => "Collect memory"
         ],
-        "available" => true
+        "available" => false
     ],
-    9 => [
+    8 => [
         
-        "cp" => 9,
+        "cp" => 8,
         "name" => "Eight",
         "type" => "target",
         "score" => [29,2,3],
         "puzzle" => false,
         "puzzle_q" => "What is the greatest number of doughnuts you can buy with £10 <img class='puzzle_pic' src='assets/img/donuts.png'>",
         "puzzle_a" => "22",
-        "message" => "Cheers!<br> Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w9.jpg'>",
+        "message" => "You found Mummy Bunny<br><br> <img class='puzzle_pic' src='assets/img/w8.png'>",
         "options" => [
             1 => "Collect memory"
         ],
         "available" => false
     ],
-    10 => [
+    9 => [
         
-        "cp" => 10,
+        "cp" => 9,
         "name" => "Nine",
         "type" => "target",
         "score" => [29,2,3],
         "puzzle" => false,
         "puzzle_q" => "What is the greatest number of doughnuts you can buy with £10 <img class='puzzle_pic' src='assets/img/donuts.png'>",
         "puzzle_a" => "22",
-        "message" => "One more stop to go...<br> Next stop:<br><br> <img class='puzzle_pic' src='assets/img/w10.jpg'>",
-        "options" => [
-            1 => "Collect memory"
-        ],
-        "available" => false
-    ],
-    11 => [
-        
-        "cp" => 11,
-        "name" => "Ten",
-        "type" => "target",
-        "score" => [29,2,3],
-        "puzzle" => false,
-        "puzzle_q" => "What is the greatest number of doughnuts you can buy with £10 <img class='puzzle_pic' src='assets/img/donuts.png'>",
-        "puzzle_a" => "22",
-        "message" => "You made it to the finish!",
+        "message" => "You found Count Frogcula<br><br> <img class='puzzle_pic' src='assets/img/w9.png'>",
         "options" => [
             1 => "Collect memory"
         ],
@@ -189,9 +160,11 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
             "type" => "start_finish",
             "score" => [1,2,3],
             "puzzle" => false,
+            "form" => true,
             "puzzle_q" => "x",
             "puzzle_a" => "x",
-            "message" => "Click here to end your game",
+            "message" => 'Well done on capturing the critters<br>Enter your details to enter the prize draw: <input type="text" id="name" name="name" placeholder="Child name">
+  <input type="text" id="classname" name="classname" placeholder="Your class name">',
             "options" => [
                 1 => "Finish"
             ],
