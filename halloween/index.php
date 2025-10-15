@@ -3,7 +3,7 @@ session_start();
 
 if (true || isset($_GET['location'])) {
     // Set session variables
-    $_SESSION['location'] = 2; //$_GET['location'];
+    $_SESSION['location'] = 3; //$_GET['location'];
     $game = 666; // TBC!!!
 $_SESSION['game'] = $game;
 } elseif (isset(($_SESSION['location']))){} else {

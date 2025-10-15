@@ -211,3 +211,15 @@ a.stage {
   letter-spacing: 2px;
   box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5); /* Adds depth */
 }
+
+.halloween {
+    margin: auto;
+    display: block;
+    background-color: #ff6027;
+    color: white;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 15px;
+    border: none;
+
+}

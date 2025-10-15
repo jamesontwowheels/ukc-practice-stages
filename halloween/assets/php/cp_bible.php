@@ -104,7 +104,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle_a" => "22",
         "message" => "You found Hedgewitch<br><br> <img class='puzzle_pic' src='assets/img/w7.png'>",
         "options" => [
-            1 => "Collect memory"
+            1 => "Collect critter"
         ],
         "available" => false
     ],
@@ -119,7 +119,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle_a" => "22",
         "message" => "You found Mummy Bunny<br><br> <img class='puzzle_pic' src='assets/img/w8.png'>",
         "options" => [
-            1 => "Collect memory"
+            1 => "Collect critter"
         ],
         "available" => false
     ],
@@ -134,7 +134,7 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
         "puzzle_a" => "22",
         "message" => "You found Count Frogcula<br><br> <img class='puzzle_pic' src='assets/img/w9.png'>",
         "options" => [
-            1 => "Collect memory"
+            1 => "Collect critter"
         ],
         "available" => false
     ],
@@ -163,8 +163,8 @@ To the nearest mile, how far are the two trains from each other at 3:00 pm
             "form" => true,
             "puzzle_q" => "x",
             "puzzle_a" => "x",
-            "message" => 'Well done on capturing the critters<br>Enter your details to enter the prize draw: <input type="text" id="name" name="name" placeholder="Child name">
-  <input type="text" id="classname" name="classname" placeholder="Your class name">',
+            "message" => '<img class="puzzle_pic" src="assets/img/prize.jpeg"><br>Well done on capturing the critters<br>Enter your details to enter the prize draw: <input type="text" id="name" name="name" placeholder="Name of Child/Children">
+  <input type="text" id="classname" name="classname" placeholder="Class Name">',
             "options" => [
                 1 => "Finish"
             ],

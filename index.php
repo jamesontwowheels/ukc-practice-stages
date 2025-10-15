@@ -85,8 +85,11 @@ if (isset($_SESSION['username'])) {
     
 <h2>MINDGAMES</h2>
 <div id="main">
+    
+    <a href="/halloween/index.php"><button class="halloween">EPPA Halloween Trail<br>Tap Here</button></a>
     <div class="login-container">
     <form class="login-form" onsubmit="login(event)">
+        
         <h3>Login</h3>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br>
