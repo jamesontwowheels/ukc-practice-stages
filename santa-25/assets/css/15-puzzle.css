@@ -1,0 +1,25 @@
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5vw;
+  width: 90vw;
+  max-width: 800px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+}
+
+.tile {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #ccc;
+  background-repeat: no-repeat;
+  background-size: 400% 400%; /* 4x4 grid */
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.tile.empty {
+  background: #eee;
+  cursor: default;
+}

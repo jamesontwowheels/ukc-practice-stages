@@ -113,6 +113,9 @@ function success(pos) {
 
 
 function error(err) {
+  if(err.code == 1){
+    alert("Location permission was denied, on iPhone you must grant the browser permission in settings - check the FAQs")
+  }
   alert("location check failed. Code: " + err.code + " Message:" + err.message );
   console.error(`ERROR(${err.code}): ${err.message}`);
 }

@@ -19,6 +19,7 @@ $_SESSION['game'] = $_GET['game_number'];
 <link rel="stylesheet" href="main.css">
 <link rel="stylesheet" href="assets/css/app-buttons.css">
 <link rel="stylesheet" href="assets/css/game-details.css">
+<link rel="stylesheet" href="assets/css/game-details.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <link rel="manifest" href="/manifest.json">
 <meta charset="UTF-8">
@@ -26,6 +27,9 @@ $_SESSION['game'] = $_GET['game_number'];
 
 </head>
 <body>
+<div id="loading-overlay">
+  <span class="loader"></span>
+</div>
 <div id="exit"><a href="stages.php" class="" id="app4"><i class="fas fa-arrow-left"></i></a></div>
 <?php
 
@@ -74,4 +78,5 @@ try {
         <a href="faq.php" class="app-button" id="app3"><i class="fas fa-circle-question"></i><br></a>
 </div>
 </div>
+<script src="assets/js/spinner.js"></script>
 </body>
