@@ -22,7 +22,7 @@ include 'word_check.php';
 include 'game_letters.php';
 include 'valid_words.php';
 include 'invalid_words.php';
-if ($user_ID == 29 || $location == 105) { 
+if ($location == 105) { 
     $game_letters = $game_letters_old;
     $cp_bible = $cp_bible_old;
 }
