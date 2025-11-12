@@ -394,8 +394,8 @@ $cp_bible = [
         "type" => "puzzle point",
         "bonus" => ["type" => "word", "value" => 2],
         "puzzle" => true,
-        "puzzle_q" => "What is the sum of the next two numbers in the sequence?<br><br><img class='puzzle_pic' src='assets/img/puzzle-3.png'>",
-        "puzzle_a" => "38",
+        "puzzle_q" => "What is the sum of the next number in the sequence?<br><br><img class='puzzle_pic' src='assets/img/puzzle-5.png'>",
+        "puzzle_a" => "16",
         "message" => "",
         "options" => [
             1 => "Solve Puzzle"
@@ -595,8 +595,8 @@ $cp_bible_old = [
         "type" => "puzzle point",
         "bonus" => ["type" => "letter", "value" => 2],
         "puzzle" => true,
-        "puzzle_q" => "Find the solution to the equation.<br><br><img class='puzzle_pic' src='assets/img/puzzle-1.png'>",
-        "puzzle_a" => "55",
+        "puzzle_q" => "What is the missing number?<br><br><img class='puzzle_pic' src='assets/img/spider.png'>",
+        "puzzle_a" => "8",
         "message" => "",
         "options" => [
             1 => "Solve Puzzle"
@@ -610,8 +610,8 @@ $cp_bible_old = [
         "type" => "puzzle point",
         "bonus" => ["type" => "letter", "value" => 3],
         "puzzle" => true,
-        "puzzle_q" => "Fill in the blank.<br><br><img class='puzzle_pic' src='assets/img/puzzle-2.png'>",
-        "puzzle_a" => "cdo",
+        "puzzle_q" => "Which staple is represented by the image below?<br><br><img class='puzzle_pic' src='assets/img/potatoes.png'>",
+        "puzzle_a" => "potatoes",
         "message" => "",
         "options" => [
             1 => "Solve Puzzle"
@@ -625,8 +625,8 @@ $cp_bible_old = [
         "type" => "puzzle point",
         "bonus" => ["type" => "word", "value" => 2],
         "puzzle" => true,
-        "puzzle_q" => "What is the sum of the next two numbers in the sequence?<br><br><img class='puzzle_pic' src='assets/img/puzzle-3.png'>",
-        "puzzle_a" => "38",
+        "puzzle_q" => "What troublesome character is represented by the image below?<br><br><img class='puzzle_pic' src='assets/img/criminal.png'>",
+        "puzzle_a" => "criminal",
         "message" => "",
         "options" => [
             1 => "Solve Puzzle"
@@ -640,8 +640,8 @@ $cp_bible_old = [
         "type" => "puzzle point",
         "bonus" => ["type" => "word", "value" => 3],
         "puzzle" => true,
-        "puzzle_q" => "Unscramble this anagram into a single word to unlock the bonus.<br><br><img class='puzzle_pic' src='assets/img/puzzle-4.png'>",
-        "puzzle_a" => "encryption",
+        "puzzle_q" => "What is the sum of the next two numbers?<br><br><img class='puzzle_pic' src='assets/img/puzzle-3.png'>",
+        "puzzle_a" => "38",
         "message" => "",
         "options" => [
             1 => "Solve Puzzle"
