@@ -3,7 +3,7 @@ let target;
 let options;
 let button_detail;
 
-if (user_ID == 29) { 
+if (user_ID == 29 || location_check == 105) { 
   var d_base = 3000000000000;
   console.log("GOD MODE ACTIVE");} 
   else if (user_ID == 8) {
