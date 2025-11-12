@@ -27,6 +27,15 @@ if (!isset($_SESSION['username'])) {
     <div class="overlay">Coming Soon</div>
 </div>
 -->
+<a class="stage-card" href="game-detail.php?game_number=7"><img src="images/scrabble+_cover.jpg"><div class="stage-title">Scrabble+</div></a><br>
+</div>
+<br><h3>Future Games</h3><br>
+<div class="stage-grid">
+<!--<div class="image-container stage-card">
+    <img src="images/goldrush-cover.jpeg" alt="Coming Soon">
+    <div class="overlay">Coming Soon</div>
+</div>
+-->
 <a class="stage-card" href="game-detail.php?game_number=8"><img src="images/tower-escape.jpg"><div class="stage-title">Tower Escape</div></a><br>
 <a class="stage-card" href="game-detail.php?game_number=7"><img src="images/scrabble+_cover.jpg"><div class="stage-title">Scrabble+</div></a><br>
 <a class="stage-card" href="game-detail.php?game_number=6"><img src="images/goldrush-cover.jpeg"><div class="stage-title">Goldrush</div></a><br>
@@ -34,9 +43,10 @@ if (!isset($_SESSION['username'])) {
 <a class="stage-card" href="game-detail.php?game_number=5"><img src="images/dry-january.png"><div class="stage-title">Dry January</div></a><br>
 <a class="stage-card" href="game-detail.php?game_number=4"><img src="images/santa-cover.png"><div class="stage-title">Rudolph's Rounds</div></a><br>
 <a class="stage-card" href="game-detail.php?game_number=1"><img src="images/deep-blue-cover.jpeg"><div class="stage-title">Deep Blue</div></a><br>
-<a class="stage-card" href="game-detail.php?game_number=777"><img src="images/gps-test-cover.jpeg"><div class="stage-title">Test Game</div></a><br>
+<!-- <a class="stage-card" href="game-detail.php?game_number=777"><img src="images/gps-test-cover.jpeg"><div class="stage-title">Test Game</div></a><br>
 <a class="stage-card" href="game-detail.php?game_number=9"><img src="images/gps-test-cover.jpeg"><div class="stage-title">Rudolph 2</div></a><br>
 <a class="stage-card" href="gps_stages.php"><img src="images/gps-test-cover.jpeg"><div class="stage-title">GPS Test</div></a><br>
+-->
 </div>
 <form action="logout.php" method="post">
     <button type="submit">Logout</button>
