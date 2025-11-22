@@ -7,6 +7,8 @@ try {
         "aarc_admin", getenv('DB_PASSWORD'), 
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
+    $debug_log[] = 'connection attempted';
+    
 }
 }
 catch (PDOException $e) {

@@ -41,6 +41,8 @@ window.onload = function() {
             .then(data => {
                 // Handle the successful response
                 const live_scores = data["live_scores"];
+                const detailed_commentary = data["detailed_commentary"];
+                console.log(detailed_commentary);
                 const debug = data["debug_log"];
                 console.log(live_scores);
                 console.log(debug);

@@ -105,7 +105,17 @@ function ajax_call() {
             var teams = data["teams"];
             console.log(teams);
             var this_team   = data["this_team"];
+            var animation = data["animation"] ?? [false];
+            console.log (animation);
 
+            if(animation[0]) {
+                const overlay = document.getElementById("overlay");
+                overlay.classList.add("active");
+                // Keep it on screen for 3 seconds, then fade out
+                    setTimeout(() => {
+                        overlay.classList.remove("active");
+                    }, 3000);
+                }
             // showTemporaryMessage(comment, 3000);
 
             //inventories:

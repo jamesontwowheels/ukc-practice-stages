@@ -8,7 +8,7 @@ $debug = 1;
 $teams_active = true;
 $response = [];
 $debug_log = [];
-$debug_log[] = "data play";
+$debug_log["session data"] = [$user_ID, $location, $game];
 $user_input = $_REQUEST["user_input"];
 $incoming_cp = $cp;
 
@@ -41,7 +41,7 @@ while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
 }
 
 if($teams_active){
-    $debug_log[]  = "44. teams active";
+    $debug_log["active teams?"]  = "44. teams active";
     //get all the teams
     $query3 = "select * from dbo.teams where game = :game and location = :location";
     $stmt3 = $conn->prepare($query3);
@@ -54,7 +54,7 @@ if($teams_active){
             "name" => $row3['name'],
             "members" => [],
             "cps" => [],
-            "score" => 0,
+            "score" => 0, //not in use
             "params" => [
                 "finishers" => 0,
                 "game" => [
@@ -70,7 +70,7 @@ if($teams_active){
             ]
         ];
     }
-
+    $debug_log["og_cp_bible"] = $cp_bible;
     //get all the team_members
     $query4 = "select * from dbo.team_members where game = :game and location = :location";
     $stmt4 = $conn->prepare($query4);
@@ -78,13 +78,20 @@ if($teams_active){
     $stmt4->bindValue(':game', $game, PDO::PARAM_INT);
     $stmt4->bindValue(':location', $location, PDO::PARAM_INT);
     $stmt4->execute();
+
     $teamed_players = [];
     $players = [];
+    $debug_log["players"] = 0;
     while ($row4 = $stmt4->fetch(PDO::FETCH_ASSOC)) {
+       $debug_log["players"] += 1;
        $teams[$row4["team"]]["members"][] = $row4["player_ID"];
        $teamed_players[] = $row4["player_ID"];
        if($row4["player_ID"] == $user_ID){
         $this_team = $row4["team"];
+        $debug_log["this player"] = [
+            "team" => $this_team,
+            "player" => $user_ID
+        ];
        }
        //set-up the player
        $players[$row4["player_ID"]] = [ 
@@ -206,6 +213,7 @@ if($debug == 1){ $debug_log[] = '72';};
         $puzzle_response = 0;
         $alert = 0;
         $game_time = $t - $teams[$tm]["params"]["game"]["game_start"];
+        $animation = isset($teams[$tm]["params"]["cp_bible"][$cp_number]["animation"]) ? $teams[$tm]["params"]["cp_bible"][$cp_number]["animation"] : [false,""];
 
         if($game_time > $stage_time && $cp_number != 999 ){
             foreach ($cp_bible as $key => $cp) {
@@ -248,9 +256,10 @@ if($debug == 1){ $debug_log[] = '72';};
                 $comment = "You can't carry any more, you can visit Mrs Claus to sell?";
             } else {
             //add to bag
-                $players[$pl]["inventory"]["resouces"][] = $cp_number;
+                $players[$pl]["inventory"]["resources"][] = $cp_number;
                 $name_temp = $cp["name"];
-                $comment = "$name_temp collected";
+                $held_resource = count($players[$pl]["inventory"]["resources"]);
+                $comment = "$name_temp collected. $held_resource resources held";
                 $teams[$tm]["params"]["team"]["resource_picked"][$cp_number] += 1;
             }
         } 
@@ -258,15 +267,16 @@ if($debug == 1){ $debug_log[] = '72';};
         //build/collect a toy
         if  ($cp['type'] == "toy"){
             //if in build mode
-            if($teams[$tm]["params"]["team"]["build_states"][$cp_number][0] == 0){
+            $build_states =& $teams[$tm]["params"]["team"]["build_states"];
+            if($build_states[$cp_number][0] == 0){
 
             }
-            if($build_states[$cp][0] == 0){ 
+            if($build_states[$cp_number][0] == 0){ 
                 //if right thing held
                 $current_length = count($teams[$tm]["params"]["team"]["build_states"][$cp_number][1]);
                 $resource_required = $game_params["gift_recipes"][$cp_number][$current_length];
                 if(in_array($resource_required,$players[$pl]["inventory"]["resources"])){
-                    $build_states[$cp][1][] = $resource_required;   // do the build step
+                    $build_states[$cp_number][1][] = $resource_required;   // do the build step
                     $index = array_search($resource_required, $players[$pl]["inventory"]["resources"]);
                     // If the value exists, remove the first occurrence
                     if ($index !== false) {
@@ -277,6 +287,7 @@ if($debug == 1){ $debug_log[] = '72';};
                 if($current_length == count($game_params["gift_recipes"][$cp_number]) ){
                     $teams[$tm]["params"]["team"]["build_states"][$cp_number][0] = 1;
                     $teams[$tm]["params"]["team"]["build_states"][$cp_number][2] = $t + $game_params["gift_times"][$cp_number]; 
+                    $teams[$tm]["params"]["cp_bible"][$cp_number]["image"][1] = "b_".$cp_number.".png";
                     $comment = $comment . " Build in progress!";
                 }
                 } else {
@@ -286,7 +297,7 @@ if($debug == 1){ $debug_log[] = '72';};
             } else {
             //if in collect mode
             if($t > $teams[$tm]["params"]["team"]["build_states"][$cp_number][2]){
-              $player[$pl]["inventory"]["presents"][] = $cp_number;
+              $players[$pl]["inventory"]["presents"][] = $cp_number;
               $teams[$tm]["params"]["team"]["build_states"][$cp_number][0] = 0;
               $teams[$tm]["params"]["team"]["build_states"][$cp_number][1] = [];
               $comment = "Gift ".$cp["name"]." collected";  
@@ -295,33 +306,34 @@ if($debug == 1){ $debug_log[] = '72';};
                 $comment = "Gift not ready yet";
             }
             }
+            unset ($build_states);
         }
 
         //Deliver presents:
 
-        if($cp['type'] == "toy") { /////////I've made it this far and i'm tired now... going to bed.
+        if($cp['type'] == "child") { /////////I've made it this far and i'm tired now... going to bed.
             //deliver a present
             $this_wishlist = $teams[$tm]["params"]["team"]["wishlists"][$cp_number];
             $comment = "No presents found for ".$cp["name"];
             foreach($this_wishlist as $present){
-                $key = array_search($present,  $player[$pl]["inventory"]["presents"]);
+                $key = array_search($present,  $players[$pl]["inventory"]["presents"]);
                 if ($key !== false) {
-                array_splice($player[$pl]["inventory"]["presents"], $key, 1);  // Remove from sack
+                array_splice($players[$pl]["inventory"]["presents"], $key, 1);  // Remove from sack
                 
                 $key2 = array_search($present,$teams[$tm]["params"]["team"]["wishlists"][$cp_number]);
                 unset($teams[$tm]["params"]["team"]["wishlists"][$cp_number][$key2]); //remove from wishlist
                 $present_name = $teams[$tm]["params"]["cp_bible"][$present]["name"];
                 $recipient_name = $teams[$tm]["params"]["cp_bible"][$cp_number]["name"];
-                $gift_score = $game_params["gift_score"][$cp_number];
+                $gift_score = $game_params["gift_score"][$present];
 
                 $comment = $present_name." delivered to ".$recipient_name." +".$gift_score." points";
 
                 //scoring happens here:
-                $running_score += $gift_score;
+                $teams[$tm]["params"]["score"] += $gift_score;
 
                     //all gifts to a kid
                     if(count($teams[$tm]["params"]["team"]["wishlists"][$cp_number]) == 0){
-                        $running_score += 20;
+                        $teams[$tm]["params"]["score"] += 20;
                         $comment = $comment."<br>Wishlist complete, +20 bonus";
                     }
 
@@ -329,7 +341,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     if(!in_array($cp_number,$teams[$tm]["params"]["team"]["gifted"])){
                         $teams[$tm]["params"]["team"]["gifted"][] = $cp;
                         if(count($teams[$tm]["params"]["team"]["gifted"])==6){
-                            $running_score += 30;
+                            $teams[$tm]["params"]["score"] += 30;
                             $comment = $comment."<br>All kids gifted, +30 bonus";
                         }
                     }
@@ -337,7 +349,7 @@ if($debug == 1){ $debug_log[] = '72';};
                     //all gifts of a type
                     $teams[$tm]["params"]["team"]["gift_count"][$present] += 1;
                     if($teams[$tm]["params"]["team"]["gift_count"][$present] == 3){
-                        $running_score += 20;
+                        $teams[$tm]["params"]["score"] += 20;
                         $comment = $comment."<br> All ".$present_name." gifted, +20 bonus";
                     }
 
@@ -350,16 +362,17 @@ if($debug == 1){ $debug_log[] = '72';};
         //exit the north pole
         if($cp["type"] == "portal"){
             if($pl == $user_ID){
-                $player[$pl]["params"][$map_level] = 1 - $player[$pl]["params"][$map_level];
+                $teams[$tm]["params"]["cp_bible"][$cp_number]["image"][1] = "portal_".$players[$pl]["params"]["map_level"].".png";
+                $players[$pl]["params"]["map_level"] = 1 - $players[$pl]["params"]["map_level"];
                 foreach($teams[$tm]["params"]["cp_bible"] as &$checkpoint)
                 {
-                    if(in_array($checkpoint["cp"],$game_params["level_cps"][$player[$pl]["params"][$map_level]])){
+                    if(in_array($checkpoint["cp"],$game_params["level_cps"][$players[$pl]["params"]["map_level"]])){
                         $checkpoint["available"] = true;
-                    } else {$checkpoint["avaialble"] = false; }
+                    } else {$checkpoint["available"] = false; }
                 }
-                if ($player[$pl]["params"][$map_level] = 0)
-                { $comment = "Leaving the workshop"; } else {
-                    $comment = "Entering the workshop";}
+                if ($players[$pl]["params"]["map_level"] == 0)
+                { $comment = "You left the workshop"; } else {
+                    $comment = "You entered the workshop";}
                 }
             }
 
@@ -369,9 +382,12 @@ if($debug == 1){ $debug_log[] = '72';};
                 $sell = count($players[$pl]["inventory"]["resources"]) /2;
                 $players[$pl]["inventory"]["resources"] = [];
                 $running_score += $sell;
-                $comment = $comment.". Resource sold for $sell units";
+                $teams[$tm]["params"]["score"] += $sell;
+                $comment = "Resource sold for $sell units";
             }
-        }
+        else {
+            $comment = "you have nothing to sell";
+        }}
 
         //start_finish
         if($cp['type'] == "start_finish"){
@@ -381,12 +397,12 @@ if($debug == 1){ $debug_log[] = '72';};
                 $teams[$tm]["params"]["game"]["game_state"] = 1;
                 $teams[$tm]["params"]["game"]["game_start"] = $t;
                 $debug_log[]  = "game state =" . $teams[$tm]["params"]["game"]["game_state"];
+                $debug_log["start bible"] = $teams[$tm]["params"]["cp_bible"];
                     foreach ($teams[$tm]["params"]["cp_bible"] as &$checkpoint) {
-                        if(in_array($checkpoint["cp"],$starting_cps)){
-                            $checkpoint["available"] = true;} 
-                            else {
-                                $checkpoint["available"] = false;
-                            }
+                        if(in_array($checkpoint["cp"],$game_params["level_cps"][$players[$pl]["params"]["map_level"]])){
+                      //    if($players[$pl]["params"]["map_level"] == 0){
+                        $checkpoint["available"] = true;
+                    } else {$checkpoint["available"] = false; }
                     }
                     unset($checkpoint);
                     $teams[$tm]["params"]["cp_bible"][999]["available"] = false;
@@ -471,8 +487,9 @@ $response["cp_bible"]= $teams[$this_team]["params"]["cp_bible"]; //available_cps
 //don't send back a puzzle response if nothing has been submitted.
 if($incoming_cp > 0) {
 $response["puzzle_response"]=$puzzle_response;
-$response["comment"] = $comment;}
-$response["running_score"] = $running_score;
+$response["comment"] = $comment;
+$response["animation"] = $animation;}
+$response["running_score"] = $teams[$tm]["score"];
 $response["alert"] = $alert;
 $response["this_team"] = $this_team;
 $response["usernames"] = $usernames;
@@ -483,5 +500,4 @@ $response["teams"] = $teams;
 $response["live_scores"] = $final_results;
 $response["commentary"] = $teams[$this_team]["params"]["commentary"];
 $response["debug_log"] = $debug_log;
-$response["db_response"] = $db_response;
 echo json_encode($response);

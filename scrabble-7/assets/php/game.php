@@ -7,6 +7,7 @@ $game = $_SESSION['game'];
 $debug = 1;
 $teams_active = true;
 $response = [];
+$detailed_commentary = [];
 $debug_log = [];
 $debug_log[] = "data play";
 $user_input = $_REQUEST["user_input"];
@@ -399,6 +400,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         $players[$pl]["inventory"]["word bonus"] = $cp["bonus"]["value"]."x";
                         $players[$pl]["params"]["bonus"]["word bonus"] = $cp["bonus"]["value"];
                         $comment = $cp["bonus"]["value"]."x ".$cp["bonus"]["type"]." bonus collected";
+                        $detailed_commentary[] = [$teams[$tm]["name"], $comment, $game_time, "puzzle"];
                         $teams[$tm]["params"]["cp_bible"][$cp_number]["available"] = false; 
                     } else {
                         $comment = $cp["bonus"]["type"]." bonus already held";
@@ -409,6 +411,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         $players[$pl]["inventory"]["letter bonus"] = $cp["bonus"]["value"]."x";
                         $players[$pl]["params"]["bonus"]["letter bonus"] = $cp["bonus"]["value"]."x";
                         $comment = $cp["bonus"]["value"]."x ".$cp["bonus"]["type"]." bonus collected";
+                        $detailed_commentary[] = [$teams[$tm]["name"], $comment, $game_time, "puzzle"];
                         $teams[$tm]["params"]["cp_bible"][$cp_number]["available"] = false; 
                     } else {
                         $comment = $cp["bonus"]["type"]." bonus already held";
@@ -416,6 +419,8 @@ if($debug == 1){ $debug_log[] = '72';};
                 }
             } else {
                 $comment = "Incorrect.<br>Puzzle locked for 30s";
+                $cp_name_dc = $cp['name'];
+                $detailed_commentary[] = [$teams[$tm]["name"], "$comment CP: $cp_name_dc", $game_time, "puzzle"];
                 $players[$pl]["params"]["puzzle_cooldown"] = $t;
             }}}
             else {
@@ -448,20 +453,24 @@ if($debug == 1){ $debug_log[] = '72';};
                 if(in_array($current_word,$teams[$this_team]["params"]["used_words"])){
                 $valid_words_array[] = $current_word;
                 $comment = "$current_word played, already used.";
+                $detailed_commentary[] = [$teams[$tm]["name"], $comment, $game_time];
                 } else {
 
                 $value = $word_length_value[$word_length] + ($teams[$tm]["params"]["current_word_score"] * $teams[$tm]["params"]["word_bonus"]);
                $teams[$tm]["params"]["score"] += $value;
                 $used_words[] = $current_word;
                 $comment = "$current_word successfully played! for $value points";
+                $detailed_commentary[] = [$teams[$tm]["name"], $comment, $game_time];
                 $teams[$tm]["stats"]["words_played"][] = ["word" => $current_word, "score" => $value];
                 }}
                 else {
-                    $comment = "word too short";
+                    $comment = "$current_word played, but too short";
+                    $detailed_commentary[] = [$teams[$tm]["name"], $comment, $game_time];
                 }
             } else {
                 $invalid_words_array[] = $current_word;
                 $comment = "$current_word played, but not a known word";
+                $detailed_commentary[] = [$teams[$tm]["name"], $comment, $game_time];
             }
             $teams[$tm]["params"]["word_bonus"] = 1;
             $teams[$tm]["params"]["used_bonus"] = false;
@@ -513,6 +522,7 @@ if($debug == 1){ $debug_log[] = '72';};
                         $teams[$tm]["params"]["score"] += $finish_bonus;
                         unset($checkpoint);
                         $comment = "Finished. Bonus: $finish_bonus";
+                        $detailed_commentary[] = [$teams[$tm]["name"], $comment, $game_time];
                     if($pl == $user_ID){
                         foreach ($teams[$tm]["params"]["cp_bible"] as &$checkpoint) {
                             $checkpoint["available"] = false;
@@ -565,6 +575,7 @@ $response["puzzle_response"]=$puzzle_response;
 $response["comment"] = $comment;}
 $response["running_score"] = $running_score;
 $response["alert"] = $alert;
+$response["detailed_commentary"] = $detailed_commentary;
 $response["this_team"] = $this_team;
 $response["usernames"] = $usernames;
 $response["game_state"] = [$teams[$this_team]["params"]["game"]["game_state"],$teams[$this_team]["params"]["game"]["game_start"],$teams[$this_team]["params"]["game"]["game_end"],$stage_time];

@@ -54,7 +54,8 @@ $cp_bible = [
         "type" => "resource",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Collect"],
+        "image" => [1,"wool.png"],
         "available" => false
     ],
     2 => [  
@@ -63,7 +64,8 @@ $cp_bible = [
         "type" => "resource",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Collect"],
+        "image" => [1,"wood.png"],
         "available" => false
     ],
     3 => [  
@@ -72,7 +74,8 @@ $cp_bible = [
         "type" => "resource",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Collect"],
+        "image" => [1,"plastic.png"],
         "available" => false
     ],
     4 => [  
@@ -81,7 +84,8 @@ $cp_bible = [
         "type" => "resource",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Collect"],
+        "image" => [1,"carbon.png"],
         "available" => false
     ],
     5 => [  
@@ -90,7 +94,8 @@ $cp_bible = [
         "type" => "resource",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Collect"],
+        "image" => [1,"metal.png"],
         "available" => false
     ],
     6 => [  
@@ -99,61 +104,68 @@ $cp_bible = [
         "type" => "resource",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Collect"],
+        "image" => [1,"lithium.png"],
         "available" => false
     ],
     11 => [  
         "cp" => 11,
         "name" => "Jumper",
-        "type" => "resource",
+        "type" => "toy",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Build"],
+        "image" => [1,"a_11.png"],
         "available" => false
     ],
     12 => [  
         "cp" => 12,
         "name" => "Tree House",
-        "type" => "resource",
+        "type" => "toy",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Build"],
+        "image" => [1,"a_12.png"],
         "available" => false
     ],
     13 => [  
         "cp" => 13,
         "name" => "Bike",
-        "type" => "resource",
+        "type" => "toy",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Build"],
+        "image" => [1,"a_13.png"],
         "available" => false
     ],
     14 => [  
         "cp" => 14,
-        "name" => "Playstation",
-        "type" => "resource",
+        "name" => "RC Car",
+        "type" => "toy",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Build"],
+        "image" => [1,"a_14.png"],
         "available" => false
     ],
     15 => [  
         "cp" => 15,
-        "name" => "RC Car",
-        "type" => "resource",
+        "name" => "Switch",
+        "type" => "toy",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Build"],
+        "image" => [1,"a_15.png"],
         "available" => false
     ],
     16 => [  
         "cp" => 16,
         "name" => "Laptop",
-        "type" => "resource",
+        "type" => "toy",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Build"],
+        "image" => [1,"a_16.png"],
         "available" => false
     ],
     21 => [  
@@ -162,7 +174,8 @@ $cp_bible = [
         "type" => "child",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Deliver"],
+        "image" => [1,"ada.png"],
         "available" => false
     ],
     22 => [  
@@ -171,7 +184,8 @@ $cp_bible = [
         "type" => "child",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Deliver"],
+        "image" => [1,"ben.png"],
         "available" => false
     ],
     23 => [  
@@ -180,7 +194,8 @@ $cp_bible = [
         "type" => "child",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Deliver"],
+        "image" => [1,"cat.png"],
         "available" => false
     ],
     24 => [  
@@ -189,7 +204,8 @@ $cp_bible = [
         "type" => "child",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Deliver"],
+        "image" => [1,"dom.png"],
         "available" => false
     ],
     25 => [  
@@ -198,7 +214,8 @@ $cp_bible = [
         "type" => "child",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Deliver"],
+        "image" => [1,"isla.png"],
         "available" => false
     ],
     26 => [  
@@ -207,7 +224,8 @@ $cp_bible = [
         "type" => "child",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Deliver"],
+        "image" => [1,"leo.png"],
         "available" => false
     ],
     51 => [  
@@ -216,8 +234,10 @@ $cp_bible = [
         "type" => "portal",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
-        "available" => false
+        "options" => [1 => "Portal!"],
+        "image" => [1,"portal_0.png"],
+        "available" => false,
+        "animation" => [true,"portal"]  
     ],
     102 => [  
         "cp" => 102,
@@ -225,7 +245,8 @@ $cp_bible = [
         "type" => "Mrs Claus",
         "puzzle" => false,
         "message" => "",
-        "options" => [],
+        "options" => [1 => "Sell Everything"],
+        "image" => [1,"mrs_c.png"],
         "available" => false
     ],
         999 => [

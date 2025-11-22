@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-if (true || isset($_GET['location'])) {
+if (isset($_GET['location'])) {
     // Set session variables
     $_SESSION['location'] = $_GET['location'];
     //$game = 666;
@@ -31,11 +31,16 @@ if (true || isset($_GET['location'])) {
 <!-- <script type="text/javascript" src='targets.js'></script> -->
 <link rel="stylesheet" href="assets/css/main.css?v0.12">
 <link rel="stylesheet" href="assets/css/app-buttons.css?v0.11">
+<link rel="stylesheet" href="assets/css/transition.css?v0.01">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 <div id="main">
-<h1>Tower Escape</h1>
+<div id="overlay">
+    <h3>Portal travelling…</h3><br><br>
+    <div class="loader"></div>
+</div>
+<h1>Rudolph's rounds</h1>
   <div id="cp_options">
 
   </div>
