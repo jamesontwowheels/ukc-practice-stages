@@ -8,6 +8,7 @@ fetch('assets/php/features.php')
             var targets = data.features;
             window.targets = targets;
             console.log (targets);
+            window.dispatchEvent(new Event("targetsReady"));
 const tableBody = document.querySelector('#checkpoints tbody');
 const cp_options = document.querySelector('#cp_options');
 for (let i = 0; i < targets.length; i++) {

@@ -9,12 +9,12 @@ $team_params = [
         6 => 0
     ],
     "wishlists" => [
-        21 => [11,12,13],
-        22 => [14,15,16],
-        23 => [16,11,12],
-        24 => [13,14,15],
-        25 => [12,14,11],
-        26 => [15,13,16]
+        21 => ["Jumper","Tree House","Bike"],
+        22 => ["RC Car","Switch","Laptop"],
+        23 => ["Switch","Jumper","Tree House"],
+        24 => ["Bike","RC Car","Laptop"],
+        25 => ["Tree House","RC Car","Jumper"],
+        26 => ["Switch","Bike","Laptop"]
     ],
     "gift_states" => [
         11 => 0,
@@ -30,7 +30,13 @@ $team_params = [
         13 => 0,
         14 => 0,
         15 => 0,
-        16 => 0
+        16 => 0,
+        "Jumper" => 0,
+        "Bike" => 0,
+        "Tree House" => 0,
+        "Switch" => 0,
+        "RC Car" => 0,
+        "Laptop" => 0,
     ],
     "build_states" => [
         11 => [0,[],0],
@@ -52,43 +58,48 @@ $player_inventory = [
     "presents" => []
 ];
 
+$private_inventory = [
+    "resources" => [],
+    "presents" => []
+];
+
 $game_params = [
-    "stage_time" => 2500000*60,
+    "stage_time" => 78*60,
     "level_cps" => [
         0 => [1,2,3,4,5,6,21,22,23,24,25,26,51,101],
-        1 => [11,12,13,14,15,16,51,102]
+        1 => [11,12,13,14,15,16,51,102,998]
     ],
     "outside_cps" => [],
     "gift_times" => [
-        11 => 12,
+        11 => 120,
         12 => 120,
-        13 => 120,
-        14 => 120,
-        15 => 120,//360,
-        16 => 120],
+        13 => 240,
+        14 => 240,
+        15 => 360,
+        16 => 480],
     "gift_recipes" => [
-        11 => [1,1,1],
-        12 => [2,2,5,2],
-        13 => [4,4,5,3],
-        14 => [3,5,3,6],
-        15 => [3,4,5,6],
-        16 => [5,3,6,6]
+        11 => ["Wool","Wool","Wool"],
+        12 => ["Wood","Wood","Metal","Wood"],
+        13 => ["Carbon","Carbon","Metal","Plastic"],
+        14 => ["Plastic","Metal","Plastic","Lithium"],
+        15 => ["Plastic","Carbon","Metal","Lithium"],
+        16 => ["Metal","Plastic","Lithium","Lithium"]
     ],
     "gift_score" => [
-        11 => 10,
-        12 => 10,
-        13 => 10,
-        14 => 10,
-        15 => 10,
-        16 => 10
+        "Jumper" => 4,
+        "Tree House" => 6,
+        "Bike" => 8,
+        "RC Car" => 12,
+        "Switch" => 14,
+        "Laptop" => 16
     ],
     "resource_start" => [
-        1 => 300,
-        2 => 300,
-        3 => 100,
-        4 => 100,
-        5 => 600,
-        6 => 600
+        1 => 3,
+        2 => 3,
+        3 => 1,
+        4 => 1,
+        5 => 6,
+        6 => 6
     ],
     "resource_refresh" => [
         1 => 300,

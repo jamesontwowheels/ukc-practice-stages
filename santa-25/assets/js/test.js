@@ -126,8 +126,11 @@ function ajax_call() {
                 tableBody.innerHTML = ""; // Clear previous content
     
                 Object.entries(obj).forEach(([key, value]) => {
-                    const row = document.createElement("tr");
-                    row.innerHTML = `<td>${key}</td><td>${value}</td>`;
+                    const row = document.createElement("tr");    
+                    let displayValue = Array.isArray(value)
+                        ? value.join(", ")        // <-- space between items
+                        : value;
+                    row.innerHTML = `<td>${key}</td><td>${displayValue}</td>`;
                     tableBody.appendChild(row);
                 });
             }
@@ -166,7 +169,6 @@ function ajax_call() {
                               } else {
                                 document.getElementById(opt_card).classList.remove("available");
                                 document.getElementById(rowId).style.display = 'none';
-                                console.log('hidden'+key_id);
                               };   
                                 
                                 //ALL ** THIS ** LOGIC ** SHOULD ** BE ** IN ** THE ** BACK ** END....!
@@ -212,8 +214,7 @@ function ajax_call() {
 
                                 //add an image:
                                 if(cpx["image"][0] == 1){
-                                    console.log(cpx["image"][1]);
-                                    document.getElementById(info_space).innerHTML += '<br><br><img class="puzzle_pic" src="assets/img/' + cpx["image"][1] + '">';
+                                    document.getElementById(info_space).innerHTML += '<img class="puzzle_pic" src="assets/img/' + cpx["image"][1] + '">';
                                 }
 
                                 //add a 15-puzzle:
@@ -302,7 +303,7 @@ function ajax_call() {
                     // Display the result in the element with id="timer"
                     document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
                 },1000)} else if (game_state[0] == 2){
-                document.getElementById("teams").style.display = "none";
+               // document.getElementById("teams").style.display = "none";
                 console.log ("timer cancelled! Interval = " + countdownFunction);
                     clearInterval(countdownFunction);
 

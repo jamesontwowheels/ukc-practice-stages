@@ -1,4 +1,7 @@
-let id;
+window.addEventListener("targetsReady", () => {
+    console.log("Targets loaded", window.targets);
+
+    let id;
 let target;
 let options;
 let button_detail;
@@ -16,10 +19,8 @@ fetch('assets/php/location.php')
         .then(response => response.json())
         .then(data => {
             var location = data.location;
-            console.log (location);
-            console.log (window.targets)
            // var targets = games[location];
-            console.log (targets);
+           var targets = window.targets;
 
 function deg2rad(degrees) {
   return degrees * (Math.PI / 180);
@@ -60,7 +61,6 @@ function success(pos) {
   for (let i = 0; i < targets.length; i++) {
   var target = targets[i];
   var id = target.properties.name;
-console.log(target);
   const crd = pos.coords;
   var accuracy = Math.min(20, Math.round(crd.accuracy));
   
@@ -84,9 +84,7 @@ console.log(target);
   var d = Math.round(R * c * 1000); // Distance in m
   var cp = "cp" + id;
   var option_element = $("#cp_option_card_" + id);
-  console.log("cp = "+cp);
   document.getElementById(cp).innerHTML = d + "m " + direction;
-  console.log("cp = "+cp);
   var button = "butt"+id;
   var button_element = $("#"+button);
 
@@ -98,7 +96,6 @@ console.log(target);
     if (option_element.hasClass('available') && option_element.hasClass('show_first') && user_ID !== 29) {
       option_element.removeClass('cp-option');
       option_element.removeClass('show_first');
-      console.log('removing show first');
       option_element.addClass('cp-option-show');}
   } else {
     button_element.addClass('inactive');
@@ -125,4 +122,5 @@ options = {
 
             id = navigator.geolocation.watchPosition(success, error, options);
         })
-        
+
+})

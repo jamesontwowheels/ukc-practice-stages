@@ -78,7 +78,7 @@ if (isset($_GET['location'])) {
 <div id="exit"><a href="lobby.php" class="" id="app4"><i class="fas fa-arrow-left"></i></a></div>
 <div id="refresh"><a href="index.php" class="" id="app4"><i class="fas fa-refresh"></i></a></div>
 </body>
-<script type="text/javascript" src='assets/js/test.js?v0.01' defer></script>
-<script type="text/javascript" src='assets/js/rows.js?v0.01'defer ></script>
-<script type="text/javascript" src='assets/js/distance.js' defer></script>
-<script type="text/javascript" src='assets/js/app-buttons.js'></script>
+<script type="text/javascript" src='assets/js/test.js?v0.02' defer></script>
+<script type="text/javascript" src='assets/js/rows.js?v0.02'defer ></script>
+<script type="text/javascript" src='assets/js/distance.js?v0.02' defer></script>
+<script type="text/javascript" src='assets/js/app-buttons.js?v0.02'></script>
