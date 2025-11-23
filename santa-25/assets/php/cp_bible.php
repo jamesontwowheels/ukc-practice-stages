@@ -235,7 +235,7 @@ $cp_bible = [
         "puzzle" => false,
         "message" => "",
         "options" => [1 => "Leave workshop"],
-        "image" => [1,"portal_1.png"],
+        "image" => [1,"portal_0.png"],
         "available" => false,
         "animation" => [true,"portal"]  
     ],

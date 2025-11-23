@@ -50,7 +50,7 @@ $team_params = [
     ];
 
 $player_params = [
-    "map_level" => 0
+    "map_level" => 1
 ];
 
 $player_inventory = [
@@ -64,7 +64,7 @@ $private_inventory = [
 ];
 
 $game_params = [
-    "stage_time" => 78*60,
+    "stage_time" => 75*60,
     "level_cps" => [
         0 => [1,2,3,4,5,6,21,22,23,24,25,26,51,101],
         1 => [11,12,13,14,15,16,51,102,998]
