@@ -28,7 +28,7 @@ if (!isset($_SESSION['username'])) {
 </div>
 -->
 <a class="stage-card" href="game-detail.php?game_number=7"><img src="images/scrabble+_cover.jpg"><div class="stage-title">Scrabble+</div></a><br>
-<a class="stage-card" href="game-detail.php?game_number=9"><img src="images/santa-cover.jpeg"><div class="stage-title">Rudolph's Rounds</div></a><br>
+<a class="stage-card" href="game-detail.php?game_number=9"><img src="images/santa-cover.png"><div class="stage-title">Rudolph's Rounds</div></a><br>
 
 </div>
 <br><h3>Future Games</h3><br>
