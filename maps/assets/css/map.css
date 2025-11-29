@@ -1,0 +1,107 @@
+/* Fullscreen map */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+/* Checkpoint Buttons (popups + UI) */
+.cp_button {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background: #007bff;
+    color: white;
+    width: 100%;
+}
+
+/* Floating GPS button */
+.floating-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    font-size: 26px;
+    background: white;
+    border-radius: 50%;
+    padding: 14px 18px;
+    border: 2px solid #007bff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* CP Option Cards */
+#cp_options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.cp-option {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+}
+
+/* Show card when active */
+.cp-option.active {
+    display: block;
+}
+
+/* Popup Size */
+.leaflet-popup-content {
+    font-size: 18px;
+    line-height: 1.4;
+}
+.leaflet-popup-content-wrapper {
+    border-radius: 12px;
+    padding: 10px 14px;
+}
+
+/* Zoom controls bigger */
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 22px !important;
+}
+
+
+.checkpoint-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.checkpoint-marker.small {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+}
+
+.checkpoint-marker.expanded {
+    width: 120px;
+    height: 120px;
+    font-size: 16px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    padding: 5px;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}

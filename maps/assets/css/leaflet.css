@@ -1,0 +1,88 @@
+/* Bigger zoom buttons */
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 22px !important;
+}
+
+/* Bigger attribution text */
+.leaflet-control-attribution {
+    font-size: 14px !important;
+}
+
+/* Bigger popup text */
+.leaflet-popup-content {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Adjust popup width for mobile */
+.leaflet-popup-content-wrapper {
+    padding: 15px 20px;
+    border-radius: 12px;
+}
+.checkpoint-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+        pointer-events: auto;        /* allow clicks */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.checkpoint-marker button,
+.checkpoint-marker span {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.checkpoint-marker.small {
+    width: 100px;
+    height: 100px;
+    font-size: 12px;
+    background-color: blue;
+    border-radius: 25px;
+}
+
+.checkpoint-marker.expanded {
+    width: 120px;
+    height: 120px;
+    font-size: 16px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    padding: 5px;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.pop-up {
+    display:none
+}
+
+.pop-up-show {
+    display:block
+}
+
+#cp_options{
+    pointer-events: auto;        /* allow clicks */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+#cp_options div{
+    pointer-events: auto;        /* allow clicks */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}

@@ -1,3 +1,6 @@
+window.addEventListener("targetsReady", () => {
+    console.log("Targets loaded", window.targets);
+    
 let id;
 let target;
 let options;
@@ -10,7 +13,7 @@ if (user_ID == 29) {
   var d_base = 250000;
   
   console.log("demi-god mode active");    
-  } else { var d_base = 15000;} // god mode
+  } else { var d_base = 15;} // god mode
 
 fetch('assets/php/features.php')
         .then(response => response.json())
@@ -91,6 +94,7 @@ function success(pos) {
   var d = Math.round(R * c * 1000); // Distance in m
   var cp = "cp" + id;
   var option_element = $("#cp_option_card_" + id);
+  console.log(cp + " dist: " + d + "m");
   document.getElementById(cp).innerHTML = d + "m " + direction;
   var button = "butt"+id;
   var button_element = $("#"+button);
@@ -125,4 +129,4 @@ options = {
 
             id = navigator.geolocation.watchPosition(success, error, options);
         })
-        
+})
