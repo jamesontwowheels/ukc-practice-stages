@@ -312,7 +312,8 @@ if($debug == 1){ $debug_log[] = '72';};
                     $teams[$tm]["params"]["cp_bible"][$cp_number]["options"] = [1 => "build"];
             }
             else {
-                $comment = "Gift not ready yet";
+                $gift_time_left = $teams[$tm]["params"]["team"]["build_states"][$cp_number][2] - $t;
+                $comment = "Gift not ready yet. Wait $gift_time_left seconds";
             }
             }
             unset ($build_states);

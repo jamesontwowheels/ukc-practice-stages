@@ -64,15 +64,15 @@ $private_inventory = [
 ];
 
 $game_params = [
-    "stage_time" => 75*60,
+    "stage_time" => 80*60,
     "level_cps" => [
         0 => [1,2,3,4,5,6,21,22,23,24,25,26,51,101],
         1 => [11,12,13,14,15,16,51,102,998]
     ],
     "outside_cps" => [],
     "gift_times" => [
-        11 => 30,
-        12 => 30,
+        11 => 120,
+        12 => 120,
         13 => 240,
         14 => 240,
         15 => 360,
@@ -89,8 +89,8 @@ $game_params = [
         "Jumper" => 4,
         "Tree House" => 6,
         "Bike" => 8,
-        "RC Car" => 12,
-        "Switch" => 14,
+        "Switch" => 12,
+        "RC Car" => 14,
         "Laptop" => 16
     ],
     "resource_start" => [

@@ -1,5 +1,6 @@
 let countdownFunction = 0;
 let oxygenFunction = 0;
+let mistouch = false;
 var puzzle_questions = [];
 
 $(document).ready(ajax_call);
@@ -53,13 +54,24 @@ function ajax_call() {
     if ($(this).hasClass('inactive') || $(this).hasClass('blocked')){
         console.log('inactive clicked');
     } else {console.log("button clicked / name update");
-       
+     if(mistouch)
+        { console.log('mistouch');
+            return; }
+    
     var cp = $(this).attr('cp');
     cp = cp || 0;
 
-
+    
     var cp_option_choice = $(this).attr('cp_option_choice');
     cp_option_choice = cp_option_choice || 0;
+
+    console.log("cp_option = " + cp_option_choice);
+    if(cp_option_choice > 0){
+        mistouch = true;
+        setTimeout(() => {
+            mistouch = false;
+        }, 500);
+    }
 
     var user_input = "void";
     if($(this).hasClass('puzzle') && cp_option_choice == 1){
@@ -256,7 +268,8 @@ function ajax_call() {
             for (let cp in cp_bible) {
                 var this_cp = cp_bible[cp]; // Logs each object's details
                 var cp_id = "butt" + this_cp["cp"];
-                var cp_name = this_cp["name"];
+                var emoji = this_cp && this_cp.emoji ? "&#" + this_cp.emoji + "; " : "";
+                var cp_name = emoji + this_cp["name"];
                 var this_key = this_cp["cp"];
                 
                 checkElementExists(cp_id, this_key, cp_name, this_cp, 15000).then( function() {

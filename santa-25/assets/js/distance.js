@@ -9,7 +9,7 @@ let button_detail;
 if (user_ID == 29) { 
   var d_base = 30000000;
   console.log("GOD MODE ACTIVE");} 
-  else if (user_ID == 8) {
+  else if (user_ID == 8 || location == 3) {
   var d_base = 250000000;
   
   console.log("demi-god mode active");    
