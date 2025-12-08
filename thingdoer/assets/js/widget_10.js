@@ -1,11 +1,11 @@
 
-const widgetID_8 = 8; // Replace with dynamic widget_ID if needed
-console.log('ping 8');
-function fetchWidgetData8() {
-    fetch(`assets/php/get_data.php?widget_ID=${widgetID_8}`)
+const widgetID_10 = 13; // Replace with dynamic widget_ID if needed
+console.log('ping 10');
+function fetchWidgetData10() {
+    fetch(`assets/php/get_data.php?widget_ID=${widgetID_10}`)
         .then(response => response.json())
         .then(data => {
-            const filteredData = data.filter(item => item.widget_ID == widgetID_8);
+            const filteredData = data.filter(item => item.widget_ID == widgetID_10);
             console.log(filteredData);
 
             const lastSevenDays = [...Array(7)].map((_, i) => {
@@ -42,23 +42,23 @@ function fetchWidgetData8() {
             const data2 = lastSevenDays.map(date => dailyCounts[date][2]);
             const data3 = lastSevenDays.map(date => dailyCounts[date][3]);
 
-            createBarChart8(lastSevenDays, data1, data2, data3, totalLast7Days, overallTotal);
+            createBarChart10(lastSevenDays, data1, data2, data3, totalLast7Days, overallTotal);
         })
         .catch(error => console.error("Error fetching data:", error));
 }
 
-function createBarChart8(labels, data1, data2, data3, totalLast7Days, overallTotal) {
-    const widgetZone = document.getElementById("widget_zone_8");
-    console.log('running widget 8 functino');
+function createBarChart10(labels, data1, data2, data3, totalLast7Days, overallTotal) {
+    const widgetZone = document.getElementById("widget_zone_13");
+    console.log('running widget 13 functino');
     if (!widgetZone) {
-        console.error("Element with ID 'widget_zone_8' not found.");
+        console.error("Element with ID 'widget_zone_13' not found.");
         return;
     }
 
     widgetZone.innerHTML = "";
 
     const canvas = document.createElement("canvas");
-    canvas.id = "widgetChart_8";
+    canvas.id = "widgetChart_10";
     widgetZone.appendChild(canvas);
 
     new Chart(canvas, {
@@ -77,9 +77,9 @@ function createBarChart8(labels, data1, data2, data3, totalLast7Days, overallTot
                     backgroundColor: "rgba(255, 206, 86, 0.6)"
                 },**/
                 {
-                    label: "Back",
+                    label: "hits",
                     data: data1,
-                    backgroundColor: "rgba(117, 255, 99, 0.6)"
+                    backgroundColor: "rgba(255, 99, 132, 0.6)"
                 }
             ]
         },
@@ -119,4 +119,4 @@ function loadChartJS(callback) {
 }
 
 // Load Chart.js first, then fetch data
-loadChartJS(fetchWidgetData8);
+loadChartJS(fetchWidgetData10);

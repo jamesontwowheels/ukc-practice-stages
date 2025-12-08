@@ -2,6 +2,7 @@
 // URL of the FSA XML
 $url = "https://ratings.food.gov.uk/api/open-data-files/FHRS306en-GB.xml";
 
+
 // Fetch the remote XML
 $xml = file_get_contents($url);
 

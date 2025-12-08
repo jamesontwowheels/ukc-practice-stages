@@ -480,7 +480,7 @@ if($debug == 1){ $debug_log[] = '72';};
 
         //ONCE THE CP ACTION HAS BEEN TAKEN:
         $teams[$tm]["params"]["commentary"][] = "Player ".$pl." - ".$comment;
-        $results_detailed[$id][] = [$t,$cp_number,$comment,"",$running_score];
+        $results_detailed[$id][] = [$t,$cp_number,$comment,"",$running_score,$teams[$tm]["name"],$game_time,$players[$pl]["name"]];
     }
 
     //ONCE WE HAVE CYCLED THROUGH THE CPs..
@@ -525,4 +525,5 @@ $response["teams"] = $teams;
 $response["live_scores"] = $final_results;
 $response["commentary"] = $teams[$this_team]["params"]["commentary"];
 $response["debug_log"] = $debug_log;
+$response["detailed_results"] = $results_detailed;
 echo json_encode($response);

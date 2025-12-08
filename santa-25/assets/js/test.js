@@ -109,6 +109,8 @@ function ajax_call() {
             var db_response = data["db_response"];
             console.log(db_response);
             console.log(debug_log);
+            var detailed_results = data["detailed_results"];
+            console.log(detailed_results);
             var inventory = data["inventory"];
             var cp_bible = data["cp_bible"];
             var cp_keys = Object.keys(cp_bible);
