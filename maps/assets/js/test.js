@@ -4,7 +4,7 @@ var puzzle_questions = [];
 
 $(document).ready(ajax_call);
 $("body").on("click", ".submit_button", ajax_call);
-$("#map").on("click", ".cp_button", cp_explore);
+$("#map").on("click", ".checkpoint-marker", cp_explore);
 
 
 function pause(ms) {
@@ -162,11 +162,13 @@ function ajax_call() {
                         const element = document.getElementById(id);
             
                         if (element) {
-                            element.innerHTML = keyname;
+                            const pin_title = document.getElementById("pin-title-"+key_id);
+                            pin_title.innerHTML = keyname;
                             element.classList.remove("blocked");
                             element.classList.remove("puzzle");
                             if (cpx["available"]) {
                                 rowId = "marker-"+key_id;
+                                console.log("shown"+rowId);
                                document.getElementById(rowId).style.display = 'block';
                               } else {
                                 rowId = "marker-"+key_id;
@@ -235,7 +237,7 @@ function ajax_call() {
                 //iterate across checkpoitns
             for (let cp in cp_bible) {
                 var this_cp = cp_bible[cp]; // Logs each object's details
-                var cp_id = "butt" + this_cp["cp"];
+                var cp_id = "marker-" + this_cp["cp"];
                 var cp_name = this_cp["name"];
                 var this_key = this_cp["cp"];
                 console.log ("x. "+cp_id +"y. "+ this_key +"z. "+ cp_name +"p. "+ this_cp);
@@ -320,10 +322,13 @@ function cp_explore() {
         var cp = $(this).attr('cp');
         var cp_option_id = 'cp_option_card_' + cp;
         var comment_space = 'cp_comment_space_' + cp;
+        var marker_id = 'marker-' + cp;
         document.getElementById(comment_space).innerHTML = "";
         document.getElementById(comment_space).classList.remove("cp_comment_filled");
         document.getElementById(cp_option_id).classList.add("cp-option-show");
         document.getElementById(cp_option_id).classList.remove("cp-option");
+        document.getElementById(marker_id).classList.remove("expanded");
+
       } else {
         // Optional: Prevent the default action or show a warning
         console.log("Button is not active, action blocked.");

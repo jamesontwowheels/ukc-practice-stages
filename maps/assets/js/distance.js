@@ -3,13 +3,13 @@
 // ----------------------
 let d_base;
 if (user_ID == 29) {
-    d_base = 3000000000000;
+    d_base = 300;
     console.log("GOD MODE ACTIVE");
 } else if (user_ID == 8) {
     d_base = 250000;
     console.log("demi-god mode active");
 } else {
-    d_base = 15000;
+    d_base = 150;
 }
 
 // ----------------------
@@ -25,7 +25,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
 // PLAYER MARKER
 // ----------------------
 const playerIcon = L.icon({
-    iconUrl: 'assets/images/player.png', // replace with your player icon
+    iconUrl: 'assets/img/player.png', // replace with your player icon
     iconSize: [40, 40],
     iconAnchor: [20, 20],
 });
@@ -60,10 +60,16 @@ fetch('assets/php/features.php')
 
             // ---------- 1) Create DivIcon marker HTML ----------
             const markerHtml = `
-                <div id="marker-${id}" class="checkpoint-marker small">
-                    <button id="butt${id}" cp="${id}" class="cp_button inactive">${id}</button>
-                    <span id="cp${id}" class="right_column">${id}</span>
-                </div>
+                <div id="marker-${id}" cp="${id}" class="checkpoint-marker">
+                        <div class="pin">
+                        </div>
+
+                        <!-- Hidden info bubble (shown later on tap) -->
+                        <div class="pin-info" id="cp-info-${id}">
+                            <div class="pin-title" id="pin-title-${id}">${id}</div>
+                            <div class="pin-distance" id="distance-${id}">${id}</div>
+                        </div>
+                    </div>
             `;
 
             // ---------- 2) Create DivIcon marker ----------
@@ -81,7 +87,7 @@ fetch('assets/php/features.php')
             const button = markerDiv.querySelector(`#butt${id}`);
             const label = markerDiv.querySelector(`#cp${id}`);
 
-            button.addEventListener('click', () => {
+            markerDiv.addEventListener('click', () => {
                 markerDiv.classList.toggle('expanded');
             });
 
@@ -92,6 +98,8 @@ fetch('assets/php/features.php')
                 markerDiv,
                 marker
             };
+
+            console.log(checkpointElements);
 
             //------------- CP Options
             const optionCard = document.createElement('div');
@@ -179,17 +187,21 @@ function success(pos) {
         const direction = getCompassDirection(bearing);
 
         // Update checkpoint label
-        cp.label.textContent = `${distance}m ${direction}`;
+        // cp.label.textContent = `${distance}m ${direction}`;
+
+        var distance_div = document.getElementById("distance-"+id);
+        console.log(distance_div + "distance-"+id);
+        distance_div.innerText = `${distance}m ${direction}`;
 
         // Update button state
         if (distance < d_need) {
-            cp.button.classList.add('active');
-            cp.button.classList.remove('inactive');
+            cp.markerDiv.classList.add('active');
+            cp.markerDiv.classList.remove('inactive');
         } else {
-            cp.button.classList.remove('active');
-            cp.button.classList.add('inactive');
-            cp.markerDiv.classList.remove('expanded');
-            cp.markerDiv.classList.add('small');
+            cp.markerDiv.classList.remove('active');
+            cp.markerDiv.classList.add('inactive');
+            //cp.markerDiv.classList.remove('expanded');
+            //cp.markerDiv.classList.add('small');
         }
     }
 }

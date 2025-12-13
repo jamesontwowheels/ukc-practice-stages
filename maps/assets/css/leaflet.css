@@ -22,36 +22,8 @@
     padding: 15px 20px;
     border-radius: 12px;
 }
-.checkpoint-marker {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-        pointer-events: auto;        /* allow clicks */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-}
-.checkpoint-marker button,
-.checkpoint-marker span {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-.checkpoint-marker.small {
-    width: 100px;
-    height: 100px;
-    font-size: 12px;
-    background-color: blue;
-    border-radius: 25px;
-}
 
-.checkpoint-marker.expanded {
+/*.checkpoint-marker.expanded {
     width: 120px;
     height: 120px;
     font-size: 16px;
@@ -60,7 +32,7 @@
     padding: 5px;
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
+}*/
 
 .pop-up {
     display:none
@@ -85,4 +57,142 @@
     -ms-user-select: none;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+}
+
+/* Base marker */
+.checkpoint-marker {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    transform: translate(-50%, -100%);
+    pointer-events: auto;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Pin shape */
+.checkpoint-marker .pin {
+    width: 48px;
+    height: 48px;
+    background: #1e90ff;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+}
+
+/* Inner dot */
+.checkpoint-marker .pin::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+}
+
+/* Button overlay */
+.checkpoint-marker .cp_button {
+    all: unset;
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Info bubble */
+.pin-info {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-size: 2em;
+    color: black;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    display: none;
+}
+
+.pin-title {
+    font-weight: 600;
+}
+
+.pin-distance {
+    opacity: 0.8;
+}
+
+/* Expanded */
+.checkpoint-marker.expanded .pin-info {
+    display: block;
+}
+
+/* State colors */
+.cp_button.active + .pin {
+    background: #28a745;
+}
+
+.cp_button.inactive + .pin {
+    background: #999;
+}
+
+/* ---------- ACTIVE STATE ---------- */
+
+.checkpoint-marker.active {
+    z-index: 1000;
+}
+
+
+/* ACTIVE pin size (no transform scaling) */
+.checkpoint-marker.active .pin {
+
+    background-color: #28a745;
+    animation: pin-bounce 0.8s ease-out;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* ---------- PULSE RING ---------- */
+
+.checkpoint-marker.active::after {
+    content: '';
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    background: rgba(46, 207, 13, 0.945);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-ring 1.6s ease-out infinite;
+    z-index: -1;
+}
+
+/* ---------- ANIMATION ---------- */
+
+@keyframes pin-bounce {
+    0%   { transform: rotate(-45deg) translateY(0); }
+    20%  { transform: rotate(-45deg) translateY(-10px); }
+    40%  { transform: rotate(-45deg) translateY(0); }
+    55%  { transform: rotate(-45deg) translateY(-6px); }
+    70%  { transform: rotate(-45deg) translateY(0); }
+    100% { transform: rotate(-45deg) translateY(0); }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.7;
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
 }

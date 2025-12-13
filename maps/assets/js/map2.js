@@ -3,13 +3,13 @@
 // ------------------------------------------------------
 let d_base;
 if (user_ID == 29) {
-    d_base = 3000000000000;
+    d_base = 300;
     console.log("GOD MODE ACTIVE");
 } else if (user_ID == 8) {
-    d_base = 250000;
+    d_base = 250;
     console.log("demi-god mode active");
 } else {
-    d_base = 15000;
+    d_base = 150;
 }
 
 
@@ -191,6 +191,7 @@ function gpsSuccess(pos) {
         if (dist < d_need) {
             cpButton.classList.add("active");
             cpButton.classList.remove("inactive");
+            console.log("Set active: CP - " + id + " because " +dist + " < "  + d_need );
         } else {
             cpButton.classList.remove("active");
             cpButton.classList.add("inactive");
