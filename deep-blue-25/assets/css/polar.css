@@ -1,0 +1,45 @@
+
+/* Snowflakes */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall 10s infinite linear;
+}
+
+/* Different sizes and animation delays for snowflakes */
+.snowflake:nth-child(1) {
+    width: 8px;
+    height: 8px;
+    left: 20%;
+    animation-duration: 12s;
+}
+.snowflake:nth-child(2) {
+    width: 10px;
+    height: 10px;
+    left: 40%;
+    animation-duration: 8s;
+}
+.snowflake:nth-child(3) {
+    width: 12px;
+    height: 12px;
+    left: 60%;
+    animation-duration: 14s;
+}
+.snowflake:nth-child(4) {
+    width: 6px;
+    height: 6px;
+    left: 80%;
+    animation-duration: 6s;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}

@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #ff07d6;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ff07d6;
+}
+
+.launch_button {
+    font-size: 1em;
+    max-width: 80%;
+    border-radius:35px;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  
+}
+
+.card {
+    max-width: 400px;
+    color: black;
+    margin: auto;
+    margin-bottom:15px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 0.6em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card h2{
+    margin-top:5px;
+}
+
+.card p {
+    margin-bottom:3px;
+    margin-top:3px;
+}
+
+.countdown-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+}
+
+.countdown-circle {
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+#countdown-progress {
+    transition: stroke-dashoffset 1s linear;
+}
+
+#countdown-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff07d6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }

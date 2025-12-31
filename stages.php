@@ -43,9 +43,9 @@ if (!isset($_SESSION['username'])) {
 <a class="stage-card" href="game-detail.php?game_number=6"><img src="images/goldrush-cover.jpeg"><div class="stage-title">Goldrush</div></a><br>
 <a class="stage-card" href="game-detail.php?game_number=995"><img src="images/snakes-cover.jpg"><div class="stage-title">Snakes & Ladders</div></a><br>
 <a class="stage-card" href="game-detail.php?game_number=5"><img src="images/dry-january.png"><div class="stage-title">Dry January</div></a><br>
-<!-- <a class="stage-card" href="game-detail.php?game_number=4"><img src="images/santa-cover.jpg"><div class="stage-title">Rudolph's Rounds</div></a><br>
+<a class="stage-card" href="game-detail.php?game_number=4"><img src="images/santa-cover.jpg"><div class="stage-title">Rudolph's Rounds</div></a><br>
 <a class="stage-card" href="game-detail.php?game_number=1"><img src="images/deep-blue-cover.jpeg"><div class="stage-title">Deep Blue</div></a><br>
-<a class="stage-card" href="game-detail.php?game_number=777"><img src="images/gps-test-cover.jpeg"><div class="stage-title">Test Game</div></a><br>
+<!--<a class="stage-card" href="game-detail.php?game_number=777"><img src="images/gps-test-cover.jpeg"><div class="stage-title">Test Game</div></a><br>
 <a class="stage-card" href="game-detail.php?game_number=9"><img src="images/gps-test-cover.jpeg"><div class="stage-title">Rudolph 2</div></a><br>
 <a class="stage-card" href="gps_stages.php"><img src="images/gps-test-cover.jpeg"><div class="stage-title">GPS Test</div></a><br> -->
 </div>

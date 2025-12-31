@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+<name>oom_new_controls</name>
+<open>1</open>
+<Style id="startfinish"><IconStyle><color>ffff00ff</color><scale>1.8</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-stars.png</href></Icon><hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/></IconStyle><LabelStyle><color>ffff00ff</color></LabelStyle><BalloonStyle></BalloonStyle><ListStyle></ListStyle></Style>
+<Style id="control"><IconStyle><color>ffff00ff</color><scale>1.0</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon><hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/></IconStyle><LabelStyle><color>ffff00ff</color><scale>1.0</scale></LabelStyle><BalloonStyle></BalloonStyle><ListStyle></ListStyle></Style>
+<Folder>
+<name>Controls</name>
+<open>1</open>
+<Placemark><name>1</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.191525128779945,55.94139183291395,0</coordinates></Point></Placemark>
+<Placemark><name>2</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.187134226038017,55.939806102145695,0</coordinates></Point></Placemark>
+<Placemark><name>3</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.185765422235437,55.94080158515314,0</coordinates></Point></Placemark>
+<Placemark><name>4</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.1990544141676964,55.94176337774854,0</coordinates></Point></Placemark>
+<Placemark><name>5</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.1966849066446845,55.94229977387968,0</coordinates></Point></Placemark>
+<Placemark><name>6</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.1913987476146333,55.942554668791445,0</coordinates></Point></Placemark>
+<Placemark><name>11</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.2006600790807704,55.94094795068122,0</coordinates></Point></Placemark>
+<Placemark><name>12</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.19536312001135,55.940096562224625,0</coordinates></Point></Placemark>
+<Placemark><name>13</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.198190382692614,55.9395580380625,0</coordinates></Point></Placemark>
+<Placemark><name>14</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.197164426525302,55.94045636035821,0</coordinates></Point></Placemark>
+<Placemark><name>15</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.1990459279104444,55.9408853068835,0</coordinates></Point></Placemark>
+<Placemark><name>16</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.1968760778775893,55.93981037233695,0</coordinates></Point></Placemark>
+<Placemark><name>21</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.200128154987605,55.9420753266927,0</coordinates></Point></Placemark>
+<Placemark><name>22</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.1856035788073913,55.93999758723507,0</coordinates></Point></Placemark>
+<Placemark><name>23</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.1878284255311966,55.94155560165308,0</coordinates></Point></Placemark>
+<Placemark><name>24</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.19158234773547,55.940036051658325,0</coordinates></Point></Placemark>
+<Placemark><name>25</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.18488823978462,55.941484437349004,0</coordinates></Point></Placemark>
+<Placemark><name>26</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.1912293554203766,55.94393247295346,0</coordinates></Point></Placemark>
+<Placemark><name>51</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.1944663107892435,55.94071853784766,0</coordinates></Point></Placemark>
+<Placemark><name>102</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.2010821095097737,55.9390561934448,0</coordinates></Point></Placemark>
+<Placemark><name>998</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.203439280908836,55.939812647813085,0</coordinates></Point></Placemark>
+<Placemark><name>999</name><description></description><styleUrl>#control</styleUrl><Point><gx:drawOrder>1</gx:drawOrder><coordinates>-3.203439280908836,55.939812647813085,0</coordinates></Point></Placemark>
+</Folder>
+</Document>
+</kml>
